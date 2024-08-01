@@ -1,3 +1,5 @@
+using System;
+
 namespace V8
 {
     public static class UIConfig
@@ -6,6 +8,7 @@ namespace V8
         public const string BinaryExtension = ".bin";
         public const string RootDirectory = "UIViewer";
         public const string Element = "_element";
+        [Obsolete]
         public const string Relative = "Relative";
         public const string Parent = "Parent";
         public const char Width = 'w';

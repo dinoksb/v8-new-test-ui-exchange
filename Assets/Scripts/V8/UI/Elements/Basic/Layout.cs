@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace V8
 {
+    // Note: Layout 이 Frame 인것으로 보임.
     public class Layout : Element
     {
         private UnityEngine.UI.Image _backgroundImage;

@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace V8
 {
+    // Note: 현 시점에서는 필요없어 보임
+    [Obsolete]
     public class GridLayout : Layout
     {
         private GridLayoutGroup _gridlayout;

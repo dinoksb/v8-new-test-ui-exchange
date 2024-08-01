@@ -1,6 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace V8
@@ -49,10 +49,10 @@ namespace V8
             set => Self.anchoredPosition = value;
         }
 
-        public Vector2 WorldPosition
+        public Vector3 Rotation
         {
-            get => Self.position;
-            set => Self.position = value;
+            get => Self.eulerAngles;
+            set => Self.eulerAngles = value;
         }
 
         public bool Visible
@@ -136,14 +136,17 @@ namespace V8
             AnchorMax = TypeConverter.ToVector2(data.anchorMax);
             Pivot = TypeConverter.ToVector2(data.pivot);
             Size = CalculateSize(data.size);
-            if (UIConfig.Relative == data.positionLayout)
-            {
-                Position = CalculatePosition(data.position, true);
-            }
-            else
-            {
-                WorldPosition = CalculatePosition(data.position, false);
-            }
+            
+            Position = CalculatePosition(data.position, true);
+            
+            // if (UIConfig.Relative == data.positionLayout)
+            // {
+            //     Position = CalculatePosition(data.position, true);
+            // }
+            // else
+            // {
+            //     WorldPosition = CalculatePosition(data.position, false);
+            // }
         }
 
         private Vector2 CalculatePosition(IReadOnlyList<string> data, bool relative)

@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace V8
 {
+    // Note: Label 이 Text 인것으로 보임.
     public class Label : Layout
     {
         private TMP_Text _tmp;

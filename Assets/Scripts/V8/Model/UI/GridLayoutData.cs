@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace V8
 {
+    [Obsolete]
     [Serializable]
     public class GridLayoutData : LayoutData
     {

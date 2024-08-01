@@ -1,3 +1,4 @@
+using System.IO;
 using UnityEngine;
 
 namespace V8.Template
@@ -9,14 +10,21 @@ namespace V8.Template
         private void Start()
         {
 #if UNITY_EDITOR
-            LoadUIAsync(url);
+            // LoadUIAsync(url);
+            LoadUIAsync();
 #endif
-            
+
 #if UNITY_WEBGL && !UNITY_EDITOR
             WebGLInput.captureAllKeyboardInput = false;
 #endif
         }
-
+        private async void LoadUIAsync()
+        {
+            var uiJsonPath = Path.Combine(Application.streamingAssetsPath, "ui.json");
+            var json = await File.ReadAllTextAsync(uiJsonPath);
+            LoadUI(json);
+        }
+        
         private async void LoadUIAsync(string uiUrl)
         {
             var json = await WebRequestUtility.GetData(uiUrl);

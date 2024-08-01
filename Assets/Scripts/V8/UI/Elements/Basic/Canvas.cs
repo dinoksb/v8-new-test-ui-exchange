@@ -16,6 +16,7 @@ namespace V8
         public Vector2 Size { get; set; }
 
         public Vector2 Position { get; set; }
+        public Vector3 Rotation { get; set; }
 
         public bool Visible { get; set; }
 

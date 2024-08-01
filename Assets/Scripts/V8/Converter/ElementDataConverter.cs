@@ -8,6 +8,7 @@ namespace V8
     public class ElementDataConverter : JsonConverter
     {
         private const string Type = "type";
+        [Obsolete]
         private const string Children = "children";
 
         public static readonly JsonSerializerSettings SerializerSettings = new()
@@ -25,23 +26,33 @@ namespace V8
             var jObject = JObject.Load(reader);
             var type = (string)jObject[Type];
             var instance = CreateInstance(type);
-
-            var childrenToken = jObject[Children];
-            jObject.Remove(Children);
-
             serializer.Populate(jObject.CreateReader(), instance);
-
-            if (childrenToken == null) return instance;
-
-            instance.children = new List<ElementData>();
-            foreach (var childToken in childrenToken.Children<JObject>())
-            {
-                var childInstance = ReadJson(childToken.CreateReader(), objectType, null, serializer) as ElementData;
-                instance.children.Add(childInstance);
-            }
 
             return instance;
         }
+        
+        // public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        // {
+        //     var jObject = JObject.Load(reader);
+        //     var type = (string)jObject[Type];
+        //     var instance = CreateInstance(type);
+        //
+        //     var childrenToken = jObject[Children];
+        //     jObject.Remove(Children);
+        //
+        //     serializer.Populate(jObject.CreateReader(), instance);
+        //
+        //     if (childrenToken == null) return instance;
+        //
+        //     instance.children = new List<ElementData>();
+        //     foreach (var childToken in childrenToken.Children<JObject>())
+        //     {
+        //         var childInstance = ReadJson(childToken.CreateReader(), objectType, null, serializer) as ElementData;
+        //         instance.children.Add(childInstance);
+        //     }
+        //
+        //     return instance;
+        // }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
