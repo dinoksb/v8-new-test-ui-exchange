@@ -18,7 +18,7 @@ namespace V8
             _backgroundImage = components.BackgroundImage;
             SetValues(data);
         }
-
+        
         public override IElement Copy(RectTransform self, IElement parent)
         {
             var clone = (Layout)base.Copy(self, parent);

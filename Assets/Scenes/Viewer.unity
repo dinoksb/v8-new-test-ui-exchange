@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   url: https://planetarium.github.io/v8-test-ui-exchange/StreamingAssets/UIData/ui.json
-  _uiImporter: {fileID: 813036719}
+  uiManager: {fileID: 813036719}
 --- !u!4 &798186446
 Transform:
   m_ObjectHideFlags: 0

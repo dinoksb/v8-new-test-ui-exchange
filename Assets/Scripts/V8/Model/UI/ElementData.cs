@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using UnityEngine.Serialization;
 
 namespace V8
 {
@@ -9,26 +10,46 @@ namespace V8
     {
         [JsonProperty("type", Required = Required.Always)]
         public string type;
-        
-        [JsonProperty("size", Required = Required.Default)]
-        public List<string> size;
+
         [JsonProperty("parent", Required = Required.Default)]
         public string parent;
-        [JsonProperty("visible", Required = Required.Default)]
-        public bool visible;
+
         [JsonProperty("anchorMin", Required = Required.Default)]
         public List<float> anchorMin;
+
         [JsonProperty("anchorMax", Required = Required.Default)]
         public List<float> anchorMax;
+
         [JsonProperty("pivot", Required = Required.Default)]
         public List<float> pivot;
+
         [JsonProperty("position", Required = Required.Default)]
-        public List<string> position;
+        public CoordinateTransformData position;
+
+        [JsonProperty("size", Required = Required.Default)]
+        public CoordinateTransformData size;
+
+        [JsonProperty("visible", Required = Required.Default)]
+        public bool visible;
+        // [JsonProperty("size", Required = Required.Default)]
+        // public List<string> size;
+        //[JsonProperty("position", Required = Required.Default)]
+        //public List<string> position;
         
-        [Obsolete]
-        public string id;
-        [Obsolete]
-        public List<ElementData> children;
+        [Obsolete] public List<ElementData> children;
+
+        public void Initialize()
+        {
+            parent ??= string.Empty;
+            anchorMin ??= new List<float> { 0.0f, 0.0f };
+            anchorMax ??= new List<float> { 1.0f, 1.0f };
+            pivot ??= new List<float> { 0.5f, 0.5f };
+            position ??= new CoordinateTransformData();
+            size ??= new CoordinateTransformData();
+            visible = true;
+            position.Initialize();
+            size.Initialize();
+        }
 
         // public ElementData GetChildById(string elementId)
         // {

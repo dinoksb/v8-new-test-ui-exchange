@@ -9,6 +9,7 @@ namespace V8
     {
         private bool _isOnUpdateSizeSubscribed;
 
+        [Obsolete]
         public string Id { get; }
 
         public string Type { get; }
@@ -62,20 +63,21 @@ namespace V8
         }
 
         public IElement Parent { get; private set; }
-
+        
+        [Obsolete]
         public List<IElement> Children { get; private set; } = new();
 
         public event EventHandler<Vector2> OnUpdateSize;
 
         public Element(ElementData data, ElementComponents components)
         {
-            Id = data.id;
+            //Id = data.id;
             Type = data.type;
             Self = components.Self;
             Parent = components.Parent;
             SetValues(data);
         }
-       
+      
         public void Dispose()
         {
             OnUpdateSize = null;
@@ -107,12 +109,13 @@ namespace V8
         public virtual void Update(ElementData data)
         {
             SetValues(data);
-            foreach (var childData in data.children)
-            {
-                var childElement = Children.FirstOrDefault(x => x.Id == childData.id);
-                childElement?.Update(childData);
-            }
-            
+            // TODO: children 아니고 같은 레벨의 Element 들 update 해줘야함.
+            // foreach (var childData in data.children)
+            // {
+            //     var childElement = Children.FirstOrDefault(x => x.Id == childData.id);
+            //     childElement?.Update(childData);
+            // }
+
             Visible = data.visible;
         }
 
@@ -129,26 +132,17 @@ namespace V8
 
             throw new Exception($"No child with ID '{id}' found under {targetSelf.name}.");
         }
-        
+
         private void SetValues(ElementData data)
         {
             AnchorMin = TypeConverter.ToVector2(data.anchorMin);
             AnchorMax = TypeConverter.ToVector2(data.anchorMax);
             Pivot = TypeConverter.ToVector2(data.pivot);
-            Size = CalculateSize(data.size);
-            
+            Size = CalculateSize(data.size, true);
             Position = CalculatePosition(data.position, true);
-            
-            // if (UIConfig.Relative == data.positionLayout)
-            // {
-            //     Position = CalculatePosition(data.position, true);
-            // }
-            // else
-            // {
-            //     WorldPosition = CalculatePosition(data.position, false);
-            // }
         }
 
+        [Obsolete]
         private Vector2 CalculatePosition(IReadOnlyList<string> data, bool relative)
         {
             var x = ConvertToUnits(data[0], relative);
@@ -156,6 +150,12 @@ namespace V8
             return new Vector2(x, y);
         }
 
+        private Vector2 CalculatePosition(CoordinateTransformData data, bool relative)
+        {
+            return CalculateDimension(data, relative);
+        }
+        
+        [Obsolete]
         private Vector2 CalculateSize(IReadOnlyList<string> data)
         {
             if (data[0].Equals(UIConfig.Parent))
@@ -170,6 +170,29 @@ namespace V8
             return new Vector2(width, height);
         }
 
+        private Vector2 CalculateSize(CoordinateTransformData data, bool relative)
+        {
+            if (Parent == this)
+            {
+                _isOnUpdateSizeSubscribed = true;
+                Parent.OnUpdateSize += UpdateSize;
+                return Parent.Size;
+            }
+
+            return CalculateDimension(data, relative);
+        }
+
+        private Vector2 CalculateDimension(CoordinateTransformData data, bool relative)
+        {
+            var relativeWidth = relative ? Parent.Self.rect.width : Screen.width;
+            var relativeHeight = relative ? Parent.Self.rect.height : Screen.height;
+
+            var x = data.x.offset + data.x.scale * relativeWidth;
+            var y = data.y.offset + data.y.scale * relativeHeight;
+
+            return new Vector2(x, y);
+        }
+
         private void UpdateSize(object _, Vector2 size)
         {
             Size = size;
@@ -182,13 +205,13 @@ namespace V8
                 var ratio = TypeConverter.ToRatio(value.TrimEnd(UIConfig.Width));
                 return (relative ? Parent.Self.rect.width : Screen.width) * ratio;
             }
-
+        
             if (value.EndsWith(UIConfig.Height))
             {
                 var ratio = TypeConverter.ToRatio(value.TrimEnd(UIConfig.Height));
                 return (relative ? Parent.Self.rect.height : Screen.height) * ratio;
             }
-
+        
             return TypeConverter.ToFloat(value);
         }
     }

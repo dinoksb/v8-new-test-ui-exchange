@@ -1,12 +1,13 @@
 using System.IO;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace V8.Template
 {
     public class Viewer : MonoBehaviour
     {
         [SerializeField] private string url;
-        [SerializeField] private UIImporter _uiImporter;
+        [FormerlySerializedAs("_uiImporter")] [SerializeField] private UIManager uiManager;
         private void Start()
         {
 #if UNITY_EDITOR
@@ -20,7 +21,8 @@ namespace V8.Template
         }
         private async void LoadUIAsync()
         {
-            var uiJsonPath = Path.Combine(Application.streamingAssetsPath, "ui.json");
+            Debug.Log(Application.streamingAssetsPath);
+            var uiJsonPath = Path.Combine(Application.streamingAssetsPath, "ui-test.json");
             var json = await File.ReadAllTextAsync(uiJsonPath);
             LoadUI(json);
         }
@@ -33,7 +35,7 @@ namespace V8.Template
 
         public void LoadUI(string jsonData)
         {
-            _uiImporter.Load(jsonData);
+            uiManager.Load(jsonData);
         }
     }
 }
