@@ -1,0 +1,278 @@
+{
+    "asset":
+    {
+        "sprite":
+        {
+            "png-2702691_640":
+            {
+                "url": "https://cdn.pixabay.com/photo/2017/09/01/00/15/png-2702691_640.png",
+                "offset":
+                [
+                    0,
+                    0
+                ],
+                "size":
+                [
+                    640,
+                    426
+                ],
+                "border":
+                [
+                    43,
+                    47,
+                    48,
+                    49
+                ],
+                "pivot":
+                [
+                    0.5,
+                    0.5
+                ],
+                "pixelsPerUnit": 100
+            },
+            "button_1":
+            {
+                "url": "https://planetarium.github.io/v8-test-ui-exchange/StreamingAssets/Sprites/button_1.png",
+                "offset":
+                [
+                    0,
+                    0
+                ],
+                "size":
+                [
+                    281,
+                    98
+                ],
+                "border":
+                [
+                    10,
+                    10,
+                    10,
+                    10
+                ],
+                "pivot":
+                [
+                    0.5,
+                    0.5
+                ],
+                "pixelsPerUnit": 100
+            }
+        }
+    },
+    "ui":
+    {
+        "start_popup":
+        {
+            "Popup":
+            {
+                "type": "Layout",
+                "visible": true,
+                "backgroundColor":
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "anchorMin":
+                [
+                    0.5,
+                    0.5
+                ],
+                "anchorMax":
+                [
+                    0.5,
+                    0.5
+                ],
+                "pivot":
+                [
+                    0.5,
+                    0.5
+                ],
+                "size":{
+                    "x":{
+                        "scale": 0.1,
+                        "offset": 123
+                    },
+                    "y":{
+                        "scale": 0.1,
+                        "offset": 321
+                    }
+                },
+                "position":{
+                    "x":{
+                        "scale": 0,
+                        "offset": 200
+                    },
+                    "y":{
+                        "scale": 0,
+                        "offset": 300
+                    }
+                }
+            },
+            "Popup_Background":
+            {
+                "type": "Image",
+                "visible": true,
+                "anchorMin":
+                [
+                    0.5,
+                    0.5
+                ],
+                "anchorMax":
+                [
+                    0.5,
+                    0.5
+                ],
+                "pivot":
+                [
+                    0.5,
+                    0.5
+                ],
+                "spriteId": "png-2702691_640",
+                "imageColor":
+                [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "Popup_Label":
+            {
+                "type": "Label",
+                "visible": true,
+                "anchorMin":
+                [
+                    0.5,
+                    0.5
+                ],
+                "anchorMax":
+                [
+                    0.5,
+                    0.5
+                ],
+                "pivot":
+                [
+                    0.5,
+                    0.5
+                ],
+                "textAlignment": "Center",
+                "fontId": "defaultFont",
+                "fontColor":
+                [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "fontSize": 20,
+                "minFontSize": 2,
+                "characterSpacing": 0,
+                "lineSpacing": 0,
+                "autoSize": false,
+                "singleLine": false,
+                "ellipsis": false,
+                "bold": true,
+                "italic": false,
+                "underline": false,
+                "strikethrough": false,
+                "text": "test popup content!"
+            },
+            "Popup_Button":
+            {
+                "type": "Button",
+                "visible": true,
+                "anchorMin":
+                [
+                    0.5,
+                    0
+                ],
+                "anchorMax":
+                [
+                    0.5,
+                    0
+                ],
+                "pivot":
+                [
+                    0.5,
+                    0
+                ],
+                "events":
+                {
+                    "PointerClick": "OnClickConfirmButton"
+                },
+                "threshold": 0.5
+            },
+            "Popup_Button_Image":
+            {
+                "type": "Image",
+                "visible": true,
+                "anchorMin":
+                [
+                    0.5,
+                    0.5
+                ],
+                "anchorMax":
+                [
+                    0.5,
+                    0.5
+                ],
+                "pivot":
+                [
+                    0.5,
+                    0.5
+                ],
+                "spriteId": "button_1",
+                "imageColor":
+                [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "Popup_Button_Label":
+            {
+                "type": "Label",
+                "visible": true,
+                "anchorMin":
+                [
+                    0.5,
+                    0.5
+                ],
+                "anchorMax":
+                [
+                    0.5,
+                    0.5
+                ],
+                "pivot":
+                [
+                    0.5,
+                    0.5
+                ],
+                "textAlignment": "Center",
+                "fontId": "defaultFont",
+                "fontColor":
+                [
+                    0,
+                    0.05,
+                    1,
+                    1
+                ],
+                "fontSize": 20,
+                "minFontSize": 2,
+                "characterSpacing": 0,
+                "lineSpacing": 0,
+                "autoSize": false,
+                "singleLine": false,
+                "ellipsis": false,
+                "bold": true,
+                "italic": false,
+                "underline": false,
+                "strikethrough": false,
+                "text": "Confirm"
+            }
+        }
+    }
+}
