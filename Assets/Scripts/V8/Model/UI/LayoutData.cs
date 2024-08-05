@@ -7,6 +7,6 @@ namespace V8
     public class LayoutData : ElementData
     {
         [JsonProperty("backgroundColor", Required = Required.Default)]
-        public float[] backgroundColor;
+        public float[] backgroundColor = new float[]{ 0, 0, 0, 0 };
     }
 }

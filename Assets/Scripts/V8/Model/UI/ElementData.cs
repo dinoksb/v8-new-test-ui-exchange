@@ -12,22 +12,22 @@ namespace V8
         public string type;
 
         [JsonProperty("parent", Required = Required.Default)]
-        public string parent;
+        public string parent = string.Empty;
 
         [JsonProperty("anchorMin", Required = Required.Default)]
-        public List<float> anchorMin;
+        public List<float> anchorMin = new List<float>() { 0.5f, 0.5f };
 
         [JsonProperty("anchorMax", Required = Required.Default)]
-        public List<float> anchorMax;
+        public List<float> anchorMax = new List<float>() { 0.5f, 0.5f };
 
         [JsonProperty("pivot", Required = Required.Default)]
-        public List<float> pivot;
+        public List<float> pivot = new List<float>() { 0.5f, 0.5f };
 
         [JsonProperty("position", Required = Required.Default)]
-        public CoordinateTransformData position;
+        public CoordinateTransformData position = new CoordinateTransformData();
 
         [JsonProperty("size", Required = Required.Default)]
-        public CoordinateTransformData size;
+        public CoordinateTransformData size = new CoordinateTransformData();
 
         [JsonProperty("visible", Required = Required.Default)]
         public bool visible;
@@ -35,21 +35,8 @@ namespace V8
         // public List<string> size;
         //[JsonProperty("position", Required = Required.Default)]
         //public List<string> position;
-        
-        [Obsolete] public List<ElementData> children;
 
-        public void Initialize()
-        {
-            parent ??= string.Empty;
-            anchorMin ??= new List<float> { 0.0f, 0.0f };
-            anchorMax ??= new List<float> { 1.0f, 1.0f };
-            pivot ??= new List<float> { 0.5f, 0.5f };
-            position ??= new CoordinateTransformData();
-            size ??= new CoordinateTransformData();
-            visible = true;
-            position.Initialize();
-            size.Initialize();
-        }
+        [Obsolete] public List<ElementData> children;
 
         // public ElementData GetChildById(string elementId)
         // {

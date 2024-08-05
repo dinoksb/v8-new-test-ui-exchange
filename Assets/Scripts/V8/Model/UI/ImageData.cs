@@ -8,7 +8,8 @@ namespace V8
     {
         [JsonProperty("spriteId", Required = Required.Default)]
         public string spriteId;
+
         [JsonProperty("imageColor", Required = Required.Default)]
-        public float[] imageColor;
+        public float[] imageColor = new float[] { 0, 0, 0, 0, };
     }
 }

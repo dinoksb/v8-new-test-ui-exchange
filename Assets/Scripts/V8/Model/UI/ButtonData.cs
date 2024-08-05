@@ -10,6 +10,6 @@ namespace V8
         [JsonProperty("events", Required = Required.Always)]
         public Dictionary<string, string> events;
         [JsonProperty("threshold", Required = Required.Default)]
-        public float threshold;
+        public float threshold = 0.5f;
     }
 }
