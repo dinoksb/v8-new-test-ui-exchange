@@ -68,7 +68,6 @@ namespace V8
                 nameof(Image) => new ImageData(),
                 nameof(Label) => new LabelData(),
                 nameof(Button) => new ButtonData(),
-                nameof(GridLayout) => new GridLayoutData(),
                 _ => new ElementData()
             };
         }
