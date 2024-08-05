@@ -30,7 +30,7 @@ namespace V8
         public CoordinateTransformData size = new CoordinateTransformData();
 
         [JsonProperty("visible", Required = Required.Default)]
-        public bool visible;
+        public bool visible = true;
         // [JsonProperty("size", Required = Required.Default)]
         // public List<string> size;
         //[JsonProperty("position", Required = Required.Default)]

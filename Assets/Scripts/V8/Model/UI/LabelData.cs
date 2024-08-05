@@ -13,7 +13,7 @@ namespace V8
         public string fontId = "defaultFont";
 
         [JsonProperty("fontColor", Required = Required.Default)]
-        public float[] fontColor = new float[] { 0, 0, 0, 0 };
+        public float[] fontColor = new float[] { 0, 0, 0, 255 };
 
         [JsonProperty("fontSize", Required = Required.Default)]
         public float fontSize = 36;
