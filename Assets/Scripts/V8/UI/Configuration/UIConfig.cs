@@ -11,6 +11,7 @@ namespace V8
         [Obsolete]
         public const string Relative = "Relative";
         public const string Parent = "Parent";
+        public const string Canvas = "Canvas";
         public const char Width = 'w';
         public const char Height = 'h';
     }
