@@ -12,7 +12,6 @@ namespace V8
             RegisterFactory(new LayoutFactory());
             RegisterFactory(new ImageFactory(sprites));
             RegisterFactory(new LabelFactory());
-            RegisterFactory(new GridLayoutFactory());
             RegisterFactory(new ButtonFactory(onEvent));
         }
     }
