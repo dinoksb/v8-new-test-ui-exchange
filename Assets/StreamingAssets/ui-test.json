@@ -25,41 +25,94 @@
     },
     "ui":
     {
-        "start_popup":
+        "Popup":
         {
-            "Popup":
+            "type": "Layout",
+            "size":
             {
-                "type": "Layout",
-            },
-            "Popup_Background":
-            {
-                "type": "Image",
-                "spriteId": "png-2702691_640",
-            },
-            "Popup_Label":
-            {
-                "type": "Label",
-                "text": "test popup content!"
-            },
-            "Popup_Button":
-            {
-                "type": "Button",
-                "events":
+                "x":
                 {
-                    "PointerClick": "OnClickConfirmButton"
+                    "offset": 660
                 },
-                "threshold": 0.5
-            },
-            "Popup_Button_Image":
-            {
-                "type": "Image",
-                "spriteId": "button_1",
-            },
-            "Popup_Button_Label":
-            {
-                "type": "Label",
-                "text": "Confirm"
+                "y":
+                {
+                    "offset": 238.8
+                }
             }
+        },
+        "Popup_Background":
+        {
+            "type": "Image",
+            "parent": "Popup",
+            "spriteId": "png-2702691_640",
+            "size":
+            {
+                "x":
+                {
+                    "offset": 660
+                },
+                "y":
+                {
+                    "offset": 238.8
+                }
+            }
+        },
+        "Popup_Label":
+        {
+            "type": "Label",
+            "parent": "Popup",
+            "text": "test popup content!"
+        },
+        "Popup_Button":
+        {
+            "type": "Button",
+            "parent": "Popup",
+            "events":
+            {
+                "PointerClick": "OnClickConfirmButton"
+            },
+            "threshold": 0.5
+        },
+        "Popup_Button_Image":
+        {
+            "type": "Image",
+            "parent": "Popup_Button",
+            "spriteId": "button_1"
+        },
+        "Popup_Button_Label":
+        {
+            "type": "Label",
+            "parent": "Popup_Button",
+            "text": "Confirm"
+        },
+        "Label_1":
+        {
+            "type": "Label",
+            "position":
+            {
+                "x":
+                {
+                    "offset": 10
+                },
+                "y":
+                {
+                    "offset": 10
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "offset": 200
+                },
+                "y":
+                {
+                    "offset": 20
+                }
+            },
+            "fontSize": 12,
+            "minFontSize": 8,
+            "text": "for test"
         }
     }
 }
