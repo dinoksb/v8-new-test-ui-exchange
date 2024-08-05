@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095549f1469604e8bae6910351c10ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: https://planetarium.github.io/v8-test-ui-exchange/StreamingAssets/UIData/ui.json
+  url: D:\Work\v8-test-ui-exchange-fork\Assets\StreamingAssets\ui-test.json
   uiManager: {fileID: 813036719}
 --- !u!4 &798186446
 Transform:
@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 813036720}
   - component: {fileID: 813036719}
   m_Layer: 0
-  m_Name: UIImporter
+  m_Name: UIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -334,7 +334,7 @@ Transform:
   m_GameObject: {fileID: 813036718}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 481.5, y: 291.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
