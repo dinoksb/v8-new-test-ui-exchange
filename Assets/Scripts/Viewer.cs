@@ -11,20 +11,12 @@ namespace V8.Template
         private void Start()
         {
 #if UNITY_EDITOR
-            // LoadUIAsync(url);
-            LoadUIAsync();
+            LoadUIAsync(url);
 #endif
 
 #if UNITY_WEBGL && !UNITY_EDITOR
             WebGLInput.captureAllKeyboardInput = false;
 #endif
-        }
-        private async void LoadUIAsync()
-        {
-            Debug.Log(Application.streamingAssetsPath);
-            var uiJsonPath = Path.Combine(Application.streamingAssetsPath, "ui-test.json");
-            var json = await File.ReadAllTextAsync(uiJsonPath);
-            LoadUI(json);
         }
         
         private async void LoadUIAsync(string uiUrl)
