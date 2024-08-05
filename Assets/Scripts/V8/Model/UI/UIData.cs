@@ -10,7 +10,7 @@ namespace V8
         [JsonProperty("asset", Required = Required.AllowNull)]
         public AssetData asset;
         [JsonProperty("ui", Required = Required.AllowNull)]
-        public Dictionary<string, Dictionary<string, ElementData>> ui;
+        public Dictionary<string, ElementData> ui;
         // public Dictionary<string, ElementData> ui;
     }
 }

@@ -11,12 +11,13 @@ namespace V8
     public class UIManager : MonoBehaviour
     {
         private IFactoryProvider<IElementFactory<IElement>> _factoryProvider;
+
         // private readonly Dictionary<string, IElement> _ui = new();
-        private readonly Dictionary<string, Dictionary<string, ElementData>> _ui = new();
+        private readonly Dictionary<string, IElement> _ui = new();
         private Dictionary<string, Sprite> _sprites = new();
-        
+
         private IElement _canvas;
-        private IElement Canvas => _canvas ??= new Canvas(GetType().Name);
+        private IElement Canvas => _canvas ??= new Canvas(UIConfig.Canvas, transform);
 
         private void OnEvent(ulong clientId, string uiId, string eventTriggerType, string eventId)
         {
@@ -34,37 +35,46 @@ namespace V8
             Clear();
             var data = JsonConvert.DeserializeObject<UIData>(json, ElementDataConverter.SerializerSettings);
             _sprites = await SpriteImporter.Import(data.asset.sprite, true);
-            
-            // BuildUI(data.ui.Values);
+
+            BuildUI(data.ui);
             Debug.Log($"[Load] : {json}");
         }
 
         private void BuildUI(Dictionary<string, ElementData> uis)
         {
-            // TODO: UI 생성 테스트 필요.
-            // TODO: Element 초기화 시 선택적 데이터를 위해 반드시 Initialize 필요.
-            // // foreach (var uiData in uis)
-            // // {
-            // //     var id = uiData.Key;
-            // //     var element = uiData.Value;
-            // //     CreateElement(element, Canvas, id);
-            // // }
-            // foreach (var (_, uiData) in uis)
-            // {
-            //     CreateElement(uiData, Canvas, id);
-            // }
+            foreach (var (uiKey, uiData) in uis)
+            {
+                _ui[uiKey] = CreateElement(uiData, uiKey);
+            }
         }
 
-        private IElement CreateElement(ElementData data, IElement parent, string id)
+        private IElement CreateElement(ElementData data, string id)
         {
             _factoryProvider = new ElementFactoryProvider(_sprites, OnEvent);
             var factory = _factoryProvider.GetFactory(data.type);
+            var parent = GetParentFromElement(data.parent);
             var element = factory.Create(data, parent, id);
-            // Todo: 여기서 Parent UI Parent 를 연결해야함.
             element.Visible = data.visible;
             return element;
         }
-        
+
+        private IElement GetParentFromElement(string key)
+        {
+            IElement parent = GetElement(key);
+            return parent ?? Canvas;
+        }
+
+        private IElement GetElement(string key)
+        {
+            if (_ui.TryGetValue(key, out var element))
+            {
+                return element;
+            }
+            Debug.Log($"The key '{key}' was not found in the UI elements.");
+            //throw new KeyNotFoundException($"The key '{key}' was not found in the UI elements.");
+            return null;
+        }
+
         // private IElement CreateElement(ElementData data, IElement parent)
         // {
         //     _factoryProvider = new ElementFactoryProvider(_sprites, OnEvent);
@@ -80,7 +90,7 @@ namespace V8
         // {
         //     return childrenData.Select(child => CreateElement(child, parent)).ToList();
         // }
-        
+
         // public override UniTask<bool> Load(string verseAddress, string url, bool forceResourceDownload = false,
         //     CancellationToken cancellationToken = default)
         // {
