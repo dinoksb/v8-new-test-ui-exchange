@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 namespace V8
 {
     [Serializable]
-    public class ImageData : LayoutData
+    public class ImageData : FrameData
     {
         [JsonProperty("spriteId", Required = Required.Default)]
         public string spriteId;
