@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace V8
 {
-    public class Image : Layout
+    public class Image : Frame
     {
         private UnityEngine.UI.Image _image;
 
@@ -38,6 +38,7 @@ namespace V8
         private void SetValues(ImageData data)
         {
             ImageColor = TypeConverter.ToColor(data.imageColor);
+            _image.raycastTarget = data.interactable;
         }
     }
 }

@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 namespace V8
 {
     [Serializable]
-    public class LabelData : LayoutData
+    public class LabelData : FrameData
     {
         [JsonProperty("textAlignment", Required = Required.Default)]
         public string textAlignment = "Left";

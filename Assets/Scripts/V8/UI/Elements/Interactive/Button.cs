@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 namespace V8
 {
-    public class Button : Layout
+    public class Button : Frame
     {
         private EventTrigger _eventTrigger;
         private ReadOnlyDictionary<EventTriggerType, string> _events;

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace V8
 {
     // Note: Label 이 Text 인것으로 보임.
-    public class Label : Layout
+    public class Label : Frame
     {
         private TMP_Text _tmp;
         private string _fontId;
@@ -158,6 +158,7 @@ namespace V8
             Underline = data.underline;
             Strikethrough = data.strikethrough;
             Text = data.text;
+            _tmp.raycastTarget = interactable;
         }
     }
 }

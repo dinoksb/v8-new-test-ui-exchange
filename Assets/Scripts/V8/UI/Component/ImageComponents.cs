@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace V8
 {
-    public class ImageComponents : LayoutComponents
+    public class ImageComponents : FrameComponents
     {
         public UnityEngine.UI.Image Image { get; }
 

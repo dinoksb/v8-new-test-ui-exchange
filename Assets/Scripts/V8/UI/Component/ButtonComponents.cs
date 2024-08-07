@@ -2,7 +2,7 @@ using UnityEngine.EventSystems;
 
 namespace V8
 {
-    public class ButtonComponents : LayoutComponents
+    public class ButtonComponents : FrameComponents
     {
         public EventTrigger EventTrigger { get; }
 

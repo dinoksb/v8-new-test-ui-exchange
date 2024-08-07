@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace V8
 {
-    public class LabelComponents : LayoutComponents
+    public class LabelComponents : FrameComponents
     {
         public TMP_Text TMP { get; }
 

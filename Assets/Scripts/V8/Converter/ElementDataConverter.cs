@@ -64,7 +64,7 @@ namespace V8
         {
             return type switch
             {
-                nameof(Layout) => new LayoutData(),
+                nameof(Frame) => new FrameData(),
                 nameof(Image) => new ImageData(),
                 nameof(Label) => new LabelData(),
                 nameof(Button) => new ButtonData(),
