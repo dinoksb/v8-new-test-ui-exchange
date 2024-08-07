@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Newtonsoft.Json;
-using UnityEngine.Serialization;
 
 namespace V8
 {
@@ -15,29 +15,36 @@ namespace V8
         public string parent = string.Empty;
 
         [JsonProperty("anchorMin", Required = Required.Default)]
-        public List<float> anchorMin = new List<float>() { 0.5f, 0.5f };
+        public List<float> anchorMin;
 
         [JsonProperty("anchorMax", Required = Required.Default)]
-        public List<float> anchorMax = new List<float>() { 0.5f, 0.5f };
+        public List<float> anchorMax;
 
         [JsonProperty("pivot", Required = Required.Default)]
-        public List<float> pivot = new List<float>() { 0.5f, 0.5f };
+        public List<float> pivot;
 
         [JsonProperty("position", Required = Required.Default)]
-        public CoordinateTransformData position = new CoordinateTransformData();
+        public Vector2 position = new Vector2(0, 0);
 
+        [JsonProperty("scale", Required = Required.Default)]
+        public Vector2 scale = new Vector2(1, 1);
+
+        [JsonProperty("rotation", Required = Required.Default)]
+        public float rotation = 0;
+        
         [JsonProperty("size", Required = Required.Default)]
-        public CoordinateTransformData size = new CoordinateTransformData();
+        public Vector2 size = new Vector2(0, 0);
 
         [JsonProperty("visible", Required = Required.Default)]
         public bool visible = true;
-        // [JsonProperty("size", Required = Required.Default)]
-        // public List<string> size;
-        //[JsonProperty("position", Required = Required.Default)]
-        //public List<string> position;
 
-        [Obsolete] public List<ElementData> children;
-
+        [JsonProperty("id", Required = Required.Default)]
+        public string id;
+        
+        [JsonProperty("children", Required = Required.Default)]
+        public List<ElementData> children;
+        
+        // Todo: children 을 제어할 일이 있는 경우 여기서 접근을 하는게 맞는지 고민해봐야함.
         // public ElementData GetChildById(string elementId)
         // {
         //     return GetChild(child => child.id.Equals(elementId));

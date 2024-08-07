@@ -1,10 +1,6 @@
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Newtonsoft.Json;
-using TMPro;
 
 namespace V8
 {
@@ -12,7 +8,6 @@ namespace V8
     {
         private IFactoryProvider<IElementFactory<IElement>> _factoryProvider;
 
-        // private readonly Dictionary<string, IElement> _ui = new();
         private readonly Dictionary<string, IElement> _ui = new();
         private Dictionary<string, Sprite> _sprites = new();
 
@@ -25,7 +20,6 @@ namespace V8
 
         private void Clear()
         {
-            // DestroyImmediate(Canvas.Self.gameObject);
             _canvas = null;
             Debug.Log("[Clear]");
         }
@@ -35,16 +29,27 @@ namespace V8
             Clear();
             var data = JsonConvert.DeserializeObject<UIData>(json, ElementDataConverter.SerializerSettings);
             _sprites = await SpriteImporter.Import(data.asset.sprite, true);
-
             BuildUI(data.ui);
             Debug.Log($"[Load] : {json}");
         }
 
         private void BuildUI(Dictionary<string, ElementData> uis)
         {
-            foreach (var (uiKey, uiData) in uis)
+            foreach (var (key, element) in uis)
             {
-                _ui[uiKey] = CreateElement(uiData, uiKey);
+                if (_ui.ContainsKey(key)) continue;
+
+                _ui.Add(key, CreateElement(element, key));
+            }
+
+            // Todo: children 확인용 테스트코드 제거 필요.
+            foreach (var element in _ui.Values)
+            {
+                Debug.Log($"Id: " + element.Id);
+                foreach (var childElement in element.Children)
+                {
+                    Debug.Log($"Children Id: " + childElement.Id);
+                }
             }
         }
 
@@ -55,24 +60,18 @@ namespace V8
             var parent = GetParentFromElement(data.parent);
             var element = factory.Create(data, parent, id);
             element.Visible = data.visible;
+            parent.Children.Add(element);
             return element;
         }
 
-        private IElement GetParentFromElement(string key)
+        private IElement GetParentFromElement(string id)
         {
-            IElement parent = GetElement(key);
-            return parent ?? Canvas;
+            return GetElement(id) ?? Canvas;
         }
 
-        private IElement GetElement(string key)
+        private IElement GetElement(string id)
         {
-            if (_ui.TryGetValue(key, out var element))
-            {
-                return element;
-            }
-            Debug.Log($"The key '{key}' was not found in the UI elements.");
-            //throw new KeyNotFoundException($"The key '{key}' was not found in the UI elements.");
-            return null;
+            return _ui.GetValueOrDefault(id);
         }
 
         // private IElement CreateElement(ElementData data, IElement parent)

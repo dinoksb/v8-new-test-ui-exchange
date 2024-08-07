@@ -16,13 +16,13 @@ namespace V8
         public Vector2 Size { get; set; }
 
         public Vector2 Position { get; set; }
-        public Vector3 Rotation { get; set; }
+        public float Rotation { get; set; }
 
         public bool Visible { get; set; }
 
         public IElement Parent { get; }
 
-        public List<IElement> Children { get; }
+        public List<IElement> Children { get; private set; } = new();
 
         public event EventHandler<Vector2> OnUpdateSize;
 

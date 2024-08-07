@@ -16,26 +16,14 @@ namespace V8
             {
                 throw new InvalidOperationException($"Data is not of the expected type '{typeof(TData).Name}'.");
             }
-        
+
+            data.id = id;
             var typedComponents = CreateComponents(parent, id);
             return CreateTyped(typedData, typedComponents);
         }
-        
-        // public TElement Create(ElementData data, IElement parent)
-        // {
-        //     if (data is not TData typedData)
-        //     {
-        //         throw new InvalidOperationException($"Data is not of the expected type '{typeof(TData).Name}'.");
-        //     }
-        //
-        //     var typedComponents = CreateComponents(parent, typedData.id);
-        //     return CreateTyped(typedData, typedComponents);
-        // }
 
         protected abstract TComponents CreateComponents(IElement parent, string id);
         
-        // protected abstract TComponents CreateComponents(IElement parent, string id);
-
         protected abstract TElement CreateTyped(TData data, TComponents components);
     }
 }

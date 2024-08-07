@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,8 +7,6 @@ namespace V8
     public class Element : IElement
     {
         private bool _isOnUpdateSizeSubscribed;
-
-        [Obsolete]
         public string Id { get; }
 
         public string Type { get; }
@@ -50,10 +47,14 @@ namespace V8
             set => Self.anchoredPosition = value;
         }
 
-        public Vector3 Rotation
+        public float Rotation
         {
-            get => Self.eulerAngles;
-            set => Self.eulerAngles = value;
+            get => Self.eulerAngles.z;
+            set
+            {
+                float deltaZ = value - Self.eulerAngles.z;
+                Self.Rotate(0, 0, deltaZ);
+            }
         }
 
         public bool Visible
@@ -63,21 +64,20 @@ namespace V8
         }
 
         public IElement Parent { get; private set; }
-        
-        [Obsolete]
+
         public List<IElement> Children { get; private set; } = new();
 
         public event EventHandler<Vector2> OnUpdateSize;
 
         public Element(ElementData data, ElementComponents components)
         {
-            //Id = data.id;
+            Id = data.id;
             Type = data.type;
             Self = components.Self;
             Parent = components.Parent;
             SetValues(data);
         }
-      
+
         public void Dispose()
         {
             OnUpdateSize = null;
@@ -109,11 +109,12 @@ namespace V8
         public virtual void Update(ElementData data)
         {
             SetValues(data);
-            // TODO: children 아니고 같은 레벨의 Element 들 update 해줘야함.
-            // foreach (var childData in data.children)
+            // Todo: children 의 update 를 해줘야 할지 고민 필요. 당장은 모르겟음..
+            // foreach (var childData in Children)
             // {
-            //     var childElement = Children.FirstOrDefault(x => x.Id == childData.id);
-            //     childElement?.Update(childData);
+            //     var childElement = Children.FirstOrDefault(x => x.Id == childData.Id);
+            //     childElement?.Update(childData as ElementData);
+            //     
             // }
 
             Visible = data.visible;
@@ -135,84 +136,23 @@ namespace V8
 
         private void SetValues(ElementData data)
         {
-            AnchorMin = TypeConverter.ToVector2(data.anchorMin);
-            AnchorMax = TypeConverter.ToVector2(data.anchorMax);
-            Pivot = TypeConverter.ToVector2(data.pivot);
-            Size = CalculateSize(data.size, true);
-            Position = CalculatePosition(data.position, true);
-        }
+            AnchorMin = SetRectTransformAnchorPivot(data.anchorMin);
+            AnchorMax = SetRectTransformAnchorPivot(data.anchorMax);
+            Pivot = SetRectTransformAnchorPivot(data.pivot);
+            Size = data.size;
+            Position = data.position;
+            Rotation = data.rotation;
 
-        [Obsolete]
-        private Vector2 CalculatePosition(IReadOnlyList<string> data, bool relative)
-        {
-            var x = ConvertToUnits(data[0], relative);
-            var y = ConvertToUnits(data[1], relative);
-            return new Vector2(x, y);
-        }
-
-        private Vector2 CalculatePosition(CoordinateTransformData data, bool relative)
-        {
-            return CalculateDimension(data, relative);
-        }
-        
-        [Obsolete]
-        private Vector2 CalculateSize(IReadOnlyList<string> data)
-        {
-            if (data[0].Equals(UIConfig.Parent))
+            Vector2 SetRectTransformAnchorPivot(IReadOnlyList<float> values)
             {
-                _isOnUpdateSizeSubscribed = true;
-                Parent.OnUpdateSize += UpdateSize;
-                return Parent.Size;
+                var convertedValue = TypeConverter.ToVector2(values);
+                return convertedValue == Vector2.zero ? new Vector2(0.5f, 0.5f) : convertedValue;
             }
-
-            var width = ConvertToUnits(data[0]);
-            var height = ConvertToUnits(data[1]);
-            return new Vector2(width, height);
-        }
-
-        private Vector2 CalculateSize(CoordinateTransformData data, bool relative)
-        {
-            if (Parent == this)
-            {
-                _isOnUpdateSizeSubscribed = true;
-                Parent.OnUpdateSize += UpdateSize;
-                return Parent.Size;
-            }
-
-            return CalculateDimension(data, relative);
-        }
-
-        private Vector2 CalculateDimension(CoordinateTransformData data, bool relative)
-        {
-            var relativeWidth = relative ? Parent.Self.rect.width : Screen.width;
-            var relativeHeight = relative ? Parent.Self.rect.height : Screen.height;
-
-            var x = data.x.offset + data.x.scale * relativeWidth;
-            var y = data.y.offset + data.y.scale * relativeHeight;
-
-            return new Vector2(x, y);
         }
 
         private void UpdateSize(object _, Vector2 size)
         {
             Size = size;
-        }
-
-        private float ConvertToUnits(string value, bool relative = false)
-        {
-            if (value.EndsWith(UIConfig.Width))
-            {
-                var ratio = TypeConverter.ToRatio(value.TrimEnd(UIConfig.Width));
-                return (relative ? Parent.Self.rect.width : Screen.width) * ratio;
-            }
-        
-            if (value.EndsWith(UIConfig.Height))
-            {
-                var ratio = TypeConverter.ToRatio(value.TrimEnd(UIConfig.Height));
-                return (relative ? Parent.Self.rect.height : Screen.height) * ratio;
-            }
-        
-            return TypeConverter.ToFloat(value);
         }
     }
 }
