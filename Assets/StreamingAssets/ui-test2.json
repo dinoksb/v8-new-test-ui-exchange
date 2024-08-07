@@ -41,17 +41,11 @@
     {
         "Popup":
         {
-            "type": "Layout",
+            "type": "Frame",
             "size":
             {
-                "x":
-                {
-                    "offset": 660
-                },
-                "y":
-                {
-                    "offset": 238.8
-                }
+                "x": 660,
+                "y": 238.8
             },
             "backgroundColor":
             [
@@ -66,16 +60,11 @@
             "type": "Image",
             "parent": "Popup",
             "spriteId": "png-2702691_640",
+            "rotation": 45,
             "size":
             {
-                "x":
-                {
-                    "offset": 660
-                },
-                "y":
-                {
-                    "offset": 238.8
-                }
+                "x": 660,
+                "y": 238.8
             },
             "backgroundColor":
             [
@@ -100,25 +89,13 @@
             ],
             "position":
             {
-                "x":
-                {
-                    "offset": 0
-                },
-                "y":
-                {
-                    "offset": 25
-                }
+                "x": 0,
+                "y": 25
             },
             "size":
             {
-                "x":
-                {
-                    "offset": 660
-                },
-                "y":
-                {
-                    "offset": 238.8
-                }
+                "x": 660,
+                "y": 238.8
             },
             "backgroundColor":
             [
@@ -141,25 +118,13 @@
             },
             "size":
             {
-                "x":
-                {
-                    "offset": 200
-                },
-                "y":
-                {
-                    "offset": 50
-                }
+                "x": 200,
+                "y": 50
             },
             "position":
             {
-                "x":
-                {
-                    "offset": 0
-                },
-                "y":
-                {
-                    "offset": 25
-                }
+                "x": 0,
+                "y": 25
             },
             "anchorMin":
             [
@@ -183,17 +148,12 @@
             "type": "Image",
             "parent": "Popup_Button",
             "spriteId": "button_1",
-            "interactable" : false,
+            "interactable": false,
+            "visible": false,
             "size":
             {
-                "x":
-                {
-                    "offset": 200
-                },
-                "y":
-                {
-                    "offset": 50
-                }
+                "x": 200,
+                "y": 50
             },
             "backgroundColor":
             [
@@ -210,14 +170,8 @@
             "text": "Confirm",
             "size":
             {
-                "x":
-                {
-                    "offset": 200
-                },
-                "y":
-                {
-                    "offset": 50
-                }
+                "x": 200,
+                "y": 50
             },
             "backgroundColor":
             [
@@ -243,25 +197,13 @@
             "type": "Label",
             "position":
             {
-                "x":
-                {
-                    "offset": 131.1
-                },
-                "y":
-                {
-                    "offset": 59
-                }
+                "x": 131.1,
+                "y": 59
             },
             "size":
             {
-                "x":
-                {
-                    "offset": 200
-                },
-                "y":
-                {
-                    "offset": 20
-                }
+                "x": 200,
+                "y": 20
             },
             "backgroundColor":
             [
