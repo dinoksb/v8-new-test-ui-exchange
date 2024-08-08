@@ -9,10 +9,9 @@ namespace V8
         public ElementFactoryProvider(Dictionary<string, Sprite> sprites, Action<ulong, string, string, string> onEvent)
         {
             RegisterFactory(new ElementFactory());
-            RegisterFactory(new LayoutFactory());
+            RegisterFactory(new FrameFactory());
             RegisterFactory(new ImageFactory(sprites));
             RegisterFactory(new LabelFactory());
-            RegisterFactory(new GridLayoutFactory());
             RegisterFactory(new ButtonFactory(onEvent));
         }
     }

@@ -11,5 +11,6 @@ namespace V8
         public AssetData asset;
         [JsonProperty("ui", Required = Required.AllowNull)]
         public Dictionary<string, ElementData> ui;
+        // public Dictionary<string, ElementData> ui;
     }
 }

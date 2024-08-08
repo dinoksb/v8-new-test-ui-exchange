@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace V8
 {
-    public class LabelComponents : LayoutComponents
+    public class LabelComponents : FrameComponents
     {
         public TMP_Text TMP { get; }
 
-        public LabelComponents(IElement parent, string id) : base(parent, id)
+        public LabelComponents(IElement parent, string name) : base(parent, name)
         {
             var go = new GameObject(UIConfig.Element);
             var element = go.AddComponent<RectTransform>();

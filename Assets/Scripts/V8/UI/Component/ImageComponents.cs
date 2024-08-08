@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace V8
 {
-    public class ImageComponents : LayoutComponents
+    public class ImageComponents : FrameComponents
     {
         public UnityEngine.UI.Image Image { get; }
 
-        public ImageComponents(IElement parent, string id) : base(parent, id)
+        public ImageComponents(IElement parent) : base(parent)
         {
             var go = new GameObject(UIConfig.Element);
             var element = go.AddComponent<RectTransform>();

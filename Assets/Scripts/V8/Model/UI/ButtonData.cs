@@ -5,11 +5,11 @@ using Newtonsoft.Json;
 namespace V8
 {
     [Serializable]
-    public class ButtonData : LayoutData
+    public class ButtonData : FrameData
     {
         [JsonProperty("events", Required = Required.Always)]
         public Dictionary<string, string> events;
         [JsonProperty("threshold", Required = Required.Default)]
-        public float threshold;
+        public float threshold = 0.5f;
     }
 }

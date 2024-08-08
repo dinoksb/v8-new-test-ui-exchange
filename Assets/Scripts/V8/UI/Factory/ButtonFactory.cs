@@ -11,9 +11,9 @@ namespace V8
             _onEvent = onEvent;
         }
 
-        protected override ButtonComponents CreateComponents(IElement parent, string id)
+        protected override ButtonComponents CreateComponents(IElement parent, string name)
         {
-            return new ButtonComponents(parent, id);
+            return new ButtonComponents(parent, name);
         }
 
         protected override Button CreateTyped(ButtonData data, ButtonComponents components)

@@ -2,9 +2,9 @@ namespace V8
 {
     internal class LabelFactory : BaseElementFactory<LabelData, LabelComponents, Label>
     {
-        protected override LabelComponents CreateComponents(IElement parent, string id)
+        protected override LabelComponents CreateComponents(IElement parent, string name)
         {
-            return new LabelComponents(parent, id);
+            return new LabelComponents(parent, name);
         }
 
         protected override Label CreateTyped(LabelData data, LabelComponents components)

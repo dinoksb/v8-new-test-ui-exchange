@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,8 +7,7 @@ namespace V8
     public class Element : IElement
     {
         private bool _isOnUpdateSizeSubscribed;
-
-        public string Id { get; }
+        public string Name { get; }
 
         public string Type { get; }
 
@@ -49,10 +47,14 @@ namespace V8
             set => Self.anchoredPosition = value;
         }
 
-        public Vector3 Rotation
+        public float Rotation
         {
-            get => Self.eulerAngles;
-            set => Self.eulerAngles = value;
+            get => Self.eulerAngles.z;
+            set
+            {
+                float deltaZ = value - Self.eulerAngles.z;
+                Self.Rotate(0, 0, deltaZ);
+            }
         }
 
         public bool Visible
@@ -63,19 +65,17 @@ namespace V8
 
         public IElement Parent { get; private set; }
 
-        public List<IElement> Children { get; private set; } = new();
-
         public event EventHandler<Vector2> OnUpdateSize;
 
         public Element(ElementData data, ElementComponents components)
         {
-            Id = data.id;
+            Name = data.name;
             Type = data.type;
             Self = components.Self;
             Parent = components.Parent;
             SetValues(data);
         }
-       
+
         public void Dispose()
         {
             OnUpdateSize = null;
@@ -86,18 +86,11 @@ namespace V8
             var clone = (Element)MemberwiseClone();
             clone.Self = self;
             clone.Parent = parent;
+            
             if (clone._isOnUpdateSizeSubscribed)
             {
                 clone.Parent.Dispose();
                 clone.Parent.OnUpdateSize += clone.UpdateSize;
-            }
-
-            clone.Children = new List<IElement>();
-            foreach (var child in Children)
-            {
-                var childSelf = GetChildSelf(self, child.Id);
-                var newChild = child.Copy(childSelf, clone);
-                clone.Children.Add(newChild);
             }
 
             return clone;
@@ -107,11 +100,6 @@ namespace V8
         public virtual void Update(ElementData data)
         {
             SetValues(data);
-            foreach (var childData in data.children)
-            {
-                var childElement = Children.FirstOrDefault(x => x.Id == childData.id);
-                childElement?.Update(childData);
-            }
             
             Visible = data.visible;
         }
@@ -129,67 +117,26 @@ namespace V8
 
             throw new Exception($"No child with ID '{id}' found under {targetSelf.name}.");
         }
-        
+
         private void SetValues(ElementData data)
         {
-            AnchorMin = TypeConverter.ToVector2(data.anchorMin);
-            AnchorMax = TypeConverter.ToVector2(data.anchorMax);
-            Pivot = TypeConverter.ToVector2(data.pivot);
-            Size = CalculateSize(data.size);
-            
-            Position = CalculatePosition(data.position, true);
-            
-            // if (UIConfig.Relative == data.positionLayout)
-            // {
-            //     Position = CalculatePosition(data.position, true);
-            // }
-            // else
-            // {
-            //     WorldPosition = CalculatePosition(data.position, false);
-            // }
-        }
+            AnchorMin = SetRectTransformAnchorPivot(data.anchorMin);
+            AnchorMax = SetRectTransformAnchorPivot(data.anchorMax);
+            Pivot = SetRectTransformAnchorPivot(data.pivot);
+            Size = data.size;
+            Position = data.position;
+            Rotation = data.rotation;
 
-        private Vector2 CalculatePosition(IReadOnlyList<string> data, bool relative)
-        {
-            var x = ConvertToUnits(data[0], relative);
-            var y = ConvertToUnits(data[1], relative);
-            return new Vector2(x, y);
-        }
-
-        private Vector2 CalculateSize(IReadOnlyList<string> data)
-        {
-            if (data[0].Equals(UIConfig.Parent))
+            Vector2 SetRectTransformAnchorPivot(IReadOnlyList<float> values)
             {
-                _isOnUpdateSizeSubscribed = true;
-                Parent.OnUpdateSize += UpdateSize;
-                return Parent.Size;
+                var convertedValue = TypeConverter.ToVector2(values);
+                return convertedValue == Vector2.zero ? new Vector2(0.5f, 0.5f) : convertedValue;
             }
-
-            var width = ConvertToUnits(data[0]);
-            var height = ConvertToUnits(data[1]);
-            return new Vector2(width, height);
         }
 
         private void UpdateSize(object _, Vector2 size)
         {
             Size = size;
-        }
-
-        private float ConvertToUnits(string value, bool relative = false)
-        {
-            if (value.EndsWith(UIConfig.Width))
-            {
-                var ratio = TypeConverter.ToRatio(value.TrimEnd(UIConfig.Width));
-                return (relative ? Parent.Self.rect.width : Screen.width) * ratio;
-            }
-
-            if (value.EndsWith(UIConfig.Height))
-            {
-                var ratio = TypeConverter.ToRatio(value.TrimEnd(UIConfig.Height));
-                return (relative ? Parent.Self.rect.height : Screen.height) * ratio;
-            }
-
-            return TypeConverter.ToFloat(value);
         }
     }
 }

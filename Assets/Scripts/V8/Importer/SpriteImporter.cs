@@ -11,20 +11,20 @@ namespace V8
     {
         public static async UniTask<Dictionary<string, Sprite>> Import(Dictionary<string, SpriteData> spriteDataDict, bool forceDownload = false)
         {
-            var spriteMap = new Dictionary<string, Sprite>();
+            var spriteDict = new Dictionary<string, Sprite>();
             foreach (var spriteData in spriteDataDict)
             {
                 var spriteKey = spriteData.Key;
                 var spriteValue = spriteData.Value;
                 
-                if(spriteMap.ContainsKey(spriteKey)) continue;
+                if(spriteDict.ContainsKey(spriteKey)) continue;
                 
                 var sprite = await DownloadAndSetSprite(spriteKey, spriteValue, forceDownload);
                 
-                spriteMap.Add(spriteKey, sprite);
+                spriteDict.Add(spriteKey, sprite);
             }
 
-            return spriteMap;
+            return spriteDict;
         }
         
         [Obsolete]
