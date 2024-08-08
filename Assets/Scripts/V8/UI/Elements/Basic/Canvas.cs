@@ -7,7 +7,7 @@ namespace V8
 {
     public class Canvas : IElement
     {
-        public string Id { get; }
+        public string Name { get; }
 
         public RectTransform Self { get; }
 
@@ -29,9 +29,9 @@ namespace V8
         [Obsolete]
         public Canvas(string id)
         {
-            Id = id;
+            Name = id;
             Type = GetType().Name;
-            var gameObject = new GameObject(Id);
+            var gameObject = new GameObject(Name);
             var self = gameObject.AddComponent<RectTransform>();
             Self = self;
 
@@ -51,9 +51,9 @@ namespace V8
         
         public Canvas(string id, Transform parent)
         {
-            Id = id;
+            Name = id;
             Type = GetType().Name;
-            var gameObject = new GameObject(Id);
+            var gameObject = new GameObject(Name);
             
             if(gameObject.transform.parent != parent) 
                 gameObject.transform.parent = parent;

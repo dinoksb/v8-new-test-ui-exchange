@@ -39,28 +39,18 @@ namespace V8
             {
                 if (_ui.ContainsKey(key)) continue;
 
-                _ui.Add(key, CreateElement(element, key));
-            }
-
-            // Todo: children 확인용 테스트코드 제거 필요.
-            foreach (var element in _ui.Values)
-            {
-                Debug.Log($"Id: " + element.Id);
-                foreach (var childElement in element.Children)
-                {
-                    Debug.Log($"Children Id: " + childElement.Id);
-                }
+                _ui.Add(key, CreateElement(element));
             }
         }
 
-        private IElement CreateElement(ElementData data, string id)
+        private IElement CreateElement(ElementData data)
         {
             _factoryProvider = new ElementFactoryProvider(_sprites, OnEvent);
             var factory = _factoryProvider.GetFactory(data.type);
             var parent = GetParentFromElement(data.parent);
-            var element = factory.Create(data, parent, id);
+            var element = factory.Create(data, parent);
             element.Visible = data.visible;
-            parent.Children.Add(element);
+            Debug.Log($"name: {element.Name}");
             return element;
         }
 

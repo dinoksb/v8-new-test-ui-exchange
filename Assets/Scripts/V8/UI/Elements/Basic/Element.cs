@@ -7,7 +7,7 @@ namespace V8
     public class Element : IElement
     {
         private bool _isOnUpdateSizeSubscribed;
-        public string Id { get; }
+        public string Name { get; }
 
         public string Type { get; }
 
@@ -65,13 +65,11 @@ namespace V8
 
         public IElement Parent { get; private set; }
 
-        public List<IElement> Children { get; private set; } = new();
-
         public event EventHandler<Vector2> OnUpdateSize;
 
         public Element(ElementData data, ElementComponents components)
         {
-            Id = data.id;
+            Name = data.name;
             Type = data.type;
             Self = components.Self;
             Parent = components.Parent;
@@ -88,18 +86,11 @@ namespace V8
             var clone = (Element)MemberwiseClone();
             clone.Self = self;
             clone.Parent = parent;
+            
             if (clone._isOnUpdateSizeSubscribed)
             {
                 clone.Parent.Dispose();
                 clone.Parent.OnUpdateSize += clone.UpdateSize;
-            }
-
-            clone.Children = new List<IElement>();
-            foreach (var child in Children)
-            {
-                var childSelf = GetChildSelf(self, child.Id);
-                var newChild = child.Copy(childSelf, clone);
-                clone.Children.Add(newChild);
             }
 
             return clone;
@@ -109,14 +100,7 @@ namespace V8
         public virtual void Update(ElementData data)
         {
             SetValues(data);
-            // Todo: children 의 update 를 해줘야 할지 고민 필요. 당장은 모르겟음..
-            // foreach (var childData in Children)
-            // {
-            //     var childElement = Children.FirstOrDefault(x => x.Id == childData.Id);
-            //     childElement?.Update(childData as ElementData);
-            //     
-            // }
-
+            
             Visible = data.visible;
         }
 

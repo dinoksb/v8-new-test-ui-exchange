@@ -41,6 +41,7 @@
     {
         "Popup":
         {
+            "name": "Popup",
             "type": "Frame",
             "size":
             {
@@ -57,6 +58,7 @@
         },
         "Popup_Background":
         {
+            "name": "Popup_Background",
             "type": "Image",
             "parent": "Popup",
             "spriteId": "png-2702691_640",
@@ -76,6 +78,7 @@
         },
         "Popup_Label":
         {
+            "name": "Popup_Label",
             "type": "Label",
             "parent": "Popup",
             "text": "test popup content!",
@@ -110,6 +113,7 @@
         },
         "Popup_Button":
         {
+            "name": "Popup_Button",
             "type": "Button",
             "parent": "Popup",
             "events":
@@ -145,6 +149,7 @@
         },
         "Popup_Button_Image":
         {
+            "name": "Popup_Button_Image",
             "type": "Image",
             "parent": "Popup_Button",
             "spriteId": "button_1",
@@ -165,6 +170,7 @@
         },
         "Popup_Button_Label":
         {
+            "name": "Popup_Button_Label",
             "type": "Label",
             "parent": "Popup_Button",
             "text": "Confirm",
@@ -194,6 +200,7 @@
         },
         "Label_1":
         {
+            "name": "Label_1",
             "type": "Label",
             "position":
             {

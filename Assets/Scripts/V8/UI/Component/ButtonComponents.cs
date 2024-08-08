@@ -6,7 +6,7 @@ namespace V8
     {
         public EventTrigger EventTrigger { get; }
 
-        public ButtonComponents(IElement parent, string id) : base(parent, id)
+        public ButtonComponents(IElement parent) : base(parent)
         {
             EventTrigger = Self.gameObject.AddComponent<EventTrigger>();
         }

@@ -6,7 +6,7 @@ namespace V8
 {
     public interface IElement : IDisposable
     {
-        public string Id { get; } // 생성 후 변경 될 일 없기 때문에 get 사용
+        public string Name { get; }
         public string Type { get; }
         public RectTransform Self { get; }
         public Vector2 Size { get; set; }
@@ -14,7 +14,6 @@ namespace V8
         public float Rotation { get; set; }
         public bool Visible { get; set; }
         public IElement Parent { get; }
-        public List<IElement> Children { get; }
         public event EventHandler<Vector2> OnUpdateSize;
         public IElement Copy(RectTransform self, IElement parent);
         public void Update(ElementData data);

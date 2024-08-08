@@ -10,19 +10,18 @@ namespace V8
     {
         public string Type => typeof(TElement).Name;
      
-        public TElement Create(ElementData data, IElement parent, string id)
+        public TElement Create(ElementData data, IElement parent)
         {
             if (data is not TData typedData)
             {
                 throw new InvalidOperationException($"Data is not of the expected type '{typeof(TData).Name}'.");
             }
 
-            data.id = id;
-            var typedComponents = CreateComponents(parent, id);
+            var typedComponents = CreateComponents(parent);
             return CreateTyped(typedData, typedComponents);
         }
 
-        protected abstract TComponents CreateComponents(IElement parent, string id);
+        protected abstract TComponents CreateComponents(IElement parent);
         
         protected abstract TElement CreateTyped(TData data, TComponents components);
     }

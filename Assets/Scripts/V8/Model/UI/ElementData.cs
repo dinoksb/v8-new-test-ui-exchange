@@ -8,6 +8,9 @@ namespace V8
     [Serializable]
     public class ElementData
     {
+        [JsonProperty("name", Required = Required.Always)]
+        public string name;
+        
         [JsonProperty("type", Required = Required.Always)]
         public string type;
 
@@ -37,51 +40,5 @@ namespace V8
 
         [JsonProperty("visible", Required = Required.Default)]
         public bool visible = true;
-
-        [JsonProperty("id", Required = Required.Default)]
-        public string id;
-        
-        [JsonProperty("children", Required = Required.Default)]
-        public List<ElementData> children;
-        
-        // Todo: children 을 제어할 일이 있는 경우 여기서 접근을 하는게 맞는지 고민해봐야함.
-        // public ElementData GetChildById(string elementId)
-        // {
-        //     return GetChild(child => child.id.Equals(elementId));
-        // }
-        //
-        // public ElementData GetChildByType(string elementType)
-        // {
-        //     return GetChild(child => child.type.Equals(elementType));
-        // }
-        //
-        // public List<ElementData> GetChildrenByType(string elementType)
-        // {
-        //     var matchedElements = new List<ElementData>();
-        //     if (type.Equals(elementType))
-        //     {
-        //         matchedElements.Add(this);
-        //     }
-        //
-        //     foreach (var child in children)
-        //     {
-        //         matchedElements.AddRange(child.GetChildrenByType(elementType));
-        //     }
-        //
-        //     return matchedElements;
-        // }
-        //
-        // private ElementData GetChild(Func<ElementData, bool> condition)
-        // {
-        //     if (condition(this)) return this;
-        //
-        //     foreach (var child in children)
-        //     {
-        //         var childData = child.GetChild(condition);
-        //         if (childData != null) return childData;
-        //     }
-        //
-        //     return default;
-        // }
     }
 }
