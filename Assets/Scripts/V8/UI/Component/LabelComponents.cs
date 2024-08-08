@@ -7,7 +7,7 @@ namespace V8
     {
         public TMP_Text TMP { get; }
 
-        public LabelComponents(IElement parent) : base(parent)
+        public LabelComponents(IElement parent, string name) : base(parent, name)
         {
             var go = new GameObject(UIConfig.Element);
             var element = go.AddComponent<RectTransform>();

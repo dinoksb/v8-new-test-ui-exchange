@@ -7,9 +7,9 @@ namespace V8
         public IElement Parent { get; }
         public RectTransform Self { get; }
 
-        public ElementComponents(IElement parent)
+        public ElementComponents(IElement parent, string name)
         {
-            var go = new GameObject(parent.Name);
+            var go = new GameObject(name);
             var self = go.AddComponent<RectTransform>();
             self.SetParent(parent.Self);
             self.localPosition = Vector3.zero;

@@ -17,11 +17,11 @@ namespace V8
                 throw new InvalidOperationException($"Data is not of the expected type '{typeof(TData).Name}'.");
             }
 
-            var typedComponents = CreateComponents(parent);
+            var typedComponents = CreateComponents(parent, data.name);
             return CreateTyped(typedData, typedComponents);
         }
 
-        protected abstract TComponents CreateComponents(IElement parent);
+        protected abstract TComponents CreateComponents(IElement parent, string name);
         
         protected abstract TElement CreateTyped(TData data, TComponents components);
     }

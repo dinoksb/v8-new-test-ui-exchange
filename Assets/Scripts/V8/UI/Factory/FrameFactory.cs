@@ -2,9 +2,9 @@ namespace V8
 {
     internal class FrameFactory : BaseElementFactory<FrameData, FrameComponents, Frame>
     {
-        protected override FrameComponents CreateComponents(IElement parent)
+        protected override FrameComponents CreateComponents(IElement parent, string name)
         {
-            return new FrameComponents(parent);
+            return new FrameComponents(parent, name);
         }
         
         protected override Frame CreateTyped(FrameData data, FrameComponents components)
