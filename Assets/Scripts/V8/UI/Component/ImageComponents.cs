@@ -6,7 +6,7 @@ namespace V8
     {
         public UnityEngine.UI.Image Image { get; }
 
-        public ImageComponents(IElement parent) : base(parent)
+        public ImageComponents(IElement parent, string name) : base(parent, name)
         {
             var go = new GameObject(UIConfig.Element);
             var element = go.AddComponent<RectTransform>();
