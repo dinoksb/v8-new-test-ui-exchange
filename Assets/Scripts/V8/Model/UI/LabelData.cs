@@ -19,7 +19,7 @@ namespace V8
         public float fontSize = 36;
         
         [JsonProperty("fontSizeConstraint", Required = Required.Default)]
-        public ConstraintType fontSizeConstraint = ConstraintType.YY;
+        public ConstraintType fontSizeConstraint = ConstraintType.XX;
 
         [JsonProperty("characterSpacing", Required = Required.Default)]
         public float characterSpacing = 0;
