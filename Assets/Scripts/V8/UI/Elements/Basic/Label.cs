@@ -1,6 +1,7 @@
-using TMPro;
+using System;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
+using ConstraintType = V8.FrameData.ConstraintType;
 
 namespace V8
 {
@@ -109,17 +110,17 @@ namespace V8
             set => _tmp.text = value;
         }
 
+        public ConstraintType Constraint { get; set; }
+
         public bool AutoSize { get; set; }
 
         private Vector2 _screenResolution = new(Screen.width, Screen.height);
-        private Vector2 _referenceResolution => _canvasScaler.referenceResolution;
-        private float _canvasMatchWidthOrHeight => _canvasScaler.matchWidthOrHeight;
-        private CanvasScaler _canvasScaler;
+        private Vector2 _referenceResolution;
 
-        public Label(LabelData data, LabelComponents components, CanvasScaler canvasScaler) : base(data, components)
+        public Label(LabelData data, LabelComponents components, Vector2 referenceResolution) : base(data, components)
         {
             _tmp = components.TMP;
-            _canvasScaler = canvasScaler;
+            _referenceResolution = referenceResolution;
             SetValues(data);
         }
 
@@ -145,8 +146,8 @@ namespace V8
             CharacterSpacing = data.characterSpacing;
             LineSpacing = data.lineSpacing;
             AutoSize = data.autoSize;
+            Constraint = data.fontSizeConstraint;
             FontSize = SetFontSize(data.fontSize, AutoSize);
-            Debug.Log($"FontSize: {FontSize}");
             SingleLine = data.singleLine;
             Ellipsis = data.ellipsis;
             Bold = data.bold;
@@ -154,24 +155,41 @@ namespace V8
             Underline = data.underline;
             Strikethrough = data.strikethrough;
             Text = data.text;
-            _tmp.raycastTarget = interactable;
+            _tmp.raycastTarget = Interactable;
         }
 
         private float SetFontSize(float size, bool isAutoSize)
         {
-            return isAutoSize ? size : size / CalculateCanvasScale(_referenceResolution, _screenResolution, _canvasMatchWidthOrHeight);
+            return isAutoSize
+                ? size
+                : size / CalculateCanvasScaleFactor(_referenceResolution, _screenResolution, Constraint);
         }
 
-        private float CalculateCanvasScale(Vector2 referenceResolution, Vector2 targetResolution,
-            float matchWidthOrHeight)
+        private float CalculateCanvasScaleFactor(Vector2 referenceResolution, Vector2 targetResolution,
+            ConstraintType constraint)
         {
             // 가로 및 세로 스케일 계산
             float widthScale = targetResolution.x / referenceResolution.x;
             float heightScale = targetResolution.y / referenceResolution.y;
+            float calcScaleFactor = 1.0f;
 
-            // Match Width 또는 Height 값을 사용하여 최종 스케일 팩터 계산
-            float finalScaleFactor = Mathf.Lerp(widthScale, heightScale, matchWidthOrHeight);
-            return finalScaleFactor;
+            // Constraint 값에 따른 스케일 팩터 계산
+            switch (constraint)
+            {
+                case ConstraintType.XX:
+                    // 가로 해상도만 고려하여 스케일 팩터 계산
+                    calcScaleFactor = widthScale;
+                    break;
+                case ConstraintType.YY:
+                    // 세로 해상도만 고려하여 스케일 팩터 계산
+                    calcScaleFactor = heightScale;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(ConstraintType),
+                        $"처리할 수 없는 ConstraintType enum 값입니다: {ConstraintType}");
+            }
+
+            return calcScaleFactor;
         }
     }
 }

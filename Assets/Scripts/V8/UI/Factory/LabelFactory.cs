@@ -5,10 +5,10 @@ namespace V8
 {
     internal class LabelFactory : BaseElementFactory<LabelData, LabelComponents, Label>
     {
-        private readonly CanvasScaler _canvasScaler;
-        public LabelFactory(CanvasScaler canvasScaler)
+        private readonly Vector2 _referenceResolution;
+        public LabelFactory(Vector2 referenceResolution)
         {
-            _canvasScaler = canvasScaler;
+            _referenceResolution = referenceResolution;
         }
         
         protected override LabelComponents CreateComponents(IElement parent, string name)
@@ -18,7 +18,7 @@ namespace V8
 
         protected override Label CreateTyped(LabelData data, LabelComponents components)
         {
-            return new Label(data, components, _canvasScaler);
+            return new Label(data, components, _referenceResolution);
         }
     }
 }
