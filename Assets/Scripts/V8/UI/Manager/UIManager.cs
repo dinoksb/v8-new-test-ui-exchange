@@ -10,9 +10,7 @@ namespace V8
 
         private readonly Dictionary<string, IElement> _ui = new();
         private Dictionary<string, Sprite> _sprites = new();
-
         private IElement _canvas;
-        private IElement Canvas => _canvas ??= new Canvas(UIConfig.Canvas, transform);
 
         private void OnEvent(ulong clientId, string uiId, string eventTriggerType, string eventId)
         {
@@ -27,73 +25,47 @@ namespace V8
         public async void Load(string json)
         {
             Clear();
-            var data = JsonConvert.DeserializeObject<UIData>(json, ElementDataConverter.SerializerSettings);
-            _sprites = await SpriteImporter.Import(data.asset.sprite, true);
-            BuildUI(data.ui);
             Debug.Log($"[Load] : {json}");
+            var data = JsonConvert.DeserializeObject<UIData>(json, ElementDataConverter.SerializerSettings);
+            var studio = data.studioData;
+            var asset = data.asset;
+            var ui = data.ui;
+            Vector2 referenceResolution = new Vector2(studio.resolutionWidth, studio.resolutionHeight);
+            _canvas = new Canvas(UIConfig.Canvas, null,
+                referenceResolution);
+            _sprites = await SpriteImporter.Import(asset.sprite, true);
+
+            BuildUI(ui, referenceResolution);
         }
 
-        private void BuildUI(Dictionary<string, ElementData> uis)
+        private void BuildUI(Dictionary<string, ElementData> uis, Vector2 referenceResolution)
         {
             foreach (var (key, element) in uis)
             {
                 if (_ui.ContainsKey(key)) continue;
 
-                _ui.Add(key, CreateElement(element));
+                _ui.Add(key, CreateElement(element, referenceResolution));
             }
         }
 
-        private IElement CreateElement(ElementData data)
+        private IElement CreateElement(ElementData data, Vector2 referenceResolution)
         {
-            _factoryProvider = new ElementFactoryProvider(_sprites, OnEvent);
+            _factoryProvider = new ElementFactoryProvider(_sprites, referenceResolution, OnEvent);
             var factory = _factoryProvider.GetFactory(data.type);
             var parent = GetParentFromElement(data.parent);
             var element = factory.Create(data, parent);
             element.Visible = data.visible;
-            Debug.Log($"name: {element.Name}");
             return element;
         }
 
         private IElement GetParentFromElement(string id)
         {
-            return GetElement(id) ?? Canvas;
+            return GetElement(id) ?? _canvas;
         }
 
         private IElement GetElement(string id)
         {
             return _ui.GetValueOrDefault(id);
         }
-
-        // private IElement CreateElement(ElementData data, IElement parent)
-        // {
-        //     _factoryProvider = new ElementFactoryProvider(_sprites, OnEvent);
-        //     var factory = _factoryProvider.GetFactory(data.type);
-        //     var element = factory.Create(data, parent);
-        //     var children = CreateChildrenElement(data.children, element);
-        //     element.Children.AddRange(children);
-        //     element.Visible = data.visible;
-        //     return element;
-        // }
-
-        // private IEnumerable<IElement> CreateChildrenElement(IEnumerable<ElementData> childrenData, IElement parent)
-        // {
-        //     return childrenData.Select(child => CreateElement(child, parent)).ToList();
-        // }
-
-        // public override UniTask<bool> Load(string verseAddress, string url, bool forceResourceDownload = false,
-        //     CancellationToken cancellationToken = default)
-        // {
-        //     throw new System.NotImplementedException();
-        // }
-        //
-        // public override void Apply(string uiId, ElementData uiData)
-        // {
-        //     throw new System.NotImplementedException();
-        // }
-
-        // public override ElementData Get(string fileName)
-        // {
-        //     return null;
-        // }
     }
 }

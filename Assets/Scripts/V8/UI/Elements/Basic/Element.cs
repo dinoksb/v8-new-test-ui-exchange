@@ -6,7 +6,6 @@ namespace V8
 {
     public class Element : IElement
     {
-        private bool _isOnUpdateSizeSubscribed;
         public string Name { get; }
 
         public string Type { get; }
@@ -87,12 +86,6 @@ namespace V8
             clone.Self = self;
             clone.Parent = parent;
             
-            if (clone._isOnUpdateSizeSubscribed)
-            {
-                clone.Parent.Dispose();
-                clone.Parent.OnUpdateSize += clone.UpdateSize;
-            }
-
             return clone;
         }
 
@@ -123,20 +116,12 @@ namespace V8
             AnchorMin = SetRectTransformAnchorPivot(data.anchorMin);
             AnchorMax = SetRectTransformAnchorPivot(data.anchorMax);
             Pivot = SetRectTransformAnchorPivot(data.pivot);
-            Size = data.size;
-            Position = data.position;
-            Rotation = data.rotation;
 
             Vector2 SetRectTransformAnchorPivot(IReadOnlyList<float> values)
             {
                 var convertedValue = TypeConverter.ToVector2(values);
                 return convertedValue == Vector2.zero ? new Vector2(0.5f, 0.5f) : convertedValue;
             }
-        }
-
-        private void UpdateSize(object _, Vector2 size)
-        {
-            Size = size;
         }
     }
 }

@@ -1,9 +1,10 @@
-using TMPro;
+using System;
 using UnityEngine;
+using TMPro;
+using ConstraintType = V8.FrameData.ConstraintType;
 
 namespace V8
 {
-    // Note: Label 이 Text 인것으로 보임.
     public class Label : Frame
     {
         private TMP_Text _tmp;
@@ -31,12 +32,6 @@ namespace V8
             }
         }
 
-        public float MinFontSize
-        {
-            get => _tmp.fontSizeMin;
-            set => _tmp.fontSizeMin = value;
-        }
-
         public float CharacterSpacing
         {
             get => _tmp.characterSpacing;
@@ -47,12 +42,6 @@ namespace V8
         {
             get => _tmp.lineSpacing;
             set => _tmp.lineSpacing = value;
-        }
-
-        public bool AutoSize
-        {
-            get => _tmp.enableAutoSizing;
-            set => _tmp.enableAutoSizing = value;
         }
 
         public bool SingleLine
@@ -121,9 +110,17 @@ namespace V8
             set => _tmp.text = value;
         }
 
-        public Label(LabelData data, LabelComponents components) : base(data, components)
+        public ConstraintType Constraint { get; set; }
+
+        public bool AutoSize { get; set; }
+
+        private Vector2 _screenResolution = new(Screen.width, Screen.height);
+        private Vector2 _referenceResolution;
+
+        public Label(LabelData data, LabelComponents components, Vector2 referenceResolution) : base(data, components)
         {
             _tmp = components.TMP;
+            _referenceResolution = referenceResolution;
             SetValues(data);
         }
 
@@ -141,16 +138,16 @@ namespace V8
             var labelData = (LabelData)data;
             SetValues(labelData);
         }
-        
+
         private void SetValues(LabelData data)
         {
             TextAlignment = TypeConverter.ToTextAlignmentOptions(data.textAlignment);
             FontColor = TypeConverter.ToColor(data.fontColor);
-            FontSize = data.fontSize;
-            MinFontSize = data.minFontSize;
             CharacterSpacing = data.characterSpacing;
             LineSpacing = data.lineSpacing;
             AutoSize = data.autoSize;
+            Constraint = data.fontSizeConstraint;
+            FontSize = SetFontSize(data.fontSize, AutoSize);
             SingleLine = data.singleLine;
             Ellipsis = data.ellipsis;
             Bold = data.bold;
@@ -158,7 +155,41 @@ namespace V8
             Underline = data.underline;
             Strikethrough = data.strikethrough;
             Text = data.text;
-            _tmp.raycastTarget = interactable;
+            _tmp.raycastTarget = Interactable;
+        }
+
+        private float SetFontSize(float size, bool isAutoSize)
+        {
+            return isAutoSize
+                ? size
+                : size / CalculateCanvasScaleFactor(_referenceResolution, _screenResolution, Constraint);
+        }
+
+        private float CalculateCanvasScaleFactor(Vector2 referenceResolution, Vector2 targetResolution,
+            ConstraintType constraint)
+        {
+            // 가로 및 세로 스케일 계산
+            float widthScale = targetResolution.x / referenceResolution.x;
+            float heightScale = targetResolution.y / referenceResolution.y;
+            float calcScaleFactor = 1.0f;
+
+            // Constraint 값에 따른 스케일 팩터 계산
+            switch (constraint)
+            {
+                case ConstraintType.XX:
+                    // 가로 해상도만 고려하여 스케일 팩터 계산
+                    calcScaleFactor = widthScale;
+                    break;
+                case ConstraintType.YY:
+                    // 세로 해상도만 고려하여 스케일 팩터 계산
+                    calcScaleFactor = heightScale;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(ConstraintType),
+                        $"처리할 수 없는 ConstraintType enum 값입니다: {ConstraintType}");
+            }
+
+            return calcScaleFactor;
         }
     }
 }

@@ -27,16 +27,13 @@ namespace V8
         public List<float> pivot;
 
         [JsonProperty("position", Required = Required.Default)]
-        public Vector2 position = new Vector2(0, 0);
-
-        [JsonProperty("scale", Required = Required.Default)]
-        public Vector2 scale = new Vector2(1, 1);
+        public DimensionData position = new();
+        
+        [JsonProperty("size", Required = Required.Default)]
+        public DimensionData size = new();
 
         [JsonProperty("rotation", Required = Required.Default)]
         public float rotation = 0;
-        
-        [JsonProperty("size", Required = Required.Default)]
-        public Vector2 size = new Vector2(0, 0);
 
         [JsonProperty("visible", Required = Required.Default)]
         public bool visible = true;
