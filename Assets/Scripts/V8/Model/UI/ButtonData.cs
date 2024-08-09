@@ -11,5 +11,7 @@ namespace V8
         public Dictionary<string, string> events;
         [JsonProperty("threshold", Required = Required.Default)]
         public float threshold = 0.5f;
+        // public string type = "none";    // image, text, none
+        // public string normalSpriteId;
     }
 }
