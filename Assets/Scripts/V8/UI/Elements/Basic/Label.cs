@@ -1,9 +1,9 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace V8
 {
-    // Note: Label 이 Text 인것으로 보임.
     public class Label : Frame
     {
         private TMP_Text _tmp;
@@ -31,12 +31,6 @@ namespace V8
             }
         }
 
-        public float MinFontSize
-        {
-            get => _tmp.fontSizeMin;
-            set => _tmp.fontSizeMin = value;
-        }
-
         public float CharacterSpacing
         {
             get => _tmp.characterSpacing;
@@ -47,12 +41,6 @@ namespace V8
         {
             get => _tmp.lineSpacing;
             set => _tmp.lineSpacing = value;
-        }
-
-        public bool AutoSize
-        {
-            get => _tmp.enableAutoSizing;
-            set => _tmp.enableAutoSizing = value;
         }
 
         public bool SingleLine
@@ -121,9 +109,17 @@ namespace V8
             set => _tmp.text = value;
         }
 
-        public Label(LabelData data, LabelComponents components) : base(data, components)
+        public bool AutoSize { get; set; }
+
+        private Vector2 _screenResolution = new(Screen.width, Screen.height);
+        private Vector2 _referenceResolution => _canvasScaler.referenceResolution;
+        private float _canvasMatchWidthOrHeight => _canvasScaler.matchWidthOrHeight;
+        private CanvasScaler _canvasScaler;
+
+        public Label(LabelData data, LabelComponents components, CanvasScaler canvasScaler) : base(data, components)
         {
             _tmp = components.TMP;
+            _canvasScaler = canvasScaler;
             SetValues(data);
         }
 
@@ -141,16 +137,16 @@ namespace V8
             var labelData = (LabelData)data;
             SetValues(labelData);
         }
-        
+
         private void SetValues(LabelData data)
         {
             TextAlignment = TypeConverter.ToTextAlignmentOptions(data.textAlignment);
             FontColor = TypeConverter.ToColor(data.fontColor);
-            FontSize = data.fontSize;
-            MinFontSize = data.minFontSize;
             CharacterSpacing = data.characterSpacing;
             LineSpacing = data.lineSpacing;
             AutoSize = data.autoSize;
+            FontSize = SetFontSize(data.fontSize, AutoSize);
+            Debug.Log($"FontSize: {FontSize}");
             SingleLine = data.singleLine;
             Ellipsis = data.ellipsis;
             Bold = data.bold;
@@ -159,6 +155,23 @@ namespace V8
             Strikethrough = data.strikethrough;
             Text = data.text;
             _tmp.raycastTarget = interactable;
+        }
+
+        private float SetFontSize(float size, bool isAutoSize)
+        {
+            return isAutoSize ? size : size / CalculateCanvasScale(_referenceResolution, _screenResolution, _canvasMatchWidthOrHeight);
+        }
+
+        private float CalculateCanvasScale(Vector2 referenceResolution, Vector2 targetResolution,
+            float matchWidthOrHeight)
+        {
+            // 가로 및 세로 스케일 계산
+            float widthScale = targetResolution.x / referenceResolution.x;
+            float heightScale = targetResolution.y / referenceResolution.y;
+
+            // Match Width 또는 Height 값을 사용하여 최종 스케일 팩터 계산
+            float finalScaleFactor = Mathf.Lerp(widthScale, heightScale, matchWidthOrHeight);
+            return finalScaleFactor;
         }
     }
 }

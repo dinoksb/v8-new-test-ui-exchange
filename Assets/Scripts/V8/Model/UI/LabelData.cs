@@ -18,9 +18,6 @@ namespace V8
         [JsonProperty("fontSize", Required = Required.Default)]
         public float fontSize = 36;
 
-        [JsonProperty("minFontSize", Required = Required.Default)]
-        public float minFontSize = 18;
-
         [JsonProperty("characterSpacing", Required = Required.Default)]
         public float characterSpacing = 0;
 
