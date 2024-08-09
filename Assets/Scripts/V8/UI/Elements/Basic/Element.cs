@@ -123,8 +123,8 @@ namespace V8
             AnchorMin = SetRectTransformAnchorPivot(data.anchorMin);
             AnchorMax = SetRectTransformAnchorPivot(data.anchorMax);
             Pivot = SetRectTransformAnchorPivot(data.pivot);
-            Size = data.size;
-            Position = data.position;
+            Size = CalculateSize(data.size, true);
+            Position = CalculatePosition(data.position, true);
             Rotation = data.rotation;
 
             Vector2 SetRectTransformAnchorPivot(IReadOnlyList<float> values)
@@ -137,6 +137,33 @@ namespace V8
         private void UpdateSize(object _, Vector2 size)
         {
             Size = size;
+        }
+        private Vector2 CalculatePosition(DimensionData data, bool relative)
+        {
+            return CalculateDimension(data, relative);
+        }
+        
+        private Vector2 CalculateSize(DimensionData data, bool relative)
+        {
+            if (Parent == this)
+            {
+                _isOnUpdateSizeSubscribed = true;
+                Parent.OnUpdateSize += UpdateSize;
+                return Parent.Size;
+            }
+
+            return CalculateDimension(data, relative);
+        }
+        
+        private Vector2 CalculateDimension(DimensionData data, bool relative)
+        {
+            var relativeWidth = relative ? Parent.Self.rect.width : Screen.width;
+            var relativeHeight = relative ? Parent.Self.rect.height : Screen.height;
+
+            var x = data.x.offset + data.x.scale * relativeWidth;
+            var y = data.y.offset + data.y.scale * relativeHeight;
+
+            return new Vector2(x, y);
         }
     }
 }
