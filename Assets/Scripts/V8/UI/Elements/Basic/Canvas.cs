@@ -27,7 +27,7 @@ namespace V8
         public List<IElement> Children { get; private set; } = new();
 
         public event EventHandler<Vector2> OnUpdateSize;
-
+        
         public Canvas(string id, Transform parent, Vector2 resolution)
         {
             Name = id;

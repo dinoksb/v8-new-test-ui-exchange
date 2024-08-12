@@ -1,6 +1,6 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Newtonsoft.Json;
 
 namespace V8
 {
@@ -8,7 +8,7 @@ namespace V8
     {
         private IFactoryProvider<IElementFactory<IElement>> _factoryProvider;
 
-        private readonly Dictionary<string, IElement> _ui = new();
+        private Dictionary<string, IElement> _ui = new();
         private Dictionary<string, Sprite> _sprites = new();
         private IElement _canvas;
 
@@ -26,15 +26,13 @@ namespace V8
         {
             Clear();
             Debug.Log($"[Load] : {json}");
-            var data = JsonConvert.DeserializeObject<UIData>(json, ElementDataConverter.SerializerSettings);
-            var studio = data.studioData;
-            var asset = data.asset;
-            var ui = data.ui;
+            var uiData = UIJsonImporter.Import(json) ?? throw new ArgumentNullException("UIImporter.Import()");
+            var studio = uiData.studioData;
+            var asset = uiData.asset;
+            var ui = uiData.ui;
             Vector2 referenceResolution = new Vector2(studio.resolutionWidth, studio.resolutionHeight);
-            _canvas = new Canvas(UIConfig.Canvas, null,
-                referenceResolution);
             _sprites = await SpriteImporter.Import(asset.sprite, true);
-
+            _canvas = new Canvas(UIConfig.Canvas, null, referenceResolution);
             BuildUI(ui, referenceResolution);
         }
 
