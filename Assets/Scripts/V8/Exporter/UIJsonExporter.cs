@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using UnityEngine;
 using Newtonsoft.Json;
 using TMPro;
@@ -11,59 +13,180 @@ namespace V8
     public class UIJsonExporter
     {
         private const string FILE_NAME = "ui";
-        private Dictionary<string, ElementData> _ui = new();
 
         public static void Export(GameObject gameObject, string filePath)
         {
             if (!IsValid(gameObject)) return;
 
-            int rootChildCount = gameObject.transform.childCount;
-
-            for (int i = 0; i < rootChildCount; ++i)
-            {
-                var rootChild = gameObject.transform.GetChild(i);
-
-                var typeName = GetTypeName(rootChild.gameObject);
-                var type = GetElementFormTypeName<ElementData>(typeName);
-
-                InternalDebug.Log("type: " + type);
-            }
-
-            InternalDebug.Log($"rootChildCount: {rootChildCount}");
-
-            SaveJson(filePath);
+            UIData uiData = new();
+            SetStudioData(gameObject, ref uiData.studioData);
+            SetSpriteData(gameObject, ref uiData.asset);
+            SetUIData(gameObject, Guid.NewGuid().ToString(), ref uiData.ui);
+            SaveJson(filePath, uiData);
         }
 
-        private static void SaveJson(string filePath)
+        private static void SaveJson(string filePath, UIData uiData)
         {
-            StudioData studioData;
-            studioData.version = Application.version;
-            studioData.resolutionWidth = Screen.width;
-            studioData.resolutionHeight = Screen.height;
-
-            UIData uiData = new();
-            uiData.studioData = studioData;
-
             string jsonString = JsonConvert.SerializeObject(uiData, Formatting.Indented);
             File.WriteAllText($"{Path.Combine(filePath, FILE_NAME)}.json", jsonString);
             InternalDebug.Log($"ui json saved - {jsonString}");
         }
 
-        private static bool IsValid(GameObject gameObject)
+        private static void SetStudioData(GameObject gameObject, ref StudioData data)
         {
-            var canvas = gameObject.GetComponent<UnityEngine.Canvas>();
-            if (canvas == null)
+            var canvasScaler = gameObject.GetComponent<UnityEngine.UI.CanvasScaler>();
+            data.version = Application.version;
+            data.resolutionWidth = canvasScaler.referenceResolution.x;
+            data.resolutionHeight = canvasScaler.referenceResolution.y;
+        }
+
+        private static void SetSpriteData(GameObject gameObject, ref AssetData data)
+        {
+            string textureFolderName = "Sprites";
+            var childCount = gameObject.transform.childCount;
+            for (int i = 0; i < childCount; i++)
             {
-                InternalDebug.LogError("It is not a hierarchical format that can be extracted as UI Json data.");
-                return false;
+                var child = gameObject.transform.GetChild(i);
+                var imageComponent = child.GetComponent<UnityEngine.UI.Image>();
+                if (imageComponent != null)
+                {
+                    var sprite = imageComponent.sprite;
+                    data.sprite ??= new Dictionary<string, SpriteData>();
+                    data.sprite.Add(sprite.name, new SpriteData()
+                    {
+                        url = Path.Combine(Application.streamingAssetsPath, textureFolderName,
+                            $"{sprite.name}{UIConfig.PngExtension}"),
+                        size = new[] { sprite.texture.width, sprite.texture.height },
+                        offset = new[] { 0, 0 },
+                        border = new[] { sprite.border.x, sprite.border.y, sprite.border.w, sprite.border.z },
+                        pivot = new[] { sprite.pivot.x, sprite.pivot.y },
+                        pixelsPerUnit = sprite.pixelsPerUnit
+                    });
+                }
+                SetSpriteData(child.gameObject, ref data);
+            }
+        }
+
+        private static void SetUIData(GameObject gameObject, string parentGUID, ref Dictionary<string, ElementData> data)
+        {
+            data ??= new Dictionary<string, ElementData>();
+            parentGUID = string.IsNullOrEmpty(parentGUID) ? Guid.NewGuid().ToString() : parentGUID; 
+            var childCount = gameObject.transform.childCount;
+            for (int i = 0; i < childCount; i++)
+            {
+                var child = gameObject.transform.GetChild(i);
+                var guid = Guid.NewGuid().ToString();
+                data.Add(guid, GetElement<ElementData>(child.gameObject, parentGUID));
+                SetUIData(child.gameObject, guid, ref data);
+            }
+        }
+
+        private static T GetElement<T>(GameObject gameObject, string guid) where T : ElementData
+        {
+            string typeName = GetTypeName(gameObject);
+
+            var target = gameObject.GetComponent<RectTransform>();
+
+            switch (typeName)
+            {
+                case UIConfig.FrameType:
+                    FrameData frameData = GetFrameData<FrameData>(target, guid);
+                    return frameData as T;
+                case UIConfig.ImageType:
+                    var imageComponent = target.GetComponent<UnityEngine.UI.Image>();
+                    ImageData imageData = GetFrameData<ImageData>(target, guid);
+                    imageData.spriteId = imageComponent.sprite.name;
+                    imageData.imageColor = new[]
+                    {
+                        imageComponent.color.r, imageComponent.color.g, imageComponent.color.b, imageComponent.color.a
+                    };
+                    return imageData as T;
+                case UIConfig.LabelType:
+                    var textComponent = target.GetComponent<TextMeshProUGUI>();
+                    LabelData labelData = GetFrameData<LabelData>(target, guid);
+                    labelData.textAlignment = textComponent.alignment.ToString();
+                    labelData.fontId = textComponent.font.ToString();
+                    labelData.fontColor = new[]
+                        { textComponent.color.r, textComponent.color.g, textComponent.color.b, textComponent.color.a };
+                    labelData.fontSize = textComponent.fontSize;
+                    labelData.fontSizeConstraint = FrameData.ConstraintType.XX;
+                    labelData.characterSpacing = textComponent.characterSpacing;
+                    labelData.lineSpacing = textComponent.lineSpacing;
+                    labelData.autoSize = true;
+                    labelData.singleLine = textComponent.enableWordWrapping;
+                    labelData.ellipsis = textComponent.overflowMode == TextOverflowModes.Ellipsis;
+                    labelData.bold = textComponent.fontStyle == FontStyles.Bold;
+                    labelData.italic = textComponent.fontStyle == FontStyles.Italic;
+                    labelData.underline = textComponent.fontStyle == FontStyles.Underline;
+                    labelData.strikethrough = textComponent.fontStyle == FontStyles.Strikethrough;
+                    labelData.text = textComponent.text;
+                    return labelData as T;
+                case UIConfig.ButtonType:
+                    var eventTriggerComponent = target.GetComponent<EventTrigger>();
+                    ButtonData buttonData = GetFrameData<ButtonData>(target, guid);
+                    buttonData.events = new Dictionary<string, string>();
+                    int eventCount = 0;
+                    //Todo: event 관련 데이터는 뭘 넣어야하는지?? 추후 확인필요.
+                    foreach (var trigger in eventTriggerComponent.triggers)
+                    {
+                        buttonData.events.Add(eventCount.ToString(), trigger.eventID.ToString());
+                        eventCount++;
+                    }
+
+                    buttonData.threshold = 0.5f;
+                    return buttonData as T;
+                default:
+                    InternalDebug.LogError("[UIJsonExporter] - This type is not supported.");
+                    return null;
             }
 
-            return true;
+            T GetFrameData<T>(RectTransform target, string parent) where T : FrameData, new()
+            {
+                T data = new T()
+                {
+                    name = target.name,
+                    type = typeName,
+                    parent = parent,
+                    anchorMin = new List<float> { target.anchorMin.x, target.anchorMin.y },
+                    anchorMax = new List<float> { target.anchorMax.x, target.anchorMax.y },
+                    pivot = new List<float> { target.pivot.x, target.pivot.y },
+
+                    position = new DimensionData()
+                    {
+                        x = new DimensionAdjustData
+                        {
+                            offset = target.anchoredPosition.x
+                        },
+                        y = new DimensionAdjustData
+                        {
+                            offset = target.anchoredPosition.y
+                        }
+                    },
+
+                    size = new DimensionData()
+                    {
+                        x = new DimensionAdjustData
+                        {
+                            offset = target.sizeDelta.x
+                        },
+                        y = new DimensionAdjustData
+                        {
+                            offset = target.sizeDelta.y
+                        }
+                    },
+                    rotation = target.rotation.eulerAngles.z,
+                    visible = target.gameObject.activeSelf,
+                    interactable = true,
+                    sizeConstraint = FrameData.ConstraintType.XY
+                };
+                return data;
+            }
         }
 
         private static string GetTypeName(GameObject gameObject)
         {
             string typeName = UIConfig.FrameType;
+
             var imageComponent = gameObject.GetComponent<UnityEngine.UI.Image>();
             if (imageComponent != null)
             {
@@ -88,24 +211,16 @@ namespace V8
             return typeName;
         }
 
-        private static T GetElementFormTypeName<T>(string name) where T : ElementData
+        private static bool IsValid(GameObject gameObject)
         {
-            // TODO: 타입은 제대로 가져옴. 여기서 값을 넣어야하나??
-            switch (name)
+            var canvas = gameObject.GetComponent<UnityEngine.Canvas>();
+            if (canvas == null)
             {
-                case "Frame":
-                    return new FrameData() as T;
-                case "Image":
-                    return new ImageData() as T;
-                case "Label":
-                    return new LabelData() as T;
-                case "Button":
-                    return new ButtonData() as T;
-                default:
-                    return null;
+                InternalDebug.LogError("It is not a hierarchical format that can be extracted as UI Json data.");
+                return false;
             }
 
-            return null;
+            return true;
         }
     }
 }
