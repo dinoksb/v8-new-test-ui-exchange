@@ -16,7 +16,7 @@ namespace V8
             UIJsonImporter.Import(LoadJson());
         }
 
-        [MenuItem("GameObject/UI/Json/ImportAndBuild")]
+        [MenuItem("GameObject/UI/Json/Import")]
         private static void ImportAndBuild()
         {
             UIJsonImporter.ImportAndBuild(LoadJson());

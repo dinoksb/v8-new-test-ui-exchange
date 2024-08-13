@@ -36,25 +36,12 @@ namespace V8
             }
             return null;
         }
-
-        private static bool IsValidation(string json)
-        {
-            // TODO: Json Schema 를 통한 유효성 검사
-            return true;
-        }
         
-        public static void ImportAndBuild(string filePath)
-        {
-            var json = File.ReadAllText(filePath);
-            UIData? uiData = Import(json);
-            BuildUI(uiData);
-        }
-
         public static void Clear()
         {
             if (_canvas == null && (_sprites.Count == 0 || _ui.Count == 0)) return;
             
-            Object.DestroyImmediate(_canvas?.Self.gameObject);
+            Object.DestroyImmediate(_canvas?.Self?.gameObject);
             foreach (var (_, sprite) in _sprites)
             {
                 Object.DestroyImmediate(sprite);
@@ -64,8 +51,15 @@ namespace V8
             _canvas = null;
             InternalDebug.Log("created ui cleared");
         }
+        
+        public static void ImportAndBuild(string filePath)
+        {
+            var json = File.ReadAllText(filePath);
+            UIData? uiData = Import(json);
+            BuildUI(uiData);
+        }
 
-        public static async void BuildUI(UIData? data)
+        private static async void BuildUI(UIData? data)
         {
             var studio = data.Value.studioData;
             var referenceResolution = new Vector2(studio.resolutionWidth, studio.resolutionHeight);
@@ -84,6 +78,13 @@ namespace V8
                 _ui.Add(key, createdElement);
             }
         }
+        
+        private static bool IsValidation(string json)
+        {
+            // TODO: Json Schema 를 통한 유효성 검사
+            return true;
+        }
+
         
         private static IElement CreateElement(ElementData data, IElementFactory<Element> factory, Vector2 referenceResolution)
         {
