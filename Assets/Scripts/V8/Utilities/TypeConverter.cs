@@ -63,6 +63,16 @@ namespace V8
 
             return new Vector4(values[0], values[1], values[2], values[3]);
         }
+        
+        public static Vector4 ToVector4(IReadOnlyList<float> values)
+        {
+            if (values == null || values.Count < 4)
+            {
+                return Vector4.zero;
+            }
+
+            return new Vector4(values[0], values[1], values[2], values[3]);
+        }
     
         public static RectOffset ToRectOffset(IReadOnlyList<int> values)
         {
