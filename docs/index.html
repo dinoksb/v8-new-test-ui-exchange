@@ -14,6 +14,7 @@
         <input type="text" id="jsonUrl" placeholder="Enter JSON URL here">
         <button id="loadJsonButton">Load Json from URL</button>
         <button id="loadFileButton">Load Json from files</button>
+        <button id="clearUIButton">Clear Loaded UI</button>
     </div>
     <div id="unity-loading-bar">
         <div id="unity-logo"></div>
@@ -174,15 +175,22 @@
             });
     }
 
+
     var unityGameObjectName = 'Viewer';
-    var loadUI = 'LoadUI';  
+    var loadUI = 'LoadUI';
+    var clearUI = 'ClearUI'
     
     function load(content) {        
         unityInstance.SendMessage(unityGameObjectName, loadUI, content);
     }
+    
+    function clear(){
+        unityInstance.SendMessage(unityGameObjectName, clearUI);
+    }
 
     document.getElementById('loadFileButton').addEventListener('click', openFileSelector);
     document.getElementById('loadJsonButton').addEventListener('click', openURLSelector);
+    document.getElementById('clearUIButton').addEventListener('click', clear);
     document.body.appendChild(script);
 </script>
 </body>
