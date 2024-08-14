@@ -11,7 +11,6 @@ namespace V8
 {
     public class UIJsonExporter
     {
-        private const string FILE_NAME = "ui";
         private const string END_POINT = "https://dinoksb.github.io/v8-new-test-ui-exchange";
         private const string TEXTURE_RESOURCE_PATH = "StreamingAssets/Sprites";
         
@@ -29,7 +28,7 @@ namespace V8
         private static void SaveJson(string filePath, UIData uiData)
         {
             string jsonString = JsonConvert.SerializeObject(uiData, Formatting.Indented);
-            File.WriteAllText($"{Path.Combine(filePath, FILE_NAME)}.json", jsonString);
+            File.WriteAllText($"{filePath}.json", jsonString);
             InternalDebug.Log($"ui json saved - {jsonString}");
         }
 
