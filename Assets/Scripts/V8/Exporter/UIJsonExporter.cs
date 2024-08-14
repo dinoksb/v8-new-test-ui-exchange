@@ -28,7 +28,7 @@ namespace V8
         private static void SaveJson(string filePath, UIData uiData)
         {
             string jsonString = JsonConvert.SerializeObject(uiData, Formatting.Indented);
-            File.WriteAllText($"{filePath}.json", jsonString);
+            File.WriteAllText(filePath, jsonString);
             InternalDebug.Log($"ui json saved - {jsonString}");
         }
 
