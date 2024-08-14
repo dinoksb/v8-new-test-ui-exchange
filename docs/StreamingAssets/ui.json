@@ -1,327 +1,422 @@
 {
-    "asset": {        
-        "sprite": [
-            {
-                "url": "https://cdn.pixabay.com/photo/2017/09/01/00/15/png-2702691_640.png",
-                "id": "png-2702691_640",
-                "offset": [
-                    0,
-                    0
-                ],
-                "size": [
-                    640,
-                    426
-                ],
-                "border": [
-                    43,
-                    47,
-                    48,
-                    49
-                ],
-                "pivot": [
-                    0.5,
-                    0.5
-                ],
-                "pixelsPerUnit": 100
-            },
-            {
-                "url": "https://planetarium.github.io/v8-test-ui-exchange/StreamingAssets/Sprites/button_1.png",
-                "id": "button_1",
-                "offset": [
-                    0,
-                    0
-                ],
-                "size": [
-                    281,
-                    98
-                ],
-                "border": [
-                    10,
-                    10,
-                    10,
-                    10
-                ],
-                "pivot": [
-                    0.5,
-                    0.5
-                ],
-                "pixelsPerUnit": 100
-            }         
-        ]
-    },
-    "ui": {
-        "start_popup": {
-            "id": "Popup",
-            "type": "Layout",
-            "visible": true,
-            "backgroundColor": [
-                0,
-                0,
-                0,
-                0
-            ],
-            "anchorMin": [
-                0.5,
-                0.5
-            ],
-            "anchorMax": [
-                0.5,
-                0.5
-            ],
-            "pivot": [
-                0.5,
-                0.5
-            ],
-            "size": [
-                "50w",
-                "40h"
-            ],
-            "positionLayout": "Relative",
-            "position": [
-                "0",
-                "0"
-            ],
-            "children": [
-                {
-                    "id": "Popup_Background",
-                    "type": "Image",
-                    "visible": true,
-                    "anchorMin": [
-                        0.5,
-                        0.5
-                    ],
-                    "anchorMax": [
-                        0.5,
-                        0.5
-                    ],
-                    "pivot": [
-                        0.5,
-                        0.5
-                    ],
-                    "size": [
-                        "Parent"
-                    ],
-                    "positionLayout": "Relative",
-                    "position": [
-                        "0",
-                        "0"
-                    ],
-                    "spriteId": "png-2702691_640",
-                    "imageColor": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ],
-                    "children": []
-                },
-                {
-                    "id": "Popup_Label",
-                    "type": "Label",
-                    "visible": true,
-                    "anchorMin": [
-                        0.5,
-                        0.5
-                    ],
-                    "anchorMax": [
-                        0.5,
-                        0.5
-                    ],
-                    "pivot": [
-                        0.5,
-                        0.5
-                    ],
-                    "size": [
-                        "Parent"
-                    ],
-                    "positionLayout": "Relative",
-                    "position": [
-                        "0",
-                        "25"
-                    ],
-                    "textAlignment": "Center",
-                    "fontId": "defaultFont",
-                    "fontColor": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ],
-                    "fontSize": 20,
-                    "minFontSize": 2,
-                    "characterSpacing": 0,
-                    "lineSpacing": 0,
-                    "autoSize": false,
-                    "singleLine": false,
-                    "ellipsis": false,
-                    "bold": true,
-                    "italic": false,
-                    "underline": false,
-                    "strikethrough": false,
-                    "text": "test popup content!",
-                    "children": []
-                },
-                {
-                    "id": "Popup_Button",
-                    "type": "Button",
-                    "visible": true,
-                    "anchorMin": [
-                        0.5,
-                        0
-                    ],
-                    "anchorMax": [
-                        0.5,
-                        0
-                    ],
-                    "pivot": [
-                        0.5,
-                        0
-                    ],
-                    "size": [
-                        "200",
-                        "50"
-                    ],
-                    "positionLayout": "Relative",
-                    "position": [
-                        "0",
-                        "25"
-                    ],
-                    "events": {
-                        "PointerClick": "OnClickConfirmButton"
-                    },
-                    "threshold": 0.5,
-                    "children": [
-                        {
-                            "id": "Popup_Button_Image",
-                            "type": "Image",
-                            "visible": true,
-                            "anchorMin": [
-                                0.5,
-                                0.5
-                            ],
-                            "anchorMax": [
-                                0.5,
-                                0.5
-                            ],
-                            "pivot": [
-                                0.5,
-                                0.5
-                            ],
-                            "size": [
-                                "200",
-                                "50"
-                            ],
-                            "positionLayout": "Relative",
-                            "position": [
-                                "0",
-                                "0"
-                            ],
-                            "spriteId": "button_1",
-                            "imageColor": [
-                                1,
-                                1,
-                                1,
-                                1
-                            ],
-                            "children": []
-                        },
-                        {
-                            "id": "Popup_Button_Label",
-                            "type": "Label",
-                            "visible": true,
-                            "anchorMin": [
-                                0.5,
-                                0.5
-                            ],
-                            "anchorMax": [
-                                0.5,
-                                0.5
-                            ],
-                            "pivot": [
-                                0.5,
-                                0.5
-                            ],
-                            "size": [
-                                "200",
-                                "50"
-                            ],
-                            "positionLayout": "Relative",
-                            "position": [
-                                "0",
-                                "0"
-                            ],
-                            "textAlignment": "Center",
-                            "fontId": "defaultFont",
-                            "fontColor": [
-                                0,
-                                0.05,
-                                1,
-                                1
-                            ],
-                            "fontSize": 20,
-                            "minFontSize": 2,
-                            "characterSpacing": 0,
-                            "lineSpacing": 0,
-                            "autoSize": false,
-                            "singleLine": false,
-                            "ellipsis": false,
-                            "bold": true,
-                            "italic": false,
-                            "underline": false,
-                            "strikethrough": false,
-                            "text": "Confirm",
-                            "children": []
-                        }
-                    ]
-                }
-            ]
-        },
-        "main_ui": {
-            "id": "Label_1",
-            "type": "Label",
-            "visible": true,
-            "anchorMin": [
-                0.5,
-                0.5
-            ],
-            "anchorMax": [
-                0.5,
-                0.5
-            ],
-            "pivot": [
-                0.5,
-                0.5
-            ],
-            "size": [
-                "200",
-                "20"
-            ],
-            "positionLayout": "Relative",
-            "position": [
-                "10w",
-                "10h"
-            ],
-            "textAlignment": "BottomRight",
-            "fontId": "defaultFont",
-            "fontColor": [
-                1,
-                1,
-                1,
-                1
-            ],
-            "fontSize": 12,
-            "minFontSize": 8,
-            "characterSpacing": 2,
-            "lineSpacing": 1,
-            "autoSize": false,
-            "singleLine": false,
-            "ellipsis": false,
-            "bold": false,
-            "italic": false,
-            "underline": false,
-            "strikethrough": false,
-            "text": "for test",
-            "children": []
-        }
+  "studioData": {
+    "version": "1.0",
+    "resolutionWidth": 1920.0,
+    "resolutionHeight": 1080.0
+  },
+  "asset": {
+    "sprite": {
+      "png-2702691_640": {
+        "url": "https://dinoksb.github.io/v8-new-test-ui-exchange\\StreamingAssets/Sprites\\png-2702691_640.png",
+        "size": [
+          256,
+          128
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "border": [
+          43.0,
+          47.0,
+          48.0,
+          49.0
+        ],
+        "pivot": [
+          2.14748365E+09,
+          134217728.0
+        ],
+        "pixelsPerUnit": 100.0
+      },
+      "button_1": {
+        "url": "https://dinoksb.github.io/v8-new-test-ui-exchange\\StreamingAssets/Sprites\\button_1.png",
+        "size": [
+          281,
+          98
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "border": [
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "pivot": [
+          3.11741952E+09,
+          4.611841E+07
+        ],
+        "pixelsPerUnit": 100.0
+      }
     }
+  },
+  "ui": {
+    "721e3ba8-e98d-43f4-9c5b-b54bf6e54ed7": {
+      "interactable": true,
+      "sizeConstraint": 1,
+      "name": "Popup",
+      "type": "Frame",
+      "parent": "b5844f7f-533e-4d05-8e72-4c503996b993",
+      "anchorMin": [
+        0.5,
+        0.5
+      ],
+      "anchorMax": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 660.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 238.799988
+        }
+      },
+      "rotation": 0.0,
+      "visible": true
+    },
+    "2a4a72a2-4345-435e-a8e3-2116282b86f1": {
+      "spriteId": "png-2702691_640",
+      "imageColor": [
+        255.0,
+        255.0,
+        255.0,
+        255.0
+      ],
+      "interactable": true,
+      "sizeConstraint": 1,
+      "name": "Popup_Background",
+      "type": "Image",
+      "parent": "721e3ba8-e98d-43f4-9c5b-b54bf6e54ed7",
+      "anchorMin": [
+        0.5,
+        0.5
+      ],
+      "anchorMax": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 23.8800011
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 23.8800011
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 660.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 238.8
+        }
+      },
+      "rotation": 0.0,
+      "visible": true
+    },
+    "064ed75a-f200-4e6f-8f56-f49471e69399": {
+      "textAlignment": "Center",
+      "fontId": "LiberationSans SDF (TMPro.TMP_FontAsset)",
+      "fontColor": [
+        255.0,
+        255.0,
+        255.0,
+        255.0
+      ],
+      "fontSize": 20.0,
+      "fontSizeConstraint": 0,
+      "characterSpacing": 0.0,
+      "lineSpacing": 0.0,
+      "autoSize": true,
+      "singleLine": false,
+      "ellipsis": false,
+      "bold": true,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false,
+      "text": "test popup content!",
+      "interactable": true,
+      "sizeConstraint": 1,
+      "name": "Popup_Label",
+      "type": "Label",
+      "parent": "721e3ba8-e98d-43f4-9c5b-b54bf6e54ed7",
+      "anchorMin": [
+        0.5,
+        0.5
+      ],
+      "anchorMax": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 32.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 28.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 660.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 238.8
+        }
+      },
+      "rotation": 0.0,
+      "visible": true
+    },
+    "3e203a59-9b75-4efa-85af-74c2619f18d6": {
+      "events": {
+        "0": "PointerEnter"
+      },
+      "threshold": 0.5,
+      "interactable": true,
+      "sizeConstraint": 1,
+      "name": "Popup_Button",
+      "type": "Button",
+      "parent": "721e3ba8-e98d-43f4-9c5b-b54bf6e54ed7",
+      "anchorMin": [
+        0.5,
+        0.0
+      ],
+      "anchorMax": [
+        0.5,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 25.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 44.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true
+    },
+    "769cd386-befa-4160-879a-71a935dc411e": {
+      "spriteId": "button_1",
+      "imageColor": [
+        255.0,
+        255.0,
+        255.0,
+        255.0
+      ],
+      "interactable": true,
+      "sizeConstraint": 1,
+      "name": "Popup_Button_Image",
+      "type": "Image",
+      "parent": "3e203a59-9b75-4efa-85af-74c2619f18d6",
+      "anchorMin": [
+        0.5,
+        0.5
+      ],
+      "anchorMax": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true
+    },
+    "d3bb569f-edad-4544-b4bc-440204fe0f1b": {
+      "textAlignment": "Center",
+      "fontId": "LiberationSans SDF (TMPro.TMP_FontAsset)",
+      "fontColor": [
+        0.0,
+        0.05,
+        1.0,
+        1.0
+      ],
+      "fontSize": 20.0,
+      "fontSizeConstraint": 0,
+      "characterSpacing": 0.0,
+      "lineSpacing": 0.0,
+      "autoSize": true,
+      "singleLine": false,
+      "ellipsis": false,
+      "bold": true,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false,
+      "text": "Confirm",
+      "interactable": true,
+      "sizeConstraint": 1,
+      "name": "Popup_Button_Label",
+      "type": "Label",
+      "parent": "3e203a59-9b75-4efa-85af-74c2619f18d6",
+      "anchorMin": [
+        0.5,
+        0.5
+      ],
+      "anchorMax": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true
+    },
+    "b6c65dd8-48f5-46a8-8300-03036513fcf8": {
+      "textAlignment": "BottomRight",
+      "fontId": "LiberationSans SDF (TMPro.TMP_FontAsset)",
+      "fontColor": [
+        255.0,
+        255.0,
+        255.0,
+        255.0
+      ],
+      "fontSize": 50.0,
+      "fontSizeConstraint": 0,
+      "characterSpacing": 2.0,
+      "lineSpacing": 1.0,
+      "autoSize": true,
+      "singleLine": false,
+      "ellipsis": false,
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false,
+      "text": "for test",
+      "interactable": true,
+      "sizeConstraint": 1,
+      "name": "Label_1",
+      "type": "Label",
+      "parent": "b5844f7f-533e-4d05-8e72-4c503996b993",
+      "anchorMin": [
+        0.5,
+        0.0
+      ],
+      "anchorMax": [
+        0.5,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 115.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 20.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true
+    }
+  }
 }

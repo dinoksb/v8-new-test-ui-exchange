@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095549f1469604e8bae6910351c10ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: D:\Work\v8-test-ui-exchange-fork\Assets\StreamingAssets\ui-test2.json
+  url: D:\Work\v8-test-ui-exchange-fork\Assets\StreamingAssets\ui-success.json
   uiManager: {fileID: 813036719}
 --- !u!4 &798186446
 Transform:
