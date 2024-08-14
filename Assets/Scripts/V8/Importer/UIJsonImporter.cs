@@ -27,12 +27,13 @@ namespace V8
                 }
                 catch (JsonException e)
                 {
-                    InternalDebug.LogException(e);
+                    
+                    InternalDebug.LogError($"[UIJsonImporter] Invalid JSON file format: {e}");
                 }
             }
             else
             {
-                InternalDebug.LogError("[UIImporter] json format is invalid.");
+                InternalDebug.LogError("[UIJsonImporter] json format is invalid.");
             }
             return null;
         }
@@ -49,7 +50,7 @@ namespace V8
             _sprites.Clear();
             _ui.Clear();
             _canvas = null;
-            InternalDebug.Log("created ui cleared");
+            InternalDebug.Log("[UIJsonImporter] created ui cleared");
         }
         
         public static void ImportAndBuild(string filePath)
@@ -61,6 +62,8 @@ namespace V8
 
         private static async void BuildUI(UIData? data)
         {
+            if (data == null) return;
+            
             var studio = data.Value.studioData;
             var referenceResolution = new Vector2(studio.resolutionWidth, studio.resolutionHeight);
             var asset = data.Value.asset;
