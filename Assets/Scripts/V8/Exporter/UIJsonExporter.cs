@@ -12,7 +12,9 @@ namespace V8
     public class UIJsonExporter
     {
         private const string FILE_NAME = "ui";
-
+        private const string END_POINT = "https://dinoksb.github.io/v8-new-test-ui-exchange";
+        private const string TEXTURE_RESOURCE_PATH = "StreamingAssets/Sprites";
+        
         public static void Export(GameObject gameObject, string filePath)
         {
             if (!IsValid(gameObject)) return;
@@ -41,7 +43,6 @@ namespace V8
 
         private static void SetSpriteData(GameObject gameObject, ref AssetData data)
         {
-            string textureFolderName = "Sprites";
             var childCount = gameObject.transform.childCount;
             for (int i = 0; i < childCount; i++)
             {
@@ -53,8 +54,7 @@ namespace V8
                     data.sprite ??= new Dictionary<string, SpriteData>();
                     data.sprite.Add(sprite.name, new SpriteData()
                     {
-                        url = Path.Combine(Application.streamingAssetsPath, textureFolderName,
-                            $"{sprite.name}{UIConfig.PngExtension}"),
+                        url = Path.Combine(END_POINT, TEXTURE_RESOURCE_PATH, $"{sprite.name}{UIConfig.PngExtension}"),
                         size = new[] { sprite.texture.width, sprite.texture.height },
                         offset = new[] { 0, 0 },
                         border = new[] { sprite.border.x, sprite.border.y, sprite.border.w, sprite.border.z },

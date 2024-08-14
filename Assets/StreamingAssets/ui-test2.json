@@ -1,4 +1,10 @@
 {
+    "studioData":
+    {
+        "version": "0.0.0",
+        "resolutionWidth": 1920,
+        "resolutionHeight": 1080
+    },
     "asset":
     {
         "sprite":
@@ -43,10 +49,27 @@
         {
             "name": "Popup",
             "type": "Frame",
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.1
+                },
+                "y":
+                {
+                    "scale": 0.1
+                }
+            },
             "size":
             {
-                "x": 660,
-                "y": 238.8
+                "x":
+                {
+                    "offset": 660
+                },
+                "y":
+                {
+                    "offset": 238.8
+                }
             },
             "backgroundColor":
             [
@@ -62,11 +85,28 @@
             "type": "Image",
             "parent": "Popup",
             "spriteId": "png-2702691_640",
-            "rotation": 45,
+            "sizeConstraint": "YY",
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.1
+                },
+                "y":
+                {
+                    "scale": 0.1
+                }
+            },
             "size":
             {
-                "x": 660,
-                "y": 238.8
+                "x":
+                {
+                    "offset": 660
+                },
+                "y":
+                {
+                    "offset": 238.8
+                }
             },
             "backgroundColor":
             [
@@ -92,13 +132,25 @@
             ],
             "position":
             {
-                "x": 0,
-                "y": 25
+                "x":
+                {
+                    "offset": 0
+                },
+                "y":
+                {
+                    "offset": 25
+                }
             },
             "size":
             {
-                "x": 660,
-                "y": 238.8
+                "x":
+                {
+                    "offset": 660
+                },
+                "y":
+                {
+                    "offset": 238.8
+                }
             },
             "backgroundColor":
             [
@@ -108,8 +160,7 @@
                 0
             ],
             "bold": true,
-            "fontSize": 20,
-            "minFontSize": 2
+            "fontSize": 20
         },
         "Popup_Button":
         {
@@ -122,13 +173,25 @@
             },
             "size":
             {
-                "x": 200,
-                "y": 50
+                "x":
+                {
+                    "offset": 200
+                },
+                "y":
+                {
+                    "offset": 50
+                }
             },
             "position":
             {
-                "x": 0,
-                "y": 25
+                "x":
+                {
+                    "offset": 0
+                },
+                "y":
+                {
+                    "offset": 25
+                }
             },
             "anchorMin":
             [
@@ -157,8 +220,14 @@
             "visible": false,
             "size":
             {
-                "x": 200,
-                "y": 50
+                "x":
+                {
+                    "offset": 200
+                },
+                "y":
+                {
+                    "offset": 50
+                }
             },
             "backgroundColor":
             [
@@ -176,8 +245,14 @@
             "text": "Confirm",
             "size":
             {
-                "x": 200,
-                "y": 50
+                "x":
+                {
+                    "offset": 200
+                },
+                "y":
+                {
+                    "offset": 50
+                }
             },
             "backgroundColor":
             [
@@ -195,7 +270,6 @@
             ],
             "textAlignment": "Center",
             "fontSize": 20,
-            "minFontSize": 2,
             "bold": true
         },
         "Label_1":
@@ -204,13 +278,25 @@
             "type": "Label",
             "position":
             {
-                "x": 131.1,
-                "y": 59
+                "x":
+                {
+                    "offset": 131.1
+                },
+                "y":
+                {
+                    "offset": 59
+                }
             },
             "size":
             {
-                "x": 200,
-                "y": 20
+                "x":
+                {
+                    "offset": 200
+                },
+                "y":
+                {
+                    "offset": 20
+                }
             },
             "backgroundColor":
             [
@@ -228,7 +314,6 @@
             ],
             "textAlignment": "BottomRight",
             "fontSize": 12,
-            "minFontSize": 8,
             "characterSpacing": 2,
             "lineSpacing": 1,
             "text": "for test"
