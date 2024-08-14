@@ -14,5 +14,10 @@ namespace V8
         public const string Canvas = "UICanvas";
         public const char Width = 'w';
         public const char Height = 'h';
+
+        public const string FrameType = "Frame";
+        public const string ImageType = "Image";
+        public const string LabelType = "Label";
+        public const string ButtonType = "Button";
     }
 }

@@ -9,8 +9,8 @@ namespace V8
         [JsonProperty("version", Required = Required.Always)]
         public string version;  // studio version
         [JsonProperty("resolutionWidth", Required = Required.Always)]
-        public int resolutionWidth; // user resolution width
+        public float resolutionWidth; // user resolution width
         [JsonProperty("resolutionHeight", Required = Required.Always)]
-        public int resolutionHeight; // user resolution height
+        public float resolutionHeight; // user resolution height
     }
 }
