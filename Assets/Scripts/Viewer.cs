@@ -1,5 +1,5 @@
-using System.IO;
 using UnityEngine;
+using UnityEngine.Scripting;
 using UnityEngine.Serialization;
 
 namespace V8.Template
@@ -18,16 +18,23 @@ namespace V8.Template
             WebGLInput.captureAllKeyboardInput = false;
 #endif
         }
-        
-        private async void LoadUIAsync(string uiUrl)
-        {
-            var json = await WebRequestUtility.GetData(uiUrl);
-            LoadUI(json);
-        }
 
         public void LoadUI(string jsonData)
         {
             uiManager.Load(jsonData);
+        }
+
+        [Preserve]
+        public void ClearUI()
+        {
+            uiManager.Clear();
+        }
+        
+        private async void LoadUIAsync(string uiUrl)
+        {
+            var json = await WebRequestUtility.GetData(uiUrl);
+            if (string.IsNullOrEmpty(json)) return;
+            LoadUI(json);
         }
     }
 }

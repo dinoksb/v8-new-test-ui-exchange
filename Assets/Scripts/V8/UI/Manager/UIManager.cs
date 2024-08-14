@@ -16,8 +16,17 @@ namespace V8
         {
         }
 
-        private void Clear()
+        public void Clear()
         {
+            if (_canvas == null && (_sprites.Count == 0 || _ui.Count == 0)) return;
+            
+            DestroyImmediate(_canvas.Self?.gameObject);
+            foreach (var (_, sprite) in _sprites)
+            {
+                DestroyImmediate(sprite);
+            }
+            _sprites.Clear();
+            _ui.Clear();
             _canvas = null;
             Debug.Log("[Clear]");
         }
