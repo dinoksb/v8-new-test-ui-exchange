@@ -11,8 +11,6 @@ namespace V8
 {
     public class UIJsonExporter
     {
-        private const string FILE_NAME = "ui";
-
         public static void Export(GameObject gameObject, string filePath)
         {
             if (!IsValid(gameObject)) return;
@@ -27,7 +25,7 @@ namespace V8
         private static void SaveJson(string filePath, UIData uiData)
         {
             string jsonString = JsonConvert.SerializeObject(uiData, Formatting.Indented);
-            File.WriteAllText($"{Path.Combine(filePath, FILE_NAME)}.json", jsonString);
+            File.WriteAllText($"{filePath}.json", jsonString);
             InternalDebug.Log($"ui json saved - {jsonString}");
         }
 
