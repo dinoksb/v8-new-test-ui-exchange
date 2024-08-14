@@ -53,7 +53,7 @@ namespace V8
                     data.sprite ??= new Dictionary<string, SpriteData>();
                     data.sprite.Add(sprite.name, new SpriteData()
                     {
-                        url = Path.Combine(END_POINT, TEXTURE_RESOURCE_PATH, $"{sprite.name}{UIConfig.PngExtension}"),
+                        url = $"{END_POINT}/{TEXTURE_RESOURCE_PATH}/{sprite.name}{UIConfig.PngExtension}",
                         size = new[] { sprite.texture.width, sprite.texture.height },
                         offset = new[] { 0, 0 },
                         border = new[] { sprite.border.x, sprite.border.y, sprite.border.w, sprite.border.z },
