@@ -1,512 +1,422 @@
 {
-    "studioData":
-    {
-        "version": "1.0",
-        "resolutionWidth": 1920.0,
-        "resolutionHeight": 1080.0
-    },
-    "asset":
-    {
-        "sprite":
-        {
-            "png-2702691_640":
-            {
-                "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/png-2702691_640.png",
-                "size":
-                [
-                    256,
-                    128
-                ],
-                "offset":
-                [
-                    0,
-                    0
-                ],
-                "border":
-                [
-                    43.0,
-                    47.0,
-                    48.0,
-                    49.0
-                ],
-                "pivot":
-                [
-                    1.40737488E+14,
-                    2.19902326E+12
-                ],
-                "pixelsPerUnit": 100.0
-            },
-            "button_1":
-            {
-                "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/button_1.png",
-                "size":
-                [
-                    281,
-                    98
-                ],
-                "offset":
-                [
-                    0,
-                    0
-                ],
-                "border":
-                [
-                    10.0,
-                    10.0,
-                    10.0,
-                    10.0
-                ],
-                "pivot":
-                [
-                    2.46154558E+14,
-                    4.42921222E+11
-                ],
-                "pixelsPerUnit": 100.0
-            }
-        }
-    },
-    "ui":
-    {
-        "738ec8c9-bca6-4c91-9fab-5047048c18d3":
-        {
-            "interactable": true,
-            "sizeConstraint": 1,
-            "name": "Popup",
-            "type": "Frame",
-            "parent": "d2b402e9-8b5a-460d-8276-2fc4641de76d",
-            "anchorMin":
-            [
-                0.5,
-                0.5
-            ],
-            "anchorMax":
-            [
-                0.5,
-                0.5
-            ],
-            "pivot":
-            [
-                0.5,
-                0.5
-            ],
-            "position":
-            {
-                "x":
-                {
-                    "scale": 0.0,
-                    "offset": 0.0
-                },
-                "y":
-                {
-                    "scale": 0.0,
-                    "offset": 0.0
-                }
-            },
-            "size":
-            {
-                "x":
-                {
-                    "scale": 0.0,
-                    "offset": 660.0
-                },
-                "y":
-                {
-                    "scale": 0.0,
-                    "offset": 238.799988
-                }
-            },
-            "rotation": 0.0,
-            "visible": true
-        },
-        "aa56b2c9-6182-459c-938e-a4c2779544bb":
-        {
-            "spriteId": "png-2702691_640",
-            "imageColor":
-            [
-                255.0,
-                255.0,
-                255.0,
-                255.0
-            ],
-            "interactable": true,
-            "sizeConstraint": 1,
-            "name": "Popup_Background",
-            "type": "Image",
-            "parent": "738ec8c9-bca6-4c91-9fab-5047048c18d3",
-            "anchorMin":
-            [
-                0.5,
-                0.5
-            ],
-            "anchorMax":
-            [
-                0.5,
-                0.5
-            ],
-            "pivot":
-            [
-                0.5,
-                0.5
-            ],
-            "position":
-            {
-                "x":
-                {
-                    "scale": 0.0,
-                    "offset": 23.8800011
-                },
-                "y":
-                {
-                    "scale": 0.0,
-                    "offset": 23.8800011
-                }
-            },
-            "size":
-            {
-                "x":
-                {
-                    "scale": 0.0,
-                    "offset": 300.0
-                },
-                "y":
-                {
-                    "scale": 0.0,
-                    "offset": 300.0
-                }
-            },
-            "rotation": 0.0,
-            "visible": true
-        },
-        "7742c198-6394-490f-95d0-b780efdd62e0":
-        {
-            "textAlignment": "Center",
-            "fontId": "LiberationSans SDF (TMPro.TMP_FontAsset)",
-            "fontColor":
-            [
-                255.0,
-                255.0,
-                255.0,
-                255.0
-            ],
-            "fontSize": 20.0,
-            "fontSizeConstraint": 0,
-            "characterSpacing": 0.0,
-            "lineSpacing": 0.0,
-            "autoSize": true,
-            "singleLine": false,
-            "ellipsis": false,
-            "bold": true,
-            "italic": false,
-            "underline": false,
-            "strikethrough": false,
-            "text": "test popup content!",
-            "interactable": true,
-            "sizeConstraint": 1,
-            "name": "Popup_Label",
-            "type": "Label",
-            "parent": "738ec8c9-bca6-4c91-9fab-5047048c18d3",
-            "anchorMin":
-            [
-                0.5,
-                0.5
-            ],
-            "anchorMax":
-            [
-                0.5,
-                0.5
-            ],
-            "pivot":
-            [
-                0.5,
-                0.5
-            ],
-            "position":
-            {
-                "x":
-                {
-                    "scale": 0.0,
-                    "offset": 32.0
-                },
-                "y":
-                {
-                    "scale": 0.0,
-                    "offset": 28.0
-                }
-            },
-            "size":
-            {
-                "x":
-                {
-                    "scale": 0.0,
-                    "offset": 660.0
-                },
-                "y":
-                {
-                    "scale": 0.0,
-                    "offset": 238.8
-                }
-            },
-            "rotation": 0.0,
-            "visible": true
-        },
-        "4d06cedb-cbe0-486c-ab08-015d82815484":
-        {
-            "events":
-            {
-                "0": "PointerEnter"
-            },
-            "threshold": 0.5,
-            "interactable": true,
-            "sizeConstraint": 1,
-            "name": "Popup_Button",
-            "type": "Button",
-            "parent": "738ec8c9-bca6-4c91-9fab-5047048c18d3",
-            "anchorMin":
-            [
-                0.5,
-                1.0
-            ],
-            "anchorMax":
-            [
-                0.5,
-                1.0
-            ],
-            "pivot":
-            [
-                0.5,
-                1.0
-            ],
-            "position":
-            {
-                "x":
-                {
-                    "scale": 0.0,
-                    "offset": 25.0
-                },
-                "y":
-                {
-                    "scale": 0.0,
-                    "offset": 0.0
-                }
-            },
-            "size":
-            {
-                "x":
-                {
-                    "scale": 0.0,
-                    "offset": 200.0
-                },
-                "y":
-                {
-                    "scale": 0.0,
-                    "offset": 50.0
-                }
-            },
-            "rotation": 0.0,
-            "visible": true
-        },
-        "aa6311ac-ca26-4916-8a6f-a796ace627a0":
-        {
-            "spriteId": "button_1",
-            "imageColor":
-            [
-                255.0,
-                255.0,
-                255.0,
-                255.0
-            ],
-            "interactable": true,
-            "sizeConstraint": 1,
-            "name": "Popup_Button_Image",
-            "type": "Image",
-            "parent": "4d06cedb-cbe0-486c-ab08-015d82815484",
-            "anchorMin":
-            [
-                0.5,
-                0.5
-            ],
-            "anchorMax":
-            [
-                0.5,
-                0.5
-            ],
-            "pivot":
-            [
-                0.5,
-                0.5
-            ],
-            "position":
-            {
-                "x":
-                {
-                    "scale": 0.0,
-                    "offset": 0.0
-                },
-                "y":
-                {
-                    "scale": 0.0,
-                    "offset": 0.0
-                }
-            },
-            "size":
-            {
-                "x":
-                {
-                    "scale": 0.0,
-                    "offset": 200.0
-                },
-                "y":
-                {
-                    "scale": 0.0,
-                    "offset": 50.0
-                }
-            },
-            "rotation": 0.0,
-            "visible": true
-        },
-        "4df46b2e-dfe1-467d-9253-925cee8bdf65":
-        {
-            "textAlignment": "Center",
-            "fontId": "LiberationSans SDF (TMPro.TMP_FontAsset)",
-            "fontColor":
-            [
-                0.0,
-                0.05,
-                1.0,
-                1.0
-            ],
-            "fontSize": 20.0,
-            "fontSizeConstraint": 0,
-            "characterSpacing": 0.0,
-            "lineSpacing": 0.0,
-            "autoSize": true,
-            "singleLine": false,
-            "ellipsis": false,
-            "bold": true,
-            "italic": false,
-            "underline": false,
-            "strikethrough": false,
-            "text": "Confirm",
-            "interactable": true,
-            "sizeConstraint": 1,
-            "name": "Popup_Button_Label",
-            "type": "Label",
-            "parent": "4d06cedb-cbe0-486c-ab08-015d82815484",
-            "anchorMin":
-            [
-                0.5,
-                0.5
-            ],
-            "anchorMax":
-            [
-                0.5,
-                0.5
-            ],
-            "pivot":
-            [
-                0.5,
-                0.5
-            ],
-            "position":
-            {
-                "x":
-                {
-                    "scale": 0.0,
-                    "offset": 0.0
-                },
-                "y":
-                {
-                    "scale": 0.0,
-                    "offset": 0.0
-                }
-            },
-            "size":
-            {
-                "x":
-                {
-                    "scale": 0.0,
-                    "offset": 200.0
-                },
-                "y":
-                {
-                    "scale": 0.0,
-                    "offset": 50.0
-                }
-            },
-            "rotation": 0.0,
-            "visible": true
-        },
-        "3f50b7fb-9386-42e0-ba0c-c9f2523350b3":
-        {
-            "textAlignment": "BottomRight",
-            "fontId": "LiberationSans SDF (TMPro.TMP_FontAsset)",
-            "fontColor":
-            [
-                255.0,
-                255.0,
-                255.0,
-                255.0
-            ],
-            "fontSize": 50.0,
-            "fontSizeConstraint": 0,
-            "characterSpacing": 2.0,
-            "lineSpacing": 1.0,
-            "autoSize": true,
-            "singleLine": false,
-            "ellipsis": false,
-            "bold": false,
-            "italic": false,
-            "underline": false,
-            "strikethrough": false,
-            "text": "for test",
-            "interactable": true,
-            "sizeConstraint": 1,
-            "name": "Label_1",
-            "type": "Label",
-            "parent": "d2b402e9-8b5a-460d-8276-2fc4641de76d",
-            "anchorMin":
-            [
-                0.5,
-                1.0
-            ],
-            "anchorMax":
-            [
-                0.5,
-                1.0
-            ],
-            "pivot":
-            [
-                0.5,
-                1.0
-            ],
-            "position":
-            {
-                "x":
-                {
-                    "scale": 0.0,
-                    "offset": 0.0
-                },
-                "y":
-                {
-                    "scale": 0.0,
-                    "offset": -201.86
-                }
-            },
-            "size":
-            {
-                "x":
-                {
-                    "scale": 0.0,
-                    "offset": 200.0
-                },
-                "y":
-                {
-                    "scale": 0.0,
-                    "offset": 20.0
-                }
-            },
-            "rotation": 0.0,
-            "visible": true
-        }
+  "studioData": {
+    "version": "1.0",
+    "resolutionWidth": 1920.0,
+    "resolutionHeight": 1080.0
+  },
+  "asset": {
+    "sprite": {
+      "png-2702691_640": {
+        "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/png-2702691_640.png",
+        "size": [
+          256,
+          128
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "border": [
+          43.0,
+          47.0,
+          48.0,
+          49.0
+        ],
+        "pivot": [
+          6.044629E+23,
+          5.902958E+20
+        ],
+        "pixelsPerUnit": 100.0
+      },
+      "button_1": {
+        "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/button_1.png",
+        "size": [
+          281,
+          98
+        ],
+        "offset": [
+          0,
+          0
+        ],
+        "border": [
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "pivot": [
+          1.53473423E+24,
+          4.08536432E+19
+        ],
+        "pixelsPerUnit": 100.0
+      }
     }
+  },
+  "ui": {
+    "b89f9ac7-caeb-4416-b132-d1ca19eb256b": {
+      "interactable": true,
+      "sizeConstraint": 1,
+      "name": "Popup",
+      "type": "Frame",
+      "parent": "4a7a0de0-fb6b-4cef-b29a-ffb42925106e",
+      "anchorMin": [
+        0.5,
+        0.5
+      ],
+      "anchorMax": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 660.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 238.799988
+        }
+      },
+      "rotation": 0.0,
+      "visible": true
+    },
+    "cf9f4811-9bbc-4c9c-b8e3-2f9415deedf3": {
+      "spriteId": "png-2702691_640",
+      "imageColor": [
+        255.0,
+        255.0,
+        255.0,
+        255.0
+      ],
+      "interactable": true,
+      "sizeConstraint": 1,
+      "name": "Popup_Background",
+      "type": "Image",
+      "parent": "b89f9ac7-caeb-4416-b132-d1ca19eb256b",
+      "anchorMin": [
+        0.5,
+        0.5
+      ],
+      "anchorMax": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 23.8800011
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 23.8800011
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 300.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 300.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true
+    },
+    "9e547255-99a5-4113-a54c-bc646f9ae1f3": {
+      "textAlignment": "Center",
+      "fontId": "Anton SDF",
+      "fontColor": [
+        255.0,
+        255.0,
+        255.0,
+        255.0
+      ],
+      "fontSize": 25.83,
+      "fontSizeConstraint": 0,
+      "characterSpacing": 0.0,
+      "lineSpacing": 0.0,
+      "autoSize": true,
+      "singleLine": false,
+      "ellipsis": false,
+      "bold": true,
+      "italic": true,
+      "underline": false,
+      "strikethrough": false,
+      "text": "test popup content!",
+      "interactable": true,
+      "sizeConstraint": 1,
+      "name": "Popup_Label",
+      "type": "Label",
+      "parent": "b89f9ac7-caeb-4416-b132-d1ca19eb256b",
+      "anchorMin": [
+        0.5,
+        0.5
+      ],
+      "anchorMax": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 32.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 28.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 660.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 238.8
+        }
+      },
+      "rotation": 0.0,
+      "visible": true
+    },
+    "8143881e-9613-4c88-95c4-fbbfcffcbbda": {
+      "events": {
+        "0": "PointerEnter"
+      },
+      "threshold": 0.5,
+      "interactable": true,
+      "sizeConstraint": 1,
+      "name": "Popup_Button",
+      "type": "Button",
+      "parent": "b89f9ac7-caeb-4416-b132-d1ca19eb256b",
+      "anchorMin": [
+        0.5,
+        1.0
+      ],
+      "anchorMax": [
+        0.5,
+        1.0
+      ],
+      "pivot": [
+        0.5,
+        1.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 25.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true
+    },
+    "ef4d16bd-d0d0-4fd9-bf5f-324f7fa09afe": {
+      "spriteId": "button_1",
+      "imageColor": [
+        255.0,
+        255.0,
+        255.0,
+        255.0
+      ],
+      "interactable": true,
+      "sizeConstraint": 1,
+      "name": "Popup_Button_Image",
+      "type": "Image",
+      "parent": "8143881e-9613-4c88-95c4-fbbfcffcbbda",
+      "anchorMin": [
+        0.5,
+        0.5
+      ],
+      "anchorMax": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true
+    },
+    "65f52124-336c-4d5e-be08-4ebd9490f786": {
+      "textAlignment": "Center",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        0.0,
+        0.05,
+        1.0,
+        1.0
+      ],
+      "fontSize": 20.0,
+      "fontSizeConstraint": 0,
+      "characterSpacing": 0.0,
+      "lineSpacing": 0.0,
+      "autoSize": true,
+      "singleLine": false,
+      "ellipsis": false,
+      "bold": true,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false,
+      "text": "Confirm",
+      "interactable": true,
+      "sizeConstraint": 1,
+      "name": "Popup_Button_Label",
+      "type": "Label",
+      "parent": "8143881e-9613-4c88-95c4-fbbfcffcbbda",
+      "anchorMin": [
+        0.5,
+        0.5
+      ],
+      "anchorMax": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true
+    },
+    "5256097a-a9be-441a-bd79-f3c243b5ea2d": {
+      "textAlignment": "BottomRight",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        255.0,
+        255.0,
+        255.0,
+        255.0
+      ],
+      "fontSize": 50.0,
+      "fontSizeConstraint": 0,
+      "characterSpacing": 2.0,
+      "lineSpacing": 1.0,
+      "autoSize": true,
+      "singleLine": false,
+      "ellipsis": false,
+      "bold": true,
+      "italic": true,
+      "underline": true,
+      "strikethrough": false,
+      "text": "for test",
+      "interactable": true,
+      "sizeConstraint": 1,
+      "name": "Label_1",
+      "type": "Label",
+      "parent": "4a7a0de0-fb6b-4cef-b29a-ffb42925106e",
+      "anchorMin": [
+        0.5,
+        1.0
+      ],
+      "anchorMax": [
+        0.5,
+        1.0
+      ],
+      "pivot": [
+        0.5,
+        1.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -201.86
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 20.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true
+    }
+  }
 }

@@ -103,7 +103,7 @@ namespace V8
                     var textComponent = target.GetComponent<TextMeshProUGUI>();
                     LabelData labelData = GetFrameData<LabelData>(target, guid);
                     labelData.textAlignment = textComponent.alignment.ToString();
-                    labelData.fontId = textComponent.font.ToString();
+                    labelData.fontId = textComponent.font.name;
                     labelData.fontColor = new[]
                         { textComponent.color.r, textComponent.color.g, textComponent.color.b, textComponent.color.a };
                     labelData.fontSize = textComponent.fontSize;
@@ -113,10 +113,10 @@ namespace V8
                     labelData.autoSize = true;
                     labelData.singleLine = textComponent.enableWordWrapping;
                     labelData.ellipsis = textComponent.overflowMode == TextOverflowModes.Ellipsis;
-                    labelData.bold = textComponent.fontStyle == FontStyles.Bold;
-                    labelData.italic = textComponent.fontStyle == FontStyles.Italic;
-                    labelData.underline = textComponent.fontStyle == FontStyles.Underline;
-                    labelData.strikethrough = textComponent.fontStyle == FontStyles.Strikethrough;
+                    labelData.bold = (textComponent.fontStyle & FontStyles.Bold) == FontStyles.Bold;
+                    labelData.italic = (textComponent.fontStyle & FontStyles.Italic) == FontStyles.Italic;
+                    labelData.underline = (textComponent.fontStyle & FontStyles.Underline) == FontStyles.Underline;
+                    labelData.strikethrough = (textComponent.fontStyle & FontStyles.Strikethrough) == FontStyles.Strikethrough;
                     labelData.text = textComponent.text;
                     return labelData as T;
                 case UIConfig.ButtonType:
