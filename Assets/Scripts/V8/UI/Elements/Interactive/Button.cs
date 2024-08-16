@@ -96,6 +96,7 @@ namespace V8
 
                 _lastEventTimes[type] = Time.time;
                 //Todo: Network 로 이벤트 보낼 때 Name 으로 보내는게 맞을지 UID 로 보내는게 맞을지?
+                //Todo: eventId 가 뭘 의미하는지? 확인 필요.
                 _action.Invoke(NetworkManager.Singleton.LocalClientId, Name, type.ToString(), eventId);
             });
             return entry;
