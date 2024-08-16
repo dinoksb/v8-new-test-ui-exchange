@@ -103,7 +103,7 @@ namespace V8
                     var textComponent = target.GetComponent<TextMeshProUGUI>();
                     LabelData labelData = GetFrameData<LabelData>(target, guid);
                     labelData.textAlignment = textComponent.alignment.ToString();
-                    labelData.fontId = textComponent.font.ToString();
+                    labelData.fontId = textComponent.font.name;
                     labelData.fontColor = new[]
                         { textComponent.color.r, textComponent.color.g, textComponent.color.b, textComponent.color.a };
                     labelData.fontSize = textComponent.fontSize;

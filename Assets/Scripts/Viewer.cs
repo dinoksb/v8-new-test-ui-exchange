@@ -8,6 +8,7 @@ namespace V8.Template
     {
         [SerializeField] private string url;
         [FormerlySerializedAs("_uiImporter")] [SerializeField] private UIManager uiManager;
+
         private void Start()
         {
 #if UNITY_EDITOR
