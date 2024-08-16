@@ -103,7 +103,7 @@ namespace V8
                     var textComponent = target.GetComponent<TextMeshProUGUI>();
                     LabelData labelData = GetFrameData<LabelData>(target, guid);
                     labelData.textAlignment = textComponent.alignment.ToString();
-                    labelData.fontId = textComponent.font.ToString();
+                    labelData.fontId = textComponent.font.name;
                     labelData.fontColor = new[]
                         { textComponent.color.r, textComponent.color.g, textComponent.color.b, textComponent.color.a };
                     labelData.fontSize = textComponent.fontSize;
@@ -113,24 +113,21 @@ namespace V8
                     labelData.autoSize = true;
                     labelData.singleLine = textComponent.enableWordWrapping;
                     labelData.ellipsis = textComponent.overflowMode == TextOverflowModes.Ellipsis;
-                    labelData.bold = textComponent.fontStyle == FontStyles.Bold;
-                    labelData.italic = textComponent.fontStyle == FontStyles.Italic;
-                    labelData.underline = textComponent.fontStyle == FontStyles.Underline;
-                    labelData.strikethrough = textComponent.fontStyle == FontStyles.Strikethrough;
+                    labelData.bold = (textComponent.fontStyle & FontStyles.Bold) == FontStyles.Bold;
+                    labelData.italic = (textComponent.fontStyle & FontStyles.Italic) == FontStyles.Italic;
+                    labelData.underline = (textComponent.fontStyle & FontStyles.Underline) == FontStyles.Underline;
+                    labelData.strikethrough = (textComponent.fontStyle & FontStyles.Strikethrough) == FontStyles.Strikethrough;
                     labelData.text = textComponent.text;
                     return labelData as T;
                 case UIConfig.ButtonType:
                     var eventTriggerComponent = target.GetComponent<EventTrigger>();
                     ButtonData buttonData = GetFrameData<ButtonData>(target, guid);
                     buttonData.events = new Dictionary<string, string>();
-                    int eventCount = 0;
-                    //Todo: event 관련 데이터는 뭘 넣어야하는지?? 추후 확인필요.
                     foreach (var trigger in eventTriggerComponent.triggers)
                     {
-                        buttonData.events.Add(eventCount.ToString(), trigger.eventID.ToString());
-                        eventCount++;
+                        string eventId = trigger.eventID.ToString();
+                        buttonData.events.Add(eventId, eventId);
                     }
-
                     buttonData.threshold = 0.5f;
                     return buttonData as T;
                 default:
