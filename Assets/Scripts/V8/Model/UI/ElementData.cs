@@ -14,7 +14,6 @@ namespace V8
         [JsonProperty("type", Required = Required.Always)]
         public string type;
         
-        // Todo: parent 를 GUID 로 해야할지 이름으로 해야할지? 고유한 ID 를 쓰는것이 맞을듯
         [JsonProperty("parent", Required = Required.Default)]
         public string parent = string.Empty;
 
