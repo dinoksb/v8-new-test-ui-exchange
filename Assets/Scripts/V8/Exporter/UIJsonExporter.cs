@@ -123,14 +123,11 @@ namespace V8
                     var eventTriggerComponent = target.GetComponent<EventTrigger>();
                     ButtonData buttonData = GetFrameData<ButtonData>(target, guid);
                     buttonData.events = new Dictionary<string, string>();
-                    int eventCount = 0;
-                    //Todo: event 관련 데이터는 뭘 넣어야하는지?? 추후 확인필요.
                     foreach (var trigger in eventTriggerComponent.triggers)
                     {
-                        buttonData.events.Add(eventCount.ToString(), trigger.eventID.ToString());
-                        eventCount++;
+                        string eventId = trigger.eventID.ToString();
+                        buttonData.events.Add(eventId, eventId);
                     }
-
                     buttonData.threshold = 0.5f;
                     return buttonData as T;
                 default:
