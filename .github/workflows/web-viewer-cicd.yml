@@ -37,25 +37,25 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: WebGL
-          buildsPath: ${{ Build }}
+          buildsPath: ${{ ./Build }}
           allowDirtyBuild: true
       # Step4 - Output
       - name: Build Artifact
         uses: actions/upload-artifact@v3
         with:
           name: Build
-          path: Build
+          path: ./Build
 
       # Step5 - Deployment
       - name: Stash build result and reset local changes
         run: |
           echo "Applying initial configs"
-          sudo chown -R $USER:$USER ${{ Build }}
+          sudo chown -R $USER:$USER ${{ ./Build }}
           git config --global user.email "${{ seungbae@planetariumhq.com }}"
           git config --global user.name "${{ sb.kim }}"
           echo "Stash and reset"
-          git add ${{ Build }}
-          git stash push ${{ Build }}
+          git add ${{ ./Build }}
+          git stash push ${{ ./Build }}
           git stash list
           git reset --hard
           sudo git clean -d -x -f
@@ -75,11 +75,11 @@ jobs:
           git stash apply stash@{0}
       - name: Copying files to root directory
         run: |
-          cd ${{ Build }}/${{ WebGL }}/${{ WebGL }}
+          cd ${{ ./Build }}/${{ WebGL }}/${{ WebGL }}
           ls
           cp -r * ../../../
           cd ../../../
-          rm -r ${{ Build }}
+          rm -r ${{ ./Build }}
           ls
           pwd
       - name: Pushing deployment to gh-pages branch
