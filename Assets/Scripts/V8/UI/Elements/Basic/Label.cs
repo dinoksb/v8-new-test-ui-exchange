@@ -258,10 +258,9 @@ namespace V8
                     result.AddRange(files);
                 }
             }
-            catch (UnauthorizedAccessException)
+            catch (Exception ex)
             {
-                // 접근 권한이 없는 폴더를 만날 경우 예외 처리
-                Console.WriteLine($"Access denied to folder: {rootPath}");
+                Debug.LogException(ex);
             }
 
             return result;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using V8.Utilities;
 
 namespace V8
 {
@@ -34,7 +35,7 @@ namespace V8
         public async void Load(string json)
         {
             Clear();
-            Debug.Log($"[Load] : {json}");
+            InternalDebug.Log($"[Load] : {json}");
             var uiData = UIJsonImporter.Import(json) ?? throw new ArgumentNullException("UIImporter.Import()");
             var studio = uiData.studioData;
             var asset = uiData.asset;
