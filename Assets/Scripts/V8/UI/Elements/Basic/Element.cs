@@ -88,10 +88,10 @@ namespace V8
 
         public event EventHandler<Vector2> OnUpdateSize;
 
-        private readonly List<Action<bool>> _visibleChangedActions;
-        private readonly List<Action<IElement>> _positionChangeActions;
-        private readonly List<Action<IElement>> _rotationChangeActions;
-        private readonly List<Action<IElement>> _sizeChangeActions;
+        private readonly List<Action<bool>> _visibleChangedActions = new();
+        private readonly List<Action<IElement>> _positionChangeActions = new();
+        private readonly List<Action<IElement>> _rotationChangeActions = new();
+        private readonly List<Action<IElement>> _sizeChangeActions = new();
 
         public Element(ElementData data, ElementComponents components)
         {
