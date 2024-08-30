@@ -13,7 +13,7 @@ namespace V8
 
         private const string DefaultFontAssetPath = "Fonts & Materials";
         private const string DefaultFontAsset = "LiberationSans SDF";
-        
+
         private string FontId
         {
             get => _tmp.font.name;
@@ -125,7 +125,15 @@ namespace V8
         public string Text
         {
             get => _tmp.text;
-            set => _tmp.text = value;
+            set
+            {
+                string prevText = _tmp.text;
+                _tmp.text = value;
+                foreach (var eventAction in _textChangeEvents)
+                {
+                    eventAction.Invoke(this, prevText, value);
+                }
+            }
         }
 
         public ConstraintType Constraint { get; set; }
@@ -134,6 +142,10 @@ namespace V8
 
         private Vector2 _screenResolution = new(Screen.width, Screen.height);
         private Vector2 _referenceResolution;
+
+        private readonly List<TextChangeEventAction> _textChangeEvents = new();
+
+        public delegate void TextChangeEventAction(IElement element, string prevText, string newText);
 
         public Label(LabelData data, LabelComponents components, Vector2 referenceResolution) : base(data, components)
         {
@@ -193,6 +205,7 @@ namespace V8
                 fontAsset = GetFontAssetFromResources($"{DefaultFontAssetPath}/{DefaultFontAsset}");
                 Debug.LogWarning($"The [{id}] font does not exist. Replace with default [{defaultFontPath}]font.");
             }
+
             return fontAsset;
         }
 
@@ -222,7 +235,7 @@ namespace V8
 
             return calcScaleFactor;
         }
-        
+
         private TMP_FontAsset GetFontAsset(string id)
         {
             string fontPath;
@@ -242,10 +255,11 @@ namespace V8
                 int endIndex = filePath.IndexOf(endToken, startIndex, StringComparison.Ordinal);
                 fontPath = filePath.Substring(startIndex, endIndex - startIndex);
             }
+
             var fontAsset = Resources.Load(fontPath, typeof(TMP_FontAsset)) as TMP_FontAsset;
             return fontAsset;
         }
-        
+
         private List<string> FindFilesInProject(string rootPath, string targetFileName)
         {
             List<string> result = new List<string>();
@@ -264,6 +278,24 @@ namespace V8
             }
 
             return result;
+        }
+
+        public void AddTextChangedListener(TextChangeEventAction eventAction)
+        {
+            if (!_textChangeEvents.Contains(eventAction))
+            {
+                _textChangeEvents.Add(eventAction);
+            }
+        }
+
+        public void RemoveTextChangedListener(TextChangeEventAction eventAction)
+        {
+            _textChangeEvents.Remove(eventAction);
+        }
+
+        public void RemoveAllTextChangedListener()
+        {
+            _textChangeEvents.Clear();
         }
     }
 }
