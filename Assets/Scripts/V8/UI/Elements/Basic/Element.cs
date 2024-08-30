@@ -151,7 +151,7 @@ namespace V8
             }
         }
         # region Events
-        void IElement.AddVisibleChanged(Action<bool> action)
+        void IElement.AddVisibleChangedListener(Action<bool> action)
         {
             if (!_visibleChangedActions.Contains(action))
             {
@@ -159,12 +159,17 @@ namespace V8
             }
         }
 
-        void IElement.RemoveVisibleChanged(Action<bool> action)
+        void IElement.RemoveVisibleChangedListener(Action<bool> action)
         {
             _visibleChangedActions.Remove(action);
         }
+        
+        void IElement.RemoveAllVisibleChangedListener()
+        {
+            _visibleChangedActions.Clear();
+        }
 
-        void IElement.AddPositionChange(Action<IElement> action)
+        void IElement.AddPositionChangeListener(Action<IElement> action)
         {
             if (!_positionChangeActions.Contains(action))
             {
@@ -172,12 +177,17 @@ namespace V8
             }
         }
 
-        void IElement.RemovePositionChange(Action<IElement> action)
+        void IElement.RemovePositionChangeListener(Action<IElement> action)
         {
             _positionChangeActions.Remove(action);
         }
+        
+        void IElement.RemoveAllPositionChangeListener()
+        {
+            _positionChangeActions.Clear();
+        }
 
-        void IElement.AddRotationChange(Action<IElement> action)
+        void IElement.AddRotationChangeListener(Action<IElement> action)
         {
             if (!_rotationChangeActions.Contains(action))
             {
@@ -185,12 +195,17 @@ namespace V8
             }
         }
 
-        void IElement.RemoveRotationChange(Action<IElement> action)
+        void IElement.RemoveRotationChangeListener(Action<IElement> action)
         {
             _rotationChangeActions.Remove(action);
         }
+        
+        void IElement.RemoveAllRotationChangeListener()
+        {
+            _rotationChangeActions.Clear();
+        }
 
-        void IElement.AddSizeChange(Action<IElement> action)
+        void IElement.AddSizeChangeListener(Action<IElement> action)
         {
             if (!_sizeChangeActions.Contains(action))
             {
@@ -198,9 +213,14 @@ namespace V8
             }
         }
 
-        void IElement.RemoveSizeChange(Action<IElement> action)
+        void IElement.RemoveSizeChangeListener(Action<IElement> action)
         {
             _sizeChangeActions.Remove(action);
+        }
+        
+        void IElement.RemoveAllSizeChangeListener()
+        {
+            _sizeChangeActions.Clear();
         }
         #endregion
     }

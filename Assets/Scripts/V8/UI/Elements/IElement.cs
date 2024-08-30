@@ -17,13 +17,17 @@ namespace V8
         public event EventHandler<Vector2> OnUpdateSize;
         public IElement Copy(RectTransform self, IElement parent);
         public void Update(ElementData data);
-        internal void AddVisibleChanged(Action<bool> action);
-        internal void RemoveVisibleChanged(Action<bool> action);
-        internal void AddPositionChange(Action<IElement> action);
-        internal void RemovePositionChange(Action<IElement> action);
-        internal void AddRotationChange(Action<IElement> action);
-        internal void RemoveRotationChange(Action<IElement> action);
-        internal void AddSizeChange(Action<IElement> action);
-        internal void RemoveSizeChange(Action<IElement> action);
+        internal void AddVisibleChangedListener(Action<bool> action);
+        internal void RemoveVisibleChangedListener(Action<bool> action);
+        internal void RemoveAllVisibleChangedListener();
+        internal void AddPositionChangeListener(Action<IElement> action);
+        internal void RemovePositionChangeListener(Action<IElement> action);
+        internal void RemoveAllPositionChangeListener();
+        internal void AddRotationChangeListener(Action<IElement> action);
+        internal void RemoveRotationChangeListener(Action<IElement> action);
+        internal void RemoveAllRotationChangeListener();
+        internal void AddSizeChangeListener(Action<IElement> action);
+        internal void RemoveSizeChangeListener(Action<IElement> action);
+        internal void RemoveAllSizeChangeListener();
     }
 }
