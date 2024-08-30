@@ -6,6 +6,8 @@ namespace V8
     [Serializable]
     public class SpriteData
     {
+        [JsonProperty("name", Required = Required.Always)]
+        public string name;
         [JsonProperty("url", Required = Required.Always)]
         public string url;
         [JsonProperty("size", Required = Required.Always)]

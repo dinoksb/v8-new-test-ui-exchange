@@ -9,6 +9,7 @@ using V8.Utilities;
 
 namespace V8
 {
+    // todo: TextureData Export 할 수 있는 로직 추가.
     public class UIJsonExporter
     {
         private const string END_POINT = "https://dinoksb.github.io/v8-new-test-ui-exchange";
@@ -53,6 +54,7 @@ namespace V8
                     data.sprite ??= new Dictionary<string, SpriteData>();
                     data.sprite.Add(sprite.name, new SpriteData()
                     {
+                        name = sprite.name,
                         url = $"{END_POINT}/{TEXTURE_RESOURCE_PATH}/{sprite.name}{UIConfig.PngExtension}",
                         size = new[] { sprite.texture.width, sprite.texture.height },
                         offset = new[] { 0, 0 },
