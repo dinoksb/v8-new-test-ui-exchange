@@ -68,5 +68,45 @@ namespace V8
         {
             throw new Exception("This function cannot be called in Canvas.");
         }
+
+        void IElement.AddVisibleChanged(Action<bool> action)
+        {
+            throw new Exception("This function cannot be called in Canvas.");
+        }
+
+        void IElement.RemoveVisibleChanged(Action<bool> action)
+        {
+            throw new Exception("This function cannot be called in Canvas.");
+        }
+
+        void IElement.AddPositionChange(Action<IElement> action)
+        {
+            throw new Exception("This function cannot be called in Canvas.");
+        }
+
+        void IElement.RemovePositionChange(Action<IElement> action)
+        {
+            throw new Exception("This function cannot be called in Canvas.");
+        }
+
+        void IElement.AddRotationChange(Action<IElement> action)
+        {
+            throw new Exception("This function cannot be called in Canvas.");
+        }
+
+        void IElement.RemoveRotationChange(Action<IElement> action)
+        {
+            throw new Exception("This function cannot be called in Canvas.");
+        }
+
+        void IElement.AddSizeChange(Action<IElement> action)
+        {
+            throw new Exception("This function cannot be called in Canvas.");
+        }
+
+        void IElement.RemoveSizeChange(Action<IElement> action)
+        {
+            throw new Exception("This function cannot be called in Canvas.");
+        }
     }
 }
