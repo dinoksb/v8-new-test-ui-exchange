@@ -35,6 +35,10 @@ namespace V8
             get => Self.sizeDelta;
             set
             {
+                foreach (var eventAction in _sizeChangeActions)
+                {
+                    eventAction?.Invoke(this);
+                }
                 Self.sizeDelta = value;
                 OnUpdateSize?.Invoke(this, value);
             }
@@ -43,7 +47,14 @@ namespace V8
         public Vector2 Position
         {
             get => Self.anchoredPosition;
-            set => Self.anchoredPosition = value;
+            set
+            {
+                foreach (var eventAction in _positionChangeActions)
+                {
+                    eventAction?.Invoke(this);
+                }
+                Self.anchoredPosition = value;
+            }
         }
 
         public float Rotation
@@ -51,6 +62,10 @@ namespace V8
             get => Self.eulerAngles.z;
             set
             {
+                foreach (var eventAction in _rotationChangeActions)
+                {
+                    eventAction?.Invoke(this);
+                }
                 float deltaZ = value - Self.eulerAngles.z;
                 Self.Rotate(0, 0, deltaZ);
             }
@@ -59,12 +74,24 @@ namespace V8
         public bool Visible
         {
             get => Self.gameObject.activeSelf;
-            set => Self.gameObject.SetActive(value);
+            set
+            {
+                Self.gameObject.SetActive(value);
+                foreach (var eventAction in _visibleChangedActions)
+                {
+                    eventAction?.Invoke(value);
+                }
+            }
         }
 
         public IElement Parent { get; private set; }
 
         public event EventHandler<Vector2> OnUpdateSize;
+
+        private readonly List<Action<bool>> _visibleChangedActions;
+        private readonly List<Action<IElement>> _positionChangeActions;
+        private readonly List<Action<IElement>> _rotationChangeActions;
+        private readonly List<Action<IElement>> _sizeChangeActions;
 
         public Element(ElementData data, ElementComponents components)
         {
@@ -96,7 +123,7 @@ namespace V8
             
             Visible = data.visible;
         }
-
+        
         protected static RectTransform GetChildSelf(Transform targetSelf, string id)
         {
             for (var i = 0; i < targetSelf.childCount; i++)
@@ -123,5 +150,58 @@ namespace V8
                 return convertedValue == Vector2.zero ? new Vector2(0.5f, 0.5f) : convertedValue;
             }
         }
+        # region Events
+        void IElement.AddVisibleChanged(Action<bool> action)
+        {
+            if (!_visibleChangedActions.Contains(action))
+            {
+                _visibleChangedActions.Add(action);
+            }
+        }
+
+        void IElement.RemoveVisibleChanged(Action<bool> action)
+        {
+            _visibleChangedActions.Remove(action);
+        }
+
+        void IElement.AddPositionChange(Action<IElement> action)
+        {
+            if (!_positionChangeActions.Contains(action))
+            {
+                _positionChangeActions.Add(action);
+            }
+        }
+
+        void IElement.RemovePositionChange(Action<IElement> action)
+        {
+            _positionChangeActions.Remove(action);
+        }
+
+        void IElement.AddRotationChange(Action<IElement> action)
+        {
+            if (!_rotationChangeActions.Contains(action))
+            {
+                _rotationChangeActions.Add(action);
+            }
+        }
+
+        void IElement.RemoveRotationChange(Action<IElement> action)
+        {
+            _rotationChangeActions.Remove(action);
+        }
+
+        void IElement.AddSizeChange(Action<IElement> action)
+        {
+            if (!_sizeChangeActions.Contains(action))
+            {
+                _sizeChangeActions.Add(action);
+            }
+        }
+
+        void IElement.RemoveSizeChange(Action<IElement> action)
+        {
+            _sizeChangeActions.Remove(action);
+        }
+        #endregion
     }
 }
