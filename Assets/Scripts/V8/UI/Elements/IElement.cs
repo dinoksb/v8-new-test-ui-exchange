@@ -17,5 +17,13 @@ namespace V8
         public event EventHandler<Vector2> OnUpdateSize;
         public IElement Copy(RectTransform self, IElement parent);
         public void Update(ElementData data);
+        internal void AddVisibleChanged(Action<bool> action);
+        internal void RemoveVisibleChanged(Action<bool> action);
+        internal void AddPositionChange(Action<IElement> action);
+        internal void RemovePositionChange(Action<IElement> action);
+        internal void AddRotationChange(Action<IElement> action);
+        internal void RemoveRotationChange(Action<IElement> action);
+        internal void AddSizeChange(Action<IElement> action);
+        internal void RemoveSizeChange(Action<IElement> action);
     }
 }
