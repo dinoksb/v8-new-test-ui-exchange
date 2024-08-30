@@ -27,16 +27,16 @@ namespace V8
         public List<IElement> Children { get; private set; } = new();
 
         public event EventHandler<Vector2> OnUpdateSize;
-        
+
         public Canvas(string id, Transform parent, Vector2 resolution)
         {
             Name = id;
             Type = GetType().Name;
             var gameObject = new GameObject(Name);
-            
-            if(gameObject.transform.parent != parent) 
+
+            if (gameObject.transform.parent != parent)
                 gameObject.transform.parent = parent;
-            
+
             var self = gameObject.AddComponent<RectTransform>();
             Self = self;
 
@@ -47,7 +47,8 @@ namespace V8
 
             var canvasScaler = gameObject.AddComponent<CanvasScaler>();
             canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            canvasScaler.referenceResolution = resolution == Vector2.zero ? new Vector2(Screen.width, Screen.height) : resolution;
+            canvasScaler.referenceResolution =
+                resolution == Vector2.zero ? new Vector2(Screen.width, Screen.height) : resolution;
             canvasScaler.referencePixelsPerUnit = 100;
             canvasScaler.matchWidthOrHeight = 0.5f;
 
@@ -69,42 +70,62 @@ namespace V8
             throw new Exception("This function cannot be called in Canvas.");
         }
 
-        void IElement.AddVisibleChanged(Action<bool> action)
+        void IElement.AddVisibleChangedListener(Action<bool> action)
         {
             throw new Exception("This function cannot be called in Canvas.");
         }
 
-        void IElement.RemoveVisibleChanged(Action<bool> action)
+        void IElement.RemoveVisibleChangedListener(Action<bool> action)
         {
             throw new Exception("This function cannot be called in Canvas.");
         }
 
-        void IElement.AddPositionChange(Action<IElement> action)
+        void IElement.RemoveAllVisibleChangedListener()
         {
             throw new Exception("This function cannot be called in Canvas.");
         }
 
-        void IElement.RemovePositionChange(Action<IElement> action)
+        void IElement.AddPositionChangeListener(Action<IElement> action)
         {
             throw new Exception("This function cannot be called in Canvas.");
         }
 
-        void IElement.AddRotationChange(Action<IElement> action)
+        void IElement.RemovePositionChangeListener(Action<IElement> action)
         {
             throw new Exception("This function cannot be called in Canvas.");
         }
 
-        void IElement.RemoveRotationChange(Action<IElement> action)
+        void IElement.RemoveAllPositionChangeListener()
         {
             throw new Exception("This function cannot be called in Canvas.");
         }
 
-        void IElement.AddSizeChange(Action<IElement> action)
+        void IElement.AddRotationChangeListener(Action<IElement> action)
         {
             throw new Exception("This function cannot be called in Canvas.");
         }
 
-        void IElement.RemoveSizeChange(Action<IElement> action)
+        void IElement.RemoveRotationChangeListener(Action<IElement> action)
+        {
+            throw new Exception("This function cannot be called in Canvas.");
+        }
+
+        void IElement.RemoveAllRotationChangeListener()
+        {
+            throw new Exception("This function cannot be called in Canvas.");
+        }
+
+        void IElement.AddSizeChangeListener(Action<IElement> action)
+        {
+            throw new Exception("This function cannot be called in Canvas.");
+        }
+
+        void IElement.RemoveSizeChangeListener(Action<IElement> action)
+        {
+            throw new Exception("This function cannot be called in Canvas.");
+        }
+
+        void IElement.RemoveAllSizeChangeListener()
         {
             throw new Exception("This function cannot be called in Canvas.");
         }
