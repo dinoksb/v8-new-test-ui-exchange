@@ -130,7 +130,7 @@ namespace V8
                         string eventId = trigger.eventID.ToString();
                         buttonData.events.Add(eventId, eventId);
                     }
-                    buttonData.threshold = 0.5f;
+                    // buttonData.threshold = 0.0f;
                     return buttonData as T;
                 default:
                     InternalDebug.LogError("[UIJsonExporter] - This type is not supported.");
