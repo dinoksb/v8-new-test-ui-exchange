@@ -17,13 +17,13 @@ namespace V8
         {
         }
 
-        public static UIData? Import(string json)
+        public static UIData? Import(string url)
         {
-            if (IsValidation(json))
+            if (IsValidation(url))
             {
                 try
                 {
-                    return JsonConvert.DeserializeObject<UIData>(json, ElementDataConverter.SerializerSettings);
+                    return JsonConvert.DeserializeObject<UIData>(url, ElementDataConverter.SerializerSettings);
                 }
                 catch (JsonException e)
                 {
@@ -75,7 +75,7 @@ namespace V8
             var asset = data.Value.asset;
             var ui = data.Value.ui;
 
-            _canvas = new Canvas(UIConfig.Canvas, null, referenceResolution);
+            _canvas = new Canvas(UIConfig.Canvas, null, referenceResolution, false);
             _sprites = await SpriteImporter.Import(asset.sprite, true);
 
             foreach (var (key, element) in ui)
