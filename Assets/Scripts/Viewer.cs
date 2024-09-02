@@ -28,7 +28,7 @@ namespace V8.Template
         [Preserve]
         public void ClearUI()
         {
-            uiManager.Clear();
+            uiManager.Release();
         }
         
         private async void LoadUIAsync(string uiUrl)

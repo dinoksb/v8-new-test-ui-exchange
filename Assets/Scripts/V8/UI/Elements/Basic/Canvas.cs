@@ -28,11 +28,17 @@ namespace V8
 
         public event EventHandler<Vector2> OnUpdateSize;
 
-        public Canvas(string id, Transform parent, Vector2 resolution)
+        public Canvas(string id, Transform parent, Vector2 resolution, bool dontDestoryOnLoad)
         {
             Name = id;
             Type = GetType().Name;
             var gameObject = new GameObject(Name);
+
+            if (dontDestoryOnLoad)
+            {
+                GameObject.DontDestroyOnLoad(gameObject);
+                gameObject.SetActive(false);
+            }
 
             if (gameObject.transform.parent != parent)
                 gameObject.transform.parent = parent;
