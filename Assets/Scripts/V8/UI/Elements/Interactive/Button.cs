@@ -15,6 +15,11 @@ namespace V8
         private readonly Action<ulong, string, string, string> _action;
         private readonly Dictionary<EventTriggerType, float> _lastEventTimes = new();
 
+        private List<Action<IElement>> _pointerEnterEvents = new();
+        private readonly List<Action<IElement>> _pointerExitEvents = new();
+        private readonly List<Action<IElement>> _pointerDownEvents = new();
+        private readonly List<Action<IElement>> _pointerUpEvents = new();
+
         public ReadOnlyDictionary<EventTriggerType, string> Events
         {
             get => _events;
@@ -25,14 +30,14 @@ namespace V8
             }
         }
 
-        public float Threshold { get; }
+        // public float Threshold { get; }
 
         public Button(ButtonData data, ButtonComponents components, Action<ulong, string, string, string> action)
             : base(data, components)
         {
             _action = action;
             _eventTrigger = components.EventTrigger;
-            Threshold = data.threshold;
+            // Threshold = data.threshold;
 
             var e = new Dictionary<EventTriggerType, string>();
             foreach (var (eventType, eventId) in data.events)
@@ -44,6 +49,12 @@ namespace V8
             }
 
             Events = new ReadOnlyDictionary<EventTriggerType, string>(e);
+            
+            _eventTrigger.triggers.Add(CreateEntry(EventTriggerType.PointerEnter, _pointerEnterEvents));
+            _eventTrigger.triggers.Add(CreateEntry(EventTriggerType.PointerExit, _pointerExitEvents));
+            _eventTrigger.triggers.Add(CreateEntry(EventTriggerType.PointerDown, _pointerDownEvents));
+            _eventTrigger.triggers.Add(CreateEntry(EventTriggerType.PointerUp, _pointerUpEvents));
+
         }
 
         public override IElement Copy(RectTransform self, IElement parent)
@@ -65,7 +76,9 @@ namespace V8
 
         private void UpdateEventTrigger(ReadOnlyDictionary<EventTriggerType, string> events)
         {
+            // todo: 기존에 등록한 이벤트 트리거들 모두 제거됨... 추후 _eventTrigger.triggers.Clear() 로직 제거 필요할수도있음..
             _eventTrigger.triggers.Clear();
+            
             foreach (var (eventType, eventId) in events)
             {
                 var entry = _eventTrigger.triggers.FirstOrDefault(x => x.eventID == eventType);
@@ -73,7 +86,7 @@ namespace V8
                 {
                     _eventTrigger.triggers.Remove(entry);
                 }
-
+            
                 _eventTrigger.triggers.Add(CreateEntry(eventType, eventId));
             }
         }
@@ -88,17 +101,106 @@ namespace V8
             _lastEventTimes[type] = 0;
             entry.callback.AddListener(_ =>
             {
-                var diff = Time.time - _lastEventTimes[type];
-                if (diff < Threshold)
-                {
-                    return;
-                }
+                // var diff = Time.time - _lastEventTimes[type];
+                // if (diff < Threshold)
+                // {
+                //     return;
+                // }
 
                 _lastEventTimes[type] = Time.time;
                 //Todo: Network 로 이벤트 보낼 때 Name 으로 보내는게 맞을지 UID 로 보내는게 맞을지?
-                _action.Invoke(NetworkManager.Singleton.LocalClientId, Name, type.ToString(), eventId);
+                _action?.Invoke(NetworkManager.Singleton.LocalClientId, Name, type.ToString(), eventId);
             });
             return entry;
+        }
+        
+        private EventTrigger.Entry CreateEntry(EventTriggerType type, List<Action<IElement>> eventActions)
+        {
+            var entry = new EventTrigger.Entry
+            {
+                eventID = type
+            };
+
+            _lastEventTimes[type] = 0;
+            entry.callback.AddListener(_ =>
+            {
+                // var diff = Time.time - _lastEventTimes[type];
+                // if (diff < Threshold)
+                // {
+                //     return;
+                // }
+
+                _lastEventTimes[type] = Time.time;
+                foreach (var eventAction in eventActions)
+                {
+                    eventAction?.Invoke(this);
+                }
+            });
+            return entry;
+        }
+
+        public void AddPointerEnterListener(Action<IElement> eventAction)
+        {
+            if(!_pointerEnterEvents.Contains(eventAction))
+                _pointerEnterEvents.Add(eventAction);
+        }
+
+        public void RemovePointerEnterListener(Action<IElement> eventAction)
+        {
+            _pointerEnterEvents.Remove(eventAction);
+        }
+        
+        public void RemoveAllPointerEnterListener(Action<IElement> eventAction)
+        {
+            _pointerEnterEvents.Clear();
+        }
+        
+        public void AddPointerExitListener(Action<IElement> eventAction)
+        {
+            if(!_pointerExitEvents.Contains(eventAction))
+                _pointerExitEvents.Add(eventAction);
+        }
+
+        public void RemovePointerExitListener(Action<IElement> eventAction)
+        {
+            _pointerExitEvents.Remove(eventAction);
+        }
+        
+        public void RemoveAllPointerExitListener(Action<IElement> eventAction)
+        {
+            _pointerExitEvents.Clear();
+        }
+        
+        public void AddPointerDownListener(Action<IElement> eventAction)
+        {
+            if(!_pointerDownEvents.Contains(eventAction))
+                _pointerDownEvents.Add(eventAction);
+        }
+
+        public void RemovePointerDownListener(Action<IElement> eventAction)
+        {
+            _pointerDownEvents.Remove(eventAction);
+        }
+        
+        public void RemoveAllPointerDownListener(Action<IElement> eventAction)
+        {
+            _pointerDownEvents.Clear();
+        }
+        
+        public void AddPointerUpListener(Action<IElement> eventAction)
+        {
+            if(!_pointerUpEvents.Contains(eventAction))
+                _pointerUpEvents.Add(eventAction);
+        }
+
+        public void RemovePointerUpListener(Action<IElement> eventAction)
+        {
+            _pointerUpEvents.Remove(eventAction);
+        }
+        
+        public void RemoveAllPointerUpListener(Action<IElement> eventAction)
+        {
+            _pointerUpEvents.Clear();
         }
     }
 }

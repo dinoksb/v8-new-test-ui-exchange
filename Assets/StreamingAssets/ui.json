@@ -7,6 +7,7 @@
   "asset": {
     "sprite": {
       "png-2702691_640": {
+        "name": "png-2702691_640",
         "url": "https://dinoksb.github.io/v8-new-test-ui-exchange\\StreamingAssets/Sprites\\png-2702691_640.png",
         "size": [
           256,
@@ -29,6 +30,7 @@
         "pixelsPerUnit": 100.0
       },
       "button_1": {
+        "name": "button_1",
         "url": "https://dinoksb.github.io/v8-new-test-ui-exchange\\StreamingAssets/Sprites\\button_1.png",
         "size": [
           281,
@@ -205,9 +207,9 @@
     },
     "3e203a59-9b75-4efa-85af-74c2619f18d6": {
       "events": {
-        "0": "PointerEnter"
+        "0": "PointerDown"
       },
-      "threshold": 0.5,
+      "threshold": 0,
       "interactable": true,
       "sizeConstraint": 1,
       "name": "Popup_Button",
