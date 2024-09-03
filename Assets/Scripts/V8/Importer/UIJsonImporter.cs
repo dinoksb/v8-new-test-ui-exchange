@@ -76,7 +76,7 @@ namespace V8
             var ui = data.Value.ui;
 
             _canvas = new Canvas(UIConfig.Canvas, null, referenceResolution, false);
-            _sprites = await SpriteImporter.Import(asset.sprite, true);
+            _sprites = await SpriteImporter.Import(asset.texture, asset.sprite, true);
 
             foreach (var (key, element) in ui)
             {

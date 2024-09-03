@@ -9,23 +9,39 @@ namespace V8
 {
     public static class SpriteImporter
     {
-        public static async UniTask<Dictionary<string, Sprite>> Import(Dictionary<string, SpriteData> spriteDataDict, bool forceDownload = false)
+        public static async UniTask<Dictionary<string, Sprite>> Import(Dictionary<string, TextureData> textureDataDict, Dictionary<string, SpriteData> spriteDataDict, bool forceDownload = false)
         {
-            return await Import(spriteDataDict, string.Empty, forceDownload);
+            return await Import(textureDataDict, spriteDataDict, string.Empty, forceDownload);
         }
         
-        public static async UniTask<Dictionary<string, Sprite>> Import(Dictionary<string, SpriteData> spriteDataDict, string saveFilePath, bool forceDownload = false)
+        public static async UniTask<Dictionary<string, Sprite>> Import(Dictionary<string, TextureData> textureDataDict, Dictionary<string, SpriteData> spriteDataDict, string saveFilePath, bool forceDownload = false)
         {
             var spriteDict = new Dictionary<string, Sprite>();
+            var textureDict = new Dictionary<string, Texture2D>();
+            
+            // download texture
+            foreach (var textureData in textureDataDict)
+            {
+                var textureKey = textureData.Key;
+                var textureValue = textureData.Value;
+                
+                if(textureDict.ContainsKey(textureKey)) continue;
+                
+                var texture = await DownloadTexture(textureKey, saveFilePath, textureValue, forceDownload);
+                
+                textureDict.Add(textureKey, texture);
+            }
+            
+            // create sprite
             foreach (var spriteData in spriteDataDict)
             {
                 var spriteKey = spriteData.Key;
                 var spriteValue = spriteData.Value;
                 
                 if(spriteDict.ContainsKey(spriteKey)) continue;
-                
-                var sprite = await DownloadAndSetSprite(spriteKey, saveFilePath, spriteValue, forceDownload);
-                
+
+                var texture = textureDict[spriteValue.textureId];
+                var sprite = CreateSprite(texture, spriteValue);
                 spriteDict.Add(spriteKey, sprite);
             }
 
@@ -44,20 +60,15 @@ namespace V8
             return texture;
         }
         
-        private static async UniTask<Sprite> DownloadAndSetSprite(string id, SpriteData spriteData, bool forceDownload)
+        private static async UniTask<Texture2D> DownloadTexture(string id, string saveFilePath, TextureData textureData, bool forceDownload)
         {
-            return await DownloadAndSetSprite(id, string.Empty, spriteData, forceDownload);
-        }
-        
-        private static async UniTask<Sprite> DownloadAndSetSprite(string id, string saveFilePath, SpriteData spriteData, bool forceDownload)
-        {
-            var fileExtension = Path.GetExtension(spriteData.url).ToLower();
+            var fileExtension = Path.GetExtension(textureData.url).ToLower();
             var fileNameWithExtension = id + fileExtension;
             var filePath = string.IsNullOrEmpty(saveFilePath) ? Path.Combine(Application.persistentDataPath, fileNameWithExtension) : Path.Combine(saveFilePath, fileNameWithExtension);
 
             if (forceDownload || !File.Exists(filePath))
             {
-                using var www = UnityWebRequestTexture.GetTexture(spriteData.url);
+                using var www = UnityWebRequestTexture.GetTexture(textureData.url);
                 await www.SendWebRequest();
                 if (www.result != UnityWebRequest.Result.Success)
                 {
@@ -79,8 +90,7 @@ namespace V8
                 throw new Exception("Failed to load image data into texture");
             }
 
-            var sprite = CreateSprite(texture, spriteData);
-            return sprite;
+            return texture;
         }
         
         private static Sprite CreateSprite(Texture2D texture, SpriteData spriteData)

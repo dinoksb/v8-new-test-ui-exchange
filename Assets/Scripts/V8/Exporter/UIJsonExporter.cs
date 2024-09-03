@@ -48,16 +48,27 @@ namespace V8
             {
                 var child = gameObject.transform.GetChild(i);
                 var imageComponent = child.GetComponent<UnityEngine.UI.Image>();
-                if (imageComponent != null)
+                if (imageComponent != null && imageComponent.sprite != null)
                 {
+                    var texture = imageComponent.mainTexture;
                     var sprite = imageComponent.sprite;
+                    data.texture ??= new Dictionary<string, TextureData>();
+                    if (!data.texture.ContainsKey(texture.name))
+                    {
+                        data.texture.Add(texture.name, new TextureData()
+                        {
+                            name = texture.name,
+                            url = $"{END_POINT}/{TEXTURE_RESOURCE_PATH}/{texture.name}{UIConfig.PngExtension}",
+                        });
+                    }
+                    
                     data.sprite ??= new Dictionary<string, SpriteData>();
                     data.sprite.Add(sprite.name, new SpriteData()
                     {
                         name = sprite.name,
-                        url = $"{END_POINT}/{TEXTURE_RESOURCE_PATH}/{sprite.name}{UIConfig.PngExtension}",
-                        size = new[] { sprite.texture.width, sprite.texture.height },
-                        offset = new[] { 0, 0 },
+                        textureId = texture.name,
+                        size = new[] { sprite.rect.width, sprite.rect.height },
+                        offset = new[] { sprite.rect.x, sprite.rect.y },
                         border = new[] { sprite.border.x, sprite.border.y, sprite.border.w, sprite.border.z },
                         pivot = new[] { sprite.pivot.x, sprite.pivot.y },
                         pixelsPerUnit = sprite.pixelsPerUnit
@@ -76,7 +87,9 @@ namespace V8
             {
                 var child = gameObject.transform.GetChild(i);
                 var guid = Guid.NewGuid().ToString();
-                data.Add(guid, GetElement<ElementData>(child.gameObject, parentGUID));
+                var element = GetElement<ElementData>(child.gameObject, parentGUID);
+                if(element != null)
+                    data.Add(guid, GetElement<ElementData>(child.gameObject, parentGUID));
                 SetUIData(child.gameObject, guid, ref data);
             }
         }
@@ -94,6 +107,7 @@ namespace V8
                     return frameData as T;
                 case UIConfig.ImageType:
                     var imageComponent = target.GetComponent<UnityEngine.UI.Image>();
+                    if (imageComponent.sprite == null) return null;
                     ImageData imageData = GetFrameData<ImageData>(target, guid);
                     imageData.spriteId = imageComponent.sprite.name;
                     imageData.imageColor = new[]

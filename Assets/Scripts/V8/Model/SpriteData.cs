@@ -1,5 +1,6 @@
 using System;
 using Newtonsoft.Json;
+using UnityEngine.Serialization;
 
 namespace V8
 {
@@ -8,14 +9,13 @@ namespace V8
     {
         [JsonProperty("name", Required = Required.Always)]
         public string name;
-        [JsonProperty("url", Required = Required.Always)]
-        public string url;
+        [JsonProperty("textureId", Required = Required.Always)]
+        public string textureId;
         [JsonProperty("size", Required = Required.Always)]
-        public int[] size;
+        public float[] size;
         
-        // Todo: 어디에 쓰이는지? 불필요한 값 아닌지 확인필요.
         [JsonProperty("offset", Required = Required.Default)]
-        public int[] offset = new [] { 0, 0 };
+        public float[] offset = new [] { 0.0f, 0.0f };
         [JsonProperty("border", Required = Required.Default)]
         public float[] border = new[] { 0.0f, 0.0f, 0.0f, 0.0f }; // (0=left, 1=bottom, 2=right, 3=top)
         [JsonProperty("pivot", Required = Required.Default)]

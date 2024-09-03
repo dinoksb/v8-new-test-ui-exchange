@@ -115,7 +115,7 @@ namespace V8
         }
         
         public static Sprite ToSprite(
-            Texture2D texture, 
+            Texture2D texture,
             Vector2 offset,
             Vector2 size,
             Vector4 border, 
