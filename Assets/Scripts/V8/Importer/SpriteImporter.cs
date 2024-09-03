@@ -100,7 +100,7 @@ namespace V8
             var border = TypeConverter.ToVector4(spriteData.border);
             var pivot = TypeConverter.ToVector2(spriteData.pivot);
             var pixelsPerUnit = spriteData.pixelsPerUnit;
-            var sprite = TypeConverter.ToSprite(texture, offset, size, border, pivot, pixelsPerUnit);
+            var sprite = TypeConverter.ToSprite(texture, offset, size, border, pivot, spriteData.name, pixelsPerUnit);
             return sprite;
         }
     }

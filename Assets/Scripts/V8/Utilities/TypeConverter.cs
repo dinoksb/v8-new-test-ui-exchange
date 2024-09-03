@@ -119,14 +119,15 @@ namespace V8
             Vector2 offset,
             Vector2 size,
             Vector4 border, 
-            Vector2 pivot, 
+            Vector2 pivot,
+            string name,
             float pixelsPerUnit)
         {
             var width = Mathf.Min(size.x, texture.width - offset.x);
             var height = Mathf.Min(size.y, texture.height - offset.y);
             var rect = new Rect(offset.x, offset.y, width, height);
             var sprite = Sprite.Create(texture, rect, pivot, pixelsPerUnit, 0, SpriteMeshType.FullRect, border);
-            sprite.name = texture.name;
+            sprite.name = name;
             return sprite;
         }
     }
