@@ -17,7 +17,7 @@ namespace V8
         {
         }
 
-        public void Clear()
+        public void Release()
         {
             if (_canvas == null && (_sprites.Count == 0 || _ui.Count == 0)) return;
             
@@ -34,7 +34,7 @@ namespace V8
 
         public async void Load(string json)
         {
-            Clear();
+            Release();
             InternalDebug.Log($"[Load] : {json}");
             var uiData = UIJsonImporter.Import(json) ?? throw new ArgumentNullException("UIImporter.Import()");
             var studio = uiData.studioData;
@@ -42,7 +42,7 @@ namespace V8
             var ui = uiData.ui;
             Vector2 referenceResolution = new Vector2(studio.resolutionWidth, studio.resolutionHeight);
             _sprites = await SpriteImporter.Import(asset.sprite, true);
-            _canvas = new Canvas(UIConfig.Canvas, null, referenceResolution);
+            _canvas = new Canvas(UIConfig.Canvas, null, referenceResolution, true);
             BuildUI(ui, referenceResolution);
         }
 
