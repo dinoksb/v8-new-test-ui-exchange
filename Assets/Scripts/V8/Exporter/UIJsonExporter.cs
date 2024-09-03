@@ -14,7 +14,7 @@ namespace V8
     {
         private const string END_POINT = "https://dinoksb.github.io/v8-new-test-ui-exchange";
         private const string TEXTURE_RESOURCE_PATH = "StreamingAssets/Sprites";
-        
+
         public static void Export(GameObject gameObject, string filePath)
         {
             if (!IsValid(gameObject)) return;
@@ -61,35 +61,42 @@ namespace V8
                             url = $"{END_POINT}/{TEXTURE_RESOURCE_PATH}/{texture.name}{UIConfig.PngExtension}",
                         });
                     }
-                    
+
                     data.sprite ??= new Dictionary<string, SpriteData>();
-                    data.sprite.Add(sprite.name, new SpriteData()
+                    if (!data.sprite.ContainsKey(sprite.name))
                     {
-                        name = sprite.name,
-                        textureId = texture.name,
-                        size = new[] { sprite.rect.width, sprite.rect.height },
-                        offset = new[] { sprite.rect.x, sprite.rect.y },
-                        border = new[] { sprite.border.x, sprite.border.y, sprite.border.w, sprite.border.z },
-                        pivot = new[] { sprite.pivot.x, sprite.pivot.y },
-                        pixelsPerUnit = sprite.pixelsPerUnit
-                    });
+                        data.sprite.Add(sprite.name, new SpriteData()
+                        {
+                            name = sprite.name,
+                            textureId = texture.name,
+                            size = new[] { sprite.rect.width, sprite.rect.height },
+                            offset = new[] { sprite.rect.x, sprite.rect.y },
+                            border = new[] { sprite.border.x, sprite.border.y, sprite.border.w, sprite.border.z },
+                            pivot = new[] { sprite.pivot.x, sprite.pivot.y },
+                            pixelsPerUnit = sprite.pixelsPerUnit
+                        });
+                    }
                 }
+
                 SetSpriteData(child.gameObject, ref data);
             }
         }
 
-        private static void SetUIData(GameObject gameObject, string parentGUID, ref Dictionary<string, ElementData> data)
+        private static void SetUIData(GameObject gameObject, string parentGUID,
+            ref Dictionary<string, ElementData> data)
         {
             data ??= new Dictionary<string, ElementData>();
-            parentGUID = string.IsNullOrEmpty(parentGUID) ? Guid.NewGuid().ToString() : parentGUID; 
+            parentGUID = string.IsNullOrEmpty(parentGUID) ? Guid.NewGuid().ToString() : parentGUID;
             var childCount = gameObject.transform.childCount;
             for (int i = 0; i < childCount; i++)
             {
                 var child = gameObject.transform.GetChild(i);
                 var guid = Guid.NewGuid().ToString();
                 var element = GetElement<ElementData>(child.gameObject, parentGUID);
-                if(element != null)
-                    data.Add(guid, GetElement<ElementData>(child.gameObject, parentGUID));
+                
+                if(element == null) continue;
+                
+                data.Add(guid, element);
                 SetUIData(child.gameObject, guid, ref data);
             }
         }
@@ -106,14 +113,25 @@ namespace V8
                     FrameData frameData = GetFrameData<FrameData>(target, guid);
                     return frameData as T;
                 case UIConfig.ImageType:
-                    var imageComponent = target.GetComponent<UnityEngine.UI.Image>();
-                    if (imageComponent.sprite == null) return null;
+                    var imageBackgroundComponent = target.GetComponent<UnityEngine.UI.Image>();
+                    if (imageBackgroundComponent.sprite != null)
+                        return null;
+                    
+                    var imageComponent = target.GetChild(0).GetComponent<UnityEngine.UI.Image>();
                     ImageData imageData = GetFrameData<ImageData>(target, guid);
-                    imageData.spriteId = imageComponent.sprite.name;
+                    imageData.backgroundColor = new[]
+                    {
+                        imageBackgroundComponent.color.r, imageBackgroundComponent.color.g,
+                        imageBackgroundComponent.color.b,
+                        imageBackgroundComponent.color.a
+                    };
                     imageData.imageColor = new[]
                     {
-                        imageComponent.color.r, imageComponent.color.g, imageComponent.color.b, imageComponent.color.a
+                        imageComponent.color.r, imageComponent.color.g,
+                        imageComponent.color.b,
+                        imageComponent.color.a
                     };
+                    imageData.spriteId = imageComponent.sprite.name;
                     return imageData as T;
                 case UIConfig.LabelType:
                     var textComponent = target.GetComponent<TextMeshProUGUI>();
@@ -132,7 +150,8 @@ namespace V8
                     labelData.bold = (textComponent.fontStyle & FontStyles.Bold) == FontStyles.Bold;
                     labelData.italic = (textComponent.fontStyle & FontStyles.Italic) == FontStyles.Italic;
                     labelData.underline = (textComponent.fontStyle & FontStyles.Underline) == FontStyles.Underline;
-                    labelData.strikethrough = (textComponent.fontStyle & FontStyles.Strikethrough) == FontStyles.Strikethrough;
+                    labelData.strikethrough =
+                        (textComponent.fontStyle & FontStyles.Strikethrough) == FontStyles.Strikethrough;
                     labelData.text = textComponent.text;
                     return labelData as T;
                 case UIConfig.ButtonType:
@@ -144,6 +163,7 @@ namespace V8
                         string eventId = trigger.eventID.ToString();
                         buttonData.events.Add(eventId, eventId);
                     }
+
                     // buttonData.threshold = 0.0f;
                     return buttonData as T;
                 default:
