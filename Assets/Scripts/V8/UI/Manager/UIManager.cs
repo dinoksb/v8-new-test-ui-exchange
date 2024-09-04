@@ -96,23 +96,23 @@ namespace V8
             {
                 if (_ui.ContainsKey(key)) continue;
 
-                _ui.Add(key, CreateElement(element, referenceResolution));
+                _ui.Add(key, CreateElement(key, element, referenceResolution));
             }
         }
 
-        private IElement CreateElement(ElementData data, Vector2 referenceResolution)
+        private IElement CreateElement(string uid, ElementData data, Vector2 referenceResolution)
         {
             _factoryProvider = new ElementFactoryProvider(_sprites, referenceResolution, OnEvent);
             var factory = _factoryProvider.GetFactory(data.type);
             var parent = GetParentFromElement(data.parent);
-            var element = factory.Create(data, parent);
+            var element = factory.Create(uid, data, parent);
             element.Visible = data.visible;
             return element;
         }
 
         private IElement GetParentFromElement(string id)
         {
-            return GetElement(id) ?? _tempCanvas;
+            return string.IsNullOrEmpty(id) ? _tempCanvas : GetElement(id);
         }
 
         private IElement GetElement(string id)
