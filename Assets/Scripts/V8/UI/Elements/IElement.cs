@@ -6,6 +6,7 @@ namespace V8
 {
     public interface IElement : IDisposable
     {
+        public string Uid { get; }
         public string Name { get; }
         public string Type { get; }
         public RectTransform Self { get; }
@@ -17,8 +18,8 @@ namespace V8
         public event EventHandler<Vector2> OnUpdateSize;
         public IElement Copy(RectTransform self, IElement parent);
         public void Update(ElementData data);
-        internal void AddVisibleChangedListener(Action<bool> action);
-        internal void RemoveVisibleChangedListener(Action<bool> action);
+        internal void AddVisibleChangedListener(Action<IElement> action);
+        internal void RemoveVisibleChangedListener(Action<IElement> action);
         internal void RemoveAllVisibleChangedListener();
         internal void AddPositionChangeListener(Action<IElement> action);
         internal void RemovePositionChangeListener(Action<IElement> action);

@@ -10,7 +10,7 @@ namespace V8
     {
         public string Type => typeof(TElement).Name;
      
-        public TElement Create(ElementData data, IElement parent)
+        public TElement Create(string uid, ElementData data, IElement parent)
         {
             if (data is not TData typedData)
             {
@@ -18,11 +18,11 @@ namespace V8
             }
 
             var typedComponents = CreateComponents(parent, data.name);
-            return CreateTyped(typedData, typedComponents);
+            return CreateTyped(uid, typedData, typedComponents);
         }
 
         protected abstract TComponents CreateComponents(IElement parent, string name);
         
-        protected abstract TElement CreateTyped(TData data, TComponents components);
+        protected abstract TElement CreateTyped(string uid, TData data, TComponents components);
     }
 }

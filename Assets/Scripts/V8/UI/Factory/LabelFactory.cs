@@ -16,9 +16,9 @@ namespace V8
             return new LabelComponents(parent, name);
         }
 
-        protected override Label CreateTyped(LabelData data, LabelComponents components)
+        protected override Label CreateTyped(string uid, LabelData data, LabelComponents components)
         {
-            return new Label(data, components, _referenceResolution);
+            return new Label(uid, data, components, _referenceResolution);
         }
     }
 }

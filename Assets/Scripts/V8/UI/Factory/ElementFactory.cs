@@ -7,9 +7,9 @@ namespace V8
             return new ElementComponents(parent, name);
         }
 
-        protected override Element CreateTyped(ElementData data, ElementComponents components)
+        protected override Element CreateTyped(string uid, ElementData data, ElementComponents components)
         {
-            return new Element(data, components);
+            return new Element(uid, data, components);
         }
     }
 }

@@ -16,9 +16,9 @@ namespace V8
             return new ButtonComponents(parent, name);
         }
 
-        protected override Button CreateTyped(ButtonData data, ButtonComponents components)
+        protected override Button CreateTyped(string uid, ButtonData data, ButtonComponents components)
         {
-            return new Button(data, components, _onEvent);
+            return new Button(uid, data, components, _onEvent);
         }
     }
 }

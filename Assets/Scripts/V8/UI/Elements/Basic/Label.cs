@@ -147,7 +147,7 @@ namespace V8
 
         public delegate void TextChangeEventAction(IElement element, string prevText, string newText);
 
-        public Label(LabelData data, LabelComponents components, Vector2 referenceResolution) : base(data, components)
+        public Label(string uid, LabelData data, LabelComponents components, Vector2 referenceResolution) : base(uid, data, components)
         {
             _tmp = components.TMP;
             _referenceResolution = referenceResolution;

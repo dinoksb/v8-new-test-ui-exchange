@@ -7,9 +7,9 @@ namespace V8
             return new FrameComponents(parent, name);
         }
         
-        protected override Frame CreateTyped(FrameData data, FrameComponents components)
+        protected override Frame CreateTyped(string uid, FrameData data, FrameComponents components)
         {
-            return new Frame(data, components);
+            return new Frame(uid, data, components);
         }
     }
 }

@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using V8.Service;
 
 namespace V8
 {
     public class Element : IElement
     {
+        public string Uid { get; }
         public string Name { get; }
 
         public string Type { get; }
@@ -79,7 +81,7 @@ namespace V8
                 Self.gameObject.SetActive(value);
                 foreach (var eventAction in _visibleChangedActions)
                 {
-                    eventAction?.Invoke(value);
+                    eventAction?.Invoke(this);
                 }
             }
         }
@@ -88,13 +90,20 @@ namespace V8
 
         public event EventHandler<Vector2> OnUpdateSize;
 
-        private readonly List<Action<bool>> _visibleChangedActions = new();
+        private IUIService _uiService;
+        
+        private readonly List<Action<IElement>> _visibleChangedActions = new();
         private readonly List<Action<IElement>> _positionChangeActions = new();
         private readonly List<Action<IElement>> _rotationChangeActions = new();
         private readonly List<Action<IElement>> _sizeChangeActions = new();
 
-        public Element(ElementData data, ElementComponents components)
+        public Element(string uid, ElementData data, ElementComponents components)
         {
+            // todo: 추후 DI 로 주입 해야함.
+            _uiService = GameObject.FindObjectOfType<UIService>();
+            
+            _uiService.OnCreated(this);
+            Uid = uid;
             Name = data.name;
             Type = data.type;
             Self = components.Self;
@@ -120,10 +129,9 @@ namespace V8
         public virtual void Update(ElementData data)
         {
             SetValues(data);
-            
             Visible = data.visible;
         }
-        
+
         protected static RectTransform GetChildSelf(Transform targetSelf, string id)
         {
             for (var i = 0; i < targetSelf.childCount; i++)
@@ -150,8 +158,9 @@ namespace V8
                 return convertedValue == Vector2.zero ? new Vector2(0.5f, 0.5f) : convertedValue;
             }
         }
-        # region Events
-        void IElement.AddVisibleChangedListener(Action<bool> action)
+        
+        # region internal events
+        void IElement.AddVisibleChangedListener(Action<IElement> action)
         {
             if (!_visibleChangedActions.Contains(action))
             {
@@ -159,7 +168,7 @@ namespace V8
             }
         }
 
-        void IElement.RemoveVisibleChangedListener(Action<bool> action)
+        void IElement.RemoveVisibleChangedListener(Action<IElement> action)
         {
             _visibleChangedActions.Remove(action);
         }

@@ -8,6 +8,7 @@ namespace V8
 {
     public class Canvas : IElement
     {
+        public string Uid { get; }
         public string Name { get; }
 
         public RectTransform Self { get; }
@@ -76,12 +77,12 @@ namespace V8
             throw new Exception("This function cannot be called in Canvas.");
         }
 
-        void IElement.AddVisibleChangedListener(Action<bool> action)
+        void IElement.AddVisibleChangedListener(Action<IElement> element)
         {
             throw new Exception("This function cannot be called in Canvas.");
         }
 
-        void IElement.RemoveVisibleChangedListener(Action<bool> action)
+        void IElement.RemoveVisibleChangedListener(Action<IElement> action)
         {
             throw new Exception("This function cannot be called in Canvas.");
         }

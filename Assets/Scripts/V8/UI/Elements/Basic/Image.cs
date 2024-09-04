@@ -45,7 +45,7 @@ namespace V8
             }
         }
 
-        public Image(ImageData data, ImageComponents components, Sprite sprite) : base(data, components)
+        public Image(string uid, ImageData data, ImageComponents components, Sprite sprite) : base(uid, data, components)
         {
             _backgroundImage = components.BackGroundImage;
             _image = components.Image;

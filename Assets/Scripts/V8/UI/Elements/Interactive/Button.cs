@@ -32,8 +32,8 @@ namespace V8
 
         // public float Threshold { get; }
 
-        public Button(ButtonData data, ButtonComponents components, Action<ulong, string, string, string> action)
-            : base(data, components)
+        public Button(string uid, ButtonData data, ButtonComponents components, Action<ulong, string, string, string> action)
+            : base(uid, data, components)
         {
             _action = action;
             _eventTrigger = components.EventTrigger;
