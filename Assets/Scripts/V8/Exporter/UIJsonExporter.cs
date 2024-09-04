@@ -22,7 +22,7 @@ namespace V8
             UIData uiData = new();
             SetStudioData(gameObject, ref uiData.studioData);
             SetSpriteData(gameObject, ref uiData.asset);
-            SetUIData(gameObject, Guid.NewGuid().ToString(), ref uiData.ui);
+            SetUIData(gameObject, null, ref uiData.ui);
             SaveJson(filePath, uiData);
         }
 
@@ -82,17 +82,17 @@ namespace V8
             }
         }
 
-        private static void SetUIData(GameObject gameObject, string parentGUID,
+        private static void SetUIData(GameObject gameObject, string parentUID,
             ref Dictionary<string, ElementData> data)
         {
             data ??= new Dictionary<string, ElementData>();
-            parentGUID = string.IsNullOrEmpty(parentGUID) ? Guid.NewGuid().ToString() : parentGUID;
+            // parentGUID = string.IsNullOrEmpty(parentGUID) ? Guid.NewGuid().ToString() : parentGUID;
             var childCount = gameObject.transform.childCount;
             for (int i = 0; i < childCount; i++)
             {
                 var child = gameObject.transform.GetChild(i);
                 var guid = Guid.NewGuid().ToString();
-                var element = GetElement<ElementData>(child.gameObject, parentGUID);
+                var element = GetElement<ElementData>(child.gameObject, parentUID);
                 
                 if(element == null) continue;
                 
