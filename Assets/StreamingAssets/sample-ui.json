@@ -107,7 +107,7 @@
           0.0
         ],
         "pivot": [
-          0.537558258,
+          0.5375583,
           0.14600952
         ],
         "pixelsPerUnit": 100.0
@@ -115,12 +115,12 @@
     }
   },
   "ui": {
-    "e541f02a-0fbf-48b3-8700-49c5b0182db4": {
+    "96f2ee3a-37ae-442c-8f44-05e08a1e10eb": {
       "interactable": true,
       "sizeConstraint": 1,
       "name": "Popup",
       "type": "Frame",
-      "parent": "16d19109-da65-4c60-ae9d-9e856ea0425c",
+      "parent": null,
       "anchorMin": [
         0.5,
         0.5
@@ -156,7 +156,7 @@
       "rotation": 0.0,
       "visible": true
     },
-    "8423683a-165b-469e-a09c-54721400aa49": {
+    "3835b0eb-18cb-4782-ad65-7b6ac73bab57": {
       "spriteId": "png-2702691_640",
       "backgroundColor": [
         1.0,
@@ -174,7 +174,7 @@
       "sizeConstraint": 1,
       "name": "Popup_Background",
       "type": "Image",
-      "parent": "e541f02a-0fbf-48b3-8700-49c5b0182db4",
+      "parent": "96f2ee3a-37ae-442c-8f44-05e08a1e10eb",
       "anchorMin": [
         0.5,
         0.5
@@ -210,7 +210,7 @@
       "rotation": 0.0,
       "visible": true
     },
-    "8c6abbc7-0065-4688-8aba-026057d9384d": {
+    "0c96a6f2-342b-4a52-83d2-70f46432f918": {
       "textAlignment": "Center",
       "fontId": "LiberationSans SDF",
       "fontColor": [
@@ -225,7 +225,7 @@
       "sizeConstraint": 1,
       "name": "Popup_Label",
       "type": "Label",
-      "parent": "e541f02a-0fbf-48b3-8700-49c5b0182db4",
+      "parent": "96f2ee3a-37ae-442c-8f44-05e08a1e10eb",
       "anchorMin": [
         0.5,
         0.5
@@ -261,7 +261,7 @@
       "rotation": 0.0,
       "visible": true
     },
-    "0d458438-538f-4678-adc2-9f648a487252": {
+    "292403be-ce30-420a-9d92-17d46b62fd74": {
       "events": {
         "PointerEnter": "PointerEnter"
       },
@@ -269,7 +269,7 @@
       "sizeConstraint": 1,
       "name": "Popup_Button",
       "type": "Button",
-      "parent": "e541f02a-0fbf-48b3-8700-49c5b0182db4",
+      "parent": "96f2ee3a-37ae-442c-8f44-05e08a1e10eb",
       "anchorMin": [
         0.5,
         0.0
@@ -305,7 +305,7 @@
       "rotation": 0.0,
       "visible": true
     },
-    "a80da9c9-2ec6-4751-a514-617680280177": {
+    "e9bf3325-bd8b-42fa-b87a-b4d7e40e81e4": {
       "spriteId": "button_1",
       "backgroundColor": [
         1.0,
@@ -323,7 +323,7 @@
       "sizeConstraint": 1,
       "name": "Popup_Button_Image",
       "type": "Image",
-      "parent": "0d458438-538f-4678-adc2-9f648a487252",
+      "parent": "292403be-ce30-420a-9d92-17d46b62fd74",
       "anchorMin": [
         0.5,
         0.5
@@ -359,7 +359,7 @@
       "rotation": 0.0,
       "visible": true
     },
-    "bdfe9791-252a-4d7d-b1a0-eb509390cbab": {
+    "da568da5-9244-481b-a7a5-b3e614ba3eb2": {
       "textAlignment": "Center",
       "fontId": "LiberationSans SDF",
       "fontColor": [
@@ -374,7 +374,7 @@
       "sizeConstraint": 1,
       "name": "Popup_Button_Label",
       "type": "Label",
-      "parent": "0d458438-538f-4678-adc2-9f648a487252",
+      "parent": "292403be-ce30-420a-9d92-17d46b62fd74",
       "anchorMin": [
         0.5,
         0.5
@@ -410,58 +410,7 @@
       "rotation": 0.0,
       "visible": true
     },
-    "1dd6c587-af83-4693-8866-e6da566df857": {
-      "textAlignment": "BottomRight",
-      "fontId": "LiberationSans SDF",
-      "fontColor": [
-        255.0,
-        255.0,
-        255.0,
-        255.0
-      ],
-      "fontSize": 36.0,
-      "text": "for test",
-      "interactable": true,
-      "sizeConstraint": 1,
-      "name": "Label_1",
-      "type": "Label",
-      "parent": "16d19109-da65-4c60-ae9d-9e856ea0425c",
-      "anchorMin": [
-        0.5,
-        0.0
-      ],
-      "anchorMax": [
-        0.5,
-        0.0
-      ],
-      "pivot": [
-        0.5,
-        0.0
-      ],
-      "position": {
-        "x": {
-          "scale": 0.0,
-          "offset": 0.0
-        },
-        "y": {
-          "scale": 0.0,
-          "offset": 115.0
-        }
-      },
-      "size": {
-        "x": {
-          "scale": 0.0,
-          "offset": 200.0
-        },
-        "y": {
-          "scale": 0.0,
-          "offset": 20.0
-        }
-      },
-      "rotation": 0.0,
-      "visible": true
-    },
-    "a8c7d07b-d410-46a0-976a-537a481bbade": {
+    "fc397702-3d89-4254-8ffe-4a1ba0047843": {
       "spriteId": "test-sprite_0",
       "backgroundColor": [
         0.8490566,
@@ -479,7 +428,7 @@
       "sizeConstraint": 1,
       "name": "Popup_Image_Left",
       "type": "Image",
-      "parent": "16d19109-da65-4c60-ae9d-9e856ea0425c",
+      "parent": "96f2ee3a-37ae-442c-8f44-05e08a1e10eb",
       "anchorMin": [
         0.5,
         0.5
@@ -515,7 +464,7 @@
       "rotation": 0.0,
       "visible": true
     },
-    "6f881759-4dbc-4d01-9b64-8eaa8d0f66a6": {
+    "c30756ba-5c30-4652-9689-24e7cb759ca7": {
       "spriteId": "test-sprite_10",
       "backgroundColor": [
         0.945368,
@@ -533,7 +482,7 @@
       "sizeConstraint": 1,
       "name": "Popup_Image_Right",
       "type": "Image",
-      "parent": "16d19109-da65-4c60-ae9d-9e856ea0425c",
+      "parent": "96f2ee3a-37ae-442c-8f44-05e08a1e10eb",
       "anchorMin": [
         0.5,
         0.5
@@ -564,6 +513,108 @@
         "y": {
           "scale": 0.0,
           "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true
+    },
+    "01ce13f0-1a89-4845-bc0c-922de85bb471": {
+      "textAlignment": "BottomRight",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        255.0,
+        255.0,
+        255.0,
+        255.0
+      ],
+      "fontSize": 36.0,
+      "text": "label 1",
+      "interactable": true,
+      "sizeConstraint": 1,
+      "name": "Label_1",
+      "type": "Label",
+      "parent": null,
+      "anchorMin": [
+        0.5,
+        0.0
+      ],
+      "anchorMax": [
+        0.5,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 296.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 20.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true
+    },
+    "5311749d-70e7-4aae-832f-f6e258c02e3b": {
+      "textAlignment": "BottomRight",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        255.0,
+        255.0,
+        255.0,
+        255.0
+      ],
+      "fontSize": 36.0,
+      "text": "label 2",
+      "interactable": true,
+      "sizeConstraint": 1,
+      "name": "Label_2",
+      "type": "Label",
+      "parent": null,
+      "anchorMin": [
+        0.5,
+        0.0
+      ],
+      "anchorMax": [
+        0.5,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 150.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 20.0
         }
       },
       "rotation": 0.0,
