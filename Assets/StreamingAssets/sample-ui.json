@@ -5,60 +5,122 @@
     "resolutionHeight": 1080.0
   },
   "asset": {
+    "texture": {
+      "png-2702691_640": {
+        "name": "png-2702691_640",
+        "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/png-2702691_640.png"
+      },
+      "button_1": {
+        "name": "button_1",
+        "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/button_1.png"
+      },
+      "test-sprite": {
+        "name": "test-sprite",
+        "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/test-sprite.png"
+      }
+    },
     "sprite": {
       "png-2702691_640": {
-        "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/png-2702691_640.png",
+        "name": "png-2702691_640",
+        "textureId": "png-2702691_640",
         "size": [
-          256,
-          128
+          256.0,
+          128.0
         ],
         "offset": [
-          0,
-          0
+          0.0,
+          0.0
         ],
         "border": [
-          43.0,
-          47.0,
-          49.0,
-          48.0
+          0.0,
+          0.0,
+          0.0,
+          0.0
         ],
         "pivot": [
-          1.54742505E+26,
-          7.55578637E+22
+          0.5,
+          0.5
         ],
         "pixelsPerUnit": 100.0
       },
       "button_1": {
-        "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/button_1.png",
+        "name": "button_1",
+        "textureId": "button_1",
         "size": [
-          281,
-          98
+          281.0,
+          98.0
         ],
         "offset": [
-          0,
-          0
+          0.0,
+          0.0
         ],
         "border": [
-          10.0,
-          10.0,
-          10.0,
-          10.0
+          0.0,
+          0.0,
+          0.0,
+          0.0
         ],
         "pivot": [
-          4.312603E+26,
-          4.003657E+21
+          0.5,
+          0.5
+        ],
+        "pixelsPerUnit": 100.0
+      },
+      "test-sprite_0": {
+        "name": "test-sprite_0",
+        "textureId": "test-sprite",
+        "size": [
+          65.0,
+          100.0
+        ],
+        "offset": [
+          5.0,
+          749.0
+        ],
+        "border": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "pivot": [
+          0.5,
+          0.5
+        ],
+        "pixelsPerUnit": 100.0
+      },
+      "test-sprite_10": {
+        "name": "test-sprite_10",
+        "textureId": "test-sprite",
+        "size": [
+          65.0,
+          100.0
+        ],
+        "offset": [
+          705.0,
+          750.0
+        ],
+        "border": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "pivot": [
+          0.537558258,
+          0.14600952
         ],
         "pixelsPerUnit": 100.0
       }
     }
   },
   "ui": {
-    "046b32de-fb8b-46ec-9f10-b99e3ddfdf8f": {
+    "e541f02a-0fbf-48b3-8700-49c5b0182db4": {
       "interactable": true,
       "sizeConstraint": 1,
       "name": "Popup",
       "type": "Frame",
-      "parent": "6b2d7ba1-5543-4e8b-85c2-7d2e49576d72",
+      "parent": "16d19109-da65-4c60-ae9d-9e856ea0425c",
       "anchorMin": [
         0.5,
         0.5
@@ -94,19 +156,25 @@
       "rotation": 0.0,
       "visible": true
     },
-    "44ea3b8d-12dc-4011-a403-a0ec6a5b1821": {
+    "8423683a-165b-469e-a09c-54721400aa49": {
       "spriteId": "png-2702691_640",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
       "imageColor": [
-        255.0,
-        255.0,
-        255.0,
-        255.0
+        1.0,
+        1.0,
+        1.0,
+        1.0
       ],
       "interactable": true,
       "sizeConstraint": 1,
       "name": "Popup_Background",
       "type": "Image",
-      "parent": "046b32de-fb8b-46ec-9f10-b99e3ddfdf8f",
+      "parent": "e541f02a-0fbf-48b3-8700-49c5b0182db4",
       "anchorMin": [
         0.5,
         0.5
@@ -132,42 +200,32 @@
       "size": {
         "x": {
           "scale": 0.0,
-          "offset": 300.0
+          "offset": 660.0
         },
         "y": {
           "scale": 0.0,
-          "offset": 300.0
+          "offset": 238.8
         }
       },
       "rotation": 0.0,
       "visible": true
     },
-    "f1c4945a-7562-4d23-a259-7d91b6586cc0": {
+    "8c6abbc7-0065-4688-8aba-026057d9384d": {
       "textAlignment": "Center",
-      "fontId": "Anton SDF",
+      "fontId": "LiberationSans SDF",
       "fontColor": [
         255.0,
         255.0,
         255.0,
         255.0
       ],
-      "fontSize": 25.83,
-      "fontSizeConstraint": 0,
-      "characterSpacing": 0.0,
-      "lineSpacing": 0.0,
-      "autoSize": true,
-      "singleLine": false,
-      "ellipsis": false,
-      "bold": true,
-      "italic": true,
-      "underline": false,
-      "strikethrough": false,
+      "fontSize": 36.0,
       "text": "test popup content!",
       "interactable": true,
       "sizeConstraint": 1,
       "name": "Popup_Label",
       "type": "Label",
-      "parent": "046b32de-fb8b-46ec-9f10-b99e3ddfdf8f",
+      "parent": "e541f02a-0fbf-48b3-8700-49c5b0182db4",
       "anchorMin": [
         0.5,
         0.5
@@ -203,28 +261,26 @@
       "rotation": 0.0,
       "visible": true
     },
-    "2305ae1f-a6d8-40ec-a245-c13911c390aa": {
+    "0d458438-538f-4678-adc2-9f648a487252": {
       "events": {
-        "PointerEnter": "PointerEnter",
-        "PointerDown": "PointerDown"
+        "PointerEnter": "PointerEnter"
       },
-      "threshold": 0.5,
       "interactable": true,
       "sizeConstraint": 1,
       "name": "Popup_Button",
       "type": "Button",
-      "parent": "046b32de-fb8b-46ec-9f10-b99e3ddfdf8f",
+      "parent": "e541f02a-0fbf-48b3-8700-49c5b0182db4",
       "anchorMin": [
         0.5,
-        1.0
+        0.0
       ],
       "anchorMax": [
         0.5,
-        1.0
+        0.0
       ],
       "pivot": [
         0.5,
-        1.0
+        0.0
       ],
       "position": {
         "x": {
@@ -233,7 +289,7 @@
         },
         "y": {
           "scale": 0.0,
-          "offset": 0.0
+          "offset": 44.0
         }
       },
       "size": {
@@ -249,19 +305,25 @@
       "rotation": 0.0,
       "visible": true
     },
-    "976f6633-2d76-434c-a0ae-8bc11f9f48da": {
+    "a80da9c9-2ec6-4751-a514-617680280177": {
       "spriteId": "button_1",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
       "imageColor": [
-        255.0,
-        255.0,
-        255.0,
-        255.0
+        1.0,
+        1.0,
+        1.0,
+        1.0
       ],
       "interactable": true,
       "sizeConstraint": 1,
       "name": "Popup_Button_Image",
       "type": "Image",
-      "parent": "2305ae1f-a6d8-40ec-a245-c13911c390aa",
+      "parent": "0d458438-538f-4678-adc2-9f648a487252",
       "anchorMin": [
         0.5,
         0.5
@@ -297,7 +359,7 @@
       "rotation": 0.0,
       "visible": true
     },
-    "8f48697c-a7b9-4c46-97fe-6d92b1a32333": {
+    "bdfe9791-252a-4d7d-b1a0-eb509390cbab": {
       "textAlignment": "Center",
       "fontId": "LiberationSans SDF",
       "fontColor": [
@@ -306,23 +368,13 @@
         1.0,
         1.0
       ],
-      "fontSize": 20.0,
-      "fontSizeConstraint": 0,
-      "characterSpacing": 0.0,
-      "lineSpacing": 0.0,
-      "autoSize": true,
-      "singleLine": false,
-      "ellipsis": false,
-      "bold": true,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false,
+      "fontSize": 36.0,
       "text": "Confirm",
       "interactable": true,
       "sizeConstraint": 1,
       "name": "Popup_Button_Label",
       "type": "Label",
-      "parent": "2305ae1f-a6d8-40ec-a245-c13911c390aa",
+      "parent": "0d458438-538f-4678-adc2-9f648a487252",
       "anchorMin": [
         0.5,
         0.5
@@ -358,7 +410,7 @@
       "rotation": 0.0,
       "visible": true
     },
-    "2de47a50-fbe1-450b-8593-0ee993be92d8": {
+    "1dd6c587-af83-4693-8866-e6da566df857": {
       "textAlignment": "BottomRight",
       "fontId": "LiberationSans SDF",
       "fontColor": [
@@ -367,34 +419,24 @@
         255.0,
         255.0
       ],
-      "fontSize": 50.0,
-      "fontSizeConstraint": 0,
-      "characterSpacing": 2.0,
-      "lineSpacing": 1.0,
-      "autoSize": true,
-      "singleLine": false,
-      "ellipsis": false,
-      "bold": true,
-      "italic": true,
-      "underline": true,
-      "strikethrough": false,
+      "fontSize": 36.0,
       "text": "for test",
       "interactable": true,
       "sizeConstraint": 1,
       "name": "Label_1",
       "type": "Label",
-      "parent": "6b2d7ba1-5543-4e8b-85c2-7d2e49576d72",
+      "parent": "16d19109-da65-4c60-ae9d-9e856ea0425c",
       "anchorMin": [
         0.5,
-        1.0
+        0.0
       ],
       "anchorMax": [
         0.5,
-        1.0
+        0.0
       ],
       "pivot": [
         0.5,
-        1.0
+        0.0
       ],
       "position": {
         "x": {
@@ -403,7 +445,7 @@
         },
         "y": {
           "scale": 0.0,
-          "offset": -201.86
+          "offset": 115.0
         }
       },
       "size": {
@@ -414,6 +456,114 @@
         "y": {
           "scale": 0.0,
           "offset": 20.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true
+    },
+    "a8c7d07b-d410-46a0-976a-537a481bbade": {
+      "spriteId": "test-sprite_0",
+      "backgroundColor": [
+        0.8490566,
+        0.39248836,
+        0.39248836,
+        1.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": 1,
+      "name": "Popup_Image_Left",
+      "type": "Image",
+      "parent": "16d19109-da65-4c60-ae9d-9e856ea0425c",
+      "anchorMin": [
+        0.5,
+        0.5
+      ],
+      "anchorMax": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -179.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 36.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 65.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true
+    },
+    "6f881759-4dbc-4d01-9b64-8eaa8d0f66a6": {
+      "spriteId": "test-sprite_10",
+      "backgroundColor": [
+        0.945368,
+        1.0,
+        0.116352022,
+        1.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": 1,
+      "name": "Popup_Image_Right",
+      "type": "Image",
+      "parent": "16d19109-da65-4c60-ae9d-9e856ea0425c",
+      "anchorMin": [
+        0.5,
+        0.5
+      ],
+      "anchorMax": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 242.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 36.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 65.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
         }
       },
       "rotation": 0.0,
