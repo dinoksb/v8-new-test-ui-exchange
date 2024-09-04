@@ -65,6 +65,7 @@ namespace V8
                     data.sprite ??= new Dictionary<string, SpriteData>();
                     if (!data.sprite.ContainsKey(sprite.name))
                     {
+                        var spritePivot = TypeConverter.SpritePivot(sprite);
                         data.sprite.Add(sprite.name, new SpriteData()
                         {
                             name = sprite.name,
@@ -72,12 +73,11 @@ namespace V8
                             size = new[] { sprite.rect.width, sprite.rect.height },
                             offset = new[] { sprite.rect.x, sprite.rect.y },
                             border = new[] { sprite.border.x, sprite.border.y, sprite.border.w, sprite.border.z },
-                            pivot = new[] { sprite.pivot.x, sprite.pivot.y },
+                            pivot = new[] { spritePivot.x, spritePivot.y},
                             pixelsPerUnit = sprite.pixelsPerUnit
                         });
                     }
                 }
-
                 SetSpriteData(child.gameObject, ref data);
             }
         }
@@ -119,17 +119,34 @@ namespace V8
                     
                     var imageComponent = target.GetChild(0).GetComponent<UnityEngine.UI.Image>();
                     ImageData imageData = GetFrameData<ImageData>(target, guid);
-                    imageData.backgroundColor = new[]
+                    var bgColor0To1 = TypeConverter.ToColor0To1(new float[]
                     {
-                        imageBackgroundComponent.color.r, imageBackgroundComponent.color.g,
+                        imageBackgroundComponent.color.r,
+                        imageBackgroundComponent.color.g,
                         imageBackgroundComponent.color.b,
                         imageBackgroundComponent.color.a
-                    };
-                    imageData.imageColor = new[]
+                    });
+                    imageData.backgroundColor = new[]
                     {
-                        imageComponent.color.r, imageComponent.color.g,
+                        bgColor0To1.r,
+                        bgColor0To1.g,
+                        bgColor0To1.b,
+                        bgColor0To1.a
+                    };
+                    
+                    var imageColor0To1 = TypeConverter.ToColor0To1(new float[]
+                    {
+                        imageComponent.color.r,
+                        imageComponent.color.g,
                         imageComponent.color.b,
                         imageComponent.color.a
+                    });
+                    imageData.imageColor = new[]
+                    {
+                        imageColor0To1.r,
+                        imageColor0To1.g,
+                        imageColor0To1.b,
+                        imageColor0To1.a
                     };
                     imageData.spriteId = imageComponent.sprite.name;
                     return imageData as T;
@@ -141,17 +158,18 @@ namespace V8
                     labelData.fontColor = new[]
                         { textComponent.color.r, textComponent.color.g, textComponent.color.b, textComponent.color.a };
                     labelData.fontSize = textComponent.fontSize;
-                    labelData.fontSizeConstraint = FrameData.ConstraintType.XX;
-                    labelData.characterSpacing = textComponent.characterSpacing;
-                    labelData.lineSpacing = textComponent.lineSpacing;
-                    labelData.autoSize = true;
-                    labelData.singleLine = textComponent.enableWordWrapping;
-                    labelData.ellipsis = textComponent.overflowMode == TextOverflowModes.Ellipsis;
-                    labelData.bold = (textComponent.fontStyle & FontStyles.Bold) == FontStyles.Bold;
-                    labelData.italic = (textComponent.fontStyle & FontStyles.Italic) == FontStyles.Italic;
-                    labelData.underline = (textComponent.fontStyle & FontStyles.Underline) == FontStyles.Underline;
-                    labelData.strikethrough =
-                        (textComponent.fontStyle & FontStyles.Strikethrough) == FontStyles.Strikethrough;
+                    // Todo: 추후 추가 될 수 있는 데이터.
+                    // labelData.fontSizeConstraint = FrameData.ConstraintType.XX;
+                    // labelData.characterSpacing = textComponent.characterSpacing;
+                    // labelData.lineSpacing = textComponent.lineSpacing;
+                    // labelData.autoSize = true;
+                    // labelData.singleLine = textComponent.enableWordWrapping;
+                    // labelData.ellipsis = textComponent.overflowMode == TextOverflowModes.Ellipsis;
+                    // labelData.bold = (textComponent.fontStyle & FontStyles.Bold) == FontStyles.Bold;
+                    // labelData.italic = (textComponent.fontStyle & FontStyles.Italic) == FontStyles.Italic;
+                    // labelData.underline = (textComponent.fontStyle & FontStyles.Underline) == FontStyles.Underline;
+                    // labelData.strikethrough =
+                    //     (textComponent.fontStyle & FontStyles.Strikethrough) == FontStyles.Strikethrough;
                     labelData.text = textComponent.text;
                     return labelData as T;
                 case UIConfig.ButtonType:
