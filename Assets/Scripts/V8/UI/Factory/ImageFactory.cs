@@ -18,14 +18,14 @@ namespace V8
             return new ImageComponents(parent, name);
         }
 
-        protected override Image CreateTyped(ImageData data, ImageComponents components)
+        protected override Image CreateTyped(string uid, ImageData data, ImageComponents components)
         {
             if (!_sprites.TryGetValue(data.spriteId, out var sprite))
             {
                 throw new Exception($"'{data.spriteId}' could not be found");
             }
 
-            return new Image(data, components, sprite);
+            return new Image(uid, data, components, sprite);
         }
     }
 }
