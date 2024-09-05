@@ -35,11 +35,7 @@ namespace V8
             Type = GetType().Name;
             var gameObject = new GameObject(Name);
 
-            if (dontDestoryOnLoad)
-            {
-                GameObject.DontDestroyOnLoad(gameObject);
-                gameObject.SetActive(false);
-            }
+ 
 
             if (gameObject.transform.parent != parent)
                 gameObject.transform.parent = parent;
@@ -59,7 +55,11 @@ namespace V8
             canvasScaler.referencePixelsPerUnit = 100;
             canvasScaler.matchWidthOrHeight = 0.5f;
 
-            gameObject.AddComponent<GraphicRaycaster>();
+            if (dontDestoryOnLoad)
+            {
+                GameObject.DontDestroyOnLoad(gameObject);
+                gameObject.SetActive(false);
+            }
         }
 
         public void Dispose()
