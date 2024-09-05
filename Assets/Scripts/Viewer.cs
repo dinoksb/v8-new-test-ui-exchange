@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Scripting;
 using V8.Service;
@@ -10,7 +11,10 @@ namespace V8.Template
         [SerializeField] private string _url;
         [SerializeField] private UIManager _uiManager;
         [SerializeField] private UIService _uiService;
+        [SerializeField] private UnityEngine.Canvas _uiCanvasForTest;
 
+        private Rect _guiRect = new Rect(10, 10, 100, 50);
+        
         private void Start()
         {
 #if UNITY_EDITOR
@@ -51,6 +55,13 @@ namespace V8.Template
             var elementButton = _uiManager.Get<Image>("a80da9c9-2ec6-4751-a514-617680280177");
             Debug.Log("elementButton.Uid: " + elementButton.Uid);
         }
+        
+        [ContextMenu("ShowCanvasTest")]
+        private void ShowCanvasTest()
+        {
+            _uiManager.Show(_uiCanvasForTest);
+        }
+
 
         [ContextMenu("FrontFrameNotifyTest")]
         private void FrontFrameNotifyTest()
@@ -118,6 +129,39 @@ namespace V8.Template
             frame1.Size = new Vector2(300, 300);
             frame1.Size = new Vector2(500, 500);
             // frame1.Size = new Vector2(100, 100);
+        }
+
+        private void OnGUI()
+        {
+            if(GUI.Button(_guiRect, "Show"))
+            {
+                ShowCanvasTest();
+            }
+            
+            if(GUI.Button(new Rect(_guiRect.x, _guiRect.y + _guiRect.height + 10, _guiRect.width, _guiRect.height), "FrontFrame"))
+            {
+                FrontFrameNotifyTest();
+            }
+            
+            if(GUI.Button(new Rect(_guiRect.x, _guiRect.y + (_guiRect.height + 10) * 2 , _guiRect.width, _guiRect.height), "Visible"))
+            {
+                VisibleChangedNotifyTest();
+            }
+            
+            if(GUI.Button(new Rect(_guiRect.x, _guiRect.y + (_guiRect.height + 10) * 3, _guiRect.width, _guiRect.height), "Position"))
+            {
+                PositionChangeNotifyTest();
+            }
+            
+            if(GUI.Button(new Rect(_guiRect.x, _guiRect.y + (_guiRect.height + 10) * 4, _guiRect.width, _guiRect.height), "Rotation"))
+            {
+                RotationChangeNotifyTest();
+            }
+            
+            if(GUI.Button(new Rect(_guiRect.x, _guiRect.y + (_guiRect.height + 10) * 5, _guiRect.width, _guiRect.height), "Size"))
+            {
+                SizeChangeNotifyTest();
+            }
         }
     }
 }
