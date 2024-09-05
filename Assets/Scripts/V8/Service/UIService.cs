@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using V8.Utilities;
@@ -234,117 +235,83 @@ namespace V8.Service
         
         private void NotifyVisibleChangedListener()
         {
-            if (_isVisibleChanged)
-            {
-                if (_visibleChangedElementsOrigin.Count == 0 || _visibleChangedElementsReference.Count == 0) return;
-
-                // notify listeners
-                foreach (var elementValue in _visibleChangedElementsReference)
-                {
-                    var element = elementValue.Value;
-                    var uid = element.Uid;
-                    if (element.Visible != _visibleChangedElementsOrigin[uid])
-                    {
-                        foreach (var visibleChangedEvent in _visibleChangedEvents)
-                        {
-                            visibleChangedEvent?.Invoke(uid, element.Visible);
-                        }
-                    }
-                }
-
-                //flush
-                _visibleChangedElementsOrigin.Clear();
-                _visibleChangedElementsReference.Clear();
-                _isVisibleChanged = false;
-            }
+            NotifyListeners(
+                ref _isVisibleChanged,
+                _visibleChangedElementsOrigin,
+                _visibleChangedElementsReference,
+                _visibleChangedEvents.ConvertAll(e => new Action<string, bool, bool>((uid, _, newVal) => e?.Invoke(uid, newVal))),
+                element => element.Visible
+            );
         }
 
         private void NotifyPositionChangeListener()
         {
-            if (_isPositionChange)
-            {
-                if (_positionChangedElementsOrigin.Count == 0 || _positionChangedElementsReference.Count == 0) return;
-
-                // notify listeners
-                foreach (var elementValue in _positionChangedElementsReference)
-                {
-                    var element = elementValue.Value;
-                    var uid = element.Uid;
-                    if (element.Position != _positionChangedElementsOrigin[uid])
-                    {
-                        foreach (var positionChangeEvent in _positionChangedEvents)
-                        {
-                            var prevValue = _positionChangedElementsOrigin[uid];
-                            var newValue = element.Position;
-                            positionChangeEvent?.Invoke(uid, prevValue, newValue);
-                        }
-                    }
-                }
-
-                //flush
-                _positionChangedElementsOrigin.Clear();
-                _positionChangedElementsReference.Clear();
-                _isPositionChange = false;
-            }
+            NotifyListeners(
+                ref _isPositionChange,
+                _positionChangedElementsOrigin,
+                _positionChangedElementsReference,
+                _positionChangedEvents.ConvertAll(e => new Action<string, Vector2, Vector2>((uid, oldVal, newVal) => e?.Invoke(uid, oldVal, newVal))),
+                element => element.Position
+            );
         }
 
         private void NotifyRotationChangeListener()
         {
-            if (_isRotationChange)
-            {
-                if (_rotationChangedElementsOrigin.Count == 0 || _rotationChangedElementsReference.Count == 0) return;
-
-                // notify listeners
-                foreach (var elementValue in _rotationChangedElementsReference)
-                {
-                    var element = elementValue.Value;
-                    var uid = element.Uid;
-                    if (!Mathf.Approximately(element.Rotation, _rotationChangedElementsOrigin[uid]))
-                    {
-                        foreach (var rotationChangeEvent in _rotationChangedEvents)
-                        {
-                            var prevValue = _rotationChangedElementsOrigin[uid];
-                            var newValue = element.Rotation;
-                            rotationChangeEvent?.Invoke(uid, prevValue, newValue);
-                        }
-                    }
-                }
-
-                //flush
-                _rotationChangedElementsOrigin.Clear();
-                _rotationChangedElementsReference.Clear();
-                _isRotationChange = false;
-            }
+            NotifyListeners(
+                ref _isRotationChange,
+                _rotationChangedElementsOrigin,
+                _rotationChangedElementsReference,
+                _rotationChangedEvents.ConvertAll(e => new Action<string, float, float>((uid, oldVal, newVal) => e?.Invoke(uid, oldVal, newVal))),
+                element => element.Rotation
+            );
         }
         
         private void NotifySizeChangeListener()
         {
-            if (_isSizeChange)
-            {
-                if (_sizeChangedElementsOrigin.Count == 0 || _sizeChangedElementsReference.Count == 0) return;
+            NotifyListeners(
+                ref _isSizeChange,
+                _sizeChangedElementsOrigin,
+                _sizeChangedElementsReference,
+                _sizeChangedEvents.ConvertAll(e => new Action<string, Vector2, Vector2>((uid, oldVal, newVal) => e?.Invoke(uid, oldVal, newVal))),
+                element => element.Size
+            );
+        }
+        
+        private void NotifyListeners<T>(
+            ref bool isChanged, 
+            Dictionary<string, T> originalElements, 
+            Dictionary<string, IElement> referenceElements, 
+            List<Action<string, T, T>> eventHandlers, 
+            Func<IElement, T> getElementValue)
+        {
+            if (!isChanged || originalElements.Count == 0 || referenceElements.Count == 0)
+                return;
 
-                // notify listeners
-                foreach (var elementValue in _sizeChangedElementsReference)
+            foreach (var referencePair in referenceElements)
+            {
+                var element = referencePair.Value;
+                var uid = element.Uid;
+
+                // 원래 값과 새 값을 비교하여 다르면 이벤트 실행
+                if (originalElements.TryGetValue(uid, out var originalValue))
                 {
-                    var element = elementValue.Value;
-                    var uid = element.Uid;
-                    if (element.Size != _sizeChangedElementsOrigin[uid])
+                    var newValue = getElementValue(element);
+                    if (!EqualityComparer<T>.Default.Equals(newValue, originalValue))
                     {
-                        foreach (var sizeChangeEvent in _sizeChangedEvents)
+                        foreach (var handler in eventHandlers)
                         {
-                            var prevValue = _sizeChangedElementsOrigin[uid];
-                            var newValue = element.Size;
-                            sizeChangeEvent?.Invoke(uid, prevValue, newValue);
+                            handler?.Invoke(uid, originalValue, newValue);
                         }
                     }
                 }
-
-                //flush
-                _sizeChangedElementsOrigin.Clear();
-                _sizeChangedElementsReference.Clear();
-                _isSizeChange = false;
             }
+
+            // 상태 초기화
+            originalElements.Clear();
+            referenceElements.Clear();
+            isChanged = false;
         }
+        
         #endregion
     }
 }
