@@ -14,13 +14,27 @@ namespace V8
         private const string END_POINT = "https://dinoksb.github.io/v8-new-test-ui-exchange";
         private const string TEXTURE_RESOURCE_PATH = "StreamingAssets/Sprites";
 
+        private static string DEV_END_POINT => Application.streamingAssetsPath;
+        private const string DEV_TEXTURE_RESOURCE_PATH = "Sprites";
+
         public static void Export(GameObject gameObject, string filePath)
         {
             if (!IsValid(gameObject)) return;
 
             UIData uiData = new();
             SetStudioData(gameObject, ref uiData.studioData);
-            SetSpriteData(gameObject, ref uiData.asset);
+            SetSpriteData($"{END_POINT}/{TEXTURE_RESOURCE_PATH}", gameObject, ref uiData.asset);
+            SetUIData(gameObject, null, ref uiData.ui);
+            SaveJson(filePath, uiData);
+        }
+        
+        public static void DevelopmentExport(GameObject gameObject, string filePath)
+        {
+            if (!IsValid(gameObject)) return;
+
+            UIData uiData = new();
+            SetStudioData(gameObject, ref uiData.studioData);
+            SetSpriteData($"{DEV_END_POINT}/{DEV_TEXTURE_RESOURCE_PATH}", gameObject, ref uiData.asset);
             SetUIData(gameObject, null, ref uiData.ui);
             SaveJson(filePath, uiData);
         }
@@ -40,7 +54,7 @@ namespace V8
             data.resolutionHeight = canvasScaler.referenceResolution.y;
         }
 
-        private static void SetSpriteData(GameObject gameObject, ref AssetData data)
+        private static void SetSpriteData(string textureFolderPath, GameObject gameObject, ref AssetData data)
         {
             var childCount = gameObject.transform.childCount;
             for (int i = 0; i < childCount; i++)
@@ -57,7 +71,8 @@ namespace V8
                         data.texture.Add(texture.name, new TextureData()
                         {
                             name = texture.name,
-                            url = $"{END_POINT}/{TEXTURE_RESOURCE_PATH}/{texture.name}{UIConfig.PngExtension}",
+                            url = $"{textureFolderPath}/{texture.name}{UIConfig.PngExtension}",
+                            // url = $"{END_POINT}/{TEXTURE_RESOURCE_PATH}/{texture.name}{UIConfig.PngExtension}",
                         });
                     }
 
@@ -71,14 +86,14 @@ namespace V8
                             textureId = texture.name,
                             size = new[] { sprite.rect.width, sprite.rect.height },
                             offset = new[] { sprite.rect.x, sprite.rect.y },
-                            border = new[] { sprite.border.x, sprite.border.y, sprite.border.w, sprite.border.z },
+                            border = new[] { sprite.border.x, sprite.border.y, sprite.border.z, sprite.border.w },
                             pivot = new[] { webCoordinatePivot.x, webCoordinatePivot.y},
                             pixelsPerUnit = sprite.pixelsPerUnit
                         });
                     }
                 }
 
-                SetSpriteData(child.gameObject, ref data);
+                SetSpriteData(textureFolderPath, child.gameObject, ref data);
             }
             
             Vector2 GetSpritePivot(Sprite sprite)
@@ -201,7 +216,7 @@ namespace V8
 
             T GetFrameData<T>(RectTransform target, string parent) where T : FrameData, new()
             {
-                var webCoordinateAnchor = target.anchorMin.ToReverseYAxis();
+                var webCoordinateAnchor = target.anchorMax.ToReverseYAxis();
                 var webCoordinatePivot = target.pivot.ToReverseYAxis();
                 
                 T data = new T()

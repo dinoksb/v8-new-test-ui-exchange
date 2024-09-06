@@ -25,7 +25,7 @@ namespace V8
             var asset = uiData.asset;
             var ui = uiData.ui;
             var referenceResolution = new Vector2(studio.resolutionWidth, studio.resolutionHeight);
-            _sprites = await SpriteImporter.Import(asset.texture, asset.sprite, true);
+            _sprites = await SpriteImporter.Import(asset.texture, asset.sprite, Application.persistentDataPath,true);
             _tempCanvas = new Canvas(UIConfig.Canvas, null, referenceResolution, true);
             BuildUI(ui, referenceResolution);
             InternalDebug.Log($"ui json loaded. : {url}");

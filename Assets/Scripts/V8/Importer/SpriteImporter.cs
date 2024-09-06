@@ -9,11 +9,6 @@ namespace V8
 {
     public static class SpriteImporter
     {
-        public static async UniTask<Dictionary<string, Sprite>> Import(Dictionary<string, TextureData> textureDataDict, Dictionary<string, SpriteData> spriteDataDict, bool forceDownload = false)
-        {
-            return await Import(textureDataDict, spriteDataDict, string.Empty, forceDownload);
-        }
-        
         public static async UniTask<Dictionary<string, Sprite>> Import(Dictionary<string, TextureData> textureDataDict, Dictionary<string, SpriteData> spriteDataDict, string saveFilePath, bool forceDownload = false)
         {
             var spriteDict = new Dictionary<string, Sprite>();
@@ -26,8 +21,12 @@ namespace V8
                 var textureValue = textureData.Value;
                 
                 if(textureDict.ContainsKey(textureKey)) continue;
-                
-                var texture = await DownloadTexture(textureKey, saveFilePath, textureValue, forceDownload);
+
+                Texture2D texture = null;
+                if(CheckIsValidUri(textureValue.url))
+                    texture = await DownloadTexture(textureKey, saveFilePath, textureValue, forceDownload);
+                else
+                    texture = DownloadTextureFromLocalPath(textureKey, textureValue, forceDownload);
                 
                 textureDict.Add(textureKey, texture);
             }
@@ -60,11 +59,11 @@ namespace V8
             return texture;
         }
         
-        private static async UniTask<Texture2D> DownloadTexture(string id, string saveFilePath, TextureData textureData, bool forceDownload)
+        private static async UniTask<Texture2D> DownloadTexture(string id, string saveFolderPath, TextureData textureData, bool forceDownload)
         {
             var fileExtension = Path.GetExtension(textureData.url).ToLower();
             var fileNameWithExtension = id + fileExtension;
-            var filePath = string.IsNullOrEmpty(saveFilePath) ? Path.Combine(Application.persistentDataPath, fileNameWithExtension) : Path.Combine(saveFilePath, fileNameWithExtension);
+            var filePath = Path.Combine(saveFolderPath, fileNameWithExtension);
 
             if (forceDownload || !File.Exists(filePath))
             {
@@ -93,6 +92,20 @@ namespace V8
             return texture;
         }
         
+        private static Texture2D DownloadTextureFromLocalPath(string id, TextureData textureData, bool forceDownload)
+        {
+            byte[] pngBytes = System.IO.File.ReadAllBytes(textureData.url);
+            
+            var texture = new Texture2D(2, 2);
+            texture.name = id;
+            if (!texture.LoadImage(pngBytes))
+            {
+                throw new Exception("Failed to load image data into texture");
+            }
+
+            return texture;
+        }
+        
         private static Sprite CreateSprite(Texture2D texture, SpriteData spriteData)
         {
             var offset = TypeConverter.ToVector2(spriteData.offset);
@@ -102,6 +115,12 @@ namespace V8
             var pixelsPerUnit = spriteData.pixelsPerUnit;
             var sprite = TypeConverter.ToSprite(texture, offset, size, border, pivot, spriteData.name, pixelsPerUnit);
             return sprite;
+        }
+        
+        private static bool CheckIsValidUri(string uri)
+        {
+            return Uri.TryCreate(uri, UriKind.Absolute, out var uriResult) 
+                          && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
         }
     }
 }
