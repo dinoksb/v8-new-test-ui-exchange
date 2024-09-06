@@ -11,6 +11,7 @@ namespace V8
         {
             var go = new GameObject(name);
             var self = go.AddComponent<RectTransform>();
+            self.gameObject.layer = LayerMask.NameToLayer("UI");
             self.SetParent(parent.Self);
             self.localPosition = Vector3.zero;
             self.localRotation = Quaternion.identity;
