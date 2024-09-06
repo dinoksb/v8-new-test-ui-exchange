@@ -114,15 +114,6 @@ namespace V8
             return new RectOffset(values[0], values[1], values[2], values[3]);
         }
 
-        public static Vector2 SpritePivot(Sprite sprite)
-        {
-            var pivotPoint = sprite.pivot;
-            var boundSize = sprite.bounds.size;
-            var calcPivot = new Vector2(pivotPoint.x / boundSize.x / sprite.pixelsPerUnit, pivotPoint.y / boundSize.y / sprite.pixelsPerUnit);
-
-            return new Vector2(calcPivot.x, calcPivot.y);
-        }
-
         public static TextAlignmentOptions ToTextAlignmentOptions(string value)
         {
             return Enum.TryParse(value, out TextAlignmentOptions result) ? result : TextAlignmentOptions.TopLeft;

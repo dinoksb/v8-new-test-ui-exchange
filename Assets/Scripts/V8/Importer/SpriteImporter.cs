@@ -98,7 +98,7 @@ namespace V8
             var offset = TypeConverter.ToVector2(spriteData.offset);
             var size = TypeConverter.ToVector2(spriteData.size);
             var border = TypeConverter.ToVector4(spriteData.border);
-            var pivot = TypeConverter.ToVector2(spriteData.pivot);
+            var pivot = TypeConverter.ToVector2(spriteData.pivot).ToReverseYAxis();
             var pixelsPerUnit = spriteData.pixelsPerUnit;
             var sprite = TypeConverter.ToSprite(texture, offset, size, border, pivot, spriteData.name, pixelsPerUnit);
             return sprite;

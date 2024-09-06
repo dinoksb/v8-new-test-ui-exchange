@@ -17,14 +17,11 @@ namespace V8
         [JsonProperty("parent", Required = Required.Default)]
         public string parent = string.Empty;
 
-        [JsonProperty("anchorMin", Required = Required.Default)]
-        public List<float> anchorMin;
-
-        [JsonProperty("anchorMax", Required = Required.Default)]
-        public List<float> anchorMax;
+        [JsonProperty("anchor", Required = Required.Default)]
+        public float[] anchor = new [] {0.5f, 0.5f};
 
         [JsonProperty("pivot", Required = Required.Default)]
-        public List<float> pivot;
+        public float[] pivot = new [] {0.5f, 0.5f};
 
         [JsonProperty("position", Required = Required.Default)]
         public DimensionData position = new();

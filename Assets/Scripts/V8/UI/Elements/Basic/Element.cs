@@ -14,16 +14,14 @@ namespace V8
 
         public RectTransform Self { get; private set; }
 
-        public Vector2 AnchorMin
+        public Vector2 Anchor
         {
             get => Self.anchorMin;
-            set => Self.anchorMin = value;
-        }
-
-        public Vector2 AnchorMax
-        {
-            get => Self.anchorMax;
-            set => Self.anchorMax = value;
+            set
+            {
+                Self.anchorMin = value;
+                Self.anchorMax = value;
+            }
         }
 
         public Vector2 Pivot
@@ -148,15 +146,8 @@ namespace V8
 
         private void SetValues(ElementData data)
         {
-            AnchorMin = SetRectTransformAnchorPivot(data.anchorMin);
-            AnchorMax = SetRectTransformAnchorPivot(data.anchorMax);
-            Pivot = SetRectTransformAnchorPivot(data.pivot);
-
-            Vector2 SetRectTransformAnchorPivot(IReadOnlyList<float> values)
-            {
-                var convertedValue = TypeConverter.ToVector2(values);
-                return convertedValue == Vector2.zero ? new Vector2(0.5f, 0.5f) : convertedValue;
-            }
+            Anchor = TypeConverter.ToVector2(data.anchor).ToReverseYAxis();
+            Pivot = TypeConverter.ToVector2(data.pivot).ToReverseYAxis();
         }
         
         # region internal events

@@ -39,7 +39,7 @@
         ],
         "pivot": [
           0.5,
-          0.5
+          0.8
         ],
         "pixelsPerUnit": 100.0
       },
@@ -107,25 +107,21 @@
           0.0
         ],
         "pivot": [
-          0.5375583,
-          0.14600952
+          0.5375585,
+          0.1460095
         ],
         "pixelsPerUnit": 100.0
       }
     }
   },
   "ui": {
-    "96f2ee3a-37ae-442c-8f44-05e08a1e10eb": {
+    "04c5f176-5ce0-4ae0-b9e8-0b922c2771be": {
       "interactable": true,
       "sizeConstraint": 1,
       "name": "Popup",
       "type": "Frame",
       "parent": null,
-      "anchorMin": [
-        0.5,
-        0.5
-      ],
-      "anchorMax": [
+      "anchor": [
         0.5,
         0.5
       ],
@@ -156,7 +152,7 @@
       "rotation": 0.0,
       "visible": true
     },
-    "3835b0eb-18cb-4782-ad65-7b6ac73bab57": {
+    "52d6434b-5f41-4bab-8d92-874286ac4595": {
       "spriteId": "png-2702691_640",
       "backgroundColor": [
         1.0,
@@ -174,12 +170,8 @@
       "sizeConstraint": 1,
       "name": "Popup_Background",
       "type": "Image",
-      "parent": "96f2ee3a-37ae-442c-8f44-05e08a1e10eb",
-      "anchorMin": [
-        0.5,
-        0.5
-      ],
-      "anchorMax": [
+      "parent": "04c5f176-5ce0-4ae0-b9e8-0b922c2771be",
+      "anchor": [
         0.5,
         0.5
       ],
@@ -210,7 +202,7 @@
       "rotation": 0.0,
       "visible": true
     },
-    "0c96a6f2-342b-4a52-83d2-70f46432f918": {
+    "a9265a38-d541-473d-86b4-d08ddb77dbb6": {
       "textAlignment": "Center",
       "fontId": "LiberationSans SDF",
       "fontColor": [
@@ -225,12 +217,8 @@
       "sizeConstraint": 1,
       "name": "Popup_Label",
       "type": "Label",
-      "parent": "96f2ee3a-37ae-442c-8f44-05e08a1e10eb",
-      "anchorMin": [
-        0.5,
-        0.5
-      ],
-      "anchorMax": [
+      "parent": "04c5f176-5ce0-4ae0-b9e8-0b922c2771be",
+      "anchor": [
         0.5,
         0.5
       ],
@@ -261,7 +249,7 @@
       "rotation": 0.0,
       "visible": true
     },
-    "292403be-ce30-420a-9d92-17d46b62fd74": {
+    "cdf03fbf-5600-4d50-b17f-55e3d673d14b": {
       "events": {
         "PointerEnter": "PointerEnter"
       },
@@ -269,14 +257,10 @@
       "sizeConstraint": 1,
       "name": "Popup_Button",
       "type": "Button",
-      "parent": "96f2ee3a-37ae-442c-8f44-05e08a1e10eb",
-      "anchorMin": [
+      "parent": "04c5f176-5ce0-4ae0-b9e8-0b922c2771be",
+      "anchor": [
         0.5,
-        0.0
-      ],
-      "anchorMax": [
-        0.5,
-        0.0
+        0.5
       ],
       "pivot": [
         0.5,
@@ -305,7 +289,7 @@
       "rotation": 0.0,
       "visible": true
     },
-    "e9bf3325-bd8b-42fa-b87a-b4d7e40e81e4": {
+    "a34f1cfa-5603-4c48-98ef-c63793321932": {
       "spriteId": "button_1",
       "backgroundColor": [
         1.0,
@@ -323,12 +307,8 @@
       "sizeConstraint": 1,
       "name": "Popup_Button_Image",
       "type": "Image",
-      "parent": "292403be-ce30-420a-9d92-17d46b62fd74",
-      "anchorMin": [
-        0.5,
-        0.5
-      ],
-      "anchorMax": [
+      "parent": "cdf03fbf-5600-4d50-b17f-55e3d673d14b",
+      "anchor": [
         0.5,
         0.5
       ],
@@ -359,7 +339,7 @@
       "rotation": 0.0,
       "visible": true
     },
-    "da568da5-9244-481b-a7a5-b3e614ba3eb2": {
+    "8d5a44b1-4731-4b77-8b1d-48ff83cbd464": {
       "textAlignment": "Center",
       "fontId": "LiberationSans SDF",
       "fontColor": [
@@ -374,12 +354,8 @@
       "sizeConstraint": 1,
       "name": "Popup_Button_Label",
       "type": "Label",
-      "parent": "292403be-ce30-420a-9d92-17d46b62fd74",
-      "anchorMin": [
-        0.5,
-        0.5
-      ],
-      "anchorMax": [
+      "parent": "cdf03fbf-5600-4d50-b17f-55e3d673d14b",
+      "anchor": [
         0.5,
         0.5
       ],
@@ -410,7 +386,7 @@
       "rotation": 0.0,
       "visible": true
     },
-    "fc397702-3d89-4254-8ffe-4a1ba0047843": {
+    "884d4f04-c462-4047-9e88-08e865ba86a1": {
       "spriteId": "test-sprite_0",
       "backgroundColor": [
         0.8490566,
@@ -428,12 +404,8 @@
       "sizeConstraint": 1,
       "name": "Popup_Image_Left",
       "type": "Image",
-      "parent": "96f2ee3a-37ae-442c-8f44-05e08a1e10eb",
-      "anchorMin": [
-        0.5,
-        0.5
-      ],
-      "anchorMax": [
+      "parent": "04c5f176-5ce0-4ae0-b9e8-0b922c2771be",
+      "anchor": [
         0.5,
         0.5
       ],
@@ -464,7 +436,7 @@
       "rotation": 0.0,
       "visible": true
     },
-    "c30756ba-5c30-4652-9689-24e7cb759ca7": {
+    "84ac9171-4e68-4f83-9021-db0dac2b6e15": {
       "spriteId": "test-sprite_10",
       "backgroundColor": [
         0.945368,
@@ -482,12 +454,8 @@
       "sizeConstraint": 1,
       "name": "Popup_Image_Right",
       "type": "Image",
-      "parent": "96f2ee3a-37ae-442c-8f44-05e08a1e10eb",
-      "anchorMin": [
-        0.5,
-        0.5
-      ],
-      "anchorMax": [
+      "parent": "04c5f176-5ce0-4ae0-b9e8-0b922c2771be",
+      "anchor": [
         0.5,
         0.5
       ],
@@ -518,7 +486,7 @@
       "rotation": 0.0,
       "visible": true
     },
-    "01ce13f0-1a89-4845-bc0c-922de85bb471": {
+    "e41fd35e-23af-4441-9fe3-a4723fd8fdb2": {
       "textAlignment": "BottomRight",
       "fontId": "LiberationSans SDF",
       "fontColor": [
@@ -534,13 +502,9 @@
       "name": "Label_1",
       "type": "Label",
       "parent": null,
-      "anchorMin": [
-        0.5,
-        0.0
-      ],
-      "anchorMax": [
-        0.5,
-        0.0
+      "anchor": [
+        0.0,
+        1.0
       ],
       "pivot": [
         0.5,
@@ -549,11 +513,11 @@
       "position": {
         "x": {
           "scale": 0.0,
-          "offset": 0.0
+          "offset": 960.0
         },
         "y": {
           "scale": 0.0,
-          "offset": 296.0
+          "offset": 328.0
         }
       },
       "size": {
@@ -569,7 +533,7 @@
       "rotation": 0.0,
       "visible": true
     },
-    "5311749d-70e7-4aae-832f-f6e258c02e3b": {
+    "b562a09a-8800-4591-b9fc-b214ae1d0ea5": {
       "textAlignment": "BottomRight",
       "fontId": "LiberationSans SDF",
       "fontColor": [
@@ -585,13 +549,9 @@
       "name": "Label_2",
       "type": "Label",
       "parent": null,
-      "anchorMin": [
+      "anchor": [
         0.5,
-        0.0
-      ],
-      "anchorMax": [
-        0.5,
-        0.0
+        0.5
       ],
       "pivot": [
         0.5,
@@ -604,7 +564,7 @@
         },
         "y": {
           "scale": 0.0,
-          "offset": 150.0
+          "offset": -358.0
         }
       },
       "size": {

@@ -9,7 +9,6 @@ using V8.Utilities;
 
 namespace V8
 {
-    // todo: TextureData Export 할 수 있는 로직 추가.
     public class UIJsonExporter
     {
         private const string END_POINT = "https://dinoksb.github.io/v8-new-test-ui-exchange";
@@ -65,7 +64,7 @@ namespace V8
                     data.sprite ??= new Dictionary<string, SpriteData>();
                     if (!data.sprite.ContainsKey(sprite.name))
                     {
-                        var spritePivot = TypeConverter.SpritePivot(sprite);
+                        var webCoordinatePivot = GetSpritePivot(sprite).ToReverseYAxis();
                         data.sprite.Add(sprite.name, new SpriteData()
                         {
                             name = sprite.name,
@@ -73,12 +72,22 @@ namespace V8
                             size = new[] { sprite.rect.width, sprite.rect.height },
                             offset = new[] { sprite.rect.x, sprite.rect.y },
                             border = new[] { sprite.border.x, sprite.border.y, sprite.border.w, sprite.border.z },
-                            pivot = new[] { spritePivot.x, spritePivot.y},
+                            pivot = new[] { webCoordinatePivot.x, webCoordinatePivot.y},
                             pixelsPerUnit = sprite.pixelsPerUnit
                         });
                     }
                 }
+
                 SetSpriteData(child.gameObject, ref data);
+            }
+            
+            Vector2 GetSpritePivot(Sprite sprite)
+            {
+                var pivotPoint = sprite.pivot;
+                var boundSize = sprite.bounds.size;
+                var calcPivot = new Vector2(pivotPoint.x / boundSize.x / sprite.pixelsPerUnit, pivotPoint.y / boundSize.y / sprite.pixelsPerUnit);
+
+                return new Vector2(calcPivot.x, calcPivot.y);
             }
         }
 
@@ -93,9 +102,9 @@ namespace V8
                 var child = gameObject.transform.GetChild(i);
                 var guid = Guid.NewGuid().ToString();
                 var element = GetElement<ElementData>(child.gameObject, parentUID);
-                
-                if(element == null) continue;
-                
+
+                if (element == null) continue;
+
                 data.Add(guid, element);
                 SetUIData(child.gameObject, guid, ref data);
             }
@@ -116,7 +125,7 @@ namespace V8
                     var imageBackgroundComponent = target.GetComponent<UnityEngine.UI.Image>();
                     if (imageBackgroundComponent.sprite != null)
                         return null;
-                    
+
                     var imageComponent = target.GetChild(0).GetComponent<UnityEngine.UI.Image>();
                     ImageData imageData = GetFrameData<ImageData>(target, guid);
                     var bgColor0To1 = TypeConverter.ToColor0To1(new float[]
@@ -133,7 +142,7 @@ namespace V8
                         bgColor0To1.b,
                         bgColor0To1.a
                     };
-                    
+
                     var imageColor0To1 = TypeConverter.ToColor0To1(new float[]
                     {
                         imageComponent.color.r,
@@ -189,16 +198,19 @@ namespace V8
                     return null;
             }
 
+
             T GetFrameData<T>(RectTransform target, string parent) where T : FrameData, new()
             {
+                var webCoordinateAnchor = target.anchorMin.ToReverseYAxis();
+                var webCoordinatePivot = target.pivot.ToReverseYAxis();
+                
                 T data = new T()
                 {
                     name = target.name,
                     type = typeName,
                     parent = parent,
-                    anchorMin = new List<float> { target.anchorMin.x, target.anchorMin.y },
-                    anchorMax = new List<float> { target.anchorMax.x, target.anchorMax.y },
-                    pivot = new List<float> { target.pivot.x, target.pivot.y },
+                    anchor = new[] { webCoordinateAnchor.x, webCoordinateAnchor.y },
+                    pivot = new[] { webCoordinatePivot.x, webCoordinatePivot.y },
 
                     position = new DimensionData()
                     {
@@ -270,6 +282,11 @@ namespace V8
             }
 
             return true;
+        }
+
+        private static float[] ConvertToWebCoordinateArray(Vector2 vector2)
+        {
+            return new[] { vector2.x, 1 - vector2.y };
         }
     }
 }
