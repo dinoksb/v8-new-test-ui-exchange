@@ -80,7 +80,7 @@ namespace V8
         {
             if (_tempCanvas == null && (_sprites.Count == 0 || _ui.Count == 0)) return;
             
-            DestroyImmediate(_tempCanvas.Self?.gameObject);
+            Destroy(_tempCanvas.Self?.gameObject);
             foreach (var (_, sprite) in _sprites)
             {
                 Destroy(sprite);
