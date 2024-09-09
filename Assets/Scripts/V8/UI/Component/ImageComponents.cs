@@ -23,7 +23,7 @@ namespace V8
             imageElement.anchorMax = Vector2.one;
             imageElement.offsetMin = Vector2.zero;
             imageElement.offsetMax = Vector2.zero;
-            
+            imageGo.layer = LayerMask.NameToLayer("UI");
 
             BackGroundImage = bgElement.gameObject.AddComponent<UnityEngine.UI.Image>();
             Image = imageElement.gameObject.AddComponent<UnityEngine.UI.Image>();
