@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Scripting;
 using V8.Service;
@@ -31,9 +30,9 @@ namespace V8.Template
             _uiService.RemoveAllListener();
         }
 
-        public void LoadUI(string jsonData)
+        public async void LoadUI(string jsonData)
         {
-            _uiManager.Load(jsonData);
+            await _uiManager.Load(jsonData);
             
 #if UNITY_WEBGL && !UNITY_EDITOR
             _uiManager.Show(_uiCanvasForTest);
@@ -166,6 +165,11 @@ namespace V8.Template
             if(GUI.Button(new Rect(_guiRect.x, _guiRect.y + (_guiRect.height + 10) * 5, _guiRect.width, _guiRect.height), "Size"))
             {
                 SizeChangeNotifyTest();
+            }
+            
+            if(GUI.Button(new Rect(_guiRect.x, _guiRect.y + (_guiRect.height + 10) * 6, _guiRect.width, _guiRect.height), "Clear"))
+            {
+                ClearUI();
             }
         }
         #endif
