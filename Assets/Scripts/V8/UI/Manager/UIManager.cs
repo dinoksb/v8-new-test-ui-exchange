@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using V8.Utilities;
 
@@ -17,7 +18,7 @@ namespace V8
         {
         }
 
-        public async void Load(string url)
+        public async Task Load(string url)
         {
             Release();
             var uiData = UIJsonImporter.Import(url) ?? throw new ArgumentNullException("UIImporter.Import()");
@@ -82,11 +83,16 @@ namespace V8
             DestroyImmediate(_tempCanvas.Self?.gameObject);
             foreach (var (_, sprite) in _sprites)
             {
-                DestroyImmediate(sprite);
+                Destroy(sprite);
+            }
+            foreach (var (_, ui) in _ui)
+            {
+                Destroy(ui.Self?.gameObject);
             }
             _sprites.Clear();
             _ui.Clear();
             _tempCanvas = null;
+            Resources.UnloadUnusedAssets();
             InternalDebug.Log("[Clear]");
         }
 
