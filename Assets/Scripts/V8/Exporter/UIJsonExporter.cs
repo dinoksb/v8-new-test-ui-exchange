@@ -9,20 +9,33 @@ using V8.Utilities;
 
 namespace V8
 {
-    // todo: TextureData Export 할 수 있는 로직 추가.
     public class UIJsonExporter
     {
         private const string END_POINT = "https://dinoksb.github.io/v8-new-test-ui-exchange";
         private const string TEXTURE_RESOURCE_PATH = "StreamingAssets/Sprites";
-        
+
+        private static string DEV_END_POINT => Application.streamingAssetsPath;
+        private const string DEV_TEXTURE_RESOURCE_PATH = "Sprites";
+
         public static void Export(GameObject gameObject, string filePath)
         {
             if (!IsValid(gameObject)) return;
 
             UIData uiData = new();
             SetStudioData(gameObject, ref uiData.studioData);
-            SetSpriteData(gameObject, ref uiData.asset);
-            SetUIData(gameObject, Guid.NewGuid().ToString(), ref uiData.ui);
+            SetSpriteData($"{END_POINT}/{TEXTURE_RESOURCE_PATH}", gameObject, ref uiData.asset);
+            SetUIData(gameObject, null, ref uiData.ui);
+            SaveJson(filePath, uiData);
+        }
+        
+        public static void DevelopmentExport(GameObject gameObject, string filePath)
+        {
+            if (!IsValid(gameObject)) return;
+
+            UIData uiData = new();
+            SetStudioData(gameObject, ref uiData.studioData);
+            SetSpriteData($"{DEV_END_POINT}/{DEV_TEXTURE_RESOURCE_PATH}", gameObject, ref uiData.asset);
+            SetUIData(gameObject, null, ref uiData.ui);
             SaveJson(filePath, uiData);
         }
 
@@ -41,42 +54,73 @@ namespace V8
             data.resolutionHeight = canvasScaler.referenceResolution.y;
         }
 
-        private static void SetSpriteData(GameObject gameObject, ref AssetData data)
+        private static void SetSpriteData(string textureFolderPath, GameObject gameObject, ref AssetData data)
         {
             var childCount = gameObject.transform.childCount;
             for (int i = 0; i < childCount; i++)
             {
                 var child = gameObject.transform.GetChild(i);
                 var imageComponent = child.GetComponent<UnityEngine.UI.Image>();
-                if (imageComponent != null)
+                if (imageComponent != null && imageComponent.sprite != null)
                 {
+                    var texture = imageComponent.mainTexture;
                     var sprite = imageComponent.sprite;
-                    data.sprite ??= new Dictionary<string, SpriteData>();
-                    data.sprite.Add(sprite.name, new SpriteData()
+                    data.texture ??= new Dictionary<string, TextureData>();
+                    if (!data.texture.ContainsKey(texture.name))
                     {
-                        name = sprite.name,
-                        url = $"{END_POINT}/{TEXTURE_RESOURCE_PATH}/{sprite.name}{UIConfig.PngExtension}",
-                        size = new[] { sprite.texture.width, sprite.texture.height },
-                        offset = new[] { 0, 0 },
-                        border = new[] { sprite.border.x, sprite.border.y, sprite.border.w, sprite.border.z },
-                        pivot = new[] { sprite.pivot.x, sprite.pivot.y },
-                        pixelsPerUnit = sprite.pixelsPerUnit
-                    });
+                        data.texture.Add(texture.name, new TextureData()
+                        {
+                            name = texture.name,
+                            url = $"{textureFolderPath}/{texture.name}{UIConfig.PngExtension}",
+                            // url = $"{END_POINT}/{TEXTURE_RESOURCE_PATH}/{texture.name}{UIConfig.PngExtension}",
+                        });
+                    }
+
+                    data.sprite ??= new Dictionary<string, SpriteData>();
+                    if (!data.sprite.ContainsKey(sprite.name))
+                    {
+                        var webCoordinatePivot = GetSpritePivot(sprite).ToReverseYAxis();
+                        data.sprite.Add(sprite.name, new SpriteData()
+                        {
+                            name = sprite.name,
+                            textureId = texture.name,
+                            size = new[] { sprite.rect.width, sprite.rect.height },
+                            offset = new[] { sprite.rect.x, sprite.rect.y },
+                            border = new[] { sprite.border.x, sprite.border.y, sprite.border.z, sprite.border.w },
+                            pivot = new[] { webCoordinatePivot.x, webCoordinatePivot.y},
+                            pixelsPerUnit = sprite.pixelsPerUnit
+                        });
+                    }
                 }
-                SetSpriteData(child.gameObject, ref data);
+
+                SetSpriteData(textureFolderPath, child.gameObject, ref data);
+            }
+            
+            Vector2 GetSpritePivot(Sprite sprite)
+            {
+                var pivotPoint = sprite.pivot;
+                var boundSize = sprite.bounds.size;
+                var calcPivot = new Vector2(pivotPoint.x / boundSize.x / sprite.pixelsPerUnit, pivotPoint.y / boundSize.y / sprite.pixelsPerUnit);
+
+                return new Vector2(calcPivot.x, calcPivot.y);
             }
         }
 
-        private static void SetUIData(GameObject gameObject, string parentGUID, ref Dictionary<string, ElementData> data)
+        private static void SetUIData(GameObject gameObject, string parentUID,
+            ref Dictionary<string, ElementData> data)
         {
             data ??= new Dictionary<string, ElementData>();
-            parentGUID = string.IsNullOrEmpty(parentGUID) ? Guid.NewGuid().ToString() : parentGUID; 
+            // parentGUID = string.IsNullOrEmpty(parentGUID) ? Guid.NewGuid().ToString() : parentGUID;
             var childCount = gameObject.transform.childCount;
             for (int i = 0; i < childCount; i++)
             {
                 var child = gameObject.transform.GetChild(i);
                 var guid = Guid.NewGuid().ToString();
-                data.Add(guid, GetElement<ElementData>(child.gameObject, parentGUID));
+                var element = GetElement<ElementData>(child.gameObject, parentUID);
+
+                if (element == null) continue;
+
+                data.Add(guid, element);
                 SetUIData(child.gameObject, guid, ref data);
             }
         }
@@ -93,13 +137,42 @@ namespace V8
                     FrameData frameData = GetFrameData<FrameData>(target, guid);
                     return frameData as T;
                 case UIConfig.ImageType:
-                    var imageComponent = target.GetComponent<UnityEngine.UI.Image>();
+                    var imageBackgroundComponent = target.GetComponent<UnityEngine.UI.Image>();
+                    if (imageBackgroundComponent.sprite != null)
+                        return null;
+
+                    var imageComponent = target.GetChild(0).GetComponent<UnityEngine.UI.Image>();
                     ImageData imageData = GetFrameData<ImageData>(target, guid);
-                    imageData.spriteId = imageComponent.sprite.name;
+                    var bgColor0To1 = TypeConverter.ToColor0To1(new float[]
+                    {
+                        imageBackgroundComponent.color.r,
+                        imageBackgroundComponent.color.g,
+                        imageBackgroundComponent.color.b,
+                        imageBackgroundComponent.color.a
+                    });
+                    imageData.backgroundColor = new[]
+                    {
+                        bgColor0To1.r,
+                        bgColor0To1.g,
+                        bgColor0To1.b,
+                        bgColor0To1.a
+                    };
+
+                    var imageColor0To1 = TypeConverter.ToColor0To1(new float[]
+                    {
+                        imageComponent.color.r,
+                        imageComponent.color.g,
+                        imageComponent.color.b,
+                        imageComponent.color.a
+                    });
                     imageData.imageColor = new[]
                     {
-                        imageComponent.color.r, imageComponent.color.g, imageComponent.color.b, imageComponent.color.a
+                        imageColor0To1.r,
+                        imageColor0To1.g,
+                        imageColor0To1.b,
+                        imageColor0To1.a
                     };
+                    imageData.spriteId = imageComponent.sprite.name;
                     return imageData as T;
                 case UIConfig.LabelType:
                     var textComponent = target.GetComponent<TextMeshProUGUI>();
@@ -109,16 +182,18 @@ namespace V8
                     labelData.fontColor = new[]
                         { textComponent.color.r, textComponent.color.g, textComponent.color.b, textComponent.color.a };
                     labelData.fontSize = textComponent.fontSize;
-                    labelData.fontSizeConstraint = FrameData.ConstraintType.XX;
-                    labelData.characterSpacing = textComponent.characterSpacing;
-                    labelData.lineSpacing = textComponent.lineSpacing;
-                    labelData.autoSize = true;
-                    labelData.singleLine = textComponent.enableWordWrapping;
-                    labelData.ellipsis = textComponent.overflowMode == TextOverflowModes.Ellipsis;
-                    labelData.bold = (textComponent.fontStyle & FontStyles.Bold) == FontStyles.Bold;
-                    labelData.italic = (textComponent.fontStyle & FontStyles.Italic) == FontStyles.Italic;
-                    labelData.underline = (textComponent.fontStyle & FontStyles.Underline) == FontStyles.Underline;
-                    labelData.strikethrough = (textComponent.fontStyle & FontStyles.Strikethrough) == FontStyles.Strikethrough;
+                    // Todo: 추후 추가 될 수 있는 데이터.
+                    // labelData.fontSizeConstraint = FrameData.ConstraintType.XX;
+                    // labelData.characterSpacing = textComponent.characterSpacing;
+                    // labelData.lineSpacing = textComponent.lineSpacing;
+                    // labelData.autoSize = true;
+                    // labelData.singleLine = textComponent.enableWordWrapping;
+                    // labelData.ellipsis = textComponent.overflowMode == TextOverflowModes.Ellipsis;
+                    // labelData.bold = (textComponent.fontStyle & FontStyles.Bold) == FontStyles.Bold;
+                    // labelData.italic = (textComponent.fontStyle & FontStyles.Italic) == FontStyles.Italic;
+                    // labelData.underline = (textComponent.fontStyle & FontStyles.Underline) == FontStyles.Underline;
+                    // labelData.strikethrough =
+                    //     (textComponent.fontStyle & FontStyles.Strikethrough) == FontStyles.Strikethrough;
                     labelData.text = textComponent.text;
                     return labelData as T;
                 case UIConfig.ButtonType:
@@ -130,6 +205,7 @@ namespace V8
                         string eventId = trigger.eventID.ToString();
                         buttonData.events.Add(eventId, eventId);
                     }
+
                     // buttonData.threshold = 0.0f;
                     return buttonData as T;
                 default:
@@ -137,16 +213,19 @@ namespace V8
                     return null;
             }
 
+
             T GetFrameData<T>(RectTransform target, string parent) where T : FrameData, new()
             {
+                var webCoordinateAnchor = target.anchorMax.ToReverseYAxis();
+                var webCoordinatePivot = target.pivot.ToReverseYAxis();
+                
                 T data = new T()
                 {
                     name = target.name,
                     type = typeName,
                     parent = parent,
-                    anchorMin = new List<float> { target.anchorMin.x, target.anchorMin.y },
-                    anchorMax = new List<float> { target.anchorMax.x, target.anchorMax.y },
-                    pivot = new List<float> { target.pivot.x, target.pivot.y },
+                    anchor = new[] { webCoordinateAnchor.x, webCoordinateAnchor.y },
+                    pivot = new[] { webCoordinatePivot.x, webCoordinatePivot.y },
 
                     position = new DimensionData()
                     {
@@ -218,6 +297,11 @@ namespace V8
             }
 
             return true;
+        }
+
+        private static float[] ConvertToWebCoordinateArray(Vector2 vector2)
+        {
+            return new[] { vector2.x, 1 - vector2.y };
         }
     }
 }

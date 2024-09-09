@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,9 +12,9 @@ namespace V8
         private EventTrigger _eventTrigger;
         private ReadOnlyDictionary<EventTriggerType, string> _events;
         private readonly Action<ulong, string, string, string> _action;
-        private readonly Dictionary<EventTriggerType, float> _lastEventTimes = new();
+        // private readonly Dictionary<EventTriggerType, float> _lastEventTimes = new();
 
-        private List<Action<IElement>> _pointerEnterEvents = new();
+        private readonly List<Action<IElement>> _pointerEnterEvents = new();
         private readonly List<Action<IElement>> _pointerExitEvents = new();
         private readonly List<Action<IElement>> _pointerDownEvents = new();
         private readonly List<Action<IElement>> _pointerUpEvents = new();
@@ -32,8 +31,8 @@ namespace V8
 
         // public float Threshold { get; }
 
-        public Button(ButtonData data, ButtonComponents components, Action<ulong, string, string, string> action)
-            : base(data, components)
+        public Button(string uid, ButtonData data, ButtonComponents components, Action<ulong, string, string, string> action)
+            : base(uid, data, components)
         {
             _action = action;
             _eventTrigger = components.EventTrigger;
@@ -92,7 +91,7 @@ namespace V8
                 eventID = type
             };
 
-            _lastEventTimes[type] = 0;
+            // _lastEventTimes[type] = 0;
             entry.callback.AddListener(_ =>
             {
                 // var diff = Time.time - _lastEventTimes[type];
@@ -101,7 +100,7 @@ namespace V8
                 //     return;
                 // }
 
-                _lastEventTimes[type] = Time.time;
+                // _lastEventTimes[type] = Time.time;
                 //Todo: Network 로 이벤트 보낼 때 Name 으로 보내는게 맞을지 UID 로 보내는게 맞을지?
                 // _action?.Invoke(NetworkManager.Singleton.LocalClientId, Name, type.ToString(), eventId);
             });
@@ -115,7 +114,7 @@ namespace V8
                 eventID = type
             };
 
-            _lastEventTimes[type] = 0;
+            // _lastEventTimes[type] = 0;
             entry.callback.AddListener(_ =>
             {
                 // var diff = Time.time - _lastEventTimes[type];
@@ -124,7 +123,7 @@ namespace V8
                 //     return;
                 // }
 
-                _lastEventTimes[type] = Time.time;
+                // _lastEventTimes[type] = Time.time;
                 foreach (var eventAction in eventActions)
                 {
                     eventAction?.Invoke(this);

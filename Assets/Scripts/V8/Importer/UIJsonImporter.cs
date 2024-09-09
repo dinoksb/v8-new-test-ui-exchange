@@ -9,7 +9,7 @@ namespace V8
 {
     public static class UIJsonImporter
     {
-        private static IElement _canvas;
+        private static IElement _tempCanvas;
         private static Dictionary<string, IElement> _ui = new();
         private static Dictionary<string, Sprite> _sprites = new();
 
@@ -40,11 +40,11 @@ namespace V8
 
         public static void Clear()
         {
-            GameObject rootUIObject = _canvas?.Self ? _canvas.Self.gameObject : FindRootObject();
+            GameObject rootUIObject = _tempCanvas?.Self ? _tempCanvas.Self.gameObject : FindRootObject();
             if (rootUIObject)
             {
                 Object.DestroyImmediate(rootUIObject);
-                _canvas = null;
+                _tempCanvas = null;
             }
             
             if (_sprites.Count == 0 || _ui.Count == 0) return;
@@ -75,15 +75,15 @@ namespace V8
             var asset = data.Value.asset;
             var ui = data.Value.ui;
 
-            _canvas = new Canvas(UIConfig.Canvas, null, referenceResolution, false);
-            _sprites = await SpriteImporter.Import(asset.sprite, true);
+            _tempCanvas = new Canvas(UIConfig.Canvas, null, referenceResolution, false);
+            _sprites = await SpriteImporter.Import(asset.texture, asset.sprite, Application.persistentDataPath, true);
 
             foreach (var (key, element) in ui)
             {
                 if (_ui.ContainsKey(key)) continue;
                 var factoryProvider = new ElementFactoryProvider(_sprites, referenceResolution, OnEvent);
                 var factory = factoryProvider.GetFactory(element.type);
-                var createdElement = CreateElement(element, factory, referenceResolution);
+                var createdElement = CreateElement(key, element, factory, referenceResolution);
                 _ui.Add(key, createdElement);
             }
         }
@@ -101,18 +101,19 @@ namespace V8
             return canvas ? canvas.gameObject : null;
         }
 
-        private static IElement CreateElement(ElementData data, IElementFactory<Element> factory,
+        private static IElement CreateElement(string uid, ElementData data, IElementFactory<Element> factory,
             Vector2 referenceResolution)
         {
             var parent = GetParentFromElement(data.parent);
-            var element = factory.Create(data, parent);
+            var element = factory.Create(uid, data, parent);
             element.Visible = data.visible;
             return element;
         }
 
         private static IElement GetParentFromElement(string id)
         {
-            return GetElement(id) ?? _canvas;
+            // todo: Element 의 Parent 가 Canvas(최상위) 인 경우 Parent 의 UID 를 가지고 있어야 할지?
+            return string.IsNullOrEmpty(id) ? _tempCanvas : GetElement(id);
         }
 
         private static IElement GetElement(string id)

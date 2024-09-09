@@ -30,8 +30,38 @@ namespace V8
             {
                 return Color.clear;
             }
+            
+            float r = values[0] <= 1.0 ? values[0] * 255f : values[0];
+            float g = values[1] <= 1.0 ? values[1] * 255f : values[1];
+            float b = values[2] <= 1.0 ? values[2] * 255f : values[2];
+            float a = values[3] <= 1.0 ? values[3] * 255f : values[3];
 
             return new Color(values[0], values[1], values[2], values[3]);
+        }
+        
+        public static Color32 ToColor32(float[] values)
+        {
+            if (values == null || values.Length < 4)
+            {
+                return new Color32(0,0,0,0);
+            }
+
+            return new Color32((byte)values[0], (byte)values[1], (byte)values[2], (byte)values[3]);
+        }
+        
+        public static Color ToColor0To1(float[] values)
+        {
+            if (values == null || values.Length < 4)
+            {
+                return Color.clear;
+            }
+
+            float r = values[0] > 1.0 ? values[0] / 255f : values[0];
+            float g = values[1] > 1.0 ? values[1] / 255f : values[1];
+            float b = values[2] > 1.0 ? values[2] / 255f : values[2];
+            float a = values[3] > 1.0 ? values[3] / 255f : values[3];
+
+            return new Color(r, g, b, a);
         }
         
         public static Vector2 ToVector2(int[] values)
@@ -73,7 +103,7 @@ namespace V8
 
             return new Vector4(values[0], values[1], values[2], values[3]);
         }
-    
+        
         public static RectOffset ToRectOffset(IReadOnlyList<int> values)
         {
             if (values == null || values.Count < 4)

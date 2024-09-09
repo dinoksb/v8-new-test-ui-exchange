@@ -147,7 +147,7 @@ namespace V8
 
         public delegate void TextChangeEventAction(IElement element, string prevText, string newText);
 
-        public Label(LabelData data, LabelComponents components, Vector2 referenceResolution) : base(data, components)
+        public Label(string uid, LabelData data, LabelComponents components, Vector2 referenceResolution) : base(uid, data, components)
         {
             _tmp = components.TMP;
             _referenceResolution = referenceResolution;
@@ -174,26 +174,28 @@ namespace V8
             FontId = data.fontId;
             TextAlignment = TypeConverter.ToTextAlignmentOptions(data.textAlignment);
             FontColor = TypeConverter.ToColor(data.fontColor);
-            CharacterSpacing = data.characterSpacing;
-            LineSpacing = data.lineSpacing;
-            AutoSize = data.autoSize;
-            Constraint = data.fontSizeConstraint;
-            FontSize = SetFontSize(data.fontSize, AutoSize);
-            SingleLine = data.singleLine;
-            Ellipsis = data.ellipsis;
-            Bold = data.bold;
-            Italic = data.italic;
-            Underline = data.underline;
-            Strikethrough = data.strikethrough;
+            FontSize = SetFontSize(data.fontSize, false);
+            //FontSize = SetFontSize(data.fontSize, AutoSize);
             Text = data.text;
+            // Todo: 추후 추가 될 수 있는 데이터.
+            // CharacterSpacing = data.characterSpacing;
+            // LineSpacing = data.lineSpacing;
+            // AutoSize = data.autoSize;
+            // Constraint = data.fontSizeConstraint;
+            // SingleLine = data.singleLine;
+            // Ellipsis = data.ellipsis;
+            // Bold = data.bold;
+            // Italic = data.italic;
+            // Underline = data.underline;
+            // Strikethrough = data.strikethrough;
             _tmp.raycastTarget = Interactable;
         }
 
         private float SetFontSize(float size, bool isAutoSize)
         {
             return isAutoSize
-                ? size
-                : size / CalculateCanvasScaleFactor(_referenceResolution, _screenResolution, Constraint);
+                ? size / CalculateCanvasScaleFactor(_referenceResolution, _screenResolution, Constraint)
+                : size;
         }
 
         private TMP_FontAsset GetFontAssetFromResources(string id)

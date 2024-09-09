@@ -10,9 +10,9 @@ namespace V8
         public string spriteId;
         
         [JsonProperty("backgroundColor", Required = Required.Default)]
-        public float[] backgroundColor = new float[] { 255, 255, 255, 255 };
+        public float[] backgroundColor = new float[] { 1, 1, 1, 1 };
         
         [JsonProperty("imageColor", Required = Required.Default)]
-        public float[] imageColor = new float[] { 255, 255, 255, 255 };
+        public float[] imageColor = new float[] { 1, 1, 1, 1 };
     }
 }

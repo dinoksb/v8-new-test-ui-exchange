@@ -8,6 +8,7 @@ namespace V8
 {
     public class Canvas : IElement
     {
+        public string Uid { get; }
         public string Name { get; }
 
         public RectTransform Self { get; }
@@ -34,11 +35,7 @@ namespace V8
             Type = GetType().Name;
             var gameObject = new GameObject(Name);
 
-            if (dontDestoryOnLoad)
-            {
-                GameObject.DontDestroyOnLoad(gameObject);
-                gameObject.SetActive(false);
-            }
+ 
 
             if (gameObject.transform.parent != parent)
                 gameObject.transform.parent = parent;
@@ -58,7 +55,11 @@ namespace V8
             canvasScaler.referencePixelsPerUnit = 100;
             canvasScaler.matchWidthOrHeight = 0.5f;
 
-            gameObject.AddComponent<GraphicRaycaster>();
+            if (dontDestoryOnLoad)
+            {
+                GameObject.DontDestroyOnLoad(gameObject);
+                gameObject.SetActive(false);
+            }
         }
 
         public void Dispose()
@@ -76,12 +77,12 @@ namespace V8
             throw new Exception("This function cannot be called in Canvas.");
         }
 
-        void IElement.AddVisibleChangedListener(Action<bool> action)
+        void IElement.AddVisibleChangedListener(Action<IElement> element)
         {
             throw new Exception("This function cannot be called in Canvas.");
         }
 
-        void IElement.RemoveVisibleChangedListener(Action<bool> action)
+        void IElement.RemoveVisibleChangedListener(Action<IElement> action)
         {
             throw new Exception("This function cannot be called in Canvas.");
         }

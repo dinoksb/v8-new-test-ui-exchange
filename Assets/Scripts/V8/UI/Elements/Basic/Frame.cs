@@ -12,7 +12,7 @@ namespace V8
         public bool Interactable;
 
 
-        public Frame(FrameData data, FrameComponents components) : base(data, components)
+        public Frame(string uid, FrameData data, FrameComponents components) : base(uid, data, components)
         {
             ConstraintType = data.sizeConstraint;
             SetValues(data);
