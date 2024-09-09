@@ -34,6 +34,10 @@ namespace V8.Template
         public void LoadUI(string jsonData)
         {
             _uiManager.Load(jsonData);
+            
+#if UNITY_WEBGL && !UNITY_EDITOR
+            _uiManager.Show(_uiCanvasForTest);
+#endif
         }
 
         [Preserve]
