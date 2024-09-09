@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using V8.Utilities;
 using ConstraintType = V8.FrameData.ConstraintType;
 
 namespace V8
@@ -198,18 +199,18 @@ namespace V8
                 : size;
         }
 
-        private TMP_FontAsset GetFontAssetFromResources(string id)
-        {
-            var fontAsset = Resources.Load(id, typeof(TMP_FontAsset)) as TMP_FontAsset;
-            if (fontAsset == null)
-            {
-                var defaultFontPath = $"{DefaultFontAssetPath}/{DefaultFontAsset}";
-                fontAsset = GetFontAssetFromResources($"{DefaultFontAssetPath}/{DefaultFontAsset}");
-                Debug.LogWarning($"The [{id}] font does not exist. Replace with default [{defaultFontPath}]font.");
-            }
-
-            return fontAsset;
-        }
+        // private TMP_FontAsset GetFontAssetFromResources(string id)
+        // {
+        //     var fontAsset = Resources.Load(id, typeof(TMP_FontAsset)) as TMP_FontAsset;
+        //     if (fontAsset == null)
+        //     {
+        //         var defaultFontPath = $"{DefaultFontAssetPath}/{DefaultFontAsset}";
+        //         fontAsset = GetFontAssetFromResources($"{DefaultFontAssetPath}/{DefaultFontAsset}");
+        //         InternalDebug.LogWarning($"The [{id}] font does not exist. Replace with default [{defaultFontPath}]font.");
+        //     }
+        //
+        //     return fontAsset;
+        // }
 
         private float CalculateCanvasScaleFactor(Vector2 referenceResolution, Vector2 targetResolution,
             ConstraintType constraint)
@@ -245,7 +246,7 @@ namespace V8
             if (filePaths.Count == 0)
             {
                 fontPath = $"{DefaultFontAssetPath}/{DefaultFontAsset}";
-                Debug.Log($"The font [{id}] does not exist. Replace with default font [{DefaultFontAsset}].");
+                InternalDebug.Log($"The font [{id}] does not exist. Replace with default font [{DefaultFontAsset}].");
             }
             else
             {
@@ -276,7 +277,7 @@ namespace V8
             }
             catch (Exception ex)
             {
-                Debug.LogException(ex);
+                InternalDebug.LogException(ex);
             }
 
             return result;
