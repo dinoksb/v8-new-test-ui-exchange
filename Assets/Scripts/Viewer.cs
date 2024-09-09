@@ -131,6 +131,7 @@ namespace V8.Template
             // frame1.Size = new Vector2(100, 100);
         }
 
+        #if UNITY_EDITOR
         private void OnGUI()
         {
             if(GUI.Button(_guiRect, "Show"))
@@ -163,5 +164,6 @@ namespace V8.Template
                 SizeChangeNotifyTest();
             }
         }
+        #endif
     }
 }
