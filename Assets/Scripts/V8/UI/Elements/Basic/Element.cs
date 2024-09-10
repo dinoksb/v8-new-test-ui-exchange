@@ -39,6 +39,7 @@ namespace V8
                 {
                     eventAction?.Invoke(this);
                 }
+
                 Self.sizeDelta = value;
                 OnUpdateSize?.Invoke(this, value);
             }
@@ -53,6 +54,7 @@ namespace V8
                 {
                     eventAction?.Invoke(this);
                 }
+
                 Self.anchoredPosition = value;
             }
         }
@@ -66,6 +68,7 @@ namespace V8
                 {
                     eventAction?.Invoke(this);
                 }
+
                 float deltaZ = value - Self.eulerAngles.z;
                 Self.Rotate(0, 0, deltaZ);
             }
@@ -89,7 +92,7 @@ namespace V8
         public event EventHandler<Vector2> OnUpdateSize;
 
         private IUIService _uiService;
-        
+
         private readonly List<Action<IElement>> _visibleChangedActions = new();
         private readonly List<Action<IElement>> _positionChangeActions = new();
         private readonly List<Action<IElement>> _rotationChangeActions = new();
@@ -99,7 +102,7 @@ namespace V8
         {
             // todo: 추후 DI 로 주입 해야함.
             _uiService = GameObject.FindObjectOfType<UIService>();
-            
+
             _uiService.OnCreated(this);
             Uid = uid;
             Name = data.name;
@@ -119,7 +122,7 @@ namespace V8
             var clone = (Element)MemberwiseClone();
             clone.Self = self;
             clone.Parent = parent;
-            
+
             return clone;
         }
 
@@ -149,21 +152,19 @@ namespace V8
             Anchor = TypeConverter.ToVector2(data.anchor).ToReverseYAxis();
             Pivot = TypeConverter.ToVector2(data.pivot).ToReverseYAxis();
         }
-        
+
         # region internal events
+
         void IElement.AddVisibleChangedListener(Action<IElement> action)
         {
-            if (!_visibleChangedActions.Contains(action))
-            {
-                _visibleChangedActions.Add(action);
-            }
+            _visibleChangedActions.Add(action);
         }
 
         void IElement.RemoveVisibleChangedListener(Action<IElement> action)
         {
             _visibleChangedActions.Remove(action);
         }
-        
+
         void IElement.RemoveAllVisibleChangedListener()
         {
             _visibleChangedActions.Clear();
@@ -171,17 +172,14 @@ namespace V8
 
         void IElement.AddPositionChangeListener(Action<IElement> action)
         {
-            if (!_positionChangeActions.Contains(action))
-            {
-                _positionChangeActions.Add(action);
-            }
+            _positionChangeActions.Add(action);
         }
 
         void IElement.RemovePositionChangeListener(Action<IElement> action)
         {
             _positionChangeActions.Remove(action);
         }
-        
+
         void IElement.RemoveAllPositionChangeListener()
         {
             _positionChangeActions.Clear();
@@ -189,17 +187,14 @@ namespace V8
 
         void IElement.AddRotationChangeListener(Action<IElement> action)
         {
-            if (!_rotationChangeActions.Contains(action))
-            {
-                _rotationChangeActions.Add(action);
-            }
+            _rotationChangeActions.Add(action);
         }
 
         void IElement.RemoveRotationChangeListener(Action<IElement> action)
         {
             _rotationChangeActions.Remove(action);
         }
-        
+
         void IElement.RemoveAllRotationChangeListener()
         {
             _rotationChangeActions.Clear();
@@ -207,21 +202,19 @@ namespace V8
 
         void IElement.AddSizeChangeListener(Action<IElement> action)
         {
-            if (!_sizeChangeActions.Contains(action))
-            {
-                _sizeChangeActions.Add(action);
-            }
+            _sizeChangeActions.Add(action);
         }
 
         void IElement.RemoveSizeChangeListener(Action<IElement> action)
         {
             _sizeChangeActions.Remove(action);
         }
-        
+
         void IElement.RemoveAllSizeChangeListener()
         {
             _sizeChangeActions.Clear();
         }
+
         #endregion
     }
 }

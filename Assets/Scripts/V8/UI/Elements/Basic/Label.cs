@@ -148,7 +148,8 @@ namespace V8
 
         public delegate void TextChangeEventAction(IElement element, string prevText, string newText);
 
-        public Label(string uid, LabelData data, LabelComponents components, Vector2 referenceResolution) : base(uid, data, components)
+        public Label(string uid, LabelData data, LabelComponents components, Vector2 referenceResolution) : base(uid,
+            data, components)
         {
             _tmp = components.TMP;
             _referenceResolution = referenceResolution;
@@ -285,10 +286,7 @@ namespace V8
 
         public void AddTextChangedListener(TextChangeEventAction eventAction)
         {
-            if (!_textChangeEvents.Contains(eventAction))
-            {
-                _textChangeEvents.Add(eventAction);
-            }
+            _textChangeEvents.Add(eventAction);
         }
 
         public void RemoveTextChangedListener(TextChangeEventAction eventAction)

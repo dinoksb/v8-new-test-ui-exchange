@@ -134,8 +134,6 @@ namespace V8
 
         public void AddPointerEnterListener(Action<IElement> eventAction)
         {
-            if (_pointerEnterEvents.Contains(eventAction)) return;
-
             var entry = _eventTrigger.triggers.FirstOrDefault(x => x.eventID == EventTriggerType.PointerEnter);
             if (entry == null)
             {
@@ -157,8 +155,6 @@ namespace V8
 
         public void AddPointerExitListener(Action<IElement> eventAction)
         {
-            if (_pointerExitEvents.Contains(eventAction)) return;
-
             var entry = _eventTrigger.triggers.FirstOrDefault(x => x.eventID == EventTriggerType.PointerExit);
             if (entry == null)
             {
@@ -180,8 +176,6 @@ namespace V8
 
         public void AddPointerDownListener(Action<IElement> eventAction)
         {
-            if (_pointerDownEvents.Contains(eventAction)) return;
-
             var entry = _eventTrigger.triggers.FirstOrDefault(x => x.eventID == EventTriggerType.PointerDown);
             if (entry == null)
             {
@@ -203,8 +197,6 @@ namespace V8
 
         public void AddPointerUpListener(Action<IElement> eventAction)
         {
-            if (_pointerUpEvents.Contains(eventAction)) return;
-
             var entry = _eventTrigger.triggers.FirstOrDefault(x => x.eventID == EventTriggerType.PointerUp);
             if (entry == null)
             {

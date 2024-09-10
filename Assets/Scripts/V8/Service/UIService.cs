@@ -53,7 +53,6 @@ namespace V8.Service
 
         public void AddFrontFrameChangeListener(IUIService.UidDelegate action)
         {
-            if (_frontFrameChangedEvents.Contains(action)) return;
             _frontFrameChangedEvents.Add(action);
         }
 
@@ -69,7 +68,6 @@ namespace V8.Service
 
         public void AddVisibleChangedListener(IUIService.UidVisibilityChangedDelegate action)
         {
-            if (_visibleChangedEvents.Contains(action)) return;
             _visibleChangedEvents.Add(action);
         }
 
@@ -85,7 +83,6 @@ namespace V8.Service
         
         public void AddPositionChangedListener(IUIService.UidValueChangedDelegate action)
         {
-            if (_positionChangedEvents.Contains(action)) return;
             _positionChangedEvents.Add(action);
         }
 
@@ -101,7 +98,6 @@ namespace V8.Service
 
         public void AddRotationChangedListener(IUIService.UidFloatValueChangedDelegate action)
         {
-            if (_rotationChangedEvents.Contains(action)) return;
             _rotationChangedEvents.Add(action);
         }
 
@@ -117,7 +113,6 @@ namespace V8.Service
 
         public void AddSizeChangedListener(IUIService.UidValueChangedDelegate action)
         {
-            if (_sizeChangedEvents.Contains(action)) return;
             _sizeChangedEvents.Add(action);
         }
 
@@ -215,103 +210,174 @@ namespace V8.Service
         #endregion
 
         #region  Notify Events
+
         private void NotifyFrontFrameListener()
         {
-            if (_isFrontFrameVisibleChanged)
+            if (!_isFrontFrameVisibleChanged || _visibleChanagedElements.Count == 0) return;
+
+            // notify listeners
+            foreach (var frontFrameChangedEvent in _frontFrameChangedEvents)
             {
-                if (_visibleChanagedElements.Count == 0) return;
-
-                // notify listeners
-                foreach (var frontFrameChangedEvent in _frontFrameChangedEvents)
-                {
-                    frontFrameChangedEvent?.Invoke(_visibleChanagedElements.First.Value.Uid);
-                }
-
-                // flush
-                _visibleChanagedElements.Clear();
-                _isFrontFrameVisibleChanged = false;
+                frontFrameChangedEvent?.Invoke(_visibleChanagedElements.First.Value.Uid);
             }
+
+            // flush
+            _visibleChanagedElements.Clear();
+            _isFrontFrameVisibleChanged = false;
         }
         
         private void NotifyVisibleChangedListener()
         {
-            NotifyListeners(
-                ref _isVisibleChanged,
-                _visibleChangedElementsOrigin,
-                _visibleChangedElementsReference,
-                _visibleChangedEvents.ConvertAll(e => new Action<string, bool, bool>((uid, _, newVal) => e?.Invoke(uid, newVal))),
-                element => element.Visible
-            );
-        }
+            if (!_isVisibleChanged || _visibleChangedElementsOrigin.Count == 0 ||
+                _visibleChangedElementsReference.Count == 0) return;
 
-        private void NotifyPositionChangeListener()
-        {
-            NotifyListeners(
-                ref _isPositionChange,
-                _positionChangedElementsOrigin,
-                _positionChangedElementsReference,
-                _positionChangedEvents.ConvertAll(e => new Action<string, Vector2, Vector2>((uid, oldVal, newVal) => e?.Invoke(uid, oldVal, newVal))),
-                element => element.Position
-            );
-        }
-
-        private void NotifyRotationChangeListener()
-        {
-            NotifyListeners(
-                ref _isRotationChange,
-                _rotationChangedElementsOrigin,
-                _rotationChangedElementsReference,
-                _rotationChangedEvents.ConvertAll(e => new Action<string, float, float>((uid, oldVal, newVal) => e?.Invoke(uid, oldVal, newVal))),
-                element => element.Rotation
-            );
-        }
-        
-        private void NotifySizeChangeListener()
-        {
-            NotifyListeners(
-                ref _isSizeChange,
-                _sizeChangedElementsOrigin,
-                _sizeChangedElementsReference,
-                _sizeChangedEvents.ConvertAll(e => new Action<string, Vector2, Vector2>((uid, oldVal, newVal) => e?.Invoke(uid, oldVal, newVal))),
-                element => element.Size
-            );
-        }
-        
-        private void NotifyListeners<T>(
-            ref bool isChanged, 
-            Dictionary<string, T> originalElements, 
-            Dictionary<string, IElement> referenceElements, 
-            List<Action<string, T, T>> eventHandlers, 
-            Func<IElement, T> getElementValue)
-        {
-            if (!isChanged || originalElements.Count == 0 || referenceElements.Count == 0)
-                return;
-
-            foreach (var referencePair in referenceElements)
+            // notify listeners
+            foreach (var elementValue in _visibleChangedElementsReference)
             {
-                var element = referencePair.Value;
+                var element = elementValue.Value;
                 var uid = element.Uid;
-
-                // 원래 값과 새 값을 비교하여 다르면 이벤트 실행
-                if (originalElements.TryGetValue(uid, out var originalValue))
+                if (element.Visible != _visibleChangedElementsOrigin[uid])
                 {
-                    var newValue = getElementValue(element);
-                    if (!EqualityComparer<T>.Default.Equals(newValue, originalValue))
+                    foreach (var visibleChangedEvent in _visibleChangedEvents)
                     {
-                        foreach (var handler in eventHandlers)
-                        {
-                            handler?.Invoke(uid, originalValue, newValue);
-                        }
+                        visibleChangedEvent?.Invoke(uid, element.Visible);
                     }
                 }
             }
 
-            // 상태 초기화
-            originalElements.Clear();
-            referenceElements.Clear();
-            isChanged = false;
+            //flush
+            _visibleChangedElementsOrigin.Clear();
+            _visibleChangedElementsReference.Clear();
+            _isVisibleChanged = false;
+        }
+
+        private void NotifyPositionChangeListener()
+        {
+            if (!_isPositionChange || _positionChangedElementsOrigin.Count == 0 ||
+                _positionChangedElementsReference.Count == 0) return;
+
+            // notify listeners
+            foreach (var elementValue in _positionChangedElementsReference)
+            {
+                var element = elementValue.Value;
+                var uid = element.Uid;
+                if (CheckApproximately(element.Position, _positionChangedElementsOrigin[uid]))
+                {
+                    foreach (var positionChangeEvent in _positionChangedEvents)
+                    {
+                        var prevValue = _positionChangedElementsOrigin[uid];
+                        var newValue = element.Position;
+                        positionChangeEvent?.Invoke(uid, prevValue, newValue);
+                    }
+                }
+            }
+            // todo: 부동소수점 이전 포지션과, 현재 포지션을 뺀 값을 가지고(distance) 변경이 있는지 감지 할 수있는 로직 추가
+            // ex) Mathf.Approximately 활용 
+            // 
+
+            //flush
+            _positionChangedElementsOrigin.Clear();
+            _positionChangedElementsReference.Clear();
+            _isPositionChange = false;
+        }
+
+        private void NotifyRotationChangeListener()
+        {
+            if (!_isRotationChange || _rotationChangedElementsOrigin.Count == 0 ||
+                _rotationChangedElementsReference.Count == 0) return;
+
+            // notify listeners
+            foreach (var elementValue in _rotationChangedElementsReference)
+            {
+                var element = elementValue.Value;
+                var uid = element.Uid;
+                
+                if (!Mathf.Approximately(element.Rotation, _rotationChangedElementsOrigin[uid]))
+                {
+                    foreach (var rotationChangeEvent in _rotationChangedEvents)
+                    {
+                        var prevValue = _rotationChangedElementsOrigin[uid];
+                        var newValue = element.Rotation;
+                        rotationChangeEvent?.Invoke(uid, prevValue, newValue);
+                    }
+                }
+            }
+
+            //flush
+            _rotationChangedElementsOrigin.Clear();
+            _rotationChangedElementsReference.Clear();
+            _isRotationChange = false;
         }
         
+        private void NotifySizeChangeListener()
+        {
+            if (!_isSizeChange || _sizeChangedElementsOrigin.Count == 0 ||
+                _sizeChangedElementsReference.Count == 0) return;
+
+            // notify listeners
+            foreach (var elementValue in _sizeChangedElementsReference)
+            {
+                var element = elementValue.Value;
+                var uid = element.Uid;
+                if (!CheckApproximately(element.Size, _sizeChangedElementsOrigin[uid]))
+                {
+                    foreach (var sizeChangeEvent in _sizeChangedEvents)
+                    {
+                        var prevValue = _sizeChangedElementsOrigin[uid];
+                        var newValue = element.Size;
+                        sizeChangeEvent?.Invoke(uid, prevValue, newValue);
+                    }
+                }
+            }
+
+            //flush
+            _sizeChangedElementsOrigin.Clear();
+            _sizeChangedElementsReference.Clear();
+            _isSizeChange = false;
+        }
+        
+        // private void NotifyListeners<T>(
+        //     ref bool isChanged, 
+        //     Dictionary<string, T> originalElements, 
+        //     Dictionary<string, IElement> referenceElements, 
+        //     List<Action<string, T, T>> eventHandlers, 
+        //     Func<IElement, T> getElementValue)
+        // {
+        //     if (!isChanged || originalElements.Count == 0 || referenceElements.Count == 0)
+        //         return;
+        //
+        //     foreach (var referencePair in referenceElements)
+        //     {
+        //         var element = referencePair.Value;
+        //         var uid = element.Uid;
+        //
+        //         // 원래 값과 새 값을 비교하여 다르면 이벤트 실행
+        //         if (originalElements.TryGetValue(uid, out var originalValue))
+        //         {
+        //             var newValue = getElementValue(element);
+        //             if (!EqualityComparer<T>.Default.Equals(newValue, originalValue))
+        //             {
+        //                 foreach (var handler in eventHandlers)
+        //                 {
+        //                     handler?.Invoke(uid, originalValue, newValue);
+        //                 }
+        //             }
+        //         }
+        //     }
+        //
+        //     // 상태 초기화
+        //     originalElements.Clear();
+        //     referenceElements.Clear();
+        //     isChanged = false;
+        // }
+        
         #endregion
+
+        private bool CheckApproximately(Vector2 v1, Vector2 v2)
+        {
+            if (Mathf.Approximately(v1.x, v2.x) && Mathf.Approximately(v1.y, v2.y))
+                return true;
+            return false;
+        }
     }
 }

@@ -9,12 +9,14 @@ namespace V8
     {
         private UnityEngine.UI.Image _backgroundImage;
         private UnityEngine.UI.Image _image;
-        
+
         //Todo: Lazy 초기화가 필요할지 고민필요...
         private readonly List<ColorChanageEventAction> _backgroundColorChangeEvents = new();
         private readonly List<ColorChanageEventAction> _sourceColorChangeEvents = new();
         private readonly List<SorceChangeEventAction> _sourceChangeEvents = new();
+
         public delegate void ColorChanageEventAction(IElement element, Color prevColor, Color newColor);
+
         public delegate void SorceChangeEventAction(IElement element, string prevUrl, string newUrl);
 
         public Color BackgroudColor
@@ -45,11 +47,12 @@ namespace V8
             }
         }
 
-        public Image(string uid, ImageData data, ImageComponents components, Sprite sprite) : base(uid, data, components)
+        public Image(string uid, ImageData data, ImageComponents components, Sprite sprite) : base(uid, data,
+            components)
         {
             _backgroundImage = components.BackGroundImage;
             _image = components.Image;
-            _image.type = UnityEngine.UI.Image.Type.Sliced; 
+            _image.type = UnityEngine.UI.Image.Type.Sliced;
             _image.sprite = sprite;
             SetValues(data);
         }
@@ -75,56 +78,47 @@ namespace V8
             ImageColor = TypeConverter.ToColor(data.imageColor);
             _image.raycastTarget = data.interactable;
         }
-        
+
         public void AddBackgroundColorChangedListener(ColorChanageEventAction eventAction)
         {
-            if (!_backgroundColorChangeEvents.Contains(eventAction))
-            {
-                _backgroundColorChangeEvents.Add(eventAction);
-            }
+            _backgroundColorChangeEvents.Add(eventAction);
         }
-        
+
         public void RemoveBackgroundColorChangedListener(ColorChanageEventAction eventAction)
         {
             _backgroundColorChangeEvents.Remove(eventAction);
         }
-        
+
         public void RemoveAllBackgroundColorChangedListener()
         {
             _backgroundColorChangeEvents.Clear();
         }
-        
+
         public void AddSorceColorChangedListener(ColorChanageEventAction eventAction)
         {
-            if (!_sourceColorChangeEvents.Contains(eventAction))
-            {
-                _sourceColorChangeEvents.Add(eventAction);
-            }
+            _sourceColorChangeEvents.Add(eventAction);
         }
-        
+
         public void RemoveSourceColorChangedListener(ColorChanageEventAction eventAction)
         {
             _sourceColorChangeEvents.Remove(eventAction);
         }
-        
+
         public void RemoveAllSourceColorChangedListener()
         {
             _sourceColorChangeEvents.Clear();
         }
-        
+
         public void AddSorceChangedListener(SorceChangeEventAction eventAction)
         {
-            if (!_sourceChangeEvents.Contains(eventAction))
-            {
-                _sourceChangeEvents.Add(eventAction);
-            }
+            _sourceChangeEvents.Add(eventAction);
         }
-        
+
         public void RemoveSourceChangedListener(SorceChangeEventAction eventAction)
         {
             _sourceChangeEvents.Remove(eventAction);
         }
-        
+
         public void RemoveAllSourceChangedListener()
         {
             _sourceChangeEvents.Clear();

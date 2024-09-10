@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using V8.Utilities;
 using ConstraintType = V8.FrameData.ConstraintType;
 
 namespace V8
@@ -40,6 +41,7 @@ namespace V8
 
         private void UpdateSize(object _, Vector2 size)
         {
+            InternalDebug.Log($"[{_}] Parent size updated: {size}");
             Size = size;
         }
 
@@ -58,6 +60,7 @@ namespace V8
 
         private Vector2 CalculateSize(DimensionData data, bool relative)
         {
+            // todo: 부모 객체의 사이즈 변경 시 어떻게 처리 할 것인지??
             if (Parent == this)
             {
                 _isOnUpdateSizeSubscribed = true;
