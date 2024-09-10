@@ -39,5 +39,12 @@ namespace V8
             var canvas = Selection.activeGameObject?.GetComponent<UnityEngine.Canvas>();
             return canvas;
         }
+        
+        [MenuItem("GameObject/UI/Json/Development_Export", true)]
+        private static bool DevelopmentExportValidation()
+        {
+            var canvas = Selection.activeGameObject?.GetComponent<UnityEngine.Canvas>();
+            return canvas;
+        }
     }
 }
