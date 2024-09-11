@@ -47,7 +47,7 @@ namespace V8
 
             foreach (var (_, element) in _ui)
             {
-                Object.DestroyImmediate(element.Self.gameObject);
+                Object.DestroyImmediate(element.Self?.gameObject);
             }
             
             GameObject rootUIObject = _tempCanvas?.Self ? _tempCanvas.Self.gameObject : FindRootObject();
