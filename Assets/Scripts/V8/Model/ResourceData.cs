@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 namespace V8
 {
     [Serializable]
-    public class TextureData
+    public class ResourceData
     {
         [JsonProperty("name", Required = Required.Always)]
         public string name;

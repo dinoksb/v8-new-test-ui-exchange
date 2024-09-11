@@ -35,7 +35,7 @@ namespace V8
                 var ui = uiData.Value.ui;
                 var referenceResolution = new Vector2(studio.resolutionWidth, studio.resolutionHeight);
 
-                _sprites = await SpriteImporter.Import(asset.texture, asset.sprite, Application.persistentDataPath, true);
+                _sprites = await SpriteImporter.Import(asset.resource, asset.sprite, Application.persistentDataPath, true);
                 _dontDestoryCanvas = new Canvas(UIConfig.Canvas, null, referenceResolution, true);
                 BuildUI(ui, referenceResolution);
             }

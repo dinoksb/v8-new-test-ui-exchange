@@ -65,10 +65,10 @@ namespace V8
                 {
                     var texture = imageComponent.mainTexture;
                     var sprite = imageComponent.sprite;
-                    data.texture ??= new Dictionary<string, TextureData>();
-                    if (!data.texture.ContainsKey(texture.name))
+                    data.resource ??= new Dictionary<string, ResourceData>();
+                    if (!data.resource.ContainsKey(texture.name))
                     {
-                        data.texture.Add(texture.name, new TextureData()
+                        data.resource.Add(texture.name, new ResourceData()
                         {
                             name = texture.name,
                             url = $"{textureFolderPath}/{texture.name}{UIConfig.PngExtension}",

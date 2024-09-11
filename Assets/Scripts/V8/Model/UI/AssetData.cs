@@ -7,7 +7,7 @@ namespace V8
     [Serializable]
     public struct AssetData
     {
-        public Dictionary<string, TextureData> texture;
+        public Dictionary<string, ResourceData> resource;
         // Note: sprite 값도 default 값인 경우가 있을지? (null 인 경우 있을수도 있을것 같음...)
         /// <summary>
         /// key: ID

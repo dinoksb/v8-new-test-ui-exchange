@@ -9,7 +9,6 @@ namespace V8
     {
         public string Uid { get; }
         public string Name { get; }
-
         public string Type { get; }
 
         public RectTransform Self { get; private set; }
