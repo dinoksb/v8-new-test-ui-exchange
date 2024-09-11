@@ -25,7 +25,7 @@ namespace V8
         [MenuItem("GameObject/UI/Json/Clear")]
         private static void Clear()
         {
-            UIJsonImporter.Clear();
+            UIJsonImporter.Release();
         }
 
         private static string LoadJson()

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using V8.Utilities;
 
@@ -12,29 +13,44 @@ namespace V8
         private IFactoryProvider<IElementFactory<IElement>> _factoryProvider;
         private Dictionary<string, IElement> _ui = new();
         private Dictionary<string, Sprite> _sprites = new();
-        private IElement _tempCanvas;
+        private IElement _dontDestoryCanvas;
 
         private void OnEvent(ulong clientId, string uiId, string eventTriggerType, string eventId)
         {
         }
 
-        public async Task Load(string url)
+        public async UniTask LoadAsync(string url)
         {
             Release();
-            var uiData = UIJsonImporter.Import(url) ?? throw new ArgumentNullException("UIImporter.Import()");
-            var studio = uiData.studioData;
-            var asset = uiData.asset;
-            var ui = uiData.ui;
-            var referenceResolution = new Vector2(studio.resolutionWidth, studio.resolutionHeight);
-            _sprites = await SpriteImporter.Import(asset.texture, asset.sprite, Application.persistentDataPath,true);
-            _tempCanvas = new Canvas(UIConfig.Canvas, null, referenceResolution, true);
-            BuildUI(ui, referenceResolution);
+            try
+            {
+                var uiData = UIJsonImporter.Import(url);
+                if (uiData == null)
+                {
+                    InternalDebug.LogError("Error: ui json load failed");
+                    return;
+                }
+                
+                var studio = uiData.Value.studioData;
+                var asset = uiData.Value.asset;
+                var ui = uiData.Value.ui;
+                var referenceResolution = new Vector2(studio.resolutionWidth, studio.resolutionHeight);
+
+                _sprites = await SpriteImporter.Import(asset.texture, asset.sprite, Application.persistentDataPath, true);
+                _dontDestoryCanvas = new Canvas(UIConfig.Canvas, null, referenceResolution, true);
+                BuildUI(ui, referenceResolution);
+            }
+            catch (Exception e)
+            {
+                InternalDebug.LogException(e);
+            }
+          
             InternalDebug.Log($"ui json loaded. : {url}");
         }
 
         public void Show(UnityEngine.Canvas target)
         {
-            var elementParents = _ui.Values.Where(x => CheckIsCanvas(x.Parent));
+            var elementParents = _ui.Values.Where(element => IsRootElement(element));
             foreach (var element in elementParents)
             {
                 element.Self.SetParent(target.transform);
@@ -47,7 +63,7 @@ namespace V8
             {
                 return element;
             }
-            
+
             InternalDebug.Log($"[{uid}]: element does not exist.");
             return null;
         }
@@ -59,28 +75,28 @@ namespace V8
 
         public IEnumerable<IElement> GetFromName(string name)
         {
-            var elements =_ui.Values.Where(element => element.Name.Equals(name));
+            var elements = _ui.Values.Where(element => element.Name.Equals(name));
             if (!elements.Any())
             {
                 InternalDebug.Log($"[{name}]: element does not exist.");
             }
+
             return elements;
         }
 
         public void Delete(string uid)
         {
-            if(_ui == null) return;
+            if (_ui == null) return;
             if (_ui.Count == 0) return;
-            
+
             _ui.Remove(uid);
             InternalDebug.Log($"[{uid}]: element deleted.");
         }
-        
+
         public void Release()
         {
-            if (_tempCanvas == null && (_sprites.Count == 0 || _ui.Count == 0)) return;
-            
-            DestroyImmediate(_tempCanvas.Self?.gameObject);
+            if (_dontDestoryCanvas == null && (_sprites.Count == 0 || _ui.Count == 0)) return;
+
             foreach (var (_, sprite) in _sprites)
             {
                 Destroy(sprite);
@@ -89,11 +105,13 @@ namespace V8
             {
                 Destroy(ui.Self?.gameObject);
             }
+
             _sprites.Clear();
             _ui.Clear();
-            _tempCanvas = null;
+            Destroy(_dontDestoryCanvas.Self?.gameObject);
+            _dontDestoryCanvas = null;
             Resources.UnloadUnusedAssets();
-            InternalDebug.Log("[Clear]");
+            InternalDebug.Log("ui element released");
         }
 
         private void BuildUI(Dictionary<string, ElementData> uis, Vector2 referenceResolution)
@@ -118,7 +136,7 @@ namespace V8
 
         private IElement GetParentFromElement(string id)
         {
-            return string.IsNullOrEmpty(id) ? _tempCanvas : GetElement(id);
+            return string.IsNullOrEmpty(id) ? _dontDestoryCanvas : GetElement(id);
         }
 
         private IElement GetElement(string id)
@@ -126,9 +144,9 @@ namespace V8
             return _ui.GetValueOrDefault(id);
         }
 
-        private bool CheckIsCanvas(IElement element)
+        private bool IsRootElement(IElement element)
         {
-            return element.Self.GetComponent<UnityEngine.Canvas>();
+            return element.Parent.Self?.GetComponent<UnityEngine.Canvas>();
         }
     }
 }

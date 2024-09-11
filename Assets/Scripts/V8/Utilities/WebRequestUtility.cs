@@ -68,8 +68,8 @@ namespace V8
                 {
                     return null;
                 }
-                
-                Debug.LogError($"{e}, GetData url({url})");
+
+                Debug.LogException(e);
                 return null;
             }
         }

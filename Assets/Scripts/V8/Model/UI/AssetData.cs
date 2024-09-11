@@ -4,8 +4,6 @@ using UnityEngine;
 
 namespace V8
 {
-    // todo: SpriteImporter 에서 TextureData 의 url 로 다운로드 받을 수 있도록 로직 수정필요.
-    // todo: sprite 를 사용하는 부분 로직 수정 필요한지 확인.
     [Serializable]
     public struct AssetData
     {

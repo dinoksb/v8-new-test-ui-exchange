@@ -7,10 +7,29 @@ namespace V8.Template
 {
     public class Viewer : MonoBehaviour
     {
+        private const string UI_FRAME1_UID = "8600305e-ee85-436b-8c61-5562a019de0a";
+        private const string UI_FRAME2_UID = "6c60a37c-6f23-46f7-8dd4-e21e2a2ef3c8";
+        private const string UI_FRAME3_UID = "10aef319-ed5e-4cbf-8988-7912960ffde4";
+        
+        public UnityEngine.Canvas UICanvas
+        {
+            get
+            {
+                if (!_uiCanvas)
+                {
+                    var element = new Canvas("UICanvas", null, new Vector2(Screen.width, Screen.height), false);
+                    _uiCanvas = element.Self.GetComponent<UnityEngine.Canvas>();
+                }
+
+                return _uiCanvas;
+            }
+        }
+        
         [SerializeField] private string _url;
         [SerializeField] private UIManager _uiManager;
         [SerializeField] private UIService _uiService;
-        [SerializeField] private UnityEngine.Canvas _uiCanvasForTest;
+        
+        private UnityEngine.Canvas _uiCanvas;
 
         private Rect _guiRect = new Rect(10, 10, 100, 50);
         
@@ -32,11 +51,22 @@ namespace V8.Template
 
         public async void LoadUI(string jsonData)
         {
-            await _uiManager.Load(jsonData);
+            await _uiManager.LoadAsync(jsonData);
             
 #if UNITY_WEBGL && !UNITY_EDITOR
-            _uiManager.Show(_uiCanvasForTest);
+            _uiManager.Show(UICanvasForTest);
 #endif
+        }
+        
+        private async void LoadUIAsync(string uiUrl)
+        {
+            var json = await WebRequestUtility.GetData(uiUrl);
+            if (string.IsNullOrEmpty(json))
+            {
+                InternalDebug.LogError("Error: UI Json is Null");
+                return;
+            };
+            LoadUI(json);
         }
 
         [Preserve]
@@ -44,42 +74,31 @@ namespace V8.Template
         {
             _uiManager.Release();
         }
-        
-        private async void LoadUIAsync(string uiUrl)
-        {
-            var json = await WebRequestUtility.GetData(uiUrl);
-            if (string.IsNullOrEmpty(json)) return;
-            LoadUI(json);
-        }
 
-        [ContextMenu("GetUIDTest")]
-        private void Test()
-        {
-            var elementButton = _uiManager.Get<Image>("a80da9c9-2ec6-4751-a514-617680280177");
-            Debug.Log("elementButton.Uid: " + elementButton.Uid);
-        }
-        
+        # region For Editor Test
         [ContextMenu("ShowCanvasTest")]
         private void ShowCanvasTest()
         {
-            _uiManager.Show(_uiCanvasForTest);
+            _uiManager.Show(UICanvas);
         }
-
 
         [ContextMenu("FrontFrameNotifyTest")]
         private void FrontFrameNotifyTest()
         {
             _uiService.AddFrontFrameChangeListener((uid) => InternalDebug.Log($"[Viewer] - FrontFrameChanged: {_uiManager.Get(uid).Name}"));
-            var frame1 = _uiManager.Get("96f2ee3a-37ae-442c-8f44-05e08a1e10eb");
+            var frame1 = _uiManager.Get(UI_FRAME1_UID);
             frame1.Visible = true;
+            frame1.Visible = false;
 
-            var label1 = _uiManager.Get("01ce13f0-1a89-4845-bc0c-922de85bb471");
-            label1.Visible = true;
+            var frame2 = _uiManager.Get(UI_FRAME2_UID);
+            frame2.Visible = true;
+            frame2.Visible = false;
             
-            var label2 = _uiManager.Get("5311749d-70e7-4aae-832f-f6e258c02e3b");
-            label2.Visible = true;
+            var frame3 = _uiManager.Get(UI_FRAME3_UID);
+            frame3.Visible = true;
+            frame3.Visible = false;
 
-            label2.Visible = false;
+            frame2.Visible = true;
             // label1.Visible = false;
             // frame1.Visible = false;
         }
@@ -89,7 +108,7 @@ namespace V8.Template
         {
             _uiService.AddVisibleChangedListener((uid, isVisible) => InternalDebug.Log($"[Viewer] - OnVisibleChanged: {_uiManager.Get(uid).Name} / isVisible: {isVisible}"));
             
-            var frame1 = _uiManager.Get("96f2ee3a-37ae-442c-8f44-05e08a1e10eb");
+            var frame1 = _uiManager.Get(UI_FRAME1_UID);
             frame1.Visible = true;
             frame1.Visible = false;
             // frame1.Visible = true;
@@ -100,11 +119,11 @@ namespace V8.Template
         {
             _uiService.AddPositionChangedListener((uid, prevValue, newValue) => InternalDebug.Log($"[Viewer] - OnPositionChange: {_uiManager.Get(uid).Name} / prevValue: {prevValue} / newValue: {newValue}"));
             
-            var frame1 = _uiManager.Get("96f2ee3a-37ae-442c-8f44-05e08a1e10eb");
+            var frame1 = _uiManager.Get(UI_FRAME1_UID);
             frame1.Position = new Vector2(0, 0);
-            frame1.Position = new Vector2(1, 0);
-            frame1.Position = new Vector2(2, 0);
-            frame1.Position = new Vector2(3, 0);
+            frame1.Position = new Vector2(100, 0);
+            frame1.Position = new Vector2(200, 0);
+            frame1.Position = new Vector2(300, 0);
             // frame1.Position = new Vector2(0, 0);
         }
         
@@ -113,7 +132,7 @@ namespace V8.Template
         {
             _uiService.AddRotationChangedListener((uid, prevValue, newValue) => InternalDebug.Log($"[Viewer] - OnRotationChange: {_uiManager.Get(uid).Name} / prevValue: {prevValue} / newValue: {newValue}"));
             
-            var frame1 = _uiManager.Get("96f2ee3a-37ae-442c-8f44-05e08a1e10eb");
+            var frame1 = _uiManager.Get(UI_FRAME1_UID);
             frame1.Rotation = 50;
             frame1.Rotation = 60;
             frame1.Rotation = 80;
@@ -126,7 +145,7 @@ namespace V8.Template
         {
             _uiService.AddSizeChangedListener((uid, prevValue, newValue) => InternalDebug.Log($"[Viewer] - OnSizeChange: {_uiManager.Get(uid).Name} / prevValue: {prevValue} / newValue: {newValue}"));
             
-            var frame1 = _uiManager.Get("96f2ee3a-37ae-442c-8f44-05e08a1e10eb");
+            var frame1 = _uiManager.Get(UI_FRAME1_UID);
             frame1.Size = new Vector2(100, 100);
             frame1.Size = new Vector2(200, 200);
             frame1.Size = new Vector2(300, 300);
@@ -171,7 +190,13 @@ namespace V8.Template
             {
                 ClearUI();
             }
+            
+            if(GUI.Button(new Rect(_guiRect.x, _guiRect.y + (_guiRect.height + 10) * 7, _guiRect.width, _guiRect.height), "Reset"))
+            {
+                LoadUIAsync(_url);
+            }
         }
         #endif
+        #endregion
     }
 }

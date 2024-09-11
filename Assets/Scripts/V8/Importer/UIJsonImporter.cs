@@ -27,7 +27,7 @@ namespace V8
                 }
                 catch (JsonException e)
                 {
-                    InternalDebug.LogError($"[UIJsonImporter] Invalid JSON file format: {e}");
+                    InternalDebug.LogException(e);
                 }
             }
             else
@@ -38,8 +38,15 @@ namespace V8
             return null;
         }
 
-        public static void Clear()
+        public static void Release()
         {
+            if (_sprites.Count == 0 || _ui.Count == 0) return;
+     
+            foreach (var (_, sprite) in _sprites)
+            {
+                Object.DestroyImmediate(sprite);
+            }
+            
             GameObject rootUIObject = _tempCanvas?.Self ? _tempCanvas.Self.gameObject : FindRootObject();
             if (rootUIObject)
             {
@@ -47,29 +54,26 @@ namespace V8
                 _tempCanvas = null;
             }
             
-            if (_sprites.Count == 0 || _ui.Count == 0) return;
-     
-            foreach (var (_, sprite) in _sprites)
-            {
-                Object.DestroyImmediate(sprite);
-            }
             _sprites.Clear();
             _ui.Clear();
-            InternalDebug.Log("[UIJsonImporter] created ui cleared");
+            InternalDebug.Log("[UIJsonImporter] ui element released");
         }
 
         public static void ImportAndBuild(string filePath)
         {
-            Clear();
+            Release();
             var json = File.ReadAllText(filePath);
             UIData? uiData = Import(json);
+            if (uiData == null)
+            {
+                InternalDebug.LogError("Error: ui json load failed");
+                return;
+            };
             BuildUI(uiData);
         }
 
         private static async void BuildUI(UIData? data)
         {
-            if (data == null) return;
-
             var studio = data.Value.studioData;
             var referenceResolution = new Vector2(studio.resolutionWidth, studio.resolutionHeight);
             var asset = data.Value.asset;
@@ -90,7 +94,7 @@ namespace V8
 
         private static bool IsValidation(string json)
         {
-            // TODO: Json Schema 를 통한 유효성 검사
+            // TODO: Json Schema 를 통한 유효성 검사(필요할지?)
             return true;
         }
 
