@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using V8.Utilities;
@@ -30,7 +29,7 @@ namespace V8
                     InternalDebug.LogError("Error: ui json load failed");
                     return;
                 }
-                
+
                 var studio = uiData.Value.studioData;
                 var asset = uiData.Value.asset;
                 var ui = uiData.Value.ui;
@@ -44,13 +43,13 @@ namespace V8
             {
                 InternalDebug.LogException(e);
             }
-          
+
             InternalDebug.Log($"ui json loaded. : {url}");
         }
 
         public void Show(UnityEngine.Canvas target)
         {
-            var elementParents = _ui.Values.Where(element => IsRootElement(element));
+            var elementParents = _ui.Values.Where(IsRootElement);
             foreach (var element in elementParents)
             {
                 element.Self.SetParent(target.transform);
@@ -101,6 +100,7 @@ namespace V8
             {
                 Destroy(sprite);
             }
+
             foreach (var (_, ui) in _ui)
             {
                 Destroy(ui.Self?.gameObject);
@@ -128,7 +128,7 @@ namespace V8
         {
             var frameData = (FrameData)data;
             var dimOpacity = frameData.dim;
-            
+
             _factoryProvider = new ElementFactoryProvider(_sprites, referenceResolution, dimOpacity, OnEvent);
             var factory = _factoryProvider.GetFactory(data.type);
             var parent = GetParentFromElement(data.parent);
@@ -149,7 +149,9 @@ namespace V8
 
         private bool IsRootElement(IElement element)
         {
-            return element.Parent.Self?.GetComponent<UnityEngine.Canvas>();
+            var parentTransform = element.Parent.Self;
+            var rootTransform = element.Self.root;
+            return parentTransform == rootTransform;
         }
     }
 }
