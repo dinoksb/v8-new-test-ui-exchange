@@ -16,7 +16,7 @@ namespace V8
 
         private static string DEV_END_POINT => Application.streamingAssetsPath;
         private const string DEV_TEXTURE_RESOURCE_PATH = "Sprites";
-
+        
         public static void Export(GameObject gameObject, string filePath)
         {
             if (!IsValid(gameObject)) return;
@@ -135,6 +135,12 @@ namespace V8
             {
                 case UIConfig.FrameType:
                     FrameData frameData = GetFrameData<FrameData>(target, guid);
+                    var dimComponent = target.Find(UIConfig.DimType);
+                    if (dimComponent)
+                    {
+                        var image = dimComponent.GetComponent<UnityEngine.UI.Image>();
+                        frameData.dim = image.color.a;
+                    }
                     return frameData as T;
                 case UIConfig.ImageType:
                     var imageBackgroundComponent = target.GetComponent<UnityEngine.UI.Image>();
@@ -208,6 +214,9 @@ namespace V8
 
                     // buttonData.threshold = 0.0f;
                     return buttonData as T;
+                case UIConfig.DimType:
+                    InternalDebug.Log($"[UIJsonExporter] - {UIConfig.DimType} type is do nothing.");
+                    return null;
                 default:
                     InternalDebug.LogError("[UIJsonExporter] - This type is not supported.");
                     return null;
@@ -263,8 +272,14 @@ namespace V8
         {
             string typeName = UIConfig.FrameType;
 
+            if (gameObject.name.Equals(UIConfig.DimType))
+            {
+                typeName = UIConfig.DimType;
+                return typeName;
+            }
+
             var imageComponent = gameObject.GetComponent<UnityEngine.UI.Image>();
-            if (imageComponent != null)
+            if (imageComponent != null && imageComponent.transform.childCount != 0)
             {
                 typeName = UIConfig.ImageType;
                 return typeName;

@@ -126,7 +126,10 @@ namespace V8
 
         private IElement CreateElement(string uid, ElementData data, Vector2 referenceResolution)
         {
-            _factoryProvider = new ElementFactoryProvider(_sprites, referenceResolution, OnEvent);
+            var frameData = (FrameData)data;
+            var dimOpacity = frameData.dim;
+            
+            _factoryProvider = new ElementFactoryProvider(_sprites, referenceResolution, dimOpacity, OnEvent);
             var factory = _factoryProvider.GetFactory(data.type);
             var parent = GetParentFromElement(data.parent);
             var element = factory.Create(uid, data, parent);

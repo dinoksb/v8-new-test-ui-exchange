@@ -40,11 +40,14 @@ namespace V8
 
         public static void Release()
         {
-            if (_sprites.Count == 0 || _ui.Count == 0) return;
-     
             foreach (var (_, sprite) in _sprites)
             {
                 Object.DestroyImmediate(sprite);
+            }
+
+            foreach (var (_, element) in _ui)
+            {
+                Object.DestroyImmediate(element.Self.gameObject);
             }
             
             GameObject rootUIObject = _tempCanvas?.Self ? _tempCanvas.Self.gameObject : FindRootObject();
@@ -84,8 +87,11 @@ namespace V8
 
             foreach (var (key, element) in ui)
             {
+                var frameData = (FrameData)element;
+                var dimOpacity = frameData.dim;
+                
                 if (_ui.ContainsKey(key)) continue;
-                var factoryProvider = new ElementFactoryProvider(_sprites, referenceResolution, OnEvent);
+                var factoryProvider = new ElementFactoryProvider(_sprites, referenceResolution, dimOpacity, OnEvent);
                 var factory = factoryProvider.GetFactory(element.type);
                 var createdElement = CreateElement(key, element, factory, referenceResolution);
                 _ui.Add(key, createdElement);

@@ -19,5 +19,6 @@ namespace V8
         public const string ImageType = "Image";
         public const string LabelType = "Label";
         public const string ButtonType = "Button";
+        public const string DimType = "Dim";
     }
 }

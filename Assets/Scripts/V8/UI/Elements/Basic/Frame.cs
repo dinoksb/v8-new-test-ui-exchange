@@ -7,15 +7,19 @@ namespace V8
 {
     public class Frame : Element
     {
-        private bool _isOnUpdateSizeSubscribed;
-
         public ConstraintType ConstraintType;
         public bool Interactable;
 
+        private UnityEngine.UI.Image _dim;
+        private bool _isOnUpdateSizeSubscribed;
 
         public Frame(string uid, FrameData data, FrameComponents components) : base(uid, data, components)
         {
             ConstraintType = data.sizeConstraint;
+            if (components.Dim)
+            {
+                _dim = components.Dim;
+            }
             SetValues(data);
         }
 
