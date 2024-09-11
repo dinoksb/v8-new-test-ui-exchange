@@ -103,7 +103,8 @@ namespace V8
 
             foreach (var (_, ui) in _ui)
             {
-                Destroy(ui.Self?.gameObject);
+                if(ui.Self)
+                    Destroy(ui.Self.gameObject);
             }
 
             _sprites.Clear();
@@ -119,7 +120,7 @@ namespace V8
             foreach (var (key, element) in uis)
             {
                 if (_ui.ContainsKey(key)) continue;
-
+                
                 _ui.Add(key, CreateElement(key, element, referenceResolution));
             }
         }
