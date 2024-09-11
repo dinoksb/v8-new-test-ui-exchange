@@ -15,12 +15,13 @@ namespace V8
         
         protected override FrameComponents CreateComponents(IElement parent, string name)
         {
-            return new FrameComponents(parent, name, _dimOpacity, _referenceResolution);
+            bool isUseDim = _dimOpacity != 0;
+            return new FrameComponents(parent, name, isUseDim);
         }
         
         protected override Frame CreateTyped(string uid, FrameData data, FrameComponents components)
         {
-            return new Frame(uid, data, components);
+            return new Frame(uid, data, components, _dimOpacity, _referenceResolution);
         }
     }
 }

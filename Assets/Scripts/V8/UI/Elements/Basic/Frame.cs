@@ -16,9 +16,17 @@ namespace V8
         public Frame(string uid, FrameData data, FrameComponents components) : base(uid, data, components)
         {
             ConstraintType = data.sizeConstraint;
+            SetValues(data);
+        }
+        
+        public Frame(string uid, FrameData data, FrameComponents components, float dimOpacity, Vector2 referenceResolution) : base(uid, data, components)
+        {
+            ConstraintType = data.sizeConstraint;
             if (components.Dim)
             {
                 _dim = components.Dim;
+                _dim.color = new Color(0, 0, 0, dimOpacity);
+                _dim.rectTransform.sizeDelta = referenceResolution;
             }
             SetValues(data);
         }
