@@ -129,6 +129,8 @@ namespace V8
         {
             string typeName = GetTypeName(gameObject);
 
+            if (string.IsNullOrEmpty(typeName)) return null;
+
             var target = gameObject.GetComponent<RectTransform>();
 
             switch (typeName)
@@ -270,11 +272,16 @@ namespace V8
 
         private static string GetTypeName(GameObject gameObject)
         {
-            string typeName = UIConfig.FrameType;
+            string typeName = string.Empty;
 
             if (gameObject.name.Equals(UIConfig.DimType))
             {
                 typeName = UIConfig.DimType;
+                return typeName;
+            }
+
+            if (gameObject.name.Equals(UIConfig.ImageSource))
+            {
                 return typeName;
             }
 
@@ -299,6 +306,7 @@ namespace V8
                 return typeName;
             }
 
+            typeName = UIConfig.FrameType;
             return typeName;
         }
 

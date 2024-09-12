@@ -21,6 +21,7 @@ namespace V8
         public const string ButtonType = "Button";
         public const string DimType = "Dim";
 
+        public const string ImageSource = "SourceImage";
         public const string LayerName = "UI";
     }
 }

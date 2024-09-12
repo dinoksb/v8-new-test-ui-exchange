@@ -16,7 +16,7 @@ namespace V8
             bgElement.offsetMin = Vector2.zero;
             bgElement.offsetMax = Vector2.zero;
 
-            var imageGo = new GameObject("SourceImage");
+            var imageGo = new GameObject(UIConfig.ImageSource);
             var imageElement = imageGo.AddComponent<RectTransform>();
             imageElement.SetParent(bgElement);
             imageElement.anchorMin = Vector2.zero;
