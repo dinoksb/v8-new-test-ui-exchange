@@ -87,6 +87,8 @@ namespace V8
         }
 
         public IElement Parent { get; private set; }
+        
+        public uint ZIndex { get; }
 
         public event EventHandler<Vector2> OnUpdateSize;
 
@@ -106,6 +108,7 @@ namespace V8
             Uid = uid;
             Name = data.name;
             Type = data.type;
+            ZIndex = data.zIndex;
             Self = components.Self;
             Parent = components.Parent;
             SetValues(data);

@@ -24,6 +24,8 @@ namespace V8
         public ConstraintType ConstraintType { get; set; }
 
         public IElement Parent { get; }
+        
+        public uint ZIndex { get; }
 
         public List<IElement> Children { get; private set; } = new();
 
@@ -34,8 +36,6 @@ namespace V8
             Name = id;
             Type = GetType().Name;
             var gameObject = new GameObject(Name);
-
- 
 
             if (gameObject.transform.parent != parent)
                 gameObject.transform.parent = parent;

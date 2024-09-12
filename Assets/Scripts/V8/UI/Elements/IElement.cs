@@ -14,6 +14,7 @@ namespace V8
         public float Rotation { get; set; }
         public bool Visible { get; set; }
         public IElement Parent { get; }
+        public uint ZIndex { get; }
         public event EventHandler<Vector2> OnUpdateSize;
         public IElement Copy(RectTransform self, IElement parent);
         public void Update(ElementData data);
