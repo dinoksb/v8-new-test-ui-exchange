@@ -7,9 +7,9 @@ namespace V8.Template
 {
     public class Viewer : MonoBehaviour
     {
-        private const string UI_FRAME1_UID = "8600305e-ee85-436b-8c61-5562a019de0a";
-        private const string UI_FRAME2_UID = "6c60a37c-6f23-46f7-8dd4-e21e2a2ef3c8";
-        private const string UI_FRAME3_UID = "10aef319-ed5e-4cbf-8988-7912960ffde4";
+        private const string UI_FRAME1_UID = "f502957c-6afe-4a44-ae4e-a3096ba35169";
+        private const string UI_FRAME2_UID = "db57cf92-9fd8-440d-8650-4354103f17a3";
+        private const string UI_FRAME3_UID = "ce1fc223-23c2-4a50-b589-f673dd322365";
         
         public UnityEngine.Canvas UICanvas
         {
@@ -80,6 +80,30 @@ namespace V8.Template
         private void ShowCanvasTest()
         {
             _uiManager.Show(UICanvas);
+        }
+        
+        [ContextMenu("MoveToFrontA")]
+        private void MoveToFrontA()
+        {
+            var element = _uiManager.Get(UI_FRAME1_UID);
+            InternalDebug.Log("element: " + element.Name);
+            _uiManager.MoveToFront(element);
+        }
+        
+        [ContextMenu("MoveToFrontB")]
+        private void MoveToFrontB()
+        {
+            var element = _uiManager.Get(UI_FRAME2_UID);
+            InternalDebug.Log("element: " + element.Name);
+            _uiManager.MoveToFront(element);
+        }
+        
+        [ContextMenu("MoveToFrontC")]
+        private void MoveToFrontC()
+        {
+            var element = _uiManager.Get(UI_FRAME3_UID);
+            InternalDebug.Log("element: " + element.Name);
+            _uiManager.MoveToFront(element);
         }
 
         [ContextMenu("FrontFrameNotifyTest")]
@@ -194,6 +218,21 @@ namespace V8.Template
             if(GUI.Button(new Rect(_guiRect.x, _guiRect.y + (_guiRect.height + 10) * 7, _guiRect.width, _guiRect.height), "Reset"))
             {
                 LoadUIAsync(_url);
+            }
+            
+            if(GUI.Button(new Rect(_guiRect.x + _guiRect.width + 10, _guiRect.y, _guiRect.width, _guiRect.height), "MoveToFrontA"))
+            {
+                MoveToFrontA();
+            }
+            
+            if(GUI.Button(new Rect(_guiRect.x + _guiRect.width + 10, _guiRect.y + _guiRect.height + 10, _guiRect.width, _guiRect.height), "MoveToFrontB"))
+            {
+                MoveToFrontB();
+            }
+            
+            if(GUI.Button(new Rect(_guiRect.x + _guiRect.width + 10, _guiRect.y + (_guiRect.height + 10) * 2, _guiRect.width, _guiRect.height), "MoveToFrontC"))
+            {
+                MoveToFrontC();
             }
         }
         #endif

@@ -9,7 +9,7 @@ namespace V8
 {
     public static class SpriteImporter
     {
-        public static async UniTask<Dictionary<string, Sprite>> Import(Dictionary<string, TextureData> textureDataDict, Dictionary<string, SpriteData> spriteDataDict, string saveFilePath, bool forceDownload = false)
+        public static async UniTask<Dictionary<string, Sprite>> Import(Dictionary<string, ResourceData> textureDataDict, Dictionary<string, SpriteData> spriteDataDict, string saveFilePath, bool forceDownload = false)
         {
             var spriteDict = new Dictionary<string, Sprite>();
             var textureDict = new Dictionary<string, Texture2D>();
@@ -59,15 +59,15 @@ namespace V8
             return texture;
         }
         
-        private static async UniTask<Texture2D> DownloadTexture(string id, string saveFolderPath, TextureData textureData, bool forceDownload)
+        private static async UniTask<Texture2D> DownloadTexture(string id, string saveFolderPath, ResourceData resourceData, bool forceDownload)
         {
-            var fileExtension = Path.GetExtension(textureData.url).ToLower();
+            var fileExtension = Path.GetExtension(resourceData.url).ToLower();
             var fileNameWithExtension = id + fileExtension;
             var filePath = Path.Combine(saveFolderPath, fileNameWithExtension);
 
             if (forceDownload || !File.Exists(filePath))
             {
-                using var www = UnityWebRequestTexture.GetTexture(textureData.url);
+                using var www = UnityWebRequestTexture.GetTexture(resourceData.url);
                 await www.SendWebRequest();
                 if (www.result != UnityWebRequest.Result.Success)
                 {
@@ -92,9 +92,9 @@ namespace V8
             return texture;
         }
         
-        private static Texture2D DownloadTextureFromLocalPath(string id, TextureData textureData, bool forceDownload)
+        private static Texture2D DownloadTextureFromLocalPath(string id, ResourceData resourceData, bool forceDownload)
         {
-            byte[] pngBytes = System.IO.File.ReadAllBytes(textureData.url);
+            byte[] pngBytes = System.IO.File.ReadAllBytes(resourceData.url);
             
             var texture = new Texture2D(2, 2);
             texture.name = id;

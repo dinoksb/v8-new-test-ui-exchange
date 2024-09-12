@@ -18,5 +18,8 @@ namespace V8
 
         [JsonProperty("sizeConstraint", Required = Required.Default)]
         public ConstraintType sizeConstraint = ConstraintType.XY;
+        
+        [JsonProperty("dim", Required = Required.Default)]
+        public float dim = 0;
     }
 }

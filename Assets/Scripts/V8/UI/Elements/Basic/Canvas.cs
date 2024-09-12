@@ -24,18 +24,24 @@ namespace V8
         public ConstraintType ConstraintType { get; set; }
 
         public IElement Parent { get; }
+        
+        public uint ZIndex { get; }
 
         public List<IElement> Children { get; private set; } = new();
 
-        public event EventHandler<Vector2> OnUpdateSize;
+        event EventHandler<Vector2> IElement.OnSizeUpdated
+        {
+            add => _onUpdateSizeCore += value;
+            remove => _onUpdateSizeCore -= value;
+        }
+
+        private event EventHandler<Vector2> _onUpdateSizeCore; 
 
         public Canvas(string id, Transform parent, Vector2 resolution, bool dontDestoryOnLoad)
         {
             Name = id;
             Type = GetType().Name;
             var gameObject = new GameObject(Name);
-
- 
 
             if (gameObject.transform.parent != parent)
                 gameObject.transform.parent = parent;
@@ -64,7 +70,7 @@ namespace V8
 
         public void Dispose()
         {
-            OnUpdateSize = null;
+            _onUpdateSizeCore = null;
         }
 
         public IElement Copy(RectTransform self, IElement parent)

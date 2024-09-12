@@ -9,7 +9,6 @@ namespace V8
     {
         public string Uid { get; }
         public string Name { get; }
-
         public string Type { get; }
 
         public RectTransform Self { get; private set; }
@@ -41,7 +40,7 @@ namespace V8
                 }
 
                 Self.sizeDelta = value;
-                OnUpdateSize?.Invoke(this, value);
+                _onSizeUpdatedCore?.Invoke(this, value);
             }
         }
 
@@ -87,9 +86,17 @@ namespace V8
             }
         }
 
-        public IElement Parent { get; private set; }
+        event EventHandler<Vector2> IElement.OnSizeUpdated
+        {
+            add => _onSizeUpdatedCore += value;
+            remove => _onSizeUpdatedCore -= value;
+        }
 
-        public event EventHandler<Vector2> OnUpdateSize;
+        private event EventHandler<Vector2> _onSizeUpdatedCore; 
+        
+        public IElement Parent { get; private set; }
+        
+        public uint ZIndex { get; }
 
         private IUIService _uiService;
 
@@ -107,6 +114,7 @@ namespace V8
             Uid = uid;
             Name = data.name;
             Type = data.type;
+            ZIndex = data.zIndex;
             Self = components.Self;
             Parent = components.Parent;
             SetValues(data);
@@ -114,7 +122,7 @@ namespace V8
 
         public void Dispose()
         {
-            OnUpdateSize = null;
+            _onSizeUpdatedCore = null;
         }
 
         public virtual IElement Copy(RectTransform self, IElement parent)

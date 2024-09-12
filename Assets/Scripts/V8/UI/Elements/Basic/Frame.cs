@@ -7,14 +7,41 @@ namespace V8
 {
     public class Frame : Element
     {
-        private bool _isOnUpdateSizeSubscribed;
-
         public ConstraintType ConstraintType;
         public bool Interactable;
 
+        private UnityEngine.UI.Image _dim;
+        private Vector2 _sizeRatio;
+        private bool _isOnUpdateSizeSubscribed;
 
         public Frame(string uid, FrameData data, FrameComponents components) : base(uid, data, components)
         {
+            _sizeRatio = new Vector2(data.size.x.scale, data.size.y.scale);
+            if (_sizeRatio != Vector2.zero)
+            {
+                _isOnUpdateSizeSubscribed = true;
+                Parent.OnSizeUpdated += SizeUpdated;
+            }
+            
+            ConstraintType = data.sizeConstraint;
+            SetValues(data);
+        }
+        
+        public Frame(string uid, FrameData data, FrameComponents components, float dimOpacity, Vector2 referenceResolution) : base(uid, data, components)
+        {
+            _sizeRatio = new Vector2(data.size.x.scale, data.size.y.scale);
+            if (_sizeRatio != Vector2.zero)
+            {
+                _isOnUpdateSizeSubscribed = true;
+                Parent.OnSizeUpdated += SizeUpdated;
+            }
+            
+            if (components.Dim)
+            {
+                _dim = components.Dim;
+                _dim.color = new Color(0, 0, 0, dimOpacity);
+                _dim.rectTransform.sizeDelta = referenceResolution;
+            }
             ConstraintType = data.sizeConstraint;
             SetValues(data);
         }
@@ -26,7 +53,7 @@ namespace V8
             if (clone._isOnUpdateSizeSubscribed)
             {
                 clone.Parent.Dispose();
-                clone.Parent.OnUpdateSize += clone.UpdateSize;
+                clone.Parent.OnSizeUpdated += clone.SizeUpdated;
             }
 
             return clone;
@@ -39,10 +66,13 @@ namespace V8
             SetValues(layoutData);
         }
 
-        private void UpdateSize(object _, Vector2 size)
+        private void SizeUpdated(object _, Vector2 size)
         {
-            InternalDebug.Log($"[{_}] Parent size updated: {size}");
-            Size = size;
+            var x = _sizeRatio.x == 0 ? Size.x : size.x * _sizeRatio.x;
+            var y = _sizeRatio.y == 0 ? Size.y : size.y * _sizeRatio.y;
+            var calcByRatio = new Vector2(x, y);
+            InternalDebug.Log($"[{_}] Parent size updated: {calcByRatio}");
+            Size = calcByRatio;
         }
 
         private void SetValues(FrameData data)
@@ -60,13 +90,13 @@ namespace V8
 
         private Vector2 CalculateSize(DimensionData data, bool relative)
         {
-            // todo: 부모 객체의 사이즈 변경 시 어떻게 처리 할 것인지??
-            if (Parent == this)
-            {
-                _isOnUpdateSizeSubscribed = true;
-                Parent.OnUpdateSize += UpdateSize;
-                return Parent.Size;
-            }
+            // // todo: 부모 객체의 사이즈 변경 시 어떻게 처리 할 것인지??
+            // if (Parent == this)
+            // {
+            //     _isOnUpdateSizeSubscribed = true;
+            //     Parent.OnUpdateSize += UpdateSize;
+            //     return Parent.Size;
+            // }
 
             return CalculateDimension(data, relative);
         }

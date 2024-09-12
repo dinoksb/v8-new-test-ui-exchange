@@ -6,10 +6,10 @@ namespace V8
 {
     internal class ElementFactoryProvider : FactoryProvider<IElementFactory<Element>>
     {
-        public ElementFactoryProvider(Dictionary<string, Sprite> sprites, Vector2 referenceResolution, Action<ulong, string, string, string> onEvent)
+        public ElementFactoryProvider(Dictionary<string, Sprite> sprites, Vector2 referenceResolution, float dimOpacity, Action<ulong, string, string, string> onEvent)
         {
             RegisterFactory(new ElementFactory());
-            RegisterFactory(new FrameFactory());
+            RegisterFactory(new FrameFactory(dimOpacity, referenceResolution));
             RegisterFactory(new ImageFactory(sprites));
             RegisterFactory(new LabelFactory(referenceResolution));
             RegisterFactory(new ButtonFactory(onEvent));

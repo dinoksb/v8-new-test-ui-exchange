@@ -271,9 +271,6 @@ namespace V8.Service
                     }
                 }
             }
-            // todo: 부동소수점 이전 포지션과, 현재 포지션을 뺀 값을 가지고(distance) 변경이 있는지 감지 할 수있는 로직 추가
-            // ex) Mathf.Approximately 활용 
-            // 
 
             //flush
             _positionChangedElementsOrigin.Clear();
