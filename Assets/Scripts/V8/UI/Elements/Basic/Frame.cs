@@ -36,13 +36,13 @@ namespace V8
                 Parent.OnSizeUpdated += SizeUpdated;
             }
             
-            ConstraintType = data.sizeConstraint;
             if (components.Dim)
             {
                 _dim = components.Dim;
                 _dim.color = new Color(0, 0, 0, dimOpacity);
                 _dim.rectTransform.sizeDelta = referenceResolution;
             }
+            ConstraintType = data.sizeConstraint;
             SetValues(data);
         }
 
