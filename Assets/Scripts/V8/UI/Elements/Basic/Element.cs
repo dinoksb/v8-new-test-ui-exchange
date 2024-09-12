@@ -40,7 +40,7 @@ namespace V8
                 }
 
                 Self.sizeDelta = value;
-                OnUpdateSize?.Invoke(this, value);
+                _onSizeUpdatedCore?.Invoke(this, value);
             }
         }
 
@@ -86,11 +86,17 @@ namespace V8
             }
         }
 
+        event EventHandler<Vector2> IElement.OnSizeUpdated
+        {
+            add => _onSizeUpdatedCore += value;
+            remove => _onSizeUpdatedCore -= value;
+        }
+
+        private event EventHandler<Vector2> _onSizeUpdatedCore; 
+        
         public IElement Parent { get; private set; }
         
         public uint ZIndex { get; }
-
-        public event EventHandler<Vector2> OnUpdateSize;
 
         private IUIService _uiService;
 
@@ -116,7 +122,7 @@ namespace V8
 
         public void Dispose()
         {
-            OnUpdateSize = null;
+            _onSizeUpdatedCore = null;
         }
 
         public virtual IElement Copy(RectTransform self, IElement parent)

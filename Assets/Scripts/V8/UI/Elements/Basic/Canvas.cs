@@ -29,7 +29,13 @@ namespace V8
 
         public List<IElement> Children { get; private set; } = new();
 
-        public event EventHandler<Vector2> OnUpdateSize;
+        event EventHandler<Vector2> IElement.OnSizeUpdated
+        {
+            add => _onUpdateSizeCore += value;
+            remove => _onUpdateSizeCore -= value;
+        }
+
+        private event EventHandler<Vector2> _onUpdateSizeCore; 
 
         public Canvas(string id, Transform parent, Vector2 resolution, bool dontDestoryOnLoad)
         {
@@ -64,7 +70,7 @@ namespace V8
 
         public void Dispose()
         {
-            OnUpdateSize = null;
+            _onUpdateSizeCore = null;
         }
 
         public IElement Copy(RectTransform self, IElement parent)
