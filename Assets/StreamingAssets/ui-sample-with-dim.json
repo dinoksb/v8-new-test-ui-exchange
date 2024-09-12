@@ -675,13 +675,13 @@
             {
                 "x":
                 {
-                    "scale": 0.0,
-                    "offset": 800.0
+                    "scale": 0.5,
+                    "offset": 0.0,
                 },
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 442.5
+                    "offset": 250,
                 }
             },
             "rotation": 0.0,
