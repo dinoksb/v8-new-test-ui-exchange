@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace V8
 {
@@ -10,18 +11,18 @@ namespace V8
     {
         public string Type => typeof(TElement).Name;
      
-        public TElement Create(string uid, ElementData data, IElement parent)
+        public TElement Create(string uid, ElementData data, IElement parent, Transform zIndexParent)
         {
             if (data is not TData typedData)
             {
                 throw new InvalidOperationException($"Data is not of the expected type '{typeof(TData).Name}'.");
             }
 
-            var typedComponents = CreateComponents(parent, data.name);
+            var typedComponents = CreateComponents(parent, zIndexParent, data.name);
             return CreateTyped(uid, typedData, typedComponents);
         }
 
-        protected abstract TComponents CreateComponents(IElement parent, string name);
+        protected abstract TComponents CreateComponents(IElement parent, Transform zIndexParent, string name);
         
         protected abstract TElement CreateTyped(string uid, TData data, TComponents components);
     }

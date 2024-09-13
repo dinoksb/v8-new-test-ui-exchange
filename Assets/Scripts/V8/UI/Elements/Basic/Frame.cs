@@ -24,11 +24,10 @@ namespace V8
                 _isOnUpdateSizeSubscribed = true;
                 Parent.OnSizeUpdated += SizeUpdated;
             }
-            
             ConstraintType = data.sizeConstraint;
             SetValues(data);
         }
-        
+
         public Frame(string uid, FrameData data, FrameComponents components, float dimOpacity, Vector2 referenceResolution) : base(uid, data, components)
         {
             _sizeRatio = new Vector2(data.size.x.scale, data.size.y.scale);
@@ -44,6 +43,7 @@ namespace V8
                 _dim = components.Dim;
                 _dim.color = new Color(0, 0, 0, dimOpacity);
                 _dim.rectTransform.sizeDelta = referenceResolution;
+                _visibleChangedActions.Add((element) => {_dim.gameObject.SetActive(element.Visible);});
             }
             ConstraintType = data.sizeConstraint;
             SetValues(data);
@@ -59,6 +59,11 @@ namespace V8
                 clone.Parent.OnSizeUpdated += clone.SizeUpdated;
             }
 
+            if (clone._dim)
+            {
+                _visibleChangedActions.Add((element) => {_dim.gameObject.SetActive(element.Visible);});
+            }
+
             return clone;
         }
 
@@ -67,6 +72,14 @@ namespace V8
             base.Update(data);
             var layoutData = (FrameData)data;
             SetValues(layoutData);
+        }
+
+        public override void MoveFront()
+        {
+            if (_dim)
+            {
+                _dim.transform.SetAsLastSibling();
+            }
         }
 
         private void SizeUpdated(object _, Vector2 size)

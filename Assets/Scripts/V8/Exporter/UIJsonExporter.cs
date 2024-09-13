@@ -9,6 +9,7 @@ using V8.Utilities;
 
 namespace V8
 {
+    // todo: z-index 에 따른 GameObject 분할로 해당 구조에 맞게 Export 기능 수정 필요. 
     public class UIJsonExporter
     {
         private const string END_POINT = "https://dinoksb.github.io/v8-new-test-ui-exchange";

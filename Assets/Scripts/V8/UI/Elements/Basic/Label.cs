@@ -11,6 +11,7 @@ namespace V8
     public class Label : Frame
     {
         private TMP_Text _tmp;
+        private TransformLinkComponents _transformLink;
 
         private const string DefaultFontAssetPath = "Fonts & Materials";
         private const string DefaultFontAsset = "LiberationSans SDF";
@@ -145,13 +146,18 @@ namespace V8
         private Vector2 _referenceResolution;
 
         private readonly List<TextChangeEventAction> _textChangeEvents = new();
-
         public delegate void TextChangeEventAction(IElement element, string prevText, string newText);
 
         public Label(string uid, LabelData data, LabelComponents components, Vector2 referenceResolution) : base(uid,
             data, components)
         {
             _tmp = components.TMP;
+            _transformLink = components.TransformLinkComponents;
+            _transformLink.Initialize();
+            _visibleChangedActions.Add(_transformLink.SetVisible);
+            _positionChangeActions.Add(_transformLink.SetPosition);
+            _rotationChangeActions.Add(_transformLink.SetRotation);
+            _sizeChangeActions.Add(_transformLink.SetSize);
             _referenceResolution = referenceResolution;
             SetValues(data);
         }
@@ -159,8 +165,11 @@ namespace V8
         public override IElement Copy(RectTransform self, IElement parent)
         {
             var clone = (Label)base.Copy(self, parent);
-            var childSelf = GetChildSelf(self, UIConfig.Element);
-            clone._tmp = childSelf.GetComponent<TextMeshProUGUI>();
+            clone._tmp = self.GetComponent<TextMeshProUGUI>();
+            _visibleChangedActions.Add(clone._transformLink.SetVisible);
+            _positionChangeActions.Add(clone._transformLink.SetPosition);
+            _rotationChangeActions.Add(clone._transformLink.SetRotation);
+            _sizeChangeActions.Add(clone._transformLink.SetSize);
             return clone;
         }
 
@@ -170,7 +179,12 @@ namespace V8
             var labelData = (LabelData)data;
             SetValues(labelData);
         }
-
+        
+        public override void MoveFront()
+        {
+            _transformLink.Self.SetAsLastSibling();
+        }
+        
         private void SetValues(LabelData data)
         {
             FontId = data.fontId;

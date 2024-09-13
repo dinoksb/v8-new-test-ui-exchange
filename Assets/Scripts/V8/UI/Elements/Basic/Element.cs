@@ -91,7 +91,7 @@ namespace V8
             add => _onSizeUpdatedCore += value;
             remove => _onSizeUpdatedCore -= value;
         }
-
+        
         private event EventHandler<Vector2> _onSizeUpdatedCore; 
         
         public IElement Parent { get; private set; }
@@ -100,16 +100,16 @@ namespace V8
 
         private IUIService _uiService;
 
-        private readonly List<Action<IElement>> _visibleChangedActions = new();
-        private readonly List<Action<IElement>> _positionChangeActions = new();
-        private readonly List<Action<IElement>> _rotationChangeActions = new();
-        private readonly List<Action<IElement>> _sizeChangeActions = new();
+        protected readonly List<Action<IElement>> _visibleChangedActions = new();
+        protected readonly List<Action<IElement>> _positionChangeActions = new();
+        protected readonly List<Action<IElement>> _rotationChangeActions = new();
+        protected readonly List<Action<IElement>> _sizeChangeActions = new();
 
         public Element(string uid, ElementData data, ElementComponents components)
         {
             // todo: 추후 DI 로 주입 해야함.
             _uiService = GameObject.FindObjectOfType<UIService>();
-
+            
             _uiService.OnCreated(this);
             Uid = uid;
             Name = data.name;
@@ -141,6 +141,8 @@ namespace V8
             Visible = data.visible;
         }
 
+        public virtual void MoveFront(){}
+
         protected static RectTransform GetChildSelf(Transform targetSelf, string id)
         {
             for (var i = 0; i < targetSelf.childCount; i++)
@@ -162,6 +164,11 @@ namespace V8
         }
 
         # region internal events
+
+        void IElement.MoveFront()
+        {
+            MoveFront();
+        }
 
         void IElement.AddVisibleChangedListener(Action<IElement> action)
         {

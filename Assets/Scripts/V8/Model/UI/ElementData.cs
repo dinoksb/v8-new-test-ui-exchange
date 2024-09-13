@@ -36,6 +36,6 @@ namespace V8
         public bool visible = true;
         
         [JsonProperty("zIndex", Required = Required.Default)]
-        public uint zIndex = 0;
+        public uint zIndex = 1;
     }
 }

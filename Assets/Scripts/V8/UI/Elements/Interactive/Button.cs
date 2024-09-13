@@ -13,7 +13,8 @@ namespace V8
         private ReadOnlyDictionary<EventTriggerType, string> _events;
         private readonly Action<ulong, string, string, string> _action;
         // private readonly Dictionary<EventTriggerType, float> _lastEventTimes = new();
-
+        private TransformLinkComponents _transformLink;
+        
         private readonly List<Action<IElement>> _pointerEnterEvents = new();
         private readonly List<Action<IElement>> _pointerExitEvents = new();
         private readonly List<Action<IElement>> _pointerDownEvents = new();
@@ -36,6 +37,12 @@ namespace V8
         {
             _action = action;
             _eventTrigger = components.EventTrigger;
+            _transformLink = components.TransformLinkComponents;
+            _transformLink.Initialize();
+            _visibleChangedActions.Add(_transformLink.SetVisible);
+            _positionChangeActions.Add(_transformLink.SetPosition);
+            _rotationChangeActions.Add(_transformLink.SetRotation);
+            _sizeChangeActions.Add(_transformLink.SetSize);
             // Threshold = data.threshold;
 
             var e = new Dictionary<EventTriggerType, string>();
@@ -64,7 +71,17 @@ namespace V8
             clone._events = new ReadOnlyDictionary<EventTriggerType, string>(clonedEvents);
 
             clone.UpdateEventTrigger(_events);
+            
+            _visibleChangedActions.Add(clone._transformLink.SetVisible);
+            _positionChangeActions.Add(clone._transformLink.SetPosition);
+            _rotationChangeActions.Add(clone._transformLink.SetRotation);
+            _sizeChangeActions.Add(clone._transformLink.SetSize);
             return clone;
+        }
+
+        public override void MoveFront()
+        {
+            _transformLink.Self.SetAsLastSibling();
         }
 
         private void UpdateEventTrigger(ReadOnlyDictionary<EventTriggerType, string> events)

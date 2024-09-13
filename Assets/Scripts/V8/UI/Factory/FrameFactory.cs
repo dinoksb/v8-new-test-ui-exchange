@@ -13,10 +13,10 @@ namespace V8
             _referenceResolution = referenceResolution;
         }
         
-        protected override FrameComponents CreateComponents(IElement parent, string name)
+        protected override FrameComponents CreateComponents(IElement parent, Transform zIndexParent, string name)
         {
             bool isUseDim = _dimOpacity != 0;
-            return new FrameComponents(parent, name, isUseDim);
+            return new FrameComponents(parent, zIndexParent, name, isUseDim);
         }
         
         protected override Frame CreateTyped(string uid, FrameData data, FrameComponents components)

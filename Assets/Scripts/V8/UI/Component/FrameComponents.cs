@@ -6,16 +6,16 @@ namespace V8
     {
         public UnityEngine.UI.Image Dim { get; }
 
-        public FrameComponents(IElement parent, string name) : base(parent, name)
+        public FrameComponents(IElement parent, Transform zIndexParent, string name) : base(parent, zIndexParent, name)
         {
         }
 
-        public FrameComponents(IElement parent, string name, bool isUseDim) : base(parent, name)
+        public FrameComponents(IElement parent, Transform zIndexParent, string name, bool isUseDim) : base(parent, zIndexParent, name)
         {
             if (!isUseDim) return;
             
             GameObject go = new GameObject(UIConfig.DimType);
-            go.transform.SetParent(Self);
+            go.transform.SetParent(zIndexParent);
             go.layer = LayerMask.NameToLayer(UIConfig.LayerName);
             
             var rectTransform = go.AddComponent<RectTransform>();

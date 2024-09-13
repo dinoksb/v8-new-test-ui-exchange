@@ -11,9 +11,9 @@ namespace V8
             _referenceResolution = referenceResolution;
         }
         
-        protected override LabelComponents CreateComponents(IElement parent, string name)
+        protected override LabelComponents CreateComponents(IElement parent, Transform zIndexParent, string name)
         {
-            return new LabelComponents(parent, name);
+            return new LabelComponents(parent, zIndexParent, name);
         }
 
         protected override Label CreateTyped(string uid, LabelData data, LabelComponents components)

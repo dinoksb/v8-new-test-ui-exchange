@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace V8
     {
         private UnityEngine.UI.Image _backgroundImage;
         private UnityEngine.UI.Image _image;
+        private TransformLinkComponents _transformLink;
 
         //Todo: Lazy 초기화가 필요할지 고민필요...
         private readonly List<ColorChanageEventAction> _backgroundColorChangeEvents = new();
@@ -54,14 +56,25 @@ namespace V8
             _image = components.Image;
             _image.type = UnityEngine.UI.Image.Type.Sliced;
             _image.sprite = sprite;
+            _transformLink = components.TransformLinkComponents;
+            _transformLink.Initialize();
+            
+            _visibleChangedActions.Add(_transformLink.SetVisible);
+            _positionChangeActions.Add(_transformLink.SetPosition);
+            _rotationChangeActions.Add(_transformLink.SetRotation);
+            _sizeChangeActions.Add(_transformLink.SetSize);
             SetValues(data);
         }
 
         public override IElement Copy(RectTransform self, IElement parent)
         {
             var clone = (Image)base.Copy(self, parent);
-            var childSelf = GetChildSelf(self, UIConfig.Element);
+            var childSelf = GetChildSelf(self, UIConfig.ImageSource);
             clone._image = childSelf.GetComponent<UnityEngine.UI.Image>();
+            _visibleChangedActions.Add(clone._transformLink.SetVisible);
+            _positionChangeActions.Add(clone._transformLink.SetPosition);
+            _rotationChangeActions.Add(clone._transformLink.SetRotation);
+            _sizeChangeActions.Add(clone._transformLink.SetSize);
             return clone;
         }
 
@@ -70,6 +83,11 @@ namespace V8
             base.Update(data);
             var imageData = (ImageData)data;
             SetValues(imageData);
+        }
+        
+        public override void MoveFront()
+        {
+            _transformLink.Self.SetAsLastSibling();
         }
 
         private void SetValues(ImageData data)
