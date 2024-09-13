@@ -9,6 +9,7 @@ using V8.Utilities;
 
 namespace V8
 {
+    // todo: z-index 에 따른 GameObject 분할로 해당 구조에 맞게 Export 기능 수정 필요. 
     public class UIJsonExporter
     {
         private const string END_POINT = "https://dinoksb.github.io/v8-new-test-ui-exchange";
@@ -128,6 +129,8 @@ namespace V8
         private static T GetElement<T>(GameObject gameObject, string guid) where T : ElementData
         {
             string typeName = GetTypeName(gameObject);
+
+            if (string.IsNullOrEmpty(typeName)) return null;
 
             var target = gameObject.GetComponent<RectTransform>();
 
@@ -270,11 +273,16 @@ namespace V8
 
         private static string GetTypeName(GameObject gameObject)
         {
-            string typeName = UIConfig.FrameType;
+            string typeName = string.Empty;
 
             if (gameObject.name.Equals(UIConfig.DimType))
             {
                 typeName = UIConfig.DimType;
+                return typeName;
+            }
+
+            if (gameObject.name.Equals(UIConfig.ImageSource))
+            {
                 return typeName;
             }
 
@@ -299,6 +307,7 @@ namespace V8
                 return typeName;
             }
 
+            typeName = UIConfig.FrameType;
             return typeName;
         }
 

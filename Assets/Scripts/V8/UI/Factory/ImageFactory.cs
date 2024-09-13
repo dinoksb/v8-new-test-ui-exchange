@@ -13,9 +13,9 @@ namespace V8
             _sprites = cachedSprites ?? new Dictionary<string, Sprite>();
         }
 
-        protected override ImageComponents CreateComponents(IElement parent, string name)
+        protected override ImageComponents CreateComponents(IElement parent, Transform zIndexParent, string name)
         {
-            return new ImageComponents(parent, name);
+            return new ImageComponents(parent, zIndexParent, name);
         }
 
         protected override Image CreateTyped(string uid, ImageData data, ImageComponents components)

@@ -83,6 +83,11 @@ namespace V8
             throw new Exception("This function cannot be called in Canvas.");
         }
 
+        void IElement.MoveFront()
+        {
+            throw new Exception("This function cannot be called in Canvas.");
+        }
+
         void IElement.AddVisibleChangedListener(Action<IElement> element)
         {
             throw new Exception("This function cannot be called in Canvas.");

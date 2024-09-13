@@ -12,24 +12,26 @@ namespace V8
 
         private UnityEngine.UI.Image _dim;
         private Vector2 _sizeRatio;
+        private Vector2 _sizeOffset;
         private bool _isOnUpdateSizeSubscribed;
 
         public Frame(string uid, FrameData data, FrameComponents components) : base(uid, data, components)
         {
             _sizeRatio = new Vector2(data.size.x.scale, data.size.y.scale);
+            _sizeOffset = new Vector2(data.size.x.offset, data.size.y.offset);
             if (_sizeRatio != Vector2.zero)
             {
                 _isOnUpdateSizeSubscribed = true;
                 Parent.OnSizeUpdated += SizeUpdated;
             }
-            
             ConstraintType = data.sizeConstraint;
             SetValues(data);
         }
-        
+
         public Frame(string uid, FrameData data, FrameComponents components, float dimOpacity, Vector2 referenceResolution) : base(uid, data, components)
         {
             _sizeRatio = new Vector2(data.size.x.scale, data.size.y.scale);
+            _sizeOffset = new Vector2(data.size.x.offset, data.size.y.offset);
             if (_sizeRatio != Vector2.zero)
             {
                 _isOnUpdateSizeSubscribed = true;
@@ -41,6 +43,7 @@ namespace V8
                 _dim = components.Dim;
                 _dim.color = new Color(0, 0, 0, dimOpacity);
                 _dim.rectTransform.sizeDelta = referenceResolution;
+                _visibleChangedActions.Add((element) => {_dim.gameObject.SetActive(element.Visible);});
             }
             ConstraintType = data.sizeConstraint;
             SetValues(data);
@@ -56,6 +59,11 @@ namespace V8
                 clone.Parent.OnSizeUpdated += clone.SizeUpdated;
             }
 
+            if (clone._dim)
+            {
+                _visibleChangedActions.Add((element) => {_dim.gameObject.SetActive(element.Visible);});
+            }
+
             return clone;
         }
 
@@ -66,10 +74,18 @@ namespace V8
             SetValues(layoutData);
         }
 
+        public override void MoveFront()
+        {
+            if (_dim)
+            {
+                _dim.transform.SetAsLastSibling();
+            }
+        }
+
         private void SizeUpdated(object _, Vector2 size)
         {
-            var x = _sizeRatio.x == 0 ? Size.x : size.x * _sizeRatio.x;
-            var y = _sizeRatio.y == 0 ? Size.y : size.y * _sizeRatio.y;
+            var x = _sizeRatio.x == 0 ? Size.x : (size.x * _sizeRatio.x) + _sizeOffset.x;
+            var y = _sizeRatio.y == 0 ? Size.y : (size.y * _sizeRatio.y) + _sizeOffset.y;
             var calcByRatio = new Vector2(x, y);
             InternalDebug.Log($"[{_}] Parent size updated: {calcByRatio}");
             Size = calcByRatio;

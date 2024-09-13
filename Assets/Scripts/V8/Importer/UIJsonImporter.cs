@@ -12,6 +12,7 @@ namespace V8
         private static IElement _tempCanvas;
         private static Dictionary<string, IElement> _ui = new();
         private static Dictionary<string, Sprite> _sprites = new();
+        private static Dictionary<uint, Transform> _zIndexContainer = new();
 
         private static void OnEvent(ulong clientId, string uiId, string eventTriggerType, string eventId)
         {
@@ -60,6 +61,7 @@ namespace V8
             
             _sprites.Clear();
             _ui.Clear();
+            _zIndexContainer.Clear();
             InternalDebug.Log("[UIJsonImporter] ui element released");
         }
 
@@ -92,9 +94,7 @@ namespace V8
                 var dimOpacity = frameData.dim;
                 
                 if (_ui.ContainsKey(key)) continue;
-                var factoryProvider = new ElementFactoryProvider(_sprites, referenceResolution, dimOpacity, OnEvent);
-                var factory = factoryProvider.GetFactory(element.type);
-                var createdElement = CreateElement(key, element, factory, referenceResolution);
+                var createdElement = CreateElement(key, element, referenceResolution);
                 _ui.Add(key, createdElement);
             }
         }
@@ -112,11 +112,17 @@ namespace V8
             return canvas ? canvas.gameObject : null;
         }
 
-        private static IElement CreateElement(string uid, ElementData data, IElementFactory<Element> factory,
+        private static IElement CreateElement(string uid, ElementData data,
             Vector2 referenceResolution)
         {
+            var frameData = (FrameData)data;
+            var dimOpacity = frameData.dim;
+            
+            var factoryProvider = new ElementFactoryProvider(_sprites, referenceResolution, dimOpacity, OnEvent);
+            var factory = factoryProvider.GetFactory(data.type);
             var parent = GetParentFromElement(data.parent);
-            var element = factory.Create(uid, data, parent);
+            var zIndexParent = CreateZIndexContainer(data.zIndex);
+            var element = factory.Create(uid, data, parent, zIndexParent);
             element.Visible = data.visible;
             return element;
         }
@@ -130,6 +136,31 @@ namespace V8
         private static IElement GetElement(string id)
         {
             return _ui.GetValueOrDefault(id);
+        }
+        
+        private static Transform CreateZIndexContainer(uint zIndex)
+        {
+            if (_zIndexContainer.TryGetValue(zIndex, out var container))
+            {
+                return container;
+            }
+            else
+            {
+                string goName = $"Z-Index-[{zIndex}]";
+                GameObject go = new GameObject(goName);
+                var rectTransform = go.AddComponent<RectTransform>();
+                rectTransform.SetParent(_tempCanvas.Self);
+                rectTransform.anchorMin = Vector2.zero;
+                rectTransform.anchorMax = Vector2.one;
+                rectTransform.offsetMin = Vector2.zero;
+                rectTransform.offsetMax = Vector2.zero;
+                rectTransform.localPosition = Vector3.zero;
+                rectTransform.localRotation = Quaternion.identity;
+                rectTransform.localScale = Vector3.one;
+                rectTransform.SetSiblingIndex((int)zIndex);
+                _zIndexContainer.Add(zIndex, go.transform);
+                return rectTransform;
+            }
         }
     }
 }

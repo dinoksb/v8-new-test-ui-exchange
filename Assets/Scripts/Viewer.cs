@@ -7,7 +7,7 @@ namespace V8.Template
 {
     public class Viewer : MonoBehaviour
     {
-        private const string UI_FRAME1_UID = "f502957c-6afe-4a44-ae4e-a3096ba35169";
+        private const string UI_FRAME1_UID = "fc559ccd-ba30-4620-a3cf-6a35c3eb4df6";
         private const string UI_FRAME2_UID = "db57cf92-9fd8-440d-8650-4354103f17a3";
         private const string UI_FRAME3_UID = "ce1fc223-23c2-4a50-b589-f673dd322365";
         
@@ -90,20 +90,27 @@ namespace V8.Template
             _uiManager.MoveToFront(element);
         }
         
-        [ContextMenu("MoveToFrontB")]
-        private void MoveToFrontB()
-        {
-            var element = _uiManager.Get(UI_FRAME2_UID);
-            InternalDebug.Log("element: " + element.Name);
-            _uiManager.MoveToFront(element);
-        }
+        // [ContextMenu("MoveToFrontB")]
+        // private void MoveToFrontB()
+        // {
+        //     var element = _uiManager.Get(UI_FRAME2_UID);
+        //     InternalDebug.Log("element: " + element.Name);
+        //     _uiManager.MoveToFront(element);
+        // }
+        //
+        // [ContextMenu("MoveToFrontC")]
+        // private void MoveToFrontC()
+        // {
+        //     var element = _uiManager.Get(UI_FRAME3_UID);
+        //     InternalDebug.Log("element: " + element.Name);
+        //     _uiManager.MoveToFront(element);
+        // }
         
-        [ContextMenu("MoveToFrontC")]
-        private void MoveToFrontC()
+        [ContextMenu("GetFrontFrame")]
+        private void GetFrontFrame()
         {
-            var element = _uiManager.Get(UI_FRAME3_UID);
+            var element = _uiManager.GetFrontFrame();
             InternalDebug.Log("element: " + element.Name);
-            _uiManager.MoveToFront(element);
         }
 
         [ContextMenu("FrontFrameNotifyTest")]
@@ -225,14 +232,9 @@ namespace V8.Template
                 MoveToFrontA();
             }
             
-            if(GUI.Button(new Rect(_guiRect.x + _guiRect.width + 10, _guiRect.y + _guiRect.height + 10, _guiRect.width, _guiRect.height), "MoveToFrontB"))
+            if(GUI.Button(new Rect(_guiRect.x + _guiRect.width + 10, _guiRect.y + _guiRect.height + 10, _guiRect.width, _guiRect.height), "GetFrontFrame"))
             {
-                MoveToFrontB();
-            }
-            
-            if(GUI.Button(new Rect(_guiRect.x + _guiRect.width + 10, _guiRect.y + (_guiRect.height + 10) * 2, _guiRect.width, _guiRect.height), "MoveToFrontC"))
-            {
-                MoveToFrontC();
+                GetFrontFrame();
             }
         }
         #endif

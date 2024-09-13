@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace V8
 {
@@ -11,9 +12,9 @@ namespace V8
             _onEvent = onEvent;
         }
 
-        protected override ButtonComponents CreateComponents(IElement parent, string name)
+        protected override ButtonComponents CreateComponents(IElement parent, Transform zIndexParent, string name)
         {
-            return new ButtonComponents(parent, name);
+            return new ButtonComponents(parent, zIndexParent, name);
         }
 
         protected override Button CreateTyped(string uid, ButtonData data, ButtonComponents components)
