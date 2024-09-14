@@ -623,7 +623,7 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 100
+            "zIndex": 0
         },
         "f752eaea-1e95-483f-865a-46fe765071e8":
         {
@@ -686,7 +686,7 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 100
+            "zIndex": 0
         },
         "a7872eff-7aac-4cfb-b0a2-7df1b9bf618a":
         {
@@ -749,7 +749,7 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 101
+            "zIndex": 0
         },
         "b74ac68d-12d7-41a0-a50a-67643028f30a":
         {
@@ -812,7 +812,7 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 100
+            "zIndex": 0
         },
         "762b8b7d-c304-4579-b4ca-6589fac95248":
         {
@@ -875,7 +875,7 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 100
+            "zIndex": 0
         },
         "bcc4865b-0d71-48f9-aa08-9d2cfc9f4020":
         {
@@ -2248,7 +2248,7 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 100
+            "zIndex": 0
         },
         "6782dde2-9ad2-49c5-b348-7a2a3144b25a":
         {
@@ -2296,7 +2296,7 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 101
+            "zIndex": 0
         },
         "15b77146-f925-4f54-b130-2fab358f3082":
         {
@@ -2346,7 +2346,7 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 101
+            "zIndex": 0
         },
         "4a991b58-df57-414e-9de8-580d6d0ea019":
         {
@@ -2409,7 +2409,7 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 100
+            "zIndex": 0
         },
         "ca40a50c-95d0-4d9c-98be-eb52fee9501a":
         {
