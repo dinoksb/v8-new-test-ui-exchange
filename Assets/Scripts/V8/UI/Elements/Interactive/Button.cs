@@ -38,7 +38,7 @@ namespace V8
             _action = action;
             _eventTrigger = components.EventTrigger;
             _transformLink = components.TransformLinkComponents;
-            _transformLink.Initialize();
+            _transformLink.Initialize(Self);
             _visibleChangedActions.Add(_transformLink.SetVisible);
             _positionChangeActions.Add(_transformLink.SetPosition);
             _rotationChangeActions.Add(_transformLink.SetRotation);

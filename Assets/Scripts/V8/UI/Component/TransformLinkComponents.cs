@@ -15,15 +15,11 @@ namespace V8
         private RectTransform _targetRectTransform;
         private RectTransform _rectTransform;
 
-        public TransformLinkComponents  Attach(RectTransform targetRectTransform)
+        public void Initialize(RectTransform targetRectTransform)
         {
             _targetRectTransform = targetRectTransform;
-            return this;
-        }
-
-        public void Initialize()
-        {
             _rectTransform ??= GetComponent<RectTransform>();
+            
             InternalDebug.Assert(_rectTransform, "RectTransform must not be null.");
             _rectTransform.anchorMin = _targetRectTransform.anchorMin;
             _rectTransform.anchorMax = _targetRectTransform.anchorMax;

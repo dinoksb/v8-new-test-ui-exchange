@@ -57,7 +57,7 @@ namespace V8
             _image.type = UnityEngine.UI.Image.Type.Sliced;
             _image.sprite = sprite;
             _transformLink = components.TransformLinkComponents;
-            _transformLink.Initialize();
+            _transformLink.Initialize(Self);
             
             _visibleChangedActions.Add(_transformLink.SetVisible);
             _positionChangeActions.Add(_transformLink.SetPosition);

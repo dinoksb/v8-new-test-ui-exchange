@@ -153,7 +153,7 @@ namespace V8
         {
             _tmp = components.TMP;
             _transformLink = components.TransformLinkComponents;
-            _transformLink.Initialize();
+            _transformLink.Initialize(Self);
             _visibleChangedActions.Add(_transformLink.SetVisible);
             _positionChangeActions.Add(_transformLink.SetPosition);
             _rotationChangeActions.Add(_transformLink.SetRotation);

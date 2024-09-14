@@ -10,14 +10,10 @@ namespace V8
 
         public ImageComponents(IElement parent, Transform zIndexParent, string name) : base(parent, zIndexParent, name)
         {
-            // set background transform
-            var bgRectTransform = Self;
-            bgRectTransform.SetParent(Self);
-            
             // create image transform
             var imageGo = new GameObject(UIConfig.ImageSource);
             var imageRectTransform = imageGo.AddComponent<RectTransform>();
-            imageRectTransform.SetParent(bgRectTransform);
+            imageRectTransform.SetParent(Self);
             imageRectTransform.anchorMin = Vector2.zero;
             imageRectTransform.anchorMax = Vector2.one;
             imageRectTransform.offsetMin = Vector2.zero;
@@ -42,7 +38,7 @@ namespace V8
             imageSourceGo.layer = LayerMask.NameToLayer(UIConfig.LayerName);
             
             // add image and link component
-            TransformLinkComponents = bgImageSource.AddComponent<TransformLinkComponents>().Attach(bgRectTransform);
+            TransformLinkComponents = bgImageSource.AddComponent<TransformLinkComponents>();
             BackGroundImage = bgImageSource.AddComponent<UnityEngine.UI.Image>();
             Image = imageSourceRectTransform.gameObject.AddComponent<UnityEngine.UI.Image>();
         }

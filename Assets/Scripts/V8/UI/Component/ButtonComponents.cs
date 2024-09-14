@@ -10,10 +10,6 @@ namespace V8
 
         public ButtonComponents(IElement parent, Transform zIndexParent, string name) : base(parent, zIndexParent, name)
         {
-            // set background transform
-            var buttonRectTransform = Self;
-            buttonRectTransform.SetParent(Self);
-            
             var eventTriggerSource = new GameObject(Self.name);
             var eventTriggerSourceRectTransform = eventTriggerSource.AddComponent<RectTransform>();
             eventTriggerSourceRectTransform.SetParent(zIndexParent);
@@ -21,7 +17,7 @@ namespace V8
             eventTriggerSourceRectTransform.localRotation = Quaternion.identity;
             eventTriggerSourceRectTransform.localScale = Vector3.one;
             
-            TransformLinkComponents = eventTriggerSource.AddComponent<TransformLinkComponents>().Attach(buttonRectTransform);
+            TransformLinkComponents = eventTriggerSource.AddComponent<TransformLinkComponents>();
             EventTrigger = eventTriggerSource.AddComponent<EventTrigger>();
         }
     }
