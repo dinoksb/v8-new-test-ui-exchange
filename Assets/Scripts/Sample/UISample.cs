@@ -1,9 +1,10 @@
-using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using V8;
-using V8.Service;
-using V8.Utilities;
+using G2.Manager;
+using G2.Service;
+using G2.UI.Elements;
+using G2.UI.Elements.Interactive;
+using Utilities;
 
 public class UISample : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class UISample : MonoBehaviour
         {
             if (!_uiCanvas)
             {
-                var element = new V8.Canvas("UICanvas", null, new Vector2(Screen.width, Screen.height), false);
+                var element = new G2.UI.Elements.Basic.Canvas("UICanvas", null, new Vector2(Screen.width, Screen.height), false);
                 _uiCanvas = element.Self.GetComponent<UnityEngine.Canvas>();
             }
 
