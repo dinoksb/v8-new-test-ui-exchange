@@ -1,8 +1,5 @@
 using System;
-using System.IO;
 using UnityEditor;
-using UnityEngine;
-using V8.Utilities;
 
 namespace V8
 {
@@ -11,15 +8,21 @@ namespace V8
         private const string FILE_PANEL_TITLE = "Load UI Json";
         private const string JSON_EXTENSION = "json";
 
-        private static void Import()
-        {
-            UIJsonImporter.Import(LoadJson());
-        }
 
         [MenuItem("GameObject/UI/Json/Import")]
         private static void ImportAndBuild()
         {
-            UIJsonImporter.ImportAndBuild(LoadJson());
+            UIJsonImporter.ImportAndBuild(LoadJson(), true);
+        }
+        
+        [MenuItem("GameObject/UI/Json/Release/Import(Set Release Form)")]
+        private static void ImportAndBuildReleaseMode()
+        {
+            var result = EditorUtility.DisplayDialog("UI Json Import", "This is a \"Release Mode\" that allows you to check the UI layout when loading the UI JSON at runtime. In this state, you cannot export the UI JSON. Do you still want to load it?", "YES", "NO");
+            if (result)
+            {
+                UIJsonImporter.ImportAndBuild(LoadJson(), false);    
+            }
         }
         
         [MenuItem("GameObject/UI/Json/Clear")]

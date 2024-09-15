@@ -54,7 +54,7 @@ namespace V8.Template
             await _uiManager.LoadAsync(jsonData);
             
 #if UNITY_WEBGL && !UNITY_EDITOR
-            _uiManager.Show(UICanvasForTest);
+            _uiManager.Show(UICanvas);
 #endif
         }
         

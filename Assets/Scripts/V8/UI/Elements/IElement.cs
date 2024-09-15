@@ -18,6 +18,7 @@ namespace V8
         public IElement Copy(RectTransform self, IElement parent);
         public void Update(ElementData data);
         internal event EventHandler<Vector2> OnSizeUpdated;
+        internal event Action OnMoveFront;
         internal void MoveFront();
         internal void AddVisibleChangedListener(Action<IElement> action);
         internal void RemoveVisibleChangedListener(Action<IElement> action);

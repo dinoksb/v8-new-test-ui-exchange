@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 using V8.Utilities;
 
 namespace V8
@@ -15,6 +16,8 @@ namespace V8
         private Dictionary<uint, UnityEngine.Canvas> _zIndexContainer = new();
         private List<IElement> _visibleElements = new();
         private IElement _dontDestoryCanvas;
+
+        private IElement _currentFrontElement;
 
         private void OnEvent(ulong clientId, string uiId, string eventTriggerType, string eventId)
         {
@@ -95,13 +98,30 @@ namespace V8
         // 동일한 z-index를 가진 오브젝트 중 특정 오브젝트를 최상위로 설정하는 함수
         public void MoveToFront(IElement element)
         {
-            element.MoveFront();
+            _currentFrontElement = element;
+            _currentFrontElement.MoveFront();
         }
 
         public IElement GetFrontFrame()
         {
-            uint maxZIndex = _visibleElements.Max(e => e.ZIndex);
-            return _visibleElements.LastOrDefault(e => e.ZIndex == maxZIndex);
+            if (_currentFrontElement != null && _currentFrontElement.Visible)
+            {
+                return GetRootElement(_currentFrontElement);
+            }
+
+            uint highestZIndex = uint.MinValue;
+            IElement elementWithHighestZIndex = null;
+
+            foreach (var element in _visibleElements)
+            {
+                if (element.ZIndex >= highestZIndex)
+                {
+                    highestZIndex = element.ZIndex;
+                    elementWithHighestZIndex = element;
+                }
+            }
+
+            return GetRootElement(elementWithHighestZIndex);
         }
 
         public void Delete(string uid)
@@ -150,10 +170,7 @@ namespace V8
 
         private IElement CreateElement(string uid, ElementData data, Vector2 referenceResolution)
         {
-            var frameData = (FrameData)data;
-            var dimOpacity = frameData.dim;
-
-            _factoryProvider = new ElementFactoryProvider(_sprites, referenceResolution, dimOpacity, OnEvent);
+            _factoryProvider = new ElementFactoryProvider(_sprites, referenceResolution, OnEvent);
             var factory = _factoryProvider.GetFactory(data.type);
             var parent = GetParentFromElement(data.parent);
             var zIndexParent = CreateZIndexContainer(data.zIndex);
@@ -171,13 +188,6 @@ namespace V8
         private IElement GetElement(string id)
         {
             return _ui.GetValueOrDefault(id);
-        }
-
-        private bool IsRootElement(IElement element)
-        {
-            var parentTransform = element.Parent.Self;
-            var rootTransform = element.Self.root;
-            return parentTransform == rootTransform;
         }
 
         // private void SortByZIndex()
@@ -212,10 +222,14 @@ namespace V8
 
             string goName = $"Z-Index-[{zIndex}]";
             GameObject go = new GameObject(goName);
+            go.layer = LayerMask.NameToLayer(UIConfig.LayerName);
 
             // set canvas sorting order
             var canvas = go.AddComponent<UnityEngine.Canvas>();
             canvas.sortingOrder = (int)zIndex;
+
+            // add graphicRaycaster
+            go.AddComponent<GraphicRaycaster>();
 
             // set rectTransform values
             var rectTransform = canvas.GetComponent<RectTransform>();
@@ -237,13 +251,21 @@ namespace V8
 
             if (isVisible)
             {
-                if(!_visibleElements.Contains(element))
+                if (!_visibleElements.Contains(element))
                     _visibleElements.Add(element);
             }
             else
             {
                 _visibleElements.Remove(element);
             }
+        }
+
+        private IElement GetRootElement(IElement element)
+        {
+            if (element.Parent.Type == nameof(Canvas))
+                return element;
+            
+            return GetRootElement(element.Parent);
         }
     }
 }

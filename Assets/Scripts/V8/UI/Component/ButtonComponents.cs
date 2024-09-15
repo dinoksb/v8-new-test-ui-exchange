@@ -6,19 +6,19 @@ namespace V8
     public class ButtonComponents : FrameComponents
     {
         public EventTrigger EventTrigger { get; }
-        public TransformLinkComponents TransformLinkComponents { get; }
+        public TransformLinkComponent TransformLinkComponent { get; }
+        public NonDrawingGraphic NonDrawingGraphic { get; }
 
         public ButtonComponents(IElement parent, Transform zIndexParent, string name) : base(parent, zIndexParent, name)
         {
-            var eventTriggerSource = new GameObject(Self.name);
-            var eventTriggerSourceRectTransform = eventTriggerSource.AddComponent<RectTransform>();
-            eventTriggerSourceRectTransform.SetParent(zIndexParent);
-            eventTriggerSourceRectTransform.localPosition = Vector3.zero;
-            eventTriggerSourceRectTransform.localRotation = Quaternion.identity;
-            eventTriggerSourceRectTransform.localScale = Vector3.one;
-            
-            TransformLinkComponents = eventTriggerSource.AddComponent<TransformLinkComponents>();
-            EventTrigger = eventTriggerSource.AddComponent<EventTrigger>();
+            RectTransform buttonRectTransform = Self;
+            if (zIndexParent)
+            {
+                buttonRectTransform = CreateUIElement(Self.name, zIndexParent, false);
+            }
+            TransformLinkComponent = buttonRectTransform.gameObject.AddComponent<TransformLinkComponent>();
+            EventTrigger = buttonRectTransform.gameObject.AddComponent<EventTrigger>();
+            NonDrawingGraphic = buttonRectTransform.gameObject.AddComponent<NonDrawingGraphic>();
         }
     }
 }

@@ -9,12 +9,21 @@ namespace V8
 {
     public class Button : Frame
     {
+        public override bool Interactable
+        {
+            get => _nonDrawingGraphic.raycastTarget;
+            set => _nonDrawingGraphic.raycastTarget = value;
+        }
+
         private EventTrigger _eventTrigger;
         private ReadOnlyDictionary<EventTriggerType, string> _events;
+
         private readonly Action<ulong, string, string, string> _action;
+
         // private readonly Dictionary<EventTriggerType, float> _lastEventTimes = new();
-        private TransformLinkComponents _transformLink;
-        
+        private TransformLinkComponent _transformLink;
+        private NonDrawingGraphic _nonDrawingGraphic;
+
         private readonly List<Action<IElement>> _pointerEnterEvents = new();
         private readonly List<Action<IElement>> _pointerExitEvents = new();
         private readonly List<Action<IElement>> _pointerDownEvents = new();
@@ -32,29 +41,17 @@ namespace V8
 
         // public float Threshold { get; }
 
-        public Button(string uid, ButtonData data, ButtonComponents components, Action<ulong, string, string, string> action)
+        public Button(string uid, ButtonData data, ButtonComponents components,
+            Action<ulong, string, string, string> action)
             : base(uid, data, components)
         {
             _action = action;
             _eventTrigger = components.EventTrigger;
-            _transformLink = components.TransformLinkComponents;
-            _transformLink.Initialize(Self);
-            _visibleChangedActions.Add(_transformLink.SetVisible);
-            _positionChangeActions.Add(_transformLink.SetPosition);
-            _rotationChangeActions.Add(_transformLink.SetRotation);
-            _sizeChangeActions.Add(_transformLink.SetSize);
-            // Threshold = data.threshold;
-
-            var e = new Dictionary<EventTriggerType, string>();
-            foreach (var (eventType, eventId) in data.events)
-            {
-                if (TypeConverter.TryEventTriggerType(eventType, out var type))
-                {
-                    e.Add(type, eventId);
-                }
-            }
-
-            Events = new ReadOnlyDictionary<EventTriggerType, string>(e);
+            _nonDrawingGraphic = components.NonDrawingGraphic;
+            Interactable = data.interactable;
+            _transformLink = components.TransformLinkComponent;
+            SetTransformLink(_transformLink);
+            SetEvents(data);
         }
 
         public override IElement Copy(RectTransform self, IElement parent)
@@ -69,19 +66,43 @@ namespace V8
             }
 
             clone._events = new ReadOnlyDictionary<EventTriggerType, string>(clonedEvents);
-
             clone.UpdateEventTrigger(_events);
-            
-            _visibleChangedActions.Add(clone._transformLink.SetVisible);
-            _positionChangeActions.Add(clone._transformLink.SetPosition);
-            _rotationChangeActions.Add(clone._transformLink.SetRotation);
-            _sizeChangeActions.Add(clone._transformLink.SetSize);
+            if (_transformLink)
+            {
+                clone._transformLink = _transformLink;
+                clone.SetTransformLink(clone._transformLink);
+            }
+
+            clone.Parent.OnMoveFront += clone.MoveFront;
+            clone.Parent.AddVisibleChangedListener(clone._transformLink.SetVisible);
+
             return clone;
         }
 
         public override void MoveFront()
         {
             _transformLink.Self.SetAsLastSibling();
+            base.MoveFront();
+        }
+
+        private void SetEvents(ButtonData data)
+        {
+            var e = new Dictionary<EventTriggerType, string>();
+            foreach (var (eventType, eventId) in data.events)
+            {
+                if (TypeConverter.TryEventTriggerType(eventType, out var type))
+                {
+                    e.Add(type, eventId);
+                }
+            }
+
+            Events = new ReadOnlyDictionary<EventTriggerType, string>(e);
+
+            if (!CheckIsCanvas(Parent))
+            {
+                Parent.OnMoveFront += MoveFront;
+                Parent.AddVisibleChangedListener(VisibleChanged);
+            }
         }
 
         private void UpdateEventTrigger(ReadOnlyDictionary<EventTriggerType, string> events)

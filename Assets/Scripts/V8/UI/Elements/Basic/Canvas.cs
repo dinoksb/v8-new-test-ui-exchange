@@ -35,7 +35,14 @@ namespace V8
             remove => _onUpdateSizeCore -= value;
         }
 
+        event Action IElement.OnMoveFront
+        {
+            add => _moveFrontCore += value;
+            remove => _moveFrontCore -= value;
+        }
+
         private event EventHandler<Vector2> _onUpdateSizeCore; 
+        private event Action _moveFrontCore; 
 
         public Canvas(string id, Transform parent, Vector2 resolution, bool dontDestoryOnLoad)
         {
@@ -61,6 +68,8 @@ namespace V8
             canvasScaler.referencePixelsPerUnit = 100;
             canvasScaler.matchWidthOrHeight = 0.5f;
 
+            gameObject.AddComponent<GraphicRaycaster>();
+            
             if (dontDestoryOnLoad)
             {
                 GameObject.DontDestroyOnLoad(gameObject);
@@ -71,6 +80,7 @@ namespace V8
         public void Dispose()
         {
             _onUpdateSizeCore = null;
+            _moveFrontCore = null;
         }
 
         public IElement Copy(RectTransform self, IElement parent)
