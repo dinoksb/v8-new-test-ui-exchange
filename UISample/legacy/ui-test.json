@@ -120,7 +120,7 @@
                 ],
                 "pivot":
                 [
-                    0.4999999,
+                    0.499999851,
                     0.5
                 ],
                 "pixelsPerUnit": 100.0
@@ -577,12 +577,12 @@
     },
     "ui":
     {
-        "fc559ccd-ba30-4620-a3cf-6a35c3eb4df6":
+        "7f869204-e5db-4bc2-a049-d40a17d29295":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.5,
-            "name": "Dialog_Popup_Sample",
+            "name": "Settings_Popup_Sample",
             "type": "Frame",
             "parent": null,
             "anchor":
@@ -625,7 +625,7 @@
             "visible": true,
             "zIndex": 100
         },
-        "f752eaea-1e95-483f-865a-46fe765071e8":
+        "1a55ac87-88e1-4568-abe1-6f7bb9d2a2d3":
         {
             "spriteId": "info_box",
             "backgroundColor":
@@ -647,7 +647,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "fc559ccd-ba30-4620-a3cf-6a35c3eb4df6",
+            "parent": "7f869204-e5db-4bc2-a049-d40a17d29295",
             "anchor":
             [
                 0.5,
@@ -688,7 +688,7 @@
             "visible": true,
             "zIndex": 100
         },
-        "a7872eff-7aac-4cfb-b0a2-7df1b9bf618a":
+        "b7c2e509-1d0f-4c10-a161-81e849980de4":
         {
             "spriteId": "fade_line_bi_linear",
             "backgroundColor":
@@ -710,7 +710,7 @@
             "dim": 0.0,
             "name": "FadeLineImageBottom",
             "type": "Image",
-            "parent": "f752eaea-1e95-483f-865a-46fe765071e8",
+            "parent": "1a55ac87-88e1-4568-abe1-6f7bb9d2a2d3",
             "anchor":
             [
                 0.5,
@@ -749,9 +749,9 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 101
+            "zIndex": 100
         },
-        "b74ac68d-12d7-41a0-a50a-67643028f30a":
+        "28edcac5-29da-4391-a5ce-9db3939e7ad3":
         {
             "spriteId": "dialog_header_background",
             "backgroundColor":
@@ -773,7 +773,7 @@
             "dim": 0.0,
             "name": "HeaderBackground",
             "type": "Image",
-            "parent": "fc559ccd-ba30-4620-a3cf-6a35c3eb4df6",
+            "parent": "7f869204-e5db-4bc2-a049-d40a17d29295",
             "anchor":
             [
                 0.5,
@@ -814,7 +814,7 @@
             "visible": true,
             "zIndex": 100
         },
-        "762b8b7d-c304-4579-b4ca-6589fac95248":
+        "19d9d613-f68b-4d93-8d7d-a7d7839897ca":
         {
             "spriteId": "fade_line_bi_linear",
             "backgroundColor":
@@ -836,7 +836,7 @@
             "dim": 0.0,
             "name": "FadeLineImageTop",
             "type": "Image",
-            "parent": "b74ac68d-12d7-41a0-a50a-67643028f30a",
+            "parent": "28edcac5-29da-4391-a5ce-9db3939e7ad3",
             "anchor":
             [
                 0.5,
@@ -877,7 +877,7 @@
             "visible": true,
             "zIndex": 100
         },
-        "bcc4865b-0d71-48f9-aa08-9d2cfc9f4020":
+        "dcc691e4-2a83-4ef2-96f0-605ee984b034":
         {
             "textAlignment": "Center",
             "fontId": "LiberationSans SDF",
@@ -889,13 +889,13 @@
                 1.0
             ],
             "fontSize": 36.0,
-            "text": "NOTICE",
+            "text": "SETTING",
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "DialogHeaderText",
             "type": "Label",
-            "parent": "fc559ccd-ba30-4620-a3cf-6a35c3eb4df6",
+            "parent": "7f869204-e5db-4bc2-a049-d40a17d29295",
             "anchor":
             [
                 0.5,
@@ -934,9 +934,9 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 0
+            "zIndex": 100
         },
-        "f593f205-d005-4acf-aa79-fd94132d7f8b":
+        "66cc3764-76e5-4407-ad11-b345ed777dc2":
         {
             "spriteId": "icon_info",
             "backgroundColor":
@@ -958,7 +958,7 @@
             "dim": 0.0,
             "name": "IconImage",
             "type": "Image",
-            "parent": "fc559ccd-ba30-4620-a3cf-6a35c3eb4df6",
+            "parent": "7f869204-e5db-4bc2-a049-d40a17d29295",
             "anchor":
             [
                 0.0,
@@ -997,9 +997,9 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 0
+            "zIndex": 100
         },
-        "013c820e-6e73-4aed-b7a8-28a4999674db":
+        "47f7126a-8a63-4880-bb65-dd1cfa88ce16":
         {
             "events":
             {},
@@ -1008,7 +1008,7 @@
             "dim": 0.0,
             "name": "IconCloseButton",
             "type": "Button",
-            "parent": "fc559ccd-ba30-4620-a3cf-6a35c3eb4df6",
+            "parent": "7f869204-e5db-4bc2-a049-d40a17d29295",
             "anchor":
             [
                 1.0,
@@ -1047,9 +1047,9 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 0
+            "zIndex": 100
         },
-        "aaa01dca-e016-4b6a-8b6b-616fc5e6b244":
+        "6ec8092b-d717-41a1-80e3-3ea3f47ceca9":
         {
             "spriteId": "icon_close_light",
             "backgroundColor":
@@ -1066,12 +1066,12 @@
                 1.0,
                 1.0
             ],
-            "interactable": true,
+            "interactable": false,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "IconClose",
             "type": "Image",
-            "parent": "013c820e-6e73-4aed-b7a8-28a4999674db",
+            "parent": "47f7126a-8a63-4880-bb65-dd1cfa88ce16",
             "anchor":
             [
                 0.5,
@@ -1110,9 +1110,9 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 0
+            "zIndex": 100
         },
-        "bd0b8693-6693-4c0c-8381-910a0ea55aec":
+        "3a96c32b-c0dd-4005-b9a2-6b6d76d6a47b":
         {
             "textAlignment": "Center",
             "fontId": "LiberationSans SDF",
@@ -1124,13 +1124,13 @@
                 1.0
             ],
             "fontSize": 32.0,
-            "text": "Do you want to quit the game?",
+            "text": "Do you want to quit this setting popup?",
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "DescriptionText",
             "type": "Label",
-            "parent": "fc559ccd-ba30-4620-a3cf-6a35c3eb4df6",
+            "parent": "7f869204-e5db-4bc2-a049-d40a17d29295",
             "anchor":
             [
                 0.5,
@@ -1169,16 +1169,16 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 0
+            "zIndex": 100
         },
-        "4a8161e0-fce0-4dd9-9774-ecf5c6aa5e04":
+        "ff78d058-1698-432f-bf93-12e3016b6224":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "DefaultDialogButtons",
             "type": "Frame",
-            "parent": "fc559ccd-ba30-4620-a3cf-6a35c3eb4df6",
+            "parent": "7f869204-e5db-4bc2-a049-d40a17d29295",
             "anchor":
             [
                 0.5,
@@ -1217,9 +1217,9 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 0
+            "zIndex": 100
         },
-        "310c2b09-e032-4598-817a-c18513f02280":
+        "19b77428-aa91-472a-b076-7c8f730643e6":
         {
             "events":
             {},
@@ -1228,7 +1228,7 @@
             "dim": 0.0,
             "name": "RectButtonYes",
             "type": "Button",
-            "parent": "4a8161e0-fce0-4dd9-9774-ecf5c6aa5e04",
+            "parent": "ff78d058-1698-432f-bf93-12e3016b6224",
             "anchor":
             [
                 0.0,
@@ -1267,9 +1267,9 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 0
+            "zIndex": 100
         },
-        "c7219634-0386-4393-8785-71da0ee1d0ed":
+        "59c194b4-ec1b-4cad-a7d3-d94354bde8c3":
         {
             "spriteId": "rect_button",
             "backgroundColor":
@@ -1286,12 +1286,12 @@
                 0.6,
                 1.0
             ],
-            "interactable": true,
+            "interactable": false,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "ButtonBG",
             "type": "Image",
-            "parent": "310c2b09-e032-4598-817a-c18513f02280",
+            "parent": "19b77428-aa91-472a-b076-7c8f730643e6",
             "anchor":
             [
                 0.5,
@@ -1330,9 +1330,9 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 0
+            "zIndex": 100
         },
-        "0f1cb0f5-ffeb-4937-bd07-e96ab3328d7f":
+        "7ef83046-4869-4041-bb5c-fce7256e39ed":
         {
             "textAlignment": "Center",
             "fontId": "LiberationSans SDF",
@@ -1345,12 +1345,12 @@
             ],
             "fontSize": 32.0,
             "text": "Yes",
-            "interactable": true,
+            "interactable": false,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "Text (TMP)",
             "type": "Label",
-            "parent": "310c2b09-e032-4598-817a-c18513f02280",
+            "parent": "19b77428-aa91-472a-b076-7c8f730643e6",
             "anchor":
             [
                 0.5,
@@ -1389,9 +1389,9 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 0
+            "zIndex": 100
         },
-        "283edbda-93e3-4890-85e5-7fcdb9689911":
+        "2bf39377-4ae0-494e-9738-d33902628d1c":
         {
             "events":
             {},
@@ -1400,7 +1400,7 @@
             "dim": 0.0,
             "name": "RectButtonNo",
             "type": "Button",
-            "parent": "4a8161e0-fce0-4dd9-9774-ecf5c6aa5e04",
+            "parent": "ff78d058-1698-432f-bf93-12e3016b6224",
             "anchor":
             [
                 0.0,
@@ -1439,9 +1439,995 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 0
+            "zIndex": 100
         },
-        "2856ecf7-65f7-42de-8ff9-a93b4fd20f11":
+        "6082c7b3-eb39-4b70-a45a-adc41643fc7e":
+        {
+            "spriteId": "rect_button",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                0.607843161,
+                0.607843161,
+                1.0
+            ],
+            "interactable": false,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "ButtonBG",
+            "type": "Image",
+            "parent": "2bf39377-4ae0-494e-9738-d33902628d1c",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "90f5ff5f-7c69-4e4c-8b91-8105238b7bb8":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                0.8113208,
+                0.7123744,
+                0.5931827,
+                1.0
+            ],
+            "fontSize": 32.0,
+            "text": "No",
+            "interactable": false,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "Text (TMP)",
+            "type": "Label",
+            "parent": "2bf39377-4ae0-494e-9738-d33902628d1c",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "6fafe9dc-d9bf-42e9-a86b-62572b81c2fd":
+        {
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.5,
+            "name": "Skills_Popup_Sample",
+            "type": "Frame",
+            "parent": null,
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 800.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 442.5
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "ffae0d7d-e635-481b-82e8-3600006b1214":
+        {
+            "spriteId": "info_box",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "Background",
+            "type": "Image",
+            "parent": "6fafe9dc-d9bf-42e9-a86b-62572b81c2fd",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.119995117
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 800.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 442.5
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "741bec24-5dfe-44ce-bcba-be5818b107f7":
+        {
+            "spriteId": "fade_line_bi_linear",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "FadeLineImageBottom",
+            "type": "Image",
+            "parent": "ffae0d7d-e635-481b-82e8-3600006b1214",
+            "anchor":
+            [
+                0.5,
+                1.0
+            ],
+            "pivot":
+            [
+                0.5,
+                1.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 4.880005
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 760.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 12.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "9dcdcb77-2c33-41fc-8a6d-e366482f871e":
+        {
+            "spriteId": "dialog_header_background",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "HeaderBackground",
+            "type": "Image",
+            "parent": "6fafe9dc-d9bf-42e9-a86b-62572b81c2fd",
+            "anchor":
+            [
+                0.5,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -8.9
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 775.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 69.1
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "abba2a0b-ec89-441d-9957-c8969765c965":
+        {
+            "spriteId": "fade_line_bi_linear",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "FadeLineImageTop",
+            "type": "Image",
+            "parent": "9dcdcb77-2c33-41fc-8a6d-e366482f871e",
+            "anchor":
+            [
+                0.5,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 5.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 766.133362
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 12.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "fec836d0-8367-4b16-8235-2c296cc44df5":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                1.0,
+                0.9209821,
+                0.823,
+                1.0
+            ],
+            "fontSize": 36.0,
+            "text": "SKILLS",
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "DialogHeaderText",
+            "type": "Label",
+            "parent": "6fafe9dc-d9bf-42e9-a86b-62572b81c2fd",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 179.17
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 760.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 66.35
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "de3585f7-1c44-4c65-8c57-da9cddf2f721":
+        {
+            "spriteId": "icon_info",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "IconImage",
+            "type": "Image",
+            "parent": "6fafe9dc-d9bf-42e9-a86b-62572b81c2fd",
+            "anchor":
+            [
+                0.0,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 25.45996
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -24.4399414
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 90.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 90.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "10c744ff-9cac-4156-91df-93439b138254":
+        {
+            "events":
+            {},
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "IconCloseButton",
+            "type": "Button",
+            "parent": "6fafe9dc-d9bf-42e9-a86b-62572b81c2fd",
+            "anchor":
+            [
+                1.0,
+                0.0
+            ],
+            "pivot":
+            [
+                1.0,
+                0.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": -20.8000488
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -19.8000488
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "1fd76147-5621-47d9-8607-7003497b43dd":
+        {
+            "spriteId": "icon_close_light",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "IconClose",
+            "type": "Image",
+            "parent": "10c744ff-9cac-4156-91df-93439b138254",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "7e0b34c2-41e0-430c-b543-9608552b55be":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                0.7735849,
+                0.69670856,
+                0.5801887,
+                1.0
+            ],
+            "fontSize": 32.0,
+            "text": "Do you want to quit this skill popup?",
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "DescriptionText",
+            "type": "Label",
+            "parent": "6fafe9dc-d9bf-42e9-a86b-62572b81c2fd",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 1120.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 95.76
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "6c7bdecb-4e81-476c-9ad7-60097eed85c6":
+        {
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "DefaultDialogButtons",
+            "type": "Frame",
+            "parent": "6fafe9dc-d9bf-42e9-a86b-62572b81c2fd",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "59363f6c-e05b-4ddc-8411-d90f16fc3545":
+        {
+            "events":
+            {},
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "RectButtonYes",
+            "type": "Button",
+            "parent": "6c7bdecb-4e81-476c-9ad7-60097eed85c6",
+            "anchor":
+            [
+                0.0,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": -151.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -124.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "b8cc6e84-dfd8-4716-8069-eccc8a82048d":
+        {
+            "spriteId": "rect_button",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                0.6,
+                1.0,
+                0.6,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "ButtonBG",
+            "type": "Image",
+            "parent": "59363f6c-e05b-4ddc-8411-d90f16fc3545",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "465fdccf-15c9-45ba-a579-3d2ea3a51acb":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                0.8113208,
+                0.7123744,
+                0.5931827,
+                1.0
+            ],
+            "fontSize": 32.0,
+            "text": "Yes",
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "Text (TMP)",
+            "type": "Label",
+            "parent": "59363f6c-e05b-4ddc-8411-d90f16fc3545",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "75e5dc4b-5321-4c80-96e9-4fd715cb751b":
+        {
+            "events":
+            {},
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "RectButtonNo",
+            "type": "Button",
+            "parent": "6c7bdecb-4e81-476c-9ad7-60097eed85c6",
+            "anchor":
+            [
+                0.0,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 129.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -124.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "7682b600-2801-437d-84fd-36701602158f":
         {
             "spriteId": "rect_button",
             "backgroundColor":
@@ -1463,7 +2449,7 @@
             "dim": 0.0,
             "name": "ButtonBG",
             "type": "Image",
-            "parent": "283edbda-93e3-4890-85e5-7fcdb9689911",
+            "parent": "75e5dc4b-5321-4c80-96e9-4fd715cb751b",
             "anchor":
             [
                 0.5,
@@ -1502,9 +2488,9 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 0
+            "zIndex": 100
         },
-        "c4039c3d-d33d-400a-adde-871bcffe637b":
+        "5cb4fb6f-b919-4b9a-922a-8d964beeb105":
         {
             "textAlignment": "Center",
             "fontId": "LiberationSans SDF",
@@ -1522,7 +2508,7 @@
             "dim": 0.0,
             "name": "Text (TMP)",
             "type": "Label",
-            "parent": "283edbda-93e3-4890-85e5-7fcdb9689911",
+            "parent": "75e5dc4b-5321-4c80-96e9-4fd715cb751b",
             "anchor":
             [
                 0.5,
@@ -1561,9 +2547,995 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 0
+            "zIndex": 100
         },
-        "0f5906e7-fd8e-4cd9-8f5d-852cd0b68f23":
+        "2b12a1e1-8a02-42f9-8f2b-c30ce30be995":
+        {
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.5,
+            "name": "Inventory_Popup_Sample",
+            "type": "Frame",
+            "parent": null,
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 800.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 442.5
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "511503c5-32a7-4b8f-90e8-231124c9b1c0":
+        {
+            "spriteId": "info_box",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "Background",
+            "type": "Image",
+            "parent": "2b12a1e1-8a02-42f9-8f2b-c30ce30be995",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.119995117
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 800.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 442.5
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "e03f755c-5f09-4844-99fe-43215abd89ae":
+        {
+            "spriteId": "fade_line_bi_linear",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "FadeLineImageBottom",
+            "type": "Image",
+            "parent": "511503c5-32a7-4b8f-90e8-231124c9b1c0",
+            "anchor":
+            [
+                0.5,
+                1.0
+            ],
+            "pivot":
+            [
+                0.5,
+                1.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 4.880005
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 760.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 12.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "58e9aa4a-33a2-482a-aa62-cdd5326211d6":
+        {
+            "spriteId": "dialog_header_background",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "HeaderBackground",
+            "type": "Image",
+            "parent": "2b12a1e1-8a02-42f9-8f2b-c30ce30be995",
+            "anchor":
+            [
+                0.5,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -8.9
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 775.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 69.1
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "ef006dab-459e-4152-ae52-fa81304888f4":
+        {
+            "spriteId": "fade_line_bi_linear",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "FadeLineImageTop",
+            "type": "Image",
+            "parent": "58e9aa4a-33a2-482a-aa62-cdd5326211d6",
+            "anchor":
+            [
+                0.5,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 5.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 766.133362
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 12.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "197c65da-b2a8-45e2-bd29-b22b0902fce4":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                1.0,
+                0.9209821,
+                0.823,
+                1.0
+            ],
+            "fontSize": 36.0,
+            "text": "INVENTORY",
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "DialogHeaderText",
+            "type": "Label",
+            "parent": "2b12a1e1-8a02-42f9-8f2b-c30ce30be995",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 179.17
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 760.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 66.35
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "985ab0bf-faa3-48b6-a218-3c964cd8a3ae":
+        {
+            "spriteId": "icon_info",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "IconImage",
+            "type": "Image",
+            "parent": "2b12a1e1-8a02-42f9-8f2b-c30ce30be995",
+            "anchor":
+            [
+                0.0,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 25.45996
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -24.4399414
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 90.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 90.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "7034d302-3302-4794-9412-f78a4ad2d376":
+        {
+            "events":
+            {},
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "IconCloseButton",
+            "type": "Button",
+            "parent": "2b12a1e1-8a02-42f9-8f2b-c30ce30be995",
+            "anchor":
+            [
+                1.0,
+                0.0
+            ],
+            "pivot":
+            [
+                1.0,
+                0.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": -20.8000488
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -19.8000488
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "ff4b89f6-fa1f-43cb-ace1-4dfa61066ec5":
+        {
+            "spriteId": "icon_close_light",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "IconClose",
+            "type": "Image",
+            "parent": "7034d302-3302-4794-9412-f78a4ad2d376",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "e26b3948-c3f6-4f5e-a66f-39a26c8873f4":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                0.7735849,
+                0.69670856,
+                0.5801887,
+                1.0
+            ],
+            "fontSize": 32.0,
+            "text": "Do you want to quit this inventory popup?",
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "DescriptionText",
+            "type": "Label",
+            "parent": "2b12a1e1-8a02-42f9-8f2b-c30ce30be995",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 1120.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 95.76
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "a74c38ab-d54a-462d-ae1d-563a597bcc86":
+        {
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "DefaultDialogButtons",
+            "type": "Frame",
+            "parent": "2b12a1e1-8a02-42f9-8f2b-c30ce30be995",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "6643c2cd-8e65-4d9a-810c-68e8382f6cea":
+        {
+            "events":
+            {},
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "RectButtonYes",
+            "type": "Button",
+            "parent": "a74c38ab-d54a-462d-ae1d-563a597bcc86",
+            "anchor":
+            [
+                0.0,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": -151.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -124.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "328f2100-8f1b-4518-a7fe-5683c6fc3d46":
+        {
+            "spriteId": "rect_button",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                0.6,
+                1.0,
+                0.6,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "ButtonBG",
+            "type": "Image",
+            "parent": "6643c2cd-8e65-4d9a-810c-68e8382f6cea",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "e8ec1d05-2850-4184-bb47-382b62c95447":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                0.8113208,
+                0.7123744,
+                0.5931827,
+                1.0
+            ],
+            "fontSize": 32.0,
+            "text": "Yes",
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "Text (TMP)",
+            "type": "Label",
+            "parent": "6643c2cd-8e65-4d9a-810c-68e8382f6cea",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "c86dde27-55e9-4f2f-adb2-d5a62eecd278":
+        {
+            "events":
+            {},
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "RectButtonNo",
+            "type": "Button",
+            "parent": "a74c38ab-d54a-462d-ae1d-563a597bcc86",
+            "anchor":
+            [
+                0.0,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 129.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -124.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "661fcb4d-d76f-47d6-8e3b-9d68728eb794":
+        {
+            "spriteId": "rect_button",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                0.607843161,
+                0.607843161,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "ButtonBG",
+            "type": "Image",
+            "parent": "c86dde27-55e9-4f2f-adb2-d5a62eecd278",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "561b6b68-0a89-47dd-a9a5-6276fcfe36b0":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                0.8113208,
+                0.7123744,
+                0.5931827,
+                1.0
+            ],
+            "fontSize": 32.0,
+            "text": "No",
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "Text (TMP)",
+            "type": "Label",
+            "parent": "c86dde27-55e9-4f2f-adb2-d5a62eecd278",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "13a2bddc-0cc4-47fa-a324-9f5bfae68504":
         {
             "interactable": true,
             "sizeConstraint": 1,
@@ -1611,7 +3583,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "7fa10ba8-9743-42fe-827a-e22934357514":
+        "b4a82bc5-713c-4881-8cb8-3a41efb10f4a":
         {
             "events":
             {},
@@ -1620,7 +3592,7 @@
             "dim": 0.0,
             "name": "IconButtonSettings",
             "type": "Button",
-            "parent": "0f5906e7-fd8e-4cd9-8f5d-852cd0b68f23",
+            "parent": "13a2bddc-0cc4-47fa-a324-9f5bfae68504",
             "anchor":
             [
                 0.5,
@@ -1661,7 +3633,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "f7ef712d-7364-4321-81b5-063242425ebf":
+        "e3696e9f-28d4-4203-8177-f4a84fefe167":
         {
             "spriteId": "square_button_neutral",
             "backgroundColor":
@@ -1678,12 +3650,12 @@
                 1.0,
                 1.0
             ],
-            "interactable": true,
+            "interactable": false,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "7fa10ba8-9743-42fe-827a-e22934357514",
+            "parent": "b4a82bc5-713c-4881-8cb8-3a41efb10f4a",
             "anchor":
             [
                 0.5,
@@ -1724,7 +3696,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "89e34339-4f22-4634-b7f8-95738ef28771":
+        "1d35ecd4-7459-465f-b591-1724736ed512":
         {
             "spriteId": "icon_settings_grayscale",
             "backgroundColor":
@@ -1741,12 +3713,12 @@
                 0.2,
                 1.0
             ],
-            "interactable": true,
+            "interactable": false,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "IconImage",
             "type": "Image",
-            "parent": "7fa10ba8-9743-42fe-827a-e22934357514",
+            "parent": "b4a82bc5-713c-4881-8cb8-3a41efb10f4a",
             "anchor":
             [
                 0.5,
@@ -1787,7 +3759,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "0d57ecae-a4cb-4cfd-a041-3611086bf9e9":
+        "6ca92ceb-7d1f-43ae-ae45-06aa29e37cf3":
         {
             "events":
             {},
@@ -1796,7 +3768,7 @@
             "dim": 0.0,
             "name": "IconButtonSkills",
             "type": "Button",
-            "parent": "0f5906e7-fd8e-4cd9-8f5d-852cd0b68f23",
+            "parent": "13a2bddc-0cc4-47fa-a324-9f5bfae68504",
             "anchor":
             [
                 0.5,
@@ -1837,7 +3809,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "7081d816-d92e-4555-9772-d007b02cdbf1":
+        "9ea047be-3ce4-495a-a0e0-5192727ac24f":
         {
             "spriteId": "square_button_neutral",
             "backgroundColor":
@@ -1854,12 +3826,12 @@
                 1.0,
                 1.0
             ],
-            "interactable": true,
+            "interactable": false,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "0d57ecae-a4cb-4cfd-a041-3611086bf9e9",
+            "parent": "6ca92ceb-7d1f-43ae-ae45-06aa29e37cf3",
             "anchor":
             [
                 0.5,
@@ -1900,7 +3872,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "c7b50770-8831-4ce0-94bc-76bc10c2bcbe":
+        "456b6b85-fa2f-4d46-aa47-85ed7c1534a9":
         {
             "spriteId": "icon_skills_grayscale",
             "backgroundColor":
@@ -1917,12 +3889,12 @@
                 0.203921571,
                 1.0
             ],
-            "interactable": true,
+            "interactable": false,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "IconImage",
             "type": "Image",
-            "parent": "0d57ecae-a4cb-4cfd-a041-3611086bf9e9",
+            "parent": "6ca92ceb-7d1f-43ae-ae45-06aa29e37cf3",
             "anchor":
             [
                 0.5,
@@ -1963,16 +3935,16 @@
             "visible": true,
             "zIndex": 0
         },
-        "a85e79ae-378a-4fc0-98c8-aeda6cc9f83d":
+        "341686f5-a3ab-4220-9857-0a70d77ca9fc":
         {
             "events":
             {},
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
-            "name": "IconButtonVendor",
+            "name": "IconButtonInvotory",
             "type": "Button",
-            "parent": "0f5906e7-fd8e-4cd9-8f5d-852cd0b68f23",
+            "parent": "13a2bddc-0cc4-47fa-a324-9f5bfae68504",
             "anchor":
             [
                 0.5,
@@ -2013,7 +3985,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "b32badc5-c3c8-4949-98ad-ad203104e377":
+        "36c37338-bb34-493e-a6a2-6dbcb7a294e9":
         {
             "spriteId": "square_button_neutral",
             "backgroundColor":
@@ -2030,12 +4002,12 @@
                 1.0,
                 1.0
             ],
-            "interactable": true,
+            "interactable": false,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "a85e79ae-378a-4fc0-98c8-aeda6cc9f83d",
+            "parent": "341686f5-a3ab-4220-9857-0a70d77ca9fc",
             "anchor":
             [
                 0.5,
@@ -2076,7 +4048,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "0cd49b71-60b6-40b9-b425-8acd8d20ac7c":
+        "2065e745-414b-4743-98b6-acea52445858":
         {
             "spriteId": "icon_bottle",
             "backgroundColor":
@@ -2093,12 +4065,12 @@
                 0.203921571,
                 1.0
             ],
-            "interactable": true,
+            "interactable": false,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "IconImage",
             "type": "Image",
-            "parent": "a85e79ae-378a-4fc0-98c8-aeda6cc9f83d",
+            "parent": "341686f5-a3ab-4220-9857-0a70d77ca9fc",
             "anchor":
             [
                 0.5,
@@ -2139,7 +4111,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "2009e649-10e3-4ea0-a320-ea00b4b8213a":
+        "8990eb96-0d3f-4c81-bed6-d2ced9e8369a":
         {
             "interactable": true,
             "sizeConstraint": 1,
@@ -2187,7 +4159,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "d93e4342-a9ec-40aa-a7c6-e390620684ed":
+        "fb236324-386b-45f5-b2b5-05f76d329d61":
         {
             "spriteId": "ability_background",
             "backgroundColor":
@@ -2209,7 +4181,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "2009e649-10e3-4ea0-a320-ea00b4b8213a",
+            "parent": "8990eb96-0d3f-4c81-bed6-d2ced9e8369a",
             "anchor":
             [
                 0.5,
@@ -2248,16 +4220,16 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 100
+            "zIndex": 0
         },
-        "6782dde2-9ad2-49c5-b348-7a2a3144b25a":
+        "6f6e9e60-a865-4f86-b636-f806a74c79e2":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "ActionBarTop",
             "type": "Frame",
-            "parent": "2009e649-10e3-4ea0-a320-ea00b4b8213a",
+            "parent": "8990eb96-0d3f-4c81-bed6-d2ced9e8369a",
             "anchor":
             [
                 0.5,
@@ -2296,9 +4268,9 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 101
+            "zIndex": 0
         },
-        "15b77146-f925-4f54-b130-2fab358f3082":
+        "d9dfe946-a2b2-4db3-be0d-4c8afb851812":
         {
             "events":
             {},
@@ -2307,7 +4279,7 @@
             "dim": 0.0,
             "name": "ActionBarTop1",
             "type": "Button",
-            "parent": "6782dde2-9ad2-49c5-b348-7a2a3144b25a",
+            "parent": "6f6e9e60-a865-4f86-b636-f806a74c79e2",
             "anchor":
             [
                 0.0,
@@ -2346,9 +4318,9 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 101
+            "zIndex": 0
         },
-        "4a991b58-df57-414e-9de8-580d6d0ea019":
+        "cea0ae07-378c-4246-9d68-260a42244d5b":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -2370,7 +4342,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "15b77146-f925-4f54-b130-2fab358f3082",
+            "parent": "d9dfe946-a2b2-4db3-be0d-4c8afb851812",
             "anchor":
             [
                 0.5,
@@ -2409,9 +4381,9 @@
             },
             "rotation": 0.0,
             "visible": true,
-            "zIndex": 100
+            "zIndex": 0
         },
-        "ca40a50c-95d0-4d9c-98be-eb52fee9501a":
+        "c9da88a7-79fe-4451-bf64-7a6f2b93237f":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -2433,7 +4405,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "15b77146-f925-4f54-b130-2fab358f3082",
+            "parent": "d9dfe946-a2b2-4db3-be0d-4c8afb851812",
             "anchor":
             [
                 0.5,
@@ -2474,14 +4446,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "8ad7e3e2-0773-44c3-b13c-ec58c6693285":
+        "29802685-7675-4ad0-b0c3-aac880307e54":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "15b77146-f925-4f54-b130-2fab358f3082",
+            "parent": "d9dfe946-a2b2-4db3-be0d-4c8afb851812",
             "anchor":
             [
                 0.5,
@@ -2522,7 +4494,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "b6515734-e360-4d99-a345-97d33eeb99e7":
+        "c4ce1d9b-f198-4f73-809c-ac14833d1ae2":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -2544,7 +4516,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "8ad7e3e2-0773-44c3-b13c-ec58c6693285",
+            "parent": "29802685-7675-4ad0-b0c3-aac880307e54",
             "anchor":
             [
                 0.5,
@@ -2585,7 +4557,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "195baaaf-1ef6-4695-b60b-7998f21b9743":
+        "aef33c82-7841-4552-93c3-099c3f5567c5":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -2607,7 +4579,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "8ad7e3e2-0773-44c3-b13c-ec58c6693285",
+            "parent": "29802685-7675-4ad0-b0c3-aac880307e54",
             "anchor":
             [
                 0.5,
@@ -2648,7 +4620,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "731d4a03-e159-4e62-bef7-3211b896a88a":
+        "073c9766-3ea2-4dcb-bbe3-6fd9f855df7b":
         {
             "spriteId": "ability_sword",
             "backgroundColor":
@@ -2670,7 +4642,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "8ad7e3e2-0773-44c3-b13c-ec58c6693285",
+            "parent": "29802685-7675-4ad0-b0c3-aac880307e54",
             "anchor":
             [
                 0.5,
@@ -2711,7 +4683,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "9f2f781a-382e-4184-9c04-ada9592e3811":
+        "6893cc1e-366e-42ab-a7b5-608ce89c4b58":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -2729,7 +4701,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "15b77146-f925-4f54-b130-2fab358f3082",
+            "parent": "d9dfe946-a2b2-4db3-be0d-4c8afb851812",
             "anchor":
             [
                 0.0,
@@ -2750,7 +4722,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -2770,7 +4742,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "e90ba41e-43ed-4662-a07c-03f6cfb76c01":
+        "5c6ea819-8d05-4b6c-a36f-03081ca6dd1c":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -2788,7 +4760,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "15b77146-f925-4f54-b130-2fab358f3082",
+            "parent": "d9dfe946-a2b2-4db3-be0d-4c8afb851812",
             "anchor":
             [
                 1.0,
@@ -2809,7 +4781,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":
@@ -2829,7 +4801,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "5b1402da-7407-4928-ba63-0ac6aedc531a":
+        "d057f9f6-7d79-44b7-86dc-9767ac137096":
         {
             "events":
             {},
@@ -2838,7 +4810,7 @@
             "dim": 0.0,
             "name": "ActionBarTop2",
             "type": "Button",
-            "parent": "6782dde2-9ad2-49c5-b348-7a2a3144b25a",
+            "parent": "6f6e9e60-a865-4f86-b636-f806a74c79e2",
             "anchor":
             [
                 0.0,
@@ -2879,7 +4851,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "df7b16c9-7c81-4f5e-9425-c97289f01fc9":
+        "59a92b2e-8954-4335-9811-3903b51bbafb":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -2901,7 +4873,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "5b1402da-7407-4928-ba63-0ac6aedc531a",
+            "parent": "d057f9f6-7d79-44b7-86dc-9767ac137096",
             "anchor":
             [
                 0.5,
@@ -2942,7 +4914,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "44497397-6fbe-4aef-899d-868dce2bc1b7":
+        "ce10a11e-4462-4f9c-a834-b6357c98d314":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -2964,7 +4936,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "5b1402da-7407-4928-ba63-0ac6aedc531a",
+            "parent": "d057f9f6-7d79-44b7-86dc-9767ac137096",
             "anchor":
             [
                 0.5,
@@ -3005,14 +4977,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "1b557631-fd7d-4cc6-ad7c-cdbac4f25b45":
+        "444b3027-e69a-446d-b4e6-de047c812842":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "5b1402da-7407-4928-ba63-0ac6aedc531a",
+            "parent": "d057f9f6-7d79-44b7-86dc-9767ac137096",
             "anchor":
             [
                 0.5,
@@ -3053,7 +5025,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "3408f551-cd8a-40e0-9085-3434582ad7a8":
+        "3ae39883-13b0-4e47-afcc-c5081e415f7e":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -3075,7 +5047,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "1b557631-fd7d-4cc6-ad7c-cdbac4f25b45",
+            "parent": "444b3027-e69a-446d-b4e6-de047c812842",
             "anchor":
             [
                 0.5,
@@ -3116,7 +5088,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "88c8f4e5-951c-4912-a59e-64a4bc50b571":
+        "309a9d46-e789-43f4-be6c-b31fa09c76d7":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -3138,7 +5110,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "1b557631-fd7d-4cc6-ad7c-cdbac4f25b45",
+            "parent": "444b3027-e69a-446d-b4e6-de047c812842",
             "anchor":
             [
                 0.5,
@@ -3179,7 +5151,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "6239f70b-ad8f-4b0f-acf4-9164f4dfed19":
+        "0d579b06-402b-46c5-9a5e-23e598da3b91":
         {
             "spriteId": "ability_slash",
             "backgroundColor":
@@ -3201,7 +5173,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "1b557631-fd7d-4cc6-ad7c-cdbac4f25b45",
+            "parent": "444b3027-e69a-446d-b4e6-de047c812842",
             "anchor":
             [
                 0.5,
@@ -3242,7 +5214,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "68ea6fdf-df88-4f0d-aca6-dbe7f654c463":
+        "a209d201-01f1-41db-b7c4-ead0d01522db":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -3260,7 +5232,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "5b1402da-7407-4928-ba63-0ac6aedc531a",
+            "parent": "d057f9f6-7d79-44b7-86dc-9767ac137096",
             "anchor":
             [
                 0.0,
@@ -3281,7 +5253,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -3301,7 +5273,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "24b0ad41-9b69-44ba-a587-4ba3082260f1":
+        "8ec5526a-c115-45a8-b74d-de41afc4f0e9":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -3319,7 +5291,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "5b1402da-7407-4928-ba63-0ac6aedc531a",
+            "parent": "d057f9f6-7d79-44b7-86dc-9767ac137096",
             "anchor":
             [
                 1.0,
@@ -3340,7 +5312,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":
@@ -3360,7 +5332,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "9a2ed0c9-721d-4995-ab06-27a0392a8888":
+        "12c3ed97-42ba-42f0-9584-9fcd618b08ae":
         {
             "events":
             {},
@@ -3369,7 +5341,7 @@
             "dim": 0.0,
             "name": "ActionBarTop3",
             "type": "Button",
-            "parent": "6782dde2-9ad2-49c5-b348-7a2a3144b25a",
+            "parent": "6f6e9e60-a865-4f86-b636-f806a74c79e2",
             "anchor":
             [
                 0.0,
@@ -3410,7 +5382,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "f14568b4-bf9a-49b3-a002-2daa8e309ed0":
+        "f5e37eac-c2bc-482b-93f8-173c84e7913f":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -3432,7 +5404,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "9a2ed0c9-721d-4995-ab06-27a0392a8888",
+            "parent": "12c3ed97-42ba-42f0-9584-9fcd618b08ae",
             "anchor":
             [
                 0.5,
@@ -3473,7 +5445,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "bc93cba4-f4cf-4f74-883d-e5de8e447eeb":
+        "7c16bc5f-2eaa-49b4-9a9a-e64078bfec84":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -3495,7 +5467,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "9a2ed0c9-721d-4995-ab06-27a0392a8888",
+            "parent": "12c3ed97-42ba-42f0-9584-9fcd618b08ae",
             "anchor":
             [
                 0.5,
@@ -3536,14 +5508,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "040a2e29-8c78-4907-ab1a-0f9875adefa5":
+        "79e4ec19-728f-436a-a20f-506de74c9557":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "9a2ed0c9-721d-4995-ab06-27a0392a8888",
+            "parent": "12c3ed97-42ba-42f0-9584-9fcd618b08ae",
             "anchor":
             [
                 0.5,
@@ -3584,7 +5556,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "5ce0d8ae-5a1a-4f72-8bd2-fb246e421cf0":
+        "6e712af5-d1dd-4e80-abd6-6670d78f37ad":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -3606,7 +5578,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "040a2e29-8c78-4907-ab1a-0f9875adefa5",
+            "parent": "79e4ec19-728f-436a-a20f-506de74c9557",
             "anchor":
             [
                 0.5,
@@ -3647,7 +5619,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "4787f4f1-6fa3-4356-a3a6-94c40181f986":
+        "fb286c24-34f0-42db-b8c3-ef43620df7b4":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -3669,7 +5641,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "040a2e29-8c78-4907-ab1a-0f9875adefa5",
+            "parent": "79e4ec19-728f-436a-a20f-506de74c9557",
             "anchor":
             [
                 0.5,
@@ -3710,7 +5682,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "51736f0c-bc14-4d16-92a8-19be8dc451d5":
+        "83801abf-8bf7-4670-b5b3-2ca08cdd7b5a":
         {
             "spriteId": "ability_fireball",
             "backgroundColor":
@@ -3732,7 +5704,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "040a2e29-8c78-4907-ab1a-0f9875adefa5",
+            "parent": "79e4ec19-728f-436a-a20f-506de74c9557",
             "anchor":
             [
                 0.5,
@@ -3773,7 +5745,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "839eb943-b1a0-4ffc-9fcf-664eb00deb20":
+        "f090c45b-c773-4c28-84ad-f446ec820a60":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -3791,7 +5763,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "9a2ed0c9-721d-4995-ab06-27a0392a8888",
+            "parent": "12c3ed97-42ba-42f0-9584-9fcd618b08ae",
             "anchor":
             [
                 0.0,
@@ -3812,7 +5784,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -3832,7 +5804,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "adcc61dd-df41-42d0-b662-85db2d6b30cf":
+        "0387809e-d7f3-4d8c-ab4c-9942bd0203c1":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -3850,7 +5822,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "9a2ed0c9-721d-4995-ab06-27a0392a8888",
+            "parent": "12c3ed97-42ba-42f0-9584-9fcd618b08ae",
             "anchor":
             [
                 1.0,
@@ -3871,7 +5843,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":
@@ -3891,7 +5863,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "4f5312a6-ac77-41bd-ab0f-34f089497f6f":
+        "34f19be9-702b-4332-841a-75871a1ca2c5":
         {
             "events":
             {},
@@ -3900,7 +5872,7 @@
             "dim": 0.0,
             "name": "ActionBarTop4",
             "type": "Button",
-            "parent": "6782dde2-9ad2-49c5-b348-7a2a3144b25a",
+            "parent": "6f6e9e60-a865-4f86-b636-f806a74c79e2",
             "anchor":
             [
                 0.0,
@@ -3941,7 +5913,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "1fa80a73-dedc-4bba-bbca-c5a69a03aa78":
+        "a86c5685-0fdd-428d-8788-973d130a12a1":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -3963,7 +5935,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "4f5312a6-ac77-41bd-ab0f-34f089497f6f",
+            "parent": "34f19be9-702b-4332-841a-75871a1ca2c5",
             "anchor":
             [
                 0.5,
@@ -4004,7 +5976,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "5ce3baf9-d988-4083-bcb4-c5274a47f26a":
+        "fa6c9b91-5451-4911-9e96-b6021e22a1f7":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -4026,7 +5998,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "4f5312a6-ac77-41bd-ab0f-34f089497f6f",
+            "parent": "34f19be9-702b-4332-841a-75871a1ca2c5",
             "anchor":
             [
                 0.5,
@@ -4067,14 +6039,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "8440bd72-ae61-4e83-a79e-1b84cc011989":
+        "dedea610-11c1-4106-a144-11679dc38bb2":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "4f5312a6-ac77-41bd-ab0f-34f089497f6f",
+            "parent": "34f19be9-702b-4332-841a-75871a1ca2c5",
             "anchor":
             [
                 0.5,
@@ -4115,7 +6087,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "64e57852-9d70-4117-ae30-93dafa6c8ac4":
+        "a80a3f9b-2780-45fb-936d-de34d3bb941b":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -4137,7 +6109,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "8440bd72-ae61-4e83-a79e-1b84cc011989",
+            "parent": "dedea610-11c1-4106-a144-11679dc38bb2",
             "anchor":
             [
                 0.5,
@@ -4178,7 +6150,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "e4e50385-9437-45bb-9303-ea9916d5bdd4":
+        "ba4dc414-74c0-4578-a9d1-63a1f700c09c":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -4200,7 +6172,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "8440bd72-ae61-4e83-a79e-1b84cc011989",
+            "parent": "dedea610-11c1-4106-a144-11679dc38bb2",
             "anchor":
             [
                 0.5,
@@ -4241,7 +6213,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "39321876-0a7b-49b4-b657-1cb6c35d974d":
+        "69a657ca-3fac-4505-a52b-258259de2f2b":
         {
             "spriteId": "ability_lightning",
             "backgroundColor":
@@ -4263,7 +6235,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "8440bd72-ae61-4e83-a79e-1b84cc011989",
+            "parent": "dedea610-11c1-4106-a144-11679dc38bb2",
             "anchor":
             [
                 0.5,
@@ -4304,7 +6276,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "c012ce9e-4e87-4338-8764-425bc7cfa80f":
+        "351d1157-661c-4382-b4ba-5557270194ae":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -4322,7 +6294,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "4f5312a6-ac77-41bd-ab0f-34f089497f6f",
+            "parent": "34f19be9-702b-4332-841a-75871a1ca2c5",
             "anchor":
             [
                 0.0,
@@ -4343,7 +6315,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -4363,7 +6335,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "112c273a-14e8-491e-946c-0733bd92b294":
+        "20600135-a159-4fe5-9dea-01c5be818bd1":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -4381,7 +6353,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "4f5312a6-ac77-41bd-ab0f-34f089497f6f",
+            "parent": "34f19be9-702b-4332-841a-75871a1ca2c5",
             "anchor":
             [
                 1.0,
@@ -4402,7 +6374,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":
@@ -4422,7 +6394,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "7e7a99df-6d13-403c-ad76-1021e53820fa":
+        "74ba6ec9-d730-47b2-a3c2-19f846ee34e2":
         {
             "events":
             {},
@@ -4431,7 +6403,7 @@
             "dim": 0.0,
             "name": "ActionBarTop5",
             "type": "Button",
-            "parent": "6782dde2-9ad2-49c5-b348-7a2a3144b25a",
+            "parent": "6f6e9e60-a865-4f86-b636-f806a74c79e2",
             "anchor":
             [
                 0.0,
@@ -4472,7 +6444,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "d55f4f5f-1a2f-4117-a59b-77af21d2dbb3":
+        "a373d73a-6036-499a-866a-1bdcc3779578":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -4494,7 +6466,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "7e7a99df-6d13-403c-ad76-1021e53820fa",
+            "parent": "74ba6ec9-d730-47b2-a3c2-19f846ee34e2",
             "anchor":
             [
                 0.5,
@@ -4535,7 +6507,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "cf7c43ee-bfbf-444d-8803-d0bcf2967a45":
+        "bbf28c55-8d82-402e-86cc-83b8478284c8":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -4557,7 +6529,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "7e7a99df-6d13-403c-ad76-1021e53820fa",
+            "parent": "74ba6ec9-d730-47b2-a3c2-19f846ee34e2",
             "anchor":
             [
                 0.5,
@@ -4598,14 +6570,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "ad775f15-8d16-432d-847b-e303cdc85dd8":
+        "40c7694c-e0ec-425e-8283-84ed3708acb6":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "7e7a99df-6d13-403c-ad76-1021e53820fa",
+            "parent": "74ba6ec9-d730-47b2-a3c2-19f846ee34e2",
             "anchor":
             [
                 0.5,
@@ -4646,7 +6618,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "38fdaa98-a59d-4095-af8b-2912df183522":
+        "909430f4-3462-4e85-a4fd-94073c57974c":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -4668,7 +6640,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "ad775f15-8d16-432d-847b-e303cdc85dd8",
+            "parent": "40c7694c-e0ec-425e-8283-84ed3708acb6",
             "anchor":
             [
                 0.5,
@@ -4709,7 +6681,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "81e7b91b-4347-4913-b271-afab058caacf":
+        "bd6a3620-6735-4e14-9106-79fa5a0ccacf":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -4731,7 +6703,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "ad775f15-8d16-432d-847b-e303cdc85dd8",
+            "parent": "40c7694c-e0ec-425e-8283-84ed3708acb6",
             "anchor":
             [
                 0.5,
@@ -4772,7 +6744,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "f1c87671-6b22-4c17-bfe4-a8ef84fa11c8":
+        "282ea424-cf8b-493a-bb07-266465f9be6d":
         {
             "spriteId": "ability_sword",
             "backgroundColor":
@@ -4794,7 +6766,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "ad775f15-8d16-432d-847b-e303cdc85dd8",
+            "parent": "40c7694c-e0ec-425e-8283-84ed3708acb6",
             "anchor":
             [
                 0.5,
@@ -4835,7 +6807,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "bbd25603-8475-4922-9e5c-a7c50305cb58":
+        "b3edfa1b-2113-423e-8883-deb9715ea9d6":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -4853,7 +6825,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "7e7a99df-6d13-403c-ad76-1021e53820fa",
+            "parent": "74ba6ec9-d730-47b2-a3c2-19f846ee34e2",
             "anchor":
             [
                 0.0,
@@ -4874,7 +6846,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -4894,7 +6866,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "b8292059-e9fc-4681-8532-943fca894006":
+        "545cf6bf-b6a0-4919-81cf-1a7802813bce":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -4912,7 +6884,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "7e7a99df-6d13-403c-ad76-1021e53820fa",
+            "parent": "74ba6ec9-d730-47b2-a3c2-19f846ee34e2",
             "anchor":
             [
                 1.0,
@@ -4933,7 +6905,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":
@@ -4953,7 +6925,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "6851ae02-45e7-4480-9220-4eb82c4e86ef":
+        "96975826-c9f9-4175-bab9-0d7091df4f25":
         {
             "events":
             {},
@@ -4962,7 +6934,7 @@
             "dim": 0.0,
             "name": "ActionBarTop6",
             "type": "Button",
-            "parent": "6782dde2-9ad2-49c5-b348-7a2a3144b25a",
+            "parent": "6f6e9e60-a865-4f86-b636-f806a74c79e2",
             "anchor":
             [
                 0.0,
@@ -5003,7 +6975,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "e0146177-2ea8-422c-86b9-50334f6c7422":
+        "c75ca646-739c-47f1-ab92-95adb1ef1dad":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -5025,7 +6997,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "6851ae02-45e7-4480-9220-4eb82c4e86ef",
+            "parent": "96975826-c9f9-4175-bab9-0d7091df4f25",
             "anchor":
             [
                 0.5,
@@ -5066,7 +7038,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "8040642c-497c-4cc0-b476-d6242f227951":
+        "6ccc97f8-eed3-4a85-a2f9-cc8400a9cd19":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -5088,7 +7060,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "6851ae02-45e7-4480-9220-4eb82c4e86ef",
+            "parent": "96975826-c9f9-4175-bab9-0d7091df4f25",
             "anchor":
             [
                 0.5,
@@ -5129,14 +7101,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "6a6ab074-4f84-43b7-b60d-dbaf4e742198":
+        "0fb810f3-6113-4b51-91f5-2790a5364199":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "6851ae02-45e7-4480-9220-4eb82c4e86ef",
+            "parent": "96975826-c9f9-4175-bab9-0d7091df4f25",
             "anchor":
             [
                 0.5,
@@ -5177,7 +7149,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "92c1c2f9-96b7-4a05-8e98-c1c9c95da7e8":
+        "7df88458-c3f6-4bd6-b321-df57a2f28218":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -5199,7 +7171,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "6a6ab074-4f84-43b7-b60d-dbaf4e742198",
+            "parent": "0fb810f3-6113-4b51-91f5-2790a5364199",
             "anchor":
             [
                 0.5,
@@ -5240,7 +7212,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "812f9d40-f9e5-44b7-81db-2fb6e2d0c829":
+        "ab70d00d-9312-4be2-a4a7-8f7fbd6106a2":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -5262,7 +7234,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "6a6ab074-4f84-43b7-b60d-dbaf4e742198",
+            "parent": "0fb810f3-6113-4b51-91f5-2790a5364199",
             "anchor":
             [
                 0.5,
@@ -5303,7 +7275,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "8661b63c-f6b2-4ebf-9bc3-376987de7a7f":
+        "35c2e40d-014f-470c-8ded-1c53a809371b":
         {
             "spriteId": "ability_sword",
             "backgroundColor":
@@ -5325,7 +7297,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "6a6ab074-4f84-43b7-b60d-dbaf4e742198",
+            "parent": "0fb810f3-6113-4b51-91f5-2790a5364199",
             "anchor":
             [
                 0.5,
@@ -5366,7 +7338,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "d3024fde-2c7a-4a76-a614-70eff3c1acf0":
+        "3cb6b1c2-db70-41be-a3b2-c71729cec012":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -5384,7 +7356,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "6851ae02-45e7-4480-9220-4eb82c4e86ef",
+            "parent": "96975826-c9f9-4175-bab9-0d7091df4f25",
             "anchor":
             [
                 0.0,
@@ -5405,7 +7377,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -5425,7 +7397,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "39fc7af1-a8d0-4d35-9e98-42f127f80d79":
+        "dc4b812f-0c15-49f4-8d90-a2fe3ef6124e":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -5443,7 +7415,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "6851ae02-45e7-4480-9220-4eb82c4e86ef",
+            "parent": "96975826-c9f9-4175-bab9-0d7091df4f25",
             "anchor":
             [
                 1.0,
@@ -5459,12 +7431,12 @@
                 "x":
                 {
                     "scale": 0.0,
-                    "offset": -4.0
+                    "offset": -3.999939
                 },
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":
@@ -5484,7 +7456,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "a07671fb-86d2-4000-98e2-16a607da79b8":
+        "9df6ab0a-134a-4df5-945b-8354c732c40a":
         {
             "events":
             {},
@@ -5493,7 +7465,7 @@
             "dim": 0.0,
             "name": "ActionBarTop7",
             "type": "Button",
-            "parent": "6782dde2-9ad2-49c5-b348-7a2a3144b25a",
+            "parent": "6f6e9e60-a865-4f86-b636-f806a74c79e2",
             "anchor":
             [
                 0.0,
@@ -5534,7 +7506,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "209b2c61-73b6-4c09-9356-b6f7950be0ff":
+        "e8edb188-e407-4048-91f7-4fef6b9bc3af":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -5556,7 +7528,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "a07671fb-86d2-4000-98e2-16a607da79b8",
+            "parent": "9df6ab0a-134a-4df5-945b-8354c732c40a",
             "anchor":
             [
                 0.5,
@@ -5597,7 +7569,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "8f0cff7d-28ec-4041-b8f1-f9493d47da7f":
+        "498d5976-d71d-4f24-8846-961c008b9577":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -5619,7 +7591,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "a07671fb-86d2-4000-98e2-16a607da79b8",
+            "parent": "9df6ab0a-134a-4df5-945b-8354c732c40a",
             "anchor":
             [
                 0.5,
@@ -5660,14 +7632,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "58d0bae5-e362-4e92-beec-74cf2dd5e775":
+        "927548ca-5421-40c0-a1bb-3dda5c990aad":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "a07671fb-86d2-4000-98e2-16a607da79b8",
+            "parent": "9df6ab0a-134a-4df5-945b-8354c732c40a",
             "anchor":
             [
                 0.5,
@@ -5708,7 +7680,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "55bd7218-52a3-4a77-9462-2e20a9965b2d":
+        "13b0b2c3-5bd2-4185-b7aa-d48abb77f655":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -5730,7 +7702,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "58d0bae5-e362-4e92-beec-74cf2dd5e775",
+            "parent": "927548ca-5421-40c0-a1bb-3dda5c990aad",
             "anchor":
             [
                 0.5,
@@ -5771,7 +7743,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "9aa7e0ef-7d46-4e24-be62-a12d7f62cfaa":
+        "fd5e64e7-edf2-47e9-8998-6dfcd6879ae0":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -5793,7 +7765,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "58d0bae5-e362-4e92-beec-74cf2dd5e775",
+            "parent": "927548ca-5421-40c0-a1bb-3dda5c990aad",
             "anchor":
             [
                 0.5,
@@ -5834,7 +7806,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "4a4462c2-648e-42ab-9abb-37096516b185":
+        "ab2b873d-75c8-4a9e-b862-ff5c49467416":
         {
             "spriteId": "ability_sword",
             "backgroundColor":
@@ -5856,7 +7828,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "58d0bae5-e362-4e92-beec-74cf2dd5e775",
+            "parent": "927548ca-5421-40c0-a1bb-3dda5c990aad",
             "anchor":
             [
                 0.5,
@@ -5897,7 +7869,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "bfd2e755-9aff-427e-82ab-be0984c59148":
+        "75feb741-2ce7-49a2-9904-6062f0e65733":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -5915,7 +7887,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "a07671fb-86d2-4000-98e2-16a607da79b8",
+            "parent": "9df6ab0a-134a-4df5-945b-8354c732c40a",
             "anchor":
             [
                 0.0,
@@ -5936,7 +7908,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -5956,7 +7928,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "81c74eec-6588-412b-b7c7-5bf0c4bbcef3":
+        "a34feb9e-c6e3-445d-8c08-af468bf6ef95":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -5974,7 +7946,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "a07671fb-86d2-4000-98e2-16a607da79b8",
+            "parent": "9df6ab0a-134a-4df5-945b-8354c732c40a",
             "anchor":
             [
                 1.0,
@@ -5995,7 +7967,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":
@@ -6015,7 +7987,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "d33fdef1-2984-446a-a151-a6cfa8487a17":
+        "8ffd379a-e550-4598-aaaa-9db14c27aced":
         {
             "events":
             {},
@@ -6024,7 +7996,7 @@
             "dim": 0.0,
             "name": "ActionBarTop8",
             "type": "Button",
-            "parent": "6782dde2-9ad2-49c5-b348-7a2a3144b25a",
+            "parent": "6f6e9e60-a865-4f86-b636-f806a74c79e2",
             "anchor":
             [
                 0.0,
@@ -6065,7 +8037,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "800486a0-cdb0-42e1-bfe8-d8e7ae62da32":
+        "4691c803-1c3d-4e01-bd8e-9f4438a8ef34":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -6087,7 +8059,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "d33fdef1-2984-446a-a151-a6cfa8487a17",
+            "parent": "8ffd379a-e550-4598-aaaa-9db14c27aced",
             "anchor":
             [
                 0.5,
@@ -6128,7 +8100,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "2536d49c-a03a-4dd5-b848-a6266a7100b5":
+        "93e96ed2-d6d1-483e-bc28-f3fcf12f9082":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -6150,7 +8122,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "d33fdef1-2984-446a-a151-a6cfa8487a17",
+            "parent": "8ffd379a-e550-4598-aaaa-9db14c27aced",
             "anchor":
             [
                 0.5,
@@ -6191,14 +8163,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "07910ac7-7f6f-42dc-8559-560f89929207":
+        "379e95d9-afaf-4f67-9ebd-51da40bb7511":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "d33fdef1-2984-446a-a151-a6cfa8487a17",
+            "parent": "8ffd379a-e550-4598-aaaa-9db14c27aced",
             "anchor":
             [
                 0.5,
@@ -6239,7 +8211,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "7e7c4b68-ae7a-45d1-bb56-6c35695a5a00":
+        "f948440c-59c4-4dee-925b-e4cd3bd2e513":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -6261,7 +8233,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "07910ac7-7f6f-42dc-8559-560f89929207",
+            "parent": "379e95d9-afaf-4f67-9ebd-51da40bb7511",
             "anchor":
             [
                 0.5,
@@ -6302,7 +8274,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "7bf2fdd8-1b49-4be5-9ebb-d6a8e40af201":
+        "f97a7559-c87a-418e-bccc-958581070984":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -6324,7 +8296,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "07910ac7-7f6f-42dc-8559-560f89929207",
+            "parent": "379e95d9-afaf-4f67-9ebd-51da40bb7511",
             "anchor":
             [
                 0.5,
@@ -6365,7 +8337,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "39f0af8d-0ef3-45d7-80be-f53fb0d3e20b":
+        "279577f4-4b4a-419d-b26b-4ef93acbe1b2":
         {
             "spriteId": "ability_sword",
             "backgroundColor":
@@ -6387,7 +8359,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "07910ac7-7f6f-42dc-8559-560f89929207",
+            "parent": "379e95d9-afaf-4f67-9ebd-51da40bb7511",
             "anchor":
             [
                 0.5,
@@ -6428,7 +8400,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "9514abbe-918e-4b6b-a2ba-172d354899c3":
+        "f7267781-31c6-4f9a-bd10-61bfeedc87ca":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -6446,7 +8418,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "d33fdef1-2984-446a-a151-a6cfa8487a17",
+            "parent": "8ffd379a-e550-4598-aaaa-9db14c27aced",
             "anchor":
             [
                 0.0,
@@ -6467,7 +8439,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -6487,7 +8459,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "72e93368-f9fd-4352-95c4-b6a639d0437c":
+        "15384e0a-e6a0-4b30-b20f-cb1ffd833ee1":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -6505,7 +8477,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "d33fdef1-2984-446a-a151-a6cfa8487a17",
+            "parent": "8ffd379a-e550-4598-aaaa-9db14c27aced",
             "anchor":
             [
                 1.0,
@@ -6526,7 +8498,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":
@@ -6546,7 +8518,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "4b37b5e7-3fbe-4809-9f3c-1c7c875d2025":
+        "4f28234e-53ba-41a4-bd5c-c6226668ba53":
         {
             "events":
             {},
@@ -6555,7 +8527,7 @@
             "dim": 0.0,
             "name": "ActionBarTop9",
             "type": "Button",
-            "parent": "6782dde2-9ad2-49c5-b348-7a2a3144b25a",
+            "parent": "6f6e9e60-a865-4f86-b636-f806a74c79e2",
             "anchor":
             [
                 0.0,
@@ -6596,7 +8568,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "11180f43-cfb5-4db5-bc52-239c40dd5ba9":
+        "f0512dca-5fb4-45c1-b048-4f6e7eeef4b9":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -6618,7 +8590,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "4b37b5e7-3fbe-4809-9f3c-1c7c875d2025",
+            "parent": "4f28234e-53ba-41a4-bd5c-c6226668ba53",
             "anchor":
             [
                 0.5,
@@ -6659,7 +8631,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "7ccba3c1-0e3e-4e75-bccc-963f684232cb":
+        "2362708b-15e0-4938-98d5-d66a35620508":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -6681,7 +8653,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "4b37b5e7-3fbe-4809-9f3c-1c7c875d2025",
+            "parent": "4f28234e-53ba-41a4-bd5c-c6226668ba53",
             "anchor":
             [
                 0.5,
@@ -6722,14 +8694,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "198668ac-120a-43bf-911a-690f1ab35965":
+        "8efb6155-dca8-4a0d-8dc3-4d6de6d98a02":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "4b37b5e7-3fbe-4809-9f3c-1c7c875d2025",
+            "parent": "4f28234e-53ba-41a4-bd5c-c6226668ba53",
             "anchor":
             [
                 0.5,
@@ -6770,7 +8742,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "6f49ee2d-3375-4f10-8c98-5bbc42ac0a33":
+        "82f2b483-4a12-4411-a193-31a326fd2687":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -6792,7 +8764,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "198668ac-120a-43bf-911a-690f1ab35965",
+            "parent": "8efb6155-dca8-4a0d-8dc3-4d6de6d98a02",
             "anchor":
             [
                 0.5,
@@ -6833,7 +8805,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "5650f2cd-06f8-4388-9924-c7f3f24526de":
+        "a582efa3-6633-481d-8cf3-050e766ddd6c":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -6855,7 +8827,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "198668ac-120a-43bf-911a-690f1ab35965",
+            "parent": "8efb6155-dca8-4a0d-8dc3-4d6de6d98a02",
             "anchor":
             [
                 0.5,
@@ -6896,7 +8868,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "40c75cb7-a65e-42b1-98d4-91031023c51f":
+        "73b5a1a2-3af1-4f22-b848-2bb4f235e1be":
         {
             "spriteId": "ability_sword",
             "backgroundColor":
@@ -6918,7 +8890,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "198668ac-120a-43bf-911a-690f1ab35965",
+            "parent": "8efb6155-dca8-4a0d-8dc3-4d6de6d98a02",
             "anchor":
             [
                 0.5,
@@ -6959,7 +8931,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "f5448988-70e8-4bd2-8915-b31a5a55c042":
+        "0ce4794b-45fb-4190-8668-73c7d0e9e8f6":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -6977,7 +8949,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "4b37b5e7-3fbe-4809-9f3c-1c7c875d2025",
+            "parent": "4f28234e-53ba-41a4-bd5c-c6226668ba53",
             "anchor":
             [
                 0.0,
@@ -6998,7 +8970,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -7018,7 +8990,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "8bb36336-80f2-440d-ac15-cb3e6a1ab32a":
+        "03e41075-9f4d-4089-9f69-0d310b450462":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -7036,7 +9008,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "4b37b5e7-3fbe-4809-9f3c-1c7c875d2025",
+            "parent": "4f28234e-53ba-41a4-bd5c-c6226668ba53",
             "anchor":
             [
                 1.0,
@@ -7057,7 +9029,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":
@@ -7077,7 +9049,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "aaf42410-8f0f-401f-9bd5-a6824ef03628":
+        "21abe84f-8d65-45c5-a78b-bf647cf77f54":
         {
             "events":
             {},
@@ -7086,7 +9058,7 @@
             "dim": 0.0,
             "name": "ActionBarTop0",
             "type": "Button",
-            "parent": "6782dde2-9ad2-49c5-b348-7a2a3144b25a",
+            "parent": "6f6e9e60-a865-4f86-b636-f806a74c79e2",
             "anchor":
             [
                 0.0,
@@ -7127,7 +9099,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "fcec1105-05d3-420f-aebd-b1dceb9af69c":
+        "18a5d3f4-f088-450b-b3e0-e116a92464b4":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -7149,7 +9121,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "aaf42410-8f0f-401f-9bd5-a6824ef03628",
+            "parent": "21abe84f-8d65-45c5-a78b-bf647cf77f54",
             "anchor":
             [
                 0.5,
@@ -7190,7 +9162,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "14f107c1-3ea0-43a5-a94d-c0199a2d73e1":
+        "131b2b07-3444-4dee-8ee0-4137d1276b5d":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -7212,7 +9184,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "aaf42410-8f0f-401f-9bd5-a6824ef03628",
+            "parent": "21abe84f-8d65-45c5-a78b-bf647cf77f54",
             "anchor":
             [
                 0.5,
@@ -7253,14 +9225,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "a6262b13-53b6-4f03-aa9e-a0c63bcaf197":
+        "1313da77-b2aa-4982-b8fc-23194ec79cf5":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "aaf42410-8f0f-401f-9bd5-a6824ef03628",
+            "parent": "21abe84f-8d65-45c5-a78b-bf647cf77f54",
             "anchor":
             [
                 0.5,
@@ -7301,7 +9273,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "ed613805-7124-4f2a-b809-98be72d7ff0a":
+        "2d071bbd-adbc-4d8d-9485-4b97b1f2b243":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -7323,7 +9295,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "a6262b13-53b6-4f03-aa9e-a0c63bcaf197",
+            "parent": "1313da77-b2aa-4982-b8fc-23194ec79cf5",
             "anchor":
             [
                 0.5,
@@ -7364,7 +9336,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "0cba4ebb-02f3-4970-beef-37a5c067e09d":
+        "80206803-60b3-44a3-9bc2-f79b458a9b9a":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -7386,7 +9358,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "a6262b13-53b6-4f03-aa9e-a0c63bcaf197",
+            "parent": "1313da77-b2aa-4982-b8fc-23194ec79cf5",
             "anchor":
             [
                 0.5,
@@ -7427,7 +9399,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "5ebef9a9-98d7-4d90-8a01-2b8be6135565":
+        "6b7e6c92-17c4-40c0-ba3d-4e6f20929729":
         {
             "spriteId": "ability_sword",
             "backgroundColor":
@@ -7449,7 +9421,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "a6262b13-53b6-4f03-aa9e-a0c63bcaf197",
+            "parent": "1313da77-b2aa-4982-b8fc-23194ec79cf5",
             "anchor":
             [
                 0.5,
@@ -7490,7 +9462,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "17761462-3d6a-4e31-a8e3-6e470e2d2ec7":
+        "987693e1-5cf5-460e-b03f-767c1ddbba30":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -7508,7 +9480,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "aaf42410-8f0f-401f-9bd5-a6824ef03628",
+            "parent": "21abe84f-8d65-45c5-a78b-bf647cf77f54",
             "anchor":
             [
                 0.0,
@@ -7529,7 +9501,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -7549,7 +9521,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "77c1d644-aac5-489f-9ad4-8aafce9cabfa":
+        "9e9533fd-fe92-4e5c-a743-3239b94a42ca":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -7567,7 +9539,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "aaf42410-8f0f-401f-9bd5-a6824ef03628",
+            "parent": "21abe84f-8d65-45c5-a78b-bf647cf77f54",
             "anchor":
             [
                 1.0,
@@ -7588,7 +9560,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":
@@ -7608,14 +9580,14 @@
             "visible": false,
             "zIndex": 0
         },
-        "22cc549c-e171-4232-8010-4de56c968afa":
+        "c80e10b8-dd29-4248-a2ab-f721ead34779":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "ActionBarBottom",
             "type": "Frame",
-            "parent": "2009e649-10e3-4ea0-a320-ea00b4b8213a",
+            "parent": "8990eb96-0d3f-4c81-bed6-d2ced9e8369a",
             "anchor":
             [
                 0.5,
@@ -7656,7 +9628,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "beed4d29-5a48-4281-8aaa-a0456d8ffc6a":
+        "28c4be03-7002-4662-b86a-70c7869885f4":
         {
             "events":
             {},
@@ -7665,7 +9637,7 @@
             "dim": 0.0,
             "name": "ActionBarBottom1",
             "type": "Button",
-            "parent": "22cc549c-e171-4232-8010-4de56c968afa",
+            "parent": "c80e10b8-dd29-4248-a2ab-f721ead34779",
             "anchor":
             [
                 0.0,
@@ -7706,7 +9678,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "6d91ff91-1c70-46bc-8f06-c562b1332790":
+        "7f852adc-2bfa-40b2-a480-ec19f5fac975":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -7728,7 +9700,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "beed4d29-5a48-4281-8aaa-a0456d8ffc6a",
+            "parent": "28c4be03-7002-4662-b86a-70c7869885f4",
             "anchor":
             [
                 0.5,
@@ -7769,7 +9741,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "a81f62c5-5d7a-48c8-a808-32f3f2056b3f":
+        "691460db-fccd-44e1-b27b-f7bfeb0f2945":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -7791,7 +9763,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "beed4d29-5a48-4281-8aaa-a0456d8ffc6a",
+            "parent": "28c4be03-7002-4662-b86a-70c7869885f4",
             "anchor":
             [
                 0.5,
@@ -7832,14 +9804,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "bfdee224-bd9f-469e-89ef-a0463233538a":
+        "25268775-f70e-4122-b6c8-3b62986bdcf8":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "beed4d29-5a48-4281-8aaa-a0456d8ffc6a",
+            "parent": "28c4be03-7002-4662-b86a-70c7869885f4",
             "anchor":
             [
                 0.5,
@@ -7880,7 +9852,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "b4833ec4-1a86-47cc-866f-9a9a40f629c6":
+        "b2a7f1f8-9cb6-4d0c-95ff-bd2af0acf239":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -7902,7 +9874,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "bfdee224-bd9f-469e-89ef-a0463233538a",
+            "parent": "25268775-f70e-4122-b6c8-3b62986bdcf8",
             "anchor":
             [
                 0.5,
@@ -7943,7 +9915,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "ce7da6e1-d6e8-480a-96af-e822273ebc5b":
+        "6b66f82b-2918-4a6d-902d-6f55542fbe59":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -7965,7 +9937,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "bfdee224-bd9f-469e-89ef-a0463233538a",
+            "parent": "25268775-f70e-4122-b6c8-3b62986bdcf8",
             "anchor":
             [
                 0.5,
@@ -8006,7 +9978,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "389ed27e-ddb4-4d96-b84d-7eb495304638":
+        "cf1c7986-edad-4d85-91c0-d6ed5c58e715":
         {
             "spriteId": "ability_sword",
             "backgroundColor":
@@ -8028,7 +10000,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "bfdee224-bd9f-469e-89ef-a0463233538a",
+            "parent": "25268775-f70e-4122-b6c8-3b62986bdcf8",
             "anchor":
             [
                 0.5,
@@ -8069,7 +10041,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "b9fb8024-3c39-4acb-9a06-4e7cb7c5f26e":
+        "839e07df-63ab-4754-af18-ba7768e46539":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -8087,7 +10059,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "beed4d29-5a48-4281-8aaa-a0456d8ffc6a",
+            "parent": "28c4be03-7002-4662-b86a-70c7869885f4",
             "anchor":
             [
                 0.0,
@@ -8108,7 +10080,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -8128,7 +10100,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "e65c3a08-1554-43a1-8c92-4b0c3b7f37a5":
+        "b06db85a-bef6-4907-bdca-dc3d89de6158":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -8146,7 +10118,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "beed4d29-5a48-4281-8aaa-a0456d8ffc6a",
+            "parent": "28c4be03-7002-4662-b86a-70c7869885f4",
             "anchor":
             [
                 1.0,
@@ -8167,7 +10139,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":
@@ -8187,7 +10159,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "c180c282-2c68-45ea-8ab0-bd32ff389f69":
+        "c4848956-5deb-4188-bb83-570a6077af47":
         {
             "events":
             {},
@@ -8196,7 +10168,7 @@
             "dim": 0.0,
             "name": "ActionBarBottom2",
             "type": "Button",
-            "parent": "22cc549c-e171-4232-8010-4de56c968afa",
+            "parent": "c80e10b8-dd29-4248-a2ab-f721ead34779",
             "anchor":
             [
                 0.0,
@@ -8237,7 +10209,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "487acc59-9578-4e13-9384-17d705a294e0":
+        "84aae90c-4352-4097-9c11-11378a8dd5b2":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -8259,7 +10231,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "c180c282-2c68-45ea-8ab0-bd32ff389f69",
+            "parent": "c4848956-5deb-4188-bb83-570a6077af47",
             "anchor":
             [
                 0.5,
@@ -8300,7 +10272,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "d3fb5365-97db-4de8-bb0a-71c042ac95d8":
+        "6f774140-52b3-4174-bcb1-e522176fed9b":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -8322,7 +10294,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "c180c282-2c68-45ea-8ab0-bd32ff389f69",
+            "parent": "c4848956-5deb-4188-bb83-570a6077af47",
             "anchor":
             [
                 0.5,
@@ -8363,14 +10335,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "d0f97f4f-7c63-4b87-901e-32b3d16f5160":
+        "c9ccf515-014f-4678-9d2f-5c1e1927b16e":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "c180c282-2c68-45ea-8ab0-bd32ff389f69",
+            "parent": "c4848956-5deb-4188-bb83-570a6077af47",
             "anchor":
             [
                 0.5,
@@ -8411,7 +10383,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "32d0f5f6-830f-4917-8a65-2f3073c3d480":
+        "b5825e8b-87ca-4cb9-adb6-3c8b4e414137":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -8433,7 +10405,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "d0f97f4f-7c63-4b87-901e-32b3d16f5160",
+            "parent": "c9ccf515-014f-4678-9d2f-5c1e1927b16e",
             "anchor":
             [
                 0.5,
@@ -8474,7 +10446,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "a85371c0-5594-4e18-86f3-488216b37213":
+        "4f3171ef-7128-4b4e-b142-af7d376aeb05":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -8496,7 +10468,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "d0f97f4f-7c63-4b87-901e-32b3d16f5160",
+            "parent": "c9ccf515-014f-4678-9d2f-5c1e1927b16e",
             "anchor":
             [
                 0.5,
@@ -8537,7 +10509,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "4534843b-8823-43b8-832b-0ab4f455cf4f":
+        "a9d26d6f-7a82-4e53-bfc8-5d1d746d243d":
         {
             "spriteId": "ability_sword",
             "backgroundColor":
@@ -8559,7 +10531,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "d0f97f4f-7c63-4b87-901e-32b3d16f5160",
+            "parent": "c9ccf515-014f-4678-9d2f-5c1e1927b16e",
             "anchor":
             [
                 0.5,
@@ -8600,7 +10572,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "2c31fef0-aeeb-480c-bd87-6aba53194df8":
+        "da4b54d0-bd37-43be-94f7-e68d35ed190c":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -8618,7 +10590,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "c180c282-2c68-45ea-8ab0-bd32ff389f69",
+            "parent": "c4848956-5deb-4188-bb83-570a6077af47",
             "anchor":
             [
                 0.0,
@@ -8639,7 +10611,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -8659,7 +10631,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "a5665416-e615-48ce-ae11-ea75ddccefef":
+        "d726cfee-a021-416e-8705-c6fa239b3984":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -8677,7 +10649,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "c180c282-2c68-45ea-8ab0-bd32ff389f69",
+            "parent": "c4848956-5deb-4188-bb83-570a6077af47",
             "anchor":
             [
                 1.0,
@@ -8698,7 +10670,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":
@@ -8718,7 +10690,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "4a55935b-2a44-41c9-a8c6-36d6e56ad2d8":
+        "ab818fe7-c66d-48ba-8189-9e6be621d9bb":
         {
             "events":
             {},
@@ -8727,7 +10699,7 @@
             "dim": 0.0,
             "name": "ActionBarBottom3",
             "type": "Button",
-            "parent": "22cc549c-e171-4232-8010-4de56c968afa",
+            "parent": "c80e10b8-dd29-4248-a2ab-f721ead34779",
             "anchor":
             [
                 0.0,
@@ -8768,7 +10740,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "3d39fe96-6ec4-43f8-9e97-39dccb26bb87":
+        "27904b4d-30bd-4008-b90b-9b0427f89225":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -8790,7 +10762,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "4a55935b-2a44-41c9-a8c6-36d6e56ad2d8",
+            "parent": "ab818fe7-c66d-48ba-8189-9e6be621d9bb",
             "anchor":
             [
                 0.5,
@@ -8831,7 +10803,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "9baea256-d043-40f4-b6a7-182a9b1a1a98":
+        "a4557a2f-3e27-479d-8954-6296dc2ee886":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -8853,7 +10825,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "4a55935b-2a44-41c9-a8c6-36d6e56ad2d8",
+            "parent": "ab818fe7-c66d-48ba-8189-9e6be621d9bb",
             "anchor":
             [
                 0.5,
@@ -8894,14 +10866,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "943920d4-296d-4669-971d-e7ad59ae2f64":
+        "26ddc2f3-beb0-4a03-ba14-47c364b47d53":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "4a55935b-2a44-41c9-a8c6-36d6e56ad2d8",
+            "parent": "ab818fe7-c66d-48ba-8189-9e6be621d9bb",
             "anchor":
             [
                 0.5,
@@ -8942,7 +10914,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "2d7f0b3c-2a73-47ca-8e20-0e38b0909268":
+        "6b822941-0e8f-4fea-9320-3ff11b37b578":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -8964,7 +10936,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "943920d4-296d-4669-971d-e7ad59ae2f64",
+            "parent": "26ddc2f3-beb0-4a03-ba14-47c364b47d53",
             "anchor":
             [
                 0.5,
@@ -9005,7 +10977,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "f95ede4e-5e02-4dac-ab76-b91dd09e0408":
+        "baaacecc-dd2b-4845-866b-b07d5740524c":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -9027,7 +10999,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "943920d4-296d-4669-971d-e7ad59ae2f64",
+            "parent": "26ddc2f3-beb0-4a03-ba14-47c364b47d53",
             "anchor":
             [
                 0.5,
@@ -9068,7 +11040,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "5ca04091-e3ef-4004-b295-f7f6c79b09ba":
+        "cec36d70-0035-4ed1-ae99-ffba028a8756":
         {
             "spriteId": "ability_sword",
             "backgroundColor":
@@ -9090,7 +11062,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "943920d4-296d-4669-971d-e7ad59ae2f64",
+            "parent": "26ddc2f3-beb0-4a03-ba14-47c364b47d53",
             "anchor":
             [
                 0.5,
@@ -9131,7 +11103,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "db5912fc-d98c-44f8-86a6-c26b0420781c":
+        "eb4537f7-720b-45f2-bf55-dcef5d6e5af5":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -9149,7 +11121,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "4a55935b-2a44-41c9-a8c6-36d6e56ad2d8",
+            "parent": "ab818fe7-c66d-48ba-8189-9e6be621d9bb",
             "anchor":
             [
                 0.0,
@@ -9170,7 +11142,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -9190,7 +11162,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "e619ab79-25dd-4ae1-872a-3e4e82ca020b":
+        "dffb0ee8-3d38-40a7-bfbe-57437fd299b2":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -9208,7 +11180,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "4a55935b-2a44-41c9-a8c6-36d6e56ad2d8",
+            "parent": "ab818fe7-c66d-48ba-8189-9e6be621d9bb",
             "anchor":
             [
                 1.0,
@@ -9229,7 +11201,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":
@@ -9249,7 +11221,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "2dca812f-d7f7-4c85-bd16-a92bdce6497e":
+        "0e9b72e7-7492-4cef-bab2-fb09fcf9675e":
         {
             "events":
             {},
@@ -9258,7 +11230,7 @@
             "dim": 0.0,
             "name": "ActionBarBottom4",
             "type": "Button",
-            "parent": "22cc549c-e171-4232-8010-4de56c968afa",
+            "parent": "c80e10b8-dd29-4248-a2ab-f721ead34779",
             "anchor":
             [
                 0.0,
@@ -9299,7 +11271,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "dc8b50f8-e143-45c1-b115-4995ac8d6402":
+        "00ed58fd-6ea1-4f97-865a-32d8c95cab97":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -9321,7 +11293,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "2dca812f-d7f7-4c85-bd16-a92bdce6497e",
+            "parent": "0e9b72e7-7492-4cef-bab2-fb09fcf9675e",
             "anchor":
             [
                 0.5,
@@ -9362,7 +11334,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "851cb607-af74-4832-8340-5cd3c7f1fb66":
+        "7e06f90a-dc76-402b-993a-8bb95480ffcb":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -9384,7 +11356,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "2dca812f-d7f7-4c85-bd16-a92bdce6497e",
+            "parent": "0e9b72e7-7492-4cef-bab2-fb09fcf9675e",
             "anchor":
             [
                 0.5,
@@ -9425,14 +11397,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "e131de4a-7bc9-41db-8562-9271cdfe8883":
+        "ae1f7e9d-abfd-4d9a-8cc7-19979adf17dc":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "2dca812f-d7f7-4c85-bd16-a92bdce6497e",
+            "parent": "0e9b72e7-7492-4cef-bab2-fb09fcf9675e",
             "anchor":
             [
                 0.5,
@@ -9473,7 +11445,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "911525bc-5256-45e6-9e17-218d6c2300aa":
+        "4ed2f205-b684-4755-a131-db591beb6054":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -9495,7 +11467,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "e131de4a-7bc9-41db-8562-9271cdfe8883",
+            "parent": "ae1f7e9d-abfd-4d9a-8cc7-19979adf17dc",
             "anchor":
             [
                 0.5,
@@ -9536,7 +11508,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "9019fe57-a0e4-448a-a07d-a44b6b77f515":
+        "57d132b3-2892-49f4-a151-a7a2432d193c":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -9558,7 +11530,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "e131de4a-7bc9-41db-8562-9271cdfe8883",
+            "parent": "ae1f7e9d-abfd-4d9a-8cc7-19979adf17dc",
             "anchor":
             [
                 0.5,
@@ -9599,7 +11571,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "97611fee-46ac-4e66-841f-7da20871795d":
+        "a032bba1-c244-4756-ad73-9d474082544c":
         {
             "spriteId": "ability_sword",
             "backgroundColor":
@@ -9621,7 +11593,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "e131de4a-7bc9-41db-8562-9271cdfe8883",
+            "parent": "ae1f7e9d-abfd-4d9a-8cc7-19979adf17dc",
             "anchor":
             [
                 0.5,
@@ -9662,7 +11634,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "55985018-f605-49c1-807f-7b1ce88d764e":
+        "585b9e72-fed1-4908-85bc-d30d7a37ea48":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -9680,7 +11652,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "2dca812f-d7f7-4c85-bd16-a92bdce6497e",
+            "parent": "0e9b72e7-7492-4cef-bab2-fb09fcf9675e",
             "anchor":
             [
                 0.0,
@@ -9701,7 +11673,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -9721,7 +11693,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "b92e8813-5780-410f-8638-1d2dd7ace3e3":
+        "605b3297-9ca8-4bbf-8166-19566f995dfa":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -9739,7 +11711,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "2dca812f-d7f7-4c85-bd16-a92bdce6497e",
+            "parent": "0e9b72e7-7492-4cef-bab2-fb09fcf9675e",
             "anchor":
             [
                 1.0,
@@ -9760,7 +11732,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":
@@ -9780,7 +11752,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "a4a87642-7697-4109-aea7-37b9cf433632":
+        "835382d6-c1f3-4953-9b49-60a2eff6ebc5":
         {
             "events":
             {},
@@ -9789,7 +11761,7 @@
             "dim": 0.0,
             "name": "ActionBarBottom5",
             "type": "Button",
-            "parent": "22cc549c-e171-4232-8010-4de56c968afa",
+            "parent": "c80e10b8-dd29-4248-a2ab-f721ead34779",
             "anchor":
             [
                 0.0,
@@ -9830,7 +11802,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "5766a639-23ac-4258-a7a4-68f4bf6c6f81":
+        "b98a9ec4-9738-40a4-a2ca-5b5578851217":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -9852,7 +11824,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "a4a87642-7697-4109-aea7-37b9cf433632",
+            "parent": "835382d6-c1f3-4953-9b49-60a2eff6ebc5",
             "anchor":
             [
                 0.5,
@@ -9893,7 +11865,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "4903d2a3-ba37-4637-93ea-a087482b3dc1":
+        "7f8d072e-d10d-440d-94ad-f8d1fe439baa":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -9915,7 +11887,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "a4a87642-7697-4109-aea7-37b9cf433632",
+            "parent": "835382d6-c1f3-4953-9b49-60a2eff6ebc5",
             "anchor":
             [
                 0.5,
@@ -9956,14 +11928,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "689722fb-e599-4991-8754-7b774edcce14":
+        "7fbbb06a-9305-4a3e-af15-4fd1f77906ce":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "a4a87642-7697-4109-aea7-37b9cf433632",
+            "parent": "835382d6-c1f3-4953-9b49-60a2eff6ebc5",
             "anchor":
             [
                 0.5,
@@ -10004,7 +11976,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "555ae9c0-14c2-4981-83d4-dd8d70f01847":
+        "897c824e-7aa5-440d-bb87-0086323bcd92":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -10026,7 +11998,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "689722fb-e599-4991-8754-7b774edcce14",
+            "parent": "7fbbb06a-9305-4a3e-af15-4fd1f77906ce",
             "anchor":
             [
                 0.5,
@@ -10067,7 +12039,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "6b95ac15-424e-4681-9767-e897dde8bd81":
+        "8d49ccdd-39e8-43dd-ac16-6712fa8cc133":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -10089,7 +12061,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "689722fb-e599-4991-8754-7b774edcce14",
+            "parent": "7fbbb06a-9305-4a3e-af15-4fd1f77906ce",
             "anchor":
             [
                 0.5,
@@ -10130,7 +12102,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "310851cc-e525-4041-9a5a-792022a2a2ab":
+        "d8f428fa-fba0-47e8-beb9-4be34070e4ed":
         {
             "spriteId": "ability_sword",
             "backgroundColor":
@@ -10152,7 +12124,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "689722fb-e599-4991-8754-7b774edcce14",
+            "parent": "7fbbb06a-9305-4a3e-af15-4fd1f77906ce",
             "anchor":
             [
                 0.5,
@@ -10193,7 +12165,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "78e1f55a-b466-4084-827e-ba4d0312d43b":
+        "21196b92-299c-4aa5-b222-048037f4f9f1":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -10211,7 +12183,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "a4a87642-7697-4109-aea7-37b9cf433632",
+            "parent": "835382d6-c1f3-4953-9b49-60a2eff6ebc5",
             "anchor":
             [
                 0.0,
@@ -10232,7 +12204,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -10252,7 +12224,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "f41fd17a-3521-4fe1-ae00-63299a2203aa":
+        "49a3462b-119e-439f-8daa-1e4a318ed6b0":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -10270,7 +12242,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "a4a87642-7697-4109-aea7-37b9cf433632",
+            "parent": "835382d6-c1f3-4953-9b49-60a2eff6ebc5",
             "anchor":
             [
                 1.0,
@@ -10291,7 +12263,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":
@@ -10311,7 +12283,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "fc58ca7e-e1fd-4dac-a0f4-5ab3807d9c68":
+        "03bb71dd-e98b-4a7a-825e-0c3c0040c569":
         {
             "events":
             {},
@@ -10320,7 +12292,7 @@
             "dim": 0.0,
             "name": "ActionBarBottom6",
             "type": "Button",
-            "parent": "22cc549c-e171-4232-8010-4de56c968afa",
+            "parent": "c80e10b8-dd29-4248-a2ab-f721ead34779",
             "anchor":
             [
                 0.0,
@@ -10361,7 +12333,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "e7999152-0ca8-4695-b5c8-41f5458ce3ac":
+        "3b09a850-aafc-4964-a231-50fb0229de82":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -10383,7 +12355,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "fc58ca7e-e1fd-4dac-a0f4-5ab3807d9c68",
+            "parent": "03bb71dd-e98b-4a7a-825e-0c3c0040c569",
             "anchor":
             [
                 0.5,
@@ -10424,7 +12396,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "9eaf7b75-86d7-4e31-aee3-f128f17f89ae":
+        "0374df10-b636-44ba-88d8-9c4c41ca08d2":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -10446,7 +12418,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "fc58ca7e-e1fd-4dac-a0f4-5ab3807d9c68",
+            "parent": "03bb71dd-e98b-4a7a-825e-0c3c0040c569",
             "anchor":
             [
                 0.5,
@@ -10487,14 +12459,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "7214e952-30e8-452b-9809-62ca81371a2a":
+        "d60bd287-c9dd-4cf3-a935-0c6d6dfcee06":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "fc58ca7e-e1fd-4dac-a0f4-5ab3807d9c68",
+            "parent": "03bb71dd-e98b-4a7a-825e-0c3c0040c569",
             "anchor":
             [
                 0.5,
@@ -10535,7 +12507,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "7bc327f9-f331-4514-af23-5042021f6536":
+        "54e2c56d-0913-499b-8c49-0b88d2a0b33f":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -10557,7 +12529,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "7214e952-30e8-452b-9809-62ca81371a2a",
+            "parent": "d60bd287-c9dd-4cf3-a935-0c6d6dfcee06",
             "anchor":
             [
                 0.5,
@@ -10598,7 +12570,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "94f00010-c499-47c2-bf57-e7cebfcb9fb9":
+        "675d2ffb-b672-442c-b298-fb01e0dfa79f":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -10620,7 +12592,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "7214e952-30e8-452b-9809-62ca81371a2a",
+            "parent": "d60bd287-c9dd-4cf3-a935-0c6d6dfcee06",
             "anchor":
             [
                 0.5,
@@ -10661,7 +12633,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "78b5cd14-603e-4793-93e4-c2e4ea959f95":
+        "c329440d-4a5d-4ef2-8292-5bfb78558947":
         {
             "spriteId": "ability_sword",
             "backgroundColor":
@@ -10683,7 +12655,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "7214e952-30e8-452b-9809-62ca81371a2a",
+            "parent": "d60bd287-c9dd-4cf3-a935-0c6d6dfcee06",
             "anchor":
             [
                 0.5,
@@ -10724,7 +12696,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "235f1a26-8859-4ab2-a21d-2c8ca09f72f5":
+        "845e7637-cc5f-46b3-9d3c-2d051cad9e02":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -10742,7 +12714,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "fc58ca7e-e1fd-4dac-a0f4-5ab3807d9c68",
+            "parent": "03bb71dd-e98b-4a7a-825e-0c3c0040c569",
             "anchor":
             [
                 0.0,
@@ -10763,7 +12735,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -10783,7 +12755,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "c79014d1-2133-47c7-8cc7-fd0101805184":
+        "c8c07083-7411-445a-8a69-3534a40bd586":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -10801,7 +12773,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "fc58ca7e-e1fd-4dac-a0f4-5ab3807d9c68",
+            "parent": "03bb71dd-e98b-4a7a-825e-0c3c0040c569",
             "anchor":
             [
                 1.0,
@@ -10817,12 +12789,12 @@
                 "x":
                 {
                     "scale": 0.0,
-                    "offset": -4.0
+                    "offset": -3.999939
                 },
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":
@@ -10842,7 +12814,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "ed1e8886-154e-449e-98f0-0c1e816691f3":
+        "554ce254-19ce-4306-8ccb-4d8e734cb591":
         {
             "events":
             {},
@@ -10851,7 +12823,7 @@
             "dim": 0.0,
             "name": "ActionBarBottom7",
             "type": "Button",
-            "parent": "22cc549c-e171-4232-8010-4de56c968afa",
+            "parent": "c80e10b8-dd29-4248-a2ab-f721ead34779",
             "anchor":
             [
                 0.0,
@@ -10892,7 +12864,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "5abeb72d-3cdd-4b33-9ca7-7d0481945447":
+        "c74b065c-959d-4c23-bf9d-f176cfe58aa2":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -10914,7 +12886,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "ed1e8886-154e-449e-98f0-0c1e816691f3",
+            "parent": "554ce254-19ce-4306-8ccb-4d8e734cb591",
             "anchor":
             [
                 0.5,
@@ -10955,7 +12927,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "c2dcfc60-4a6e-4184-8a56-6ef26aedede7":
+        "bdfc756e-7b1e-46dc-9e90-05a3a7f55213":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -10977,7 +12949,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "ed1e8886-154e-449e-98f0-0c1e816691f3",
+            "parent": "554ce254-19ce-4306-8ccb-4d8e734cb591",
             "anchor":
             [
                 0.5,
@@ -11018,14 +12990,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "2d91b984-3f85-40ac-882b-52720aa532ce":
+        "23c1caa4-23e5-4c8e-b698-3fbfd94c79f0":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "ed1e8886-154e-449e-98f0-0c1e816691f3",
+            "parent": "554ce254-19ce-4306-8ccb-4d8e734cb591",
             "anchor":
             [
                 0.5,
@@ -11066,7 +13038,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "8c7429e1-388e-4600-a303-3f245d75a0df":
+        "59455e73-a613-40b8-9a7c-8ebd5d47111a":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -11088,7 +13060,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "2d91b984-3f85-40ac-882b-52720aa532ce",
+            "parent": "23c1caa4-23e5-4c8e-b698-3fbfd94c79f0",
             "anchor":
             [
                 0.5,
@@ -11129,7 +13101,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "ce423b9f-b92a-4a6e-b9e1-fc1a32fff29f":
+        "e635c0de-00e8-40b4-bebf-8c9d23fd7374":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -11151,7 +13123,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "2d91b984-3f85-40ac-882b-52720aa532ce",
+            "parent": "23c1caa4-23e5-4c8e-b698-3fbfd94c79f0",
             "anchor":
             [
                 0.5,
@@ -11192,7 +13164,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "13aadba4-c270-4a54-8c31-1feef2316d42":
+        "b3a79d23-5c1c-4284-8864-1cd9062e5ba6":
         {
             "spriteId": "ability_sword",
             "backgroundColor":
@@ -11214,7 +13186,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "2d91b984-3f85-40ac-882b-52720aa532ce",
+            "parent": "23c1caa4-23e5-4c8e-b698-3fbfd94c79f0",
             "anchor":
             [
                 0.5,
@@ -11255,7 +13227,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "90e69972-280c-4795-9573-a98f9beda2cd":
+        "460beb7c-f2b8-4caa-99eb-5fafc4057e65":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -11273,7 +13245,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "ed1e8886-154e-449e-98f0-0c1e816691f3",
+            "parent": "554ce254-19ce-4306-8ccb-4d8e734cb591",
             "anchor":
             [
                 0.0,
@@ -11294,7 +13266,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -11314,7 +13286,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "397765b5-8e8c-4838-997e-048678b44fbc":
+        "c5d255e2-b8e1-4381-9af2-85e46b904ca3":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -11332,7 +13304,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "ed1e8886-154e-449e-98f0-0c1e816691f3",
+            "parent": "554ce254-19ce-4306-8ccb-4d8e734cb591",
             "anchor":
             [
                 1.0,
@@ -11353,7 +13325,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":
@@ -11373,7 +13345,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "bc1fd491-0694-42de-905e-5479cf17860c":
+        "8f6d9fe4-045e-42ff-a207-853614ecc403":
         {
             "events":
             {},
@@ -11382,7 +13354,7 @@
             "dim": 0.0,
             "name": "ActionBarBottom8",
             "type": "Button",
-            "parent": "22cc549c-e171-4232-8010-4de56c968afa",
+            "parent": "c80e10b8-dd29-4248-a2ab-f721ead34779",
             "anchor":
             [
                 0.0,
@@ -11423,7 +13395,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "b79ff922-6cb5-4b89-b40b-80ab9ef7e677":
+        "505c788f-9b76-444d-a2e6-79c348db81f7":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -11445,7 +13417,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "bc1fd491-0694-42de-905e-5479cf17860c",
+            "parent": "8f6d9fe4-045e-42ff-a207-853614ecc403",
             "anchor":
             [
                 0.5,
@@ -11486,7 +13458,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "0bf8ea8f-7709-484f-9039-efbe2bc05ca2":
+        "4ea2bc7b-898b-4bdc-87ec-45b924477736":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -11508,7 +13480,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "bc1fd491-0694-42de-905e-5479cf17860c",
+            "parent": "8f6d9fe4-045e-42ff-a207-853614ecc403",
             "anchor":
             [
                 0.5,
@@ -11549,14 +13521,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "f8224698-632e-4433-b530-fc3b260814eb":
+        "695078c4-9762-4e74-9e1a-b8194e81f7cf":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "bc1fd491-0694-42de-905e-5479cf17860c",
+            "parent": "8f6d9fe4-045e-42ff-a207-853614ecc403",
             "anchor":
             [
                 0.5,
@@ -11597,7 +13569,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "5fc654f0-5150-4adc-87fc-e9b761d97deb":
+        "d8648a74-079e-48c4-bbf9-d17d59521d8e":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -11619,7 +13591,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "f8224698-632e-4433-b530-fc3b260814eb",
+            "parent": "695078c4-9762-4e74-9e1a-b8194e81f7cf",
             "anchor":
             [
                 0.5,
@@ -11660,7 +13632,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "46b38d19-5486-4738-9f6d-f1e8dcf698d7":
+        "97c6330e-bc80-4240-9dc1-1952cca6b714":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -11682,7 +13654,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "f8224698-632e-4433-b530-fc3b260814eb",
+            "parent": "695078c4-9762-4e74-9e1a-b8194e81f7cf",
             "anchor":
             [
                 0.5,
@@ -11723,7 +13695,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "7c9c8c33-6a8e-460e-b4f6-c786f7faf01b":
+        "9c1a411c-5c92-478d-b2a9-31db00c075c8":
         {
             "spriteId": "ability_sword",
             "backgroundColor":
@@ -11745,7 +13717,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "f8224698-632e-4433-b530-fc3b260814eb",
+            "parent": "695078c4-9762-4e74-9e1a-b8194e81f7cf",
             "anchor":
             [
                 0.5,
@@ -11786,7 +13758,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "a420325e-6188-4690-b643-bc75540ae9e1":
+        "fda9f9c2-8949-4b35-982e-bfc665037ac9":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -11804,7 +13776,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "bc1fd491-0694-42de-905e-5479cf17860c",
+            "parent": "8f6d9fe4-045e-42ff-a207-853614ecc403",
             "anchor":
             [
                 0.0,
@@ -11825,7 +13797,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -11845,7 +13817,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "838c8327-3769-4e7a-91a9-b0daee56dd4b":
+        "1897d6b8-b763-4eaa-9dd5-c7672e8fc542":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -11863,7 +13835,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "bc1fd491-0694-42de-905e-5479cf17860c",
+            "parent": "8f6d9fe4-045e-42ff-a207-853614ecc403",
             "anchor":
             [
                 1.0,
@@ -11884,7 +13856,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":
@@ -11904,7 +13876,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "f2febd91-8f23-4c10-af45-6080573b3408":
+        "b298ba3f-b364-457a-af70-a46bb0382c07":
         {
             "events":
             {},
@@ -11913,7 +13885,7 @@
             "dim": 0.0,
             "name": "ActionBarBottom9",
             "type": "Button",
-            "parent": "22cc549c-e171-4232-8010-4de56c968afa",
+            "parent": "c80e10b8-dd29-4248-a2ab-f721ead34779",
             "anchor":
             [
                 0.0,
@@ -11954,7 +13926,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "b9d612d0-c7b3-41de-a888-ea4642ff3c9b":
+        "da03408d-6985-4945-8336-a360273fadab":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -11976,7 +13948,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "f2febd91-8f23-4c10-af45-6080573b3408",
+            "parent": "b298ba3f-b364-457a-af70-a46bb0382c07",
             "anchor":
             [
                 0.5,
@@ -12017,7 +13989,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "027b166f-7d74-414f-a585-a266432768ad":
+        "5cccac42-68c0-4ac8-9f87-5208c3798791":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -12039,7 +14011,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "f2febd91-8f23-4c10-af45-6080573b3408",
+            "parent": "b298ba3f-b364-457a-af70-a46bb0382c07",
             "anchor":
             [
                 0.5,
@@ -12080,14 +14052,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "b88ad709-0cbe-489a-a5be-6bd0e0c27706":
+        "17006d6c-2c03-4819-95a2-64f8ca806863":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "f2febd91-8f23-4c10-af45-6080573b3408",
+            "parent": "b298ba3f-b364-457a-af70-a46bb0382c07",
             "anchor":
             [
                 0.5,
@@ -12128,7 +14100,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "7b9e5035-252f-4ec1-a6ef-9215b193cd0b":
+        "e4cde65d-1bac-4048-bee9-d33d56c3ff00":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -12150,7 +14122,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "b88ad709-0cbe-489a-a5be-6bd0e0c27706",
+            "parent": "17006d6c-2c03-4819-95a2-64f8ca806863",
             "anchor":
             [
                 0.5,
@@ -12191,7 +14163,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "e29dcbd7-2b50-4cf7-93c6-3428c65daca6":
+        "d46eb220-9a48-4015-a67c-75c1e757657c":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -12213,7 +14185,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "b88ad709-0cbe-489a-a5be-6bd0e0c27706",
+            "parent": "17006d6c-2c03-4819-95a2-64f8ca806863",
             "anchor":
             [
                 0.5,
@@ -12254,7 +14226,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "0bfc094c-657e-4bfb-a5ba-5ce3f8e12e81":
+        "2411c8cc-08fa-406a-ac14-b425113731a3":
         {
             "spriteId": "ability_sword",
             "backgroundColor":
@@ -12276,7 +14248,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "b88ad709-0cbe-489a-a5be-6bd0e0c27706",
+            "parent": "17006d6c-2c03-4819-95a2-64f8ca806863",
             "anchor":
             [
                 0.5,
@@ -12317,7 +14289,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "0d83faa5-1ac5-4e80-9966-3f92e6a03300":
+        "3eb3bc57-84dc-4a61-8229-731e6491d6ae":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -12335,7 +14307,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "f2febd91-8f23-4c10-af45-6080573b3408",
+            "parent": "b298ba3f-b364-457a-af70-a46bb0382c07",
             "anchor":
             [
                 0.0,
@@ -12356,7 +14328,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -12376,7 +14348,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "85bfd191-7674-4b9a-8a18-2432acdf03f3":
+        "7542b830-6233-4cc2-b3d1-5c4ab58a8ca3":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -12394,7 +14366,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "f2febd91-8f23-4c10-af45-6080573b3408",
+            "parent": "b298ba3f-b364-457a-af70-a46bb0382c07",
             "anchor":
             [
                 1.0,
@@ -12415,7 +14387,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":
@@ -12435,7 +14407,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "0151dd64-f608-401e-bcb4-f4ca1e020f13":
+        "fc5fe07d-2b6f-40e6-acfe-344eaf0ec13b":
         {
             "events":
             {},
@@ -12444,7 +14416,7 @@
             "dim": 0.0,
             "name": "ActionBarBottom0",
             "type": "Button",
-            "parent": "22cc549c-e171-4232-8010-4de56c968afa",
+            "parent": "c80e10b8-dd29-4248-a2ab-f721ead34779",
             "anchor":
             [
                 0.0,
@@ -12485,7 +14457,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "02ba5dd2-1e04-447f-a257-90c9e190d3f0":
+        "f19e4440-90e0-467b-b033-a49517b07274":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -12507,7 +14479,7 @@
             "dim": 0.0,
             "name": "Background",
             "type": "Image",
-            "parent": "0151dd64-f608-401e-bcb4-f4ca1e020f13",
+            "parent": "fc5fe07d-2b6f-40e6-acfe-344eaf0ec13b",
             "anchor":
             [
                 0.5,
@@ -12548,7 +14520,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "45b71222-3cff-460b-a1f9-c1501938e724":
+        "8a0d4d29-80a0-4091-a061-a96aef3749ed":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -12570,7 +14542,7 @@
             "dim": 0.0,
             "name": "BackgroundFrame",
             "type": "Image",
-            "parent": "0151dd64-f608-401e-bcb4-f4ca1e020f13",
+            "parent": "fc5fe07d-2b6f-40e6-acfe-344eaf0ec13b",
             "anchor":
             [
                 0.5,
@@ -12611,14 +14583,14 @@
             "visible": true,
             "zIndex": 0
         },
-        "156c18b8-2354-494f-8eb8-56f7d1629198":
+        "92eb4e66-af20-477f-87e6-2f2d887a6757":
         {
             "interactable": true,
             "sizeConstraint": 1,
             "dim": 0.0,
             "name": "AbilityContainer",
             "type": "Frame",
-            "parent": "0151dd64-f608-401e-bcb4-f4ca1e020f13",
+            "parent": "fc5fe07d-2b6f-40e6-acfe-344eaf0ec13b",
             "anchor":
             [
                 0.5,
@@ -12659,7 +14631,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "90aca3c3-03a1-4c1f-b50f-2f2b4fdd015d":
+        "78d018b7-7550-42d4-a100-2463801f7e11":
         {
             "spriteId": "square_frame_grayscale",
             "backgroundColor":
@@ -12681,7 +14653,7 @@
             "dim": 0.0,
             "name": "AbilityIconFrame",
             "type": "Image",
-            "parent": "156c18b8-2354-494f-8eb8-56f7d1629198",
+            "parent": "92eb4e66-af20-477f-87e6-2f2d887a6757",
             "anchor":
             [
                 0.5,
@@ -12722,7 +14694,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "fb1a36c5-c5c0-402c-b6bc-5df9c5b7e123":
+        "0489763a-33d8-4d81-8c18-700c7f356472":
         {
             "spriteId": "square_background_grayscale",
             "backgroundColor":
@@ -12744,7 +14716,7 @@
             "dim": 0.0,
             "name": "AbilityIconBackground",
             "type": "Image",
-            "parent": "156c18b8-2354-494f-8eb8-56f7d1629198",
+            "parent": "92eb4e66-af20-477f-87e6-2f2d887a6757",
             "anchor":
             [
                 0.5,
@@ -12785,7 +14757,7 @@
             "visible": true,
             "zIndex": 0
         },
-        "b80d8481-5688-44cd-bcf6-fa586ac13a6a":
+        "0b034ea3-3362-4f95-af13-308838faea54":
         {
             "spriteId": "ability_sword",
             "backgroundColor":
@@ -12807,7 +14779,7 @@
             "dim": 0.0,
             "name": "AbilityIcon",
             "type": "Image",
-            "parent": "156c18b8-2354-494f-8eb8-56f7d1629198",
+            "parent": "92eb4e66-af20-477f-87e6-2f2d887a6757",
             "anchor":
             [
                 0.5,
@@ -12848,7 +14820,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "fe1abbb6-4724-4678-89fe-459b25a8a82f":
+        "e3f52211-989b-4491-918d-56d0813bd7eb":
         {
             "textAlignment": "BottomLeft",
             "fontId": "LiberationSans SDF",
@@ -12866,7 +14838,7 @@
             "dim": 0.0,
             "name": "TextBottomLeft",
             "type": "Label",
-            "parent": "0151dd64-f608-401e-bcb4-f4ca1e020f13",
+            "parent": "fc5fe07d-2b6f-40e6-acfe-344eaf0ec13b",
             "anchor":
             [
                 0.0,
@@ -12887,7 +14859,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": 3.99999237
+                    "offset": 4.0
                 }
             },
             "size":
@@ -12907,7 +14879,7 @@
             "visible": false,
             "zIndex": 0
         },
-        "5b5dcf34-004a-470a-ba87-f96fb020d4a5":
+        "bc019480-4cb9-4fe6-b721-9b44c6250bbb":
         {
             "textAlignment": "TopRight",
             "fontId": "LiberationSans SDF",
@@ -12925,7 +14897,7 @@
             "dim": 0.0,
             "name": "TextTopRight",
             "type": "Label",
-            "parent": "0151dd64-f608-401e-bcb4-f4ca1e020f13",
+            "parent": "fc5fe07d-2b6f-40e6-acfe-344eaf0ec13b",
             "anchor":
             [
                 1.0,
@@ -12946,7 +14918,7 @@
                 "y":
                 {
                     "scale": 0.0,
-                    "offset": -4.00000763
+                    "offset": -4.0
                 }
             },
             "size":

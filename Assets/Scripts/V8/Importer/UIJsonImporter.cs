@@ -1,8 +1,10 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Newtonsoft.Json;
+using Unity.VisualScripting;
 using V8.Utilities;
 
 namespace V8
@@ -12,7 +14,7 @@ namespace V8
         private static IElement _tempCanvas;
         private static Dictionary<string, IElement> _ui = new();
         private static Dictionary<string, Sprite> _sprites = new();
-        private static Dictionary<uint, Transform> _zIndexContainer = new();
+        private static Dictionary<uint, UnityEngine.Canvas> _zIndexContainer = new();
 
         private static void OnEvent(ulong clientId, string uiId, string eventTriggerType, string eventId)
         {
@@ -65,7 +67,7 @@ namespace V8
             InternalDebug.Log("[UIJsonImporter] ui element released");
         }
 
-        public static void ImportAndBuild(string filePath)
+        public static void ImportAndBuild(string filePath, bool isDevMode)
         {
             Release();
             var json = File.ReadAllText(filePath);
@@ -75,10 +77,10 @@ namespace V8
                 InternalDebug.LogError("Error: ui json load failed");
                 return;
             };
-            BuildUI(uiData);
+            BuildUI(uiData, isDevMode);
         }
-
-        private static async void BuildUI(UIData? data)
+        
+        private static async void BuildUI(UIData? data, bool isDevMode)
         {
             var studio = data.Value.studioData;
             var referenceResolution = new Vector2(studio.resolutionWidth, studio.resolutionHeight);
@@ -90,13 +92,17 @@ namespace V8
 
             foreach (var (key, element) in ui)
             {
-                var frameData = (FrameData)element;
-                var dimOpacity = frameData.dim;
-                
                 if (_ui.ContainsKey(key)) continue;
-                var createdElement = CreateElement(key, element, referenceResolution);
+                var createdElement = CreateElement(key, element, referenceResolution, isDevMode);
+                if(isDevMode)
+                    createdElement.Self.AddComponent<DevElementInfo>().Attach(createdElement);
                 _ui.Add(key, createdElement);
             }
+            
+            await UniTask.Yield();
+
+            foreach (var canvas in _zIndexContainer.Values)
+                canvas.overrideSorting = true;
         }
 
         private static bool IsValidation(string json)
@@ -113,16 +119,12 @@ namespace V8
         }
 
         private static IElement CreateElement(string uid, ElementData data,
-            Vector2 referenceResolution)
+            Vector2 referenceResolution, bool isDevMode)
         {
-            var frameData = (FrameData)data;
-            var dimOpacity = frameData.dim;
-            
-            var factoryProvider = new ElementFactoryProvider(_sprites, referenceResolution, dimOpacity, OnEvent);
+            var factoryProvider = new ElementFactoryProvider(_sprites, referenceResolution, OnEvent);
             var factory = factoryProvider.GetFactory(data.type);
-            var parent = GetParentFromElement(data.parent);
-            var zIndexParent = CreateZIndexContainer(data.zIndex);
-            var element = factory.Create(uid, data, parent, zIndexParent);
+            var parentElement = GetParentFromElement(data.parent);
+            var element = factory.Create(uid, data, parentElement, isDevMode ? null : CreateZIndexContainer(data.zIndex).transform);
             element.Visible = data.visible;
             return element;
         }
@@ -138,7 +140,7 @@ namespace V8
             return _ui.GetValueOrDefault(id);
         }
         
-        private static Transform CreateZIndexContainer(uint zIndex)
+        private static UnityEngine.Canvas CreateZIndexContainer(uint zIndex)
         {
             if (_zIndexContainer.TryGetValue(zIndex, out var container))
             {
@@ -148,7 +150,13 @@ namespace V8
             {
                 string goName = $"Z-Index-[{zIndex}]";
                 GameObject go = new GameObject(goName);
-                var rectTransform = go.AddComponent<RectTransform>();
+                go.layer = LayerMask.NameToLayer(UIConfig.LayerName);
+                
+                // set canvas sorting order
+                var canvas = go.AddComponent<UnityEngine.Canvas>();
+                canvas.sortingOrder = (int)zIndex;
+                
+                var rectTransform = go.GetComponent<RectTransform>();
                 rectTransform.SetParent(_tempCanvas.Self);
                 rectTransform.anchorMin = Vector2.zero;
                 rectTransform.anchorMax = Vector2.one;
@@ -158,8 +166,8 @@ namespace V8
                 rectTransform.localRotation = Quaternion.identity;
                 rectTransform.localScale = Vector3.one;
                 rectTransform.SetSiblingIndex((int)zIndex);
-                _zIndexContainer.Add(zIndex, go.transform);
-                return rectTransform;
+                _zIndexContainer.Add(zIndex, canvas);
+                return canvas;
             }
         }
     }

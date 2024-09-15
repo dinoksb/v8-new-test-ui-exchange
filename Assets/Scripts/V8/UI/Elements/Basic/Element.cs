@@ -73,7 +73,7 @@ namespace V8
             }
         }
 
-        public bool Visible
+        public virtual bool Visible
         {
             get => Self.gameObject.activeSelf;
             set
@@ -91,8 +91,15 @@ namespace V8
             add => _onSizeUpdatedCore += value;
             remove => _onSizeUpdatedCore -= value;
         }
-        
+
+        event Action IElement.OnMoveFront
+        {
+            add => _moveFrontCore += value;
+            remove => _moveFrontCore -= value;
+        }
+
         private event EventHandler<Vector2> _onSizeUpdatedCore; 
+        private event Action _moveFrontCore; 
         
         public IElement Parent { get; private set; }
         
@@ -109,8 +116,8 @@ namespace V8
         {
             // todo: 추후 DI 로 주입 해야함.
             _uiService = GameObject.FindObjectOfType<UIService>();
-            
             _uiService.OnCreated(this);
+            
             Uid = uid;
             Name = data.name;
             Type = data.type;
@@ -141,7 +148,10 @@ namespace V8
             Visible = data.visible;
         }
 
-        public virtual void MoveFront(){}
+        public virtual void MoveFront()
+        {
+            _moveFrontCore?.Invoke();
+        }
 
         protected static RectTransform GetChildSelf(Transform targetSelf, string id)
         {
@@ -155,6 +165,11 @@ namespace V8
             }
 
             throw new Exception($"No child with ID '{id}' found under {targetSelf.name}.");
+        }
+
+        protected bool CheckIsCanvas(IElement element)
+        {
+            return element.Type == nameof(Canvas);
         }
 
         private void SetValues(ElementData data)

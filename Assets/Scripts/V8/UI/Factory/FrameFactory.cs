@@ -4,24 +4,17 @@ namespace V8
 {
     internal class FrameFactory : BaseElementFactory<FrameData, FrameComponents, Frame>
     {
-        private readonly float _dimOpacity;
-        private readonly Vector2 _referenceResolution;
-        
-        public FrameFactory(float dimOpacity, Vector2 referenceResolution)
-        {
-            _dimOpacity = dimOpacity;
-            _referenceResolution = referenceResolution;
-        }
+        private Transform _zIndexParent;
         
         protected override FrameComponents CreateComponents(IElement parent, Transform zIndexParent, string name)
         {
-            bool isUseDim = _dimOpacity != 0;
-            return new FrameComponents(parent, zIndexParent, name, isUseDim);
+            _zIndexParent = zIndexParent;
+            return new FrameComponents(parent, zIndexParent, name);
         }
         
         protected override Frame CreateTyped(string uid, FrameData data, FrameComponents components)
         {
-            return new Frame(uid, data, components, _dimOpacity, _referenceResolution);
+            return new Frame(uid, data, components, _zIndexParent);
         }
     }
 }

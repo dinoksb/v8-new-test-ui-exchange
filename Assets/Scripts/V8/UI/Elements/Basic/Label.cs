@@ -11,23 +11,15 @@ namespace V8
     public class Label : Frame
     {
         private TMP_Text _tmp;
-        private TransformLinkComponents _transformLink;
+        private TransformLinkComponent _transformLink;
 
         private const string DefaultFontAssetPath = "Fonts & Materials";
         private const string DefaultFontAsset = "LiberationSans SDF";
 
-        private string FontId
+        public override bool Interactable
         {
-            get => _tmp.font.name;
-            set
-            {
-                // todo: path 가 현재는 'Fonts & Materials'로 고정인데 어떻게 해야할지 논의 필요.
-                // 1. font 데이터를 어떻게 관리 할건지?
-                //  - 프로젝트 안에 특정한 폴더안에 넣어서 관리 할 것인지
-                //  - 런타임에 ttf 파일을 불러 들여와서 생성 해서 사용 할 것인지? (동작 검증 필요)
-                //  - Font.asset 을 에셋번들화 하여 불러올 것인지?
-                _tmp.font = GetFontAsset(value);
-            }
+            get => _tmp.raycastTarget;
+            set => _tmp.raycastTarget = value;
         }
 
         public TextAlignmentOptions TextAlignment
@@ -138,6 +130,20 @@ namespace V8
             }
         }
 
+        private string FontId
+        {
+            get => _tmp.font.name;
+            set
+            {
+                // todo: path 가 현재는 'Fonts & Materials'로 고정인데 어떻게 해야할지 논의 필요.
+                // 1. font 데이터를 어떻게 관리 할건지?
+                //  - 프로젝트 안에 특정한 폴더안에 넣어서 관리 할 것인지
+                //  - 런타임에 ttf 파일을 불러 들여와서 생성 해서 사용 할 것인지? (동작 검증 필요)
+                //  - Font.asset 을 에셋번들화 하여 불러올 것인지?
+                _tmp.font = GetFontAsset(value);
+            }
+        }
+
         public ConstraintType Constraint { get; set; }
 
         public bool AutoSize { get; set; }
@@ -146,19 +152,17 @@ namespace V8
         private Vector2 _referenceResolution;
 
         private readonly List<TextChangeEventAction> _textChangeEvents = new();
+
         public delegate void TextChangeEventAction(IElement element, string prevText, string newText);
 
         public Label(string uid, LabelData data, LabelComponents components, Vector2 referenceResolution) : base(uid,
             data, components)
         {
             _tmp = components.TMP;
-            _transformLink = components.TransformLinkComponents;
-            _transformLink.Initialize(Self);
-            _visibleChangedActions.Add(_transformLink.SetVisible);
-            _positionChangeActions.Add(_transformLink.SetPosition);
-            _rotationChangeActions.Add(_transformLink.SetRotation);
-            _sizeChangeActions.Add(_transformLink.SetSize);
             _referenceResolution = referenceResolution;
+            _transformLink = components.TransformLinkComponent;
+            SetTransformLink(_transformLink);
+            SetEvents();
             SetValues(data);
         }
 
@@ -166,10 +170,13 @@ namespace V8
         {
             var clone = (Label)base.Copy(self, parent);
             clone._tmp = self.GetComponent<TextMeshProUGUI>();
-            _visibleChangedActions.Add(clone._transformLink.SetVisible);
-            _positionChangeActions.Add(clone._transformLink.SetPosition);
-            _rotationChangeActions.Add(clone._transformLink.SetRotation);
-            _sizeChangeActions.Add(clone._transformLink.SetSize);
+            if (_transformLink)
+            {
+                clone._transformLink = _transformLink;
+                clone.SetTransformLink(clone._transformLink);
+            }
+
+            clone.Parent.OnMoveFront += clone.MoveFront;
             return clone;
         }
 
@@ -179,14 +186,16 @@ namespace V8
             var labelData = (LabelData)data;
             SetValues(labelData);
         }
-        
+
         public override void MoveFront()
         {
             _transformLink.Self.SetAsLastSibling();
+            base.MoveFront();
         }
-        
+
         private void SetValues(LabelData data)
         {
+            Interactable = data.interactable;
             FontId = data.fontId;
             TextAlignment = TypeConverter.ToTextAlignmentOptions(data.textAlignment);
             FontColor = TypeConverter.ToColor(data.fontColor);
@@ -204,7 +213,13 @@ namespace V8
             // Italic = data.italic;
             // Underline = data.underline;
             // Strikethrough = data.strikethrough;
-            _tmp.raycastTarget = Interactable;
+        }
+
+        private void SetEvents()
+        {
+            if (CheckIsCanvas(Parent)) return;
+            Parent.OnMoveFront += MoveFront;
+            Parent.AddVisibleChangedListener(VisibleChanged);
         }
 
         private float SetFontSize(float size, bool isAutoSize)

@@ -303,29 +303,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 798186446}
-  - component: {fileID: 798186445}
+  - component: {fileID: 798186447}
   m_Layer: 0
-  m_Name: Viewer
+  m_Name: UISample
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &798186445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798186444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 095549f1469604e8bae6910351c10ef3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _url: D:\Work\v8-test-ui-exchange-fork\Assets\StreamingAssets\ui-sample-with-dim.json
-  _uiManager: {fileID: 813036719}
-  _uiService: {fileID: 398985092}
 --- !u!4 &798186446
 Transform:
   m_ObjectHideFlags: 0
@@ -341,6 +326,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &798186447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798186444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fe108e553fa6c848bd690065aee84a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _url: D:\Workspace\2024\Planetarium\Verse8\v8-new-test-ui-exchange\Assets\StreamingAssets\ui-sample.json
+  _uiManager: {fileID: 813036719}
+  _uiService: {fileID: 398985092}
 --- !u!1 &813036718
 GameObject:
   m_ObjectHideFlags: 0

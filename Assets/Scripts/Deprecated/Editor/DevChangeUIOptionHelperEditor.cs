@@ -1,22 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Serialization;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
 
-public class UISizeChanger : Editor
+[CustomEditor(typeof(DevChangeUIOptionHelper))]
+public class DevChangeUIOptionHelperEditor : Editor
 {
-    private const float _ratio = 0.75f;
+    private static DevChangeUIOptionHelper _instance;
 
-    [MenuItem("GameObject/UI/SetSizeAndPositionToHalfRatio")]
+    private void OnEnable()
+    {
+        _instance ??= (DevChangeUIOptionHelper)target;
+    }
+
+    private const float _ratio = 0.75f;
+    
+
+    [MenuItem("GameObject/UI/SetSize And Position By Ratio")]
     private static void SetSizeAndPositionByRatio()
     {
         var gameObject = Selection.activeGameObject;
-        SetSize(gameObject, _ratio);
-        SetPosition(gameObject, _ratio);
-        SetFontSize(gameObject, _ratio);
+        SetSize(gameObject, _instance.Ratio);
+        SetPosition(gameObject, _instance.Ratio);
+        SetFontSize(gameObject, _instance.Ratio);
     }
+    
+    [MenuItem("GameObject/UI/Set Z-Index With Children")]
+    private static void SetZIndexWithChildren()
+    {
+        var gameObject = Selection.activeGameObject;
+        SetZIndex(gameObject);
+    }
+    
     
     private static void SetSize(GameObject gameObject, float ratio)
     {
@@ -56,6 +70,20 @@ public class UISizeChanger : Editor
         {
             var child = gameObject.transform.GetChild(i);
             SetFontSize(child.gameObject, ratio);
+        }
+    }
+    
+    private static void SetZIndex(GameObject gameObject)
+    {
+        var elementInfo = gameObject.GetComponent<DevElementInfo>();
+        if(elementInfo)
+            elementInfo.ZIndex = _instance.ZIndex;
+        
+        var childCount = gameObject.transform.childCount;
+        for (int i = 0; i < childCount; i++)
+        {
+            var child = gameObject.transform.GetChild(i);
+            SetZIndex(child.gameObject);
         }
     }
 }

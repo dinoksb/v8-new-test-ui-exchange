@@ -6,16 +6,17 @@ namespace V8
     public class LabelComponents : FrameComponents
     {
         public TMP_Text TMP { get; }
-        public TransformLinkComponents TransformLinkComponents { get; }
+        public TransformLinkComponent TransformLinkComponent { get; }
 
         public LabelComponents(IElement parent, Transform zIndexParent, string name) : base(parent, zIndexParent, name)
         {
-            var labelSource = new GameObject(Self.name);
-            var labelSourceRectTransform = labelSource.AddComponent<RectTransform>();
-            labelSourceRectTransform.SetParent(zIndexParent);
-
-            TransformLinkComponents = labelSource.AddComponent<TransformLinkComponents>();
-            TMP = labelSource.gameObject.AddComponent<TextMeshProUGUI>();
+            RectTransform labelTransform = Self;
+            if (zIndexParent)
+            {
+                labelTransform = CreateUIElement(Self.name, zIndexParent, false);
+            }
+            TransformLinkComponent = labelTransform.gameObject.AddComponent<TransformLinkComponent>();
+            TMP = labelTransform.gameObject.AddComponent<TextMeshProUGUI>();
         }
     }
 }

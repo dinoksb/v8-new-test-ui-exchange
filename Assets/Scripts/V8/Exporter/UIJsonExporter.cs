@@ -18,7 +18,7 @@ namespace V8
         private static string DEV_END_POINT => Application.streamingAssetsPath;
         private const string DEV_TEXTURE_RESOURCE_PATH = "Sprites";
         
-        public static void Export(GameObject gameObject, string filePath)
+        public static void ExportWithRemotePath(GameObject gameObject, string filePath)
         {
             if (!IsValid(gameObject)) return;
 
@@ -29,7 +29,7 @@ namespace V8
             SaveJson(filePath, uiData);
         }
         
-        public static void DevelopmentExport(GameObject gameObject, string filePath)
+        public static void ExportWithLocalPath(GameObject gameObject, string filePath)
         {
             if (!IsValid(gameObject)) return;
 
@@ -143,6 +143,7 @@ namespace V8
                     {
                         var image = dimComponent.GetComponent<UnityEngine.UI.Image>();
                         frameData.dim = image.color.a;
+                        frameData.interactable = image.raycastTarget;
                     }
                     return frameData as T;
                 case UIConfig.ImageType:
@@ -182,6 +183,7 @@ namespace V8
                         imageColor0To1.a
                     };
                     imageData.spriteId = imageComponent.sprite.name;
+                    imageData.interactable = imageComponent.raycastTarget;
                     return imageData as T;
                 case UIConfig.LabelType:
                     var textComponent = target.GetComponent<TextMeshProUGUI>();
@@ -204,6 +206,7 @@ namespace V8
                     // labelData.strikethrough =
                     //     (textComponent.fontStyle & FontStyles.Strikethrough) == FontStyles.Strikethrough;
                     labelData.text = textComponent.text;
+                    labelData.interactable = textComponent.raycastTarget;
                     return labelData as T;
                 case UIConfig.ButtonType:
                     var eventTriggerComponent = target.GetComponent<EventTrigger>();
@@ -214,7 +217,6 @@ namespace V8
                         string eventId = trigger.eventID.ToString();
                         buttonData.events.Add(eventId, eventId);
                     }
-
                     // buttonData.threshold = 0.0f;
                     return buttonData as T;
                 case UIConfig.DimType:
@@ -230,7 +232,7 @@ namespace V8
             {
                 var webCoordinateAnchor = target.anchorMax.ToReverseYAxis();
                 var webCoordinatePivot = target.pivot.ToReverseYAxis();
-                
+                var elementinfo = target.GetComponent<DevElementInfo>();
                 T data = new T()
                 {
                     name = target.name,
@@ -265,7 +267,8 @@ namespace V8
                     rotation = target.rotation.eulerAngles.z,
                     visible = target.gameObject.activeSelf,
                     interactable = true,
-                    sizeConstraint = FrameData.ConstraintType.XY
+                    sizeConstraint = FrameData.ConstraintType.XY,
+                    zIndex =  elementinfo.ZIndex
                 };
                 return data;
             }
