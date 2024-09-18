@@ -19,6 +19,8 @@ namespace G2.UI.Elements
         public IElement Copy(RectTransform self, IElement parent);
         public void Update(ElementData data);
         internal event EventHandler<Vector2> OnSizeUpdated;
+        internal event EventHandler<Vector2> OnPositionUpdated;
+        internal event EventHandler<float> OnRotationUpdated;
         internal event Action OnMoveFront;
         internal void MoveFront();
         internal void AddVisibleChangedListener(Action<IElement> action);

@@ -114,6 +114,7 @@ namespace G2.UI.Elements.Basic
             if (CheckIsCanvas(Parent)) return;
             
             Parent.OnMoveFront += MoveFront;
+            Parent.OnPositionUpdated += PositionChanged;
             Parent.AddVisibleChangedListener(VisibleChanged);
         }
 

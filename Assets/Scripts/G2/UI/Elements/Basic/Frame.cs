@@ -27,6 +27,8 @@ namespace G2.UI.Elements.Basic
         public virtual bool Interactable { get; set; }
 
         private UnityEngine.UI.Image _dim;
+        private TransformLinkComponent _transformLink;
+        
         private Vector2 _sizeRatio;
         private Vector2 _sizeOffset;
         private bool _isOnUpdateSizeSubscribed;
@@ -41,19 +43,21 @@ namespace G2.UI.Elements.Basic
         public Frame(string uid, FrameData data, FrameComponents components, Transform zIndexParent) : base(uid, data,
             components)
         {
-            if (data.dim != 0)
+            if (zIndexParent)
             {
-                if (zIndexParent)
+                _transformLink = components.TransformLinkComponent;
+                SetTransformLink(_transformLink);
+                if (data.dim != 0)
                 {
                     _dim = CreateDim(zIndexParent, data.dim, Vector3.zero);
                     _dim.rectTransform.pivot = new Vector2(0.5f, 0.5f);
                     _dim.rectTransform.anchorMin = Vector2.zero;
                     _dim.rectTransform.anchorMax = Vector2.one;
                 }
-                else
-                {
-                    _dim = CreateDim(Self, data.dim, new Vector2(Screen.width, Screen.height));
-                }
+            }
+            else
+            {
+                _dim = CreateDim(Self, data.dim, new Vector2(Screen.width, Screen.height));
             }
 
             ConstraintType = data.sizeConstraint;
@@ -101,10 +105,20 @@ namespace G2.UI.Elements.Basic
             Size = calcByRatio;
         }
 
-        protected virtual void VisibleChanged(IElement element)
+        protected void VisibleChanged(IElement element)
         {
             InternalDebug.Log($"VisibleChanged from {element.Name} to {Name}: {element.Visible}");
             Visible = element.Visible;
+        }
+
+        protected void PositionChanged(object _, Vector2 position)
+        {
+            Position = Position;
+        }
+        
+        protected void RotationChanged(object _, float rotationY)
+        {
+            Rotation = Rotation;
         }
         
         protected void SetTransformLink(TransformLinkComponent linkComponent)
@@ -140,6 +154,8 @@ namespace G2.UI.Elements.Basic
 
             // parent element's visibility is turned off, the child element is also hidden.
             Parent.AddVisibleChangedListener(VisibleChanged);
+            Parent.OnPositionUpdated += PositionChanged;
+            Parent.OnRotationUpdated += RotationChanged;
             Parent.OnMoveFront += MoveFront;
         }
 

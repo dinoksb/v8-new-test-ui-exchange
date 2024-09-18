@@ -1,3 +1,4 @@
+using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using G2.Manager;
@@ -31,21 +32,14 @@ public class UISample : MonoBehaviour
     private IElement _popupWithDim;
     private IElement _zIndexPopup1;
     private IElement _zIndexPopup2;
+    
+    private Rect _guiRect = new Rect(10, 10, 150, 100);
 
     private async void Start()
     {
         await LoadUIAsync(_url);
         Initialize();
         RegisterButtonEvent();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            var frontFrame = _uiManager.GetFrontFrame();
-            InternalDebug.Log($"{frontFrame.Name} is front frame.");
-        }
     }
 
     private async UniTask LoadUIAsync(string url)
@@ -78,10 +72,10 @@ public class UISample : MonoBehaviour
         _zIndexPopup2 = _uiManager.Get("0f32f82a-69b0-4e66-883e-59136fc82483");
         _zIndexPopup2.Visible = false;
     }
-    
+
     private void RegisterButtonEvent()
     {
-        // open z-index popup
+        // open z-index popups button
         var openPopup = _uiManager.Get<Button>("dacdbc42-c781-4c7c-bd03-10b734c0c492");
         openPopup.AddPointerDownListener((element) =>
         {
@@ -141,7 +135,7 @@ public class UISample : MonoBehaviour
         });
         
         
-        // open popup with dim
+        // open popup with dim button
         _uiManager.MoveToFront(_popupWithDim);
         
         var openPopupWithDim = _uiManager.Get<Button>("c1acf2cf-4820-4546-b1a2-64e46d978c79");
@@ -154,6 +148,7 @@ public class UISample : MonoBehaviour
             InternalDebug.Log($"{frontFrame.Name} is front frame.");
         });
         
+        // dim popup
         var openPopupWithDimCloseButton = _uiManager.Get<Button>("a544e651-ba2b-49b0-bf99-ec96e553a162");
         openPopupWithDimCloseButton.AddPointerDownListener((element) =>
         {
@@ -168,4 +163,45 @@ public class UISample : MonoBehaviour
             _popupWithDim.Visible = false;
         });
     }
+
+    private void MoveFrontElement(int pixels)
+    {
+        var frontFrame = _uiManager.GetFrontFrame();
+        InternalDebug.Log($"{frontFrame.Name} is front frame.");
+            
+        frontFrame.Position = new Vector2(frontFrame.Position.x + pixels, frontFrame.Position.y);
+    }
+    
+    private void RotationFrontElement(int degrees)
+    {
+        var frontFrame = _uiManager.GetFrontFrame();
+        InternalDebug.Log($"{frontFrame.Name} is front frame.");
+            
+        frontFrame.Rotation += degrees;
+    }
+    
+#if UNITY_EDITOR
+    private void OnGUI()
+    {
+        if (GUI.Button(_guiRect, "Move Left (100 pixels)"))
+        {
+            MoveFrontElement(-100);
+        }
+        
+        if (GUI.Button(new Rect(_guiRect.x + (_guiRect.width + 10), _guiRect.y, _guiRect.width, _guiRect.height), "Move Right (100 pixels)"))
+        {
+            MoveFrontElement(100);
+        }
+        
+        if (GUI.Button(new Rect(_guiRect.x, _guiRect.y + (_guiRect.height + 10), _guiRect.width, _guiRect.height), "Rotation Left (90 degress)"))
+        {
+            RotationFrontElement(90);
+        }
+        
+        if (GUI.Button(new Rect(_guiRect.x + (_guiRect.width + 10), _guiRect.y + (_guiRect.height + 10), _guiRect.width, _guiRect.height), "Rotation Right (90 degress)"))
+        {
+            RotationFrontElement(-90);
+        }
+    }
+#endif
 }

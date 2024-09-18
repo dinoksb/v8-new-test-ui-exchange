@@ -50,11 +50,12 @@ namespace G2.UI
             InternalDebug.Log($"Set position from {element.Name} to {_rectTransform.name}: {element.Position}");
             _rectTransform.position = element.Self.position;
         }
-
+        
         public void SetRotation(IElement element)
         {
             InternalDebug.Log($"Set rotation from {element.Name} to {_rectTransform.name}: {element.Rotation}");
             _rectTransform.rotation = element.Self.rotation;
+            _rectTransform.position = element.Self.position;
         }
 
         public void SetSize(IElement element)

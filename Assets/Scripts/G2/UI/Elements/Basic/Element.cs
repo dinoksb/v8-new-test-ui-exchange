@@ -55,8 +55,8 @@ namespace G2.UI.Elements.Basic
                 {
                     eventAction?.Invoke(this);
                 }
-
                 Self.anchoredPosition = value;
+                _onPositionUpdatedCore?.Invoke(this, Self.anchoredPosition);
             }
         }
 
@@ -72,6 +72,7 @@ namespace G2.UI.Elements.Basic
 
                 float deltaZ = value - Self.eulerAngles.z;
                 Self.Rotate(0, 0, deltaZ);
+                _onRotationUpdatedCore?.Invoke(this, deltaZ);
             }
         }
 
@@ -94,14 +95,28 @@ namespace G2.UI.Elements.Basic
             remove => _onSizeUpdatedCore -= value;
         }
 
-        event Action IElement.OnMoveFront
+        event EventHandler<Vector2> IElement.OnPositionUpdated
         {
-            add => _moveFrontCore += value;
-            remove => _moveFrontCore -= value;
+            add => _onPositionUpdatedCore += value;
+            remove => _onPositionUpdatedCore -= value;
         }
 
-        private event EventHandler<Vector2> _onSizeUpdatedCore; 
-        private event Action _moveFrontCore; 
+        event EventHandler<float> IElement.OnRotationUpdated
+        {
+            add => _onRotationUpdatedCore += value;
+            remove => _onRotationUpdatedCore -= value;
+        }
+
+        event Action IElement.OnMoveFront
+        {
+            add => _onMoveFrontCore += value;
+            remove => _onMoveFrontCore -= value;
+        }
+
+        private event EventHandler<Vector2> _onSizeUpdatedCore;
+        private event EventHandler<Vector2> _onPositionUpdatedCore; 
+        private event EventHandler<float> _onRotationUpdatedCore; 
+        private event Action _onMoveFrontCore; 
         
         public IElement Parent { get; private set; }
         
@@ -132,6 +147,9 @@ namespace G2.UI.Elements.Basic
         public void Dispose()
         {
             _onSizeUpdatedCore = null;
+            _onPositionUpdatedCore = null;
+            _onRotationUpdatedCore = null;
+            _onMoveFrontCore = null;
         }
 
         public virtual IElement Copy(RectTransform self, IElement parent)
@@ -152,7 +170,7 @@ namespace G2.UI.Elements.Basic
 
         public virtual void MoveFront()
         {
-            _moveFrontCore?.Invoke();
+            _onMoveFrontCore?.Invoke();
         }
 
         protected static RectTransform GetChildSelf(Transform targetSelf, string id)

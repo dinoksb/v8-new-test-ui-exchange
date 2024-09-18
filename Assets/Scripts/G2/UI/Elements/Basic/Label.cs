@@ -193,7 +193,7 @@ namespace G2.UI.Elements.Basic
             _transformLink.Self.SetAsLastSibling();
             base.MoveFront();
         }
-
+        
         private void SetValues(LabelData data)
         {
             Interactable = data.interactable;
@@ -220,6 +220,7 @@ namespace G2.UI.Elements.Basic
         {
             if (CheckIsCanvas(Parent)) return;
             Parent.OnMoveFront += MoveFront;
+            Parent.OnPositionUpdated += PositionChanged;
             Parent.AddVisibleChangedListener(VisibleChanged);
         }
 

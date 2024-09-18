@@ -36,6 +36,18 @@ namespace G2.UI.Elements.Basic
             remove => _onUpdateSizeCore -= value;
         }
 
+        event EventHandler<Vector2> IElement.OnPositionUpdated
+        {
+            add => _onPositionUpdatedCore += value;
+            remove => _onPositionUpdatedCore -= value;
+        }
+
+        event EventHandler<float> IElement.OnRotationUpdated
+        {
+            add => _onRotationUpdatedCore += value;
+            remove => _onRotationUpdatedCore -= value;
+        }
+
         event Action IElement.OnMoveFront
         {
             add => _moveFrontCore += value;
@@ -43,6 +55,8 @@ namespace G2.UI.Elements.Basic
         }
 
         private event EventHandler<Vector2> _onUpdateSizeCore; 
+        private event EventHandler<Vector2> _onPositionUpdatedCore; 
+        private event EventHandler<float> _onRotationUpdatedCore; 
         private event Action _moveFrontCore; 
 
         public Canvas(string id, Transform parent, Vector2 resolution, bool dontDestoryOnLoad)
