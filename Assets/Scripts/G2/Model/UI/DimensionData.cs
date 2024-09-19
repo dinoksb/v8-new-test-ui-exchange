@@ -7,9 +7,9 @@ namespace G2.Model.UI
     public class DimensionData
     {
         [JsonProperty("x", Required = Required.Default)]
-        public readonly DimensionAdjustData x = new(0, 0);
+        public DimensionAdjustData x = new(0, 0);
 
         [JsonProperty("y", Required = Required.Default)]
-        public readonly DimensionAdjustData y = new(0, 0);
+        public DimensionAdjustData y = new(0, 0);
     }
 }
