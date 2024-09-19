@@ -7,10 +7,10 @@ namespace G2.Model.UI
     public struct DimensionAdjustData
     {
         [JsonProperty("scale", Required = Required.Default)]
-        public float scale;
+        public readonly float scale;
 
         [JsonProperty("offset", Required = Required.Default)]
-        public float offset;
+        public readonly float offset;
 
         public DimensionAdjustData(float scale, float offset)
         {
