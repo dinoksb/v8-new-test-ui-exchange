@@ -1,4 +1,3 @@
-using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using G2.Manager;
@@ -71,6 +70,12 @@ public class UISample : MonoBehaviour
 
         _zIndexPopup2 = _uiManager.Get("0f32f82a-69b0-4e66-883e-59136fc82483");
         _zIndexPopup2.Visible = false;
+        
+        
+        _uiService.AddPositionChangedListener((uid, prevValue, newValue) =>
+        {
+            InternalDebug.Log($"uid: {uid} - prevValue: {prevValue} - newValue: {newValue}");
+        });
     }
 
     private void RegisterButtonEvent()
@@ -134,7 +139,6 @@ public class UISample : MonoBehaviour
             _zIndexPopup2.Visible = false;
         });
         
-        
         // open popup with dim button
         _uiManager.MoveToFront(_popupWithDim);
         
@@ -162,6 +166,7 @@ public class UISample : MonoBehaviour
             InternalDebug.Log($"{element.Name} pressed.");
             _popupWithDim.Visible = false;
         });
+        
     }
 
     private void MoveFrontElement(int pixels)
@@ -201,6 +206,14 @@ public class UISample : MonoBehaviour
         if (GUI.Button(new Rect(_guiRect.x + (_guiRect.width + 10), _guiRect.y + (_guiRect.height + 10), _guiRect.width, _guiRect.height), "Rotation Right (90 degress)"))
         {
             RotationFrontElement(-90);
+        }
+        
+        //a8d9536d-d533-482d-b755-30ad87a9d27c
+        
+        if (GUI.Button(new Rect(_guiRect.x + (_guiRect.width + 10), _guiRect.y + (_guiRect.height + 10) * 2, _guiRect.width, _guiRect.height), "Yes Button Move Front"))
+        {
+            var yesButton = _uiManager.Get<Button>("a8d9536d-d533-482d-b755-30ad87a9d27c");
+            _uiManager.MoveToFront(yesButton);
         }
     }
 #endif
