@@ -7,7 +7,7 @@ namespace G2.UI
     public class ButtonComponents : FrameComponents
     {
         public EventTrigger EventTrigger { get; }
-        public TransformLinkComponent TransformLinkComponent { get; }
+        public new TransformLinkComponent TransformLinkComponent { get; }
         public NonDrawingGraphic NonDrawingGraphic { get; }
 
         public ButtonComponents(IElement parent, Transform zIndexParent, string name) : base(parent, zIndexParent, name)

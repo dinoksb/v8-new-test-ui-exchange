@@ -7,7 +7,7 @@ namespace G2.UI
     public class LabelComponents : FrameComponents
     {
         public TMP_Text TMP { get; }
-        public TransformLinkComponent TransformLinkComponent { get; }
+        public new TransformLinkComponent TransformLinkComponent { get; }
 
         public LabelComponents(IElement parent, Transform zIndexParent, string name) : base(parent, zIndexParent, name)
         {

@@ -7,7 +7,7 @@ namespace G2.UI
     {
         public UnityEngine.UI.Image BackGroundImage { get; }
         public UnityEngine.UI.Image Image { get; }
-        public TransformLinkComponent TransformLinkComponent { get; }
+        public new TransformLinkComponent TransformLinkComponent { get; }
 
         public ImageComponents(IElement parent, Transform zIndexParent, string name) : base(parent, zIndexParent, name)
         {

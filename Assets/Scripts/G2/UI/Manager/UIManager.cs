@@ -19,7 +19,7 @@ namespace G2.Manager
         private IFactoryProvider<IElementFactory<IElement>> _factoryProvider;
         private Dictionary<string, IElement> _ui = new();
         private Dictionary<string, Sprite> _sprites = new();
-        private Dictionary<uint, UnityEngine.Canvas> _zIndexContainer = new();
+        private Dictionary<uint, Canvas> _zIndexContainer = new();
         private List<IElement> _visibleElements = new();
         private IElement _dontDestoryCanvas;
 
@@ -158,7 +158,6 @@ namespace G2.Manager
             _ui.Clear();
             _zIndexContainer.Clear();
             _visibleElements.Clear();
-            // _elementsWithZIndex.Clear();
             Destroy(_dontDestoryCanvas.Self?.gameObject);
             _dontDestoryCanvas = null;
             Resources.UnloadUnusedAssets();
@@ -195,29 +194,6 @@ namespace G2.Manager
         {
             return _ui.GetValueOrDefault(id);
         }
-
-        // private void SortByZIndex()
-        // {
-        //     // z-index 값으로 오름차순 정렬
-        //     // z-index 값이 같을 경우, creationOrder를 기준으로 오름차순 정렬
-        //     _elementsWithZIndex.Sort((elementA, elementB) =>
-        //     {
-        //         int zIndexComparison = elementA.ZIndex.CompareTo(elementB.ZIndex);
-        //         if (zIndexComparison == 0)
-        //         {
-        //             // z-index가 같으면 생성 순서로 비교
-        //             return elementA.CreationOrder.CompareTo(elementB.CreationOrder);
-        //         }
-        //         return zIndexComparison;
-        //     });
-        //     
-        //     // 정렬된 순서대로 hierarchy sibling index 설정
-        //     int elementsCount = _elementsWithZIndex.Count;
-        //     for (int i = 0; i < elementsCount; ++i)
-        //     {
-        //         _elementsWithZIndex[i].RectTransform.SetSiblingIndex(i);
-        //     }
-        // }
 
         private Transform CreateZIndexContainer(uint zIndex)
         {
