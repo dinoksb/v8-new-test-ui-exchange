@@ -152,7 +152,7 @@ namespace G2.Service
             }
 
             _isFrontFrameVisibleChanged = true;
-            InternalDebug.Log($"[UIService] - OnFrontFrameVisibleChangedListener: " + isVisible);
+            InternalDebug.Log($"[UIService] - {element.Name} OnFrontFrameVisibleChangedListener: " + isVisible);
         }
         
         private void OnVisibleChangedListener(IElement element)
@@ -162,10 +162,10 @@ namespace G2.Service
             {
                 _visibleChangedElementsOrigin.Add(uid, element.Visible);
                 _visibleChangedElementsReference.Add(uid, element);
+                InternalDebug.Log($"[UIService] - {element.Name} OnVisibleChangedListener: " + element.Visible);
             }
 
             _isVisibleChanged = true;
-            InternalDebug.Log($"[UIService] - OnVisibleChangedListener: " + element.Visible);
         }
 
         private void OnPositionChangeListener(IElement element)
@@ -175,10 +175,10 @@ namespace G2.Service
             {
                 _positionChangedElementsOrigin.Add(uid, new Vector2(element.Position.x, element.Position.y));
                 _positionChangedElementsReference.Add(uid, element);
+                InternalDebug.Log($"[UIService] - {element.Name} OnPositionChangedListener: " + element.Position);
             }
 
             _isPositionChange = true;
-            InternalDebug.Log($"[UIService] - OnPositionChangedListener: " + element.Position);
         }
         
         private void OnRotationChangeListener(IElement element)
@@ -188,10 +188,10 @@ namespace G2.Service
             {
                 _rotationChangedElementsOrigin.Add(uid, element.Rotation);
                 _rotationChangedElementsReference.Add(uid, element);
+                InternalDebug.Log($"[UIService] - {element.Name} OnRotationChangedListener: " + element.Rotation);
             }
 
             _isRotationChange = true;
-            InternalDebug.Log($"[UIService] - OnRotationChangedListener: " + element.Rotation);
         }
         
         private void OnSizeChangeListener(IElement element)
@@ -201,10 +201,10 @@ namespace G2.Service
             {
                 _sizeChangedElementsOrigin.Add(uid, new Vector2(element.Size.x, element.Size.y));
                 _sizeChangedElementsReference.Add(uid, element);
+                InternalDebug.Log($"[UIService] - {element.Name} OnSizeChangedListener: " + element.Size);
             }
 
             _isSizeChange = true;
-            InternalDebug.Log($"[UIService] - OnSizeChangedListener: " + element.Size);
         }
 
         #endregion
@@ -261,7 +261,7 @@ namespace G2.Service
             {
                 var element = elementValue.Value;
                 var uid = element.Uid;
-                if (CheckApproximately(element.Position, _positionChangedElementsOrigin[uid]))
+                if (!CheckApproximately(element.Position, _positionChangedElementsOrigin[uid]))
                 {
                     foreach (var positionChangeEvent in _positionChangedEvents)
                     {

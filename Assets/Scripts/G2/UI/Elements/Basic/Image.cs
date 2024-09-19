@@ -75,6 +75,7 @@ namespace G2.UI.Elements.Basic
 
         public override IElement Copy(RectTransform self, IElement parent)
         {
+            // todo: image 에서 sourceImage 를 이름으로 찾는것이 아니라 sourceImage 라는 컴포넌트를 붙여서 찾는 방식으로 수정
             var clone = (Image)base.Copy(self, parent);
             var childSelf = GetChildSelf(self, UIConfig.ImageSource);
             clone._image = childSelf.GetComponent<UnityEngine.UI.Image>();
