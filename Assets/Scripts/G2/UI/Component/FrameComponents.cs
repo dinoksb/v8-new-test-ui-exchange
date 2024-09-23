@@ -9,8 +9,12 @@ namespace G2.UI
         
         public FrameComponents(IElement parent, Transform zIndexParent, string name) : base(parent, zIndexParent, name)
         {
+        }
+        
+        public FrameComponents(IElement parent, Transform zIndexParent, ElementType type, string name) : base(parent, zIndexParent, name)
+        {
             var rectTransform = Self;
-            if (zIndexParent)
+            if (zIndexParent && type == ElementType.Frame)
             {
                 rectTransform = CreateUIElement(name, zIndexParent, false);
                 TransformLinkComponent = rectTransform.gameObject.AddComponent<TransformLinkComponent>();
