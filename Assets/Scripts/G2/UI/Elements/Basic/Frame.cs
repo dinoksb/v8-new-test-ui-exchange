@@ -8,6 +8,7 @@ namespace G2.UI.Elements.Basic
 {
     public class Frame : Element
     {
+        private const string _DIM_TYPE = "Dim";
         public override bool Visible
         {
             get => Self.gameObject.activeSelf;
@@ -220,7 +221,7 @@ namespace G2.UI.Elements.Basic
 
         private UnityEngine.UI.Image CreateDim(Transform parent, float opacity, Vector2 size)
         {
-            GameObject dimObj = new GameObject(UIConfig.DimType);
+            GameObject dimObj = new GameObject(_DIM_TYPE);
             dimObj.transform.SetParent(parent);
 
             var rectTransform = dimObj.AddComponent<RectTransform>();

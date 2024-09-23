@@ -1,5 +1,6 @@
 using System;
 using Newtonsoft.Json;
+using UnityEngine.Serialization;
 
 namespace G2.Model
 {
@@ -7,8 +8,8 @@ namespace G2.Model
     public class ResourceData
     {
         [JsonProperty("name", Required = Required.Always)]
-        public string name;
+        public string Name;
         [JsonProperty("url", Required = Required.Always)]
-        public string url;
+        public string Url;
     }
 }

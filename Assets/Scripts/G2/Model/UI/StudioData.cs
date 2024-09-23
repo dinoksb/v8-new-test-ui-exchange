@@ -9,8 +9,8 @@ namespace G2.Model.UI
         [JsonProperty("version", Required = Required.Always)]
         public string version;  // studio version
         [JsonProperty("resolutionWidth", Required = Required.Always)]
-        public float resolutionWidth; // user resolution width
+        public uint resolutionWidth; // user resolution width
         [JsonProperty("resolutionHeight", Required = Required.Always)]
-        public float resolutionHeight; // user resolution height
+        public uint resolutionHeight; // user resolution height
     }
 }

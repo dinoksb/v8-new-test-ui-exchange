@@ -1,71 +1,145 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
-using UnityEngine.UI;
-using G2.Importer;
+using G2.Converter;
 using G2.Model.UI;
 using G2.UI;
 using G2.UI.Elements;
-using G2.UI.Factory;
-using G2.UI.Provider;
+using Newtonsoft.Json;
+using UnityEngine;
+using UnityEngine.UI;
 using Utilities;
 
 namespace G2.Manager
 {
     public class UIManager : MonoBehaviour
     {
-        private IFactoryProvider<IElementFactory<IElement>> _factoryProvider;
-        private Dictionary<string, IElement> _ui = new();
-        private Dictionary<string, Sprite> _sprites = new();
-        private Dictionary<uint, Canvas> _zIndexContainer = new();
-        private List<IElement> _visibleElements = new();
-        private IElement _dontDestoryCanvas;
+        private const string _ROOT_DIRECTORY = "UI";
+
+        private JsonSerializerSettings _jsonSerializerSettings;
+        private string _verseAddress;
+
+        private readonly Dictionary<string, IElement> _elementsByUid = new();
+        private readonly Dictionary<string, List<IElement>> _elementsByName = new();
+        private readonly Dictionary<string, Sprite> _sprites = new();
+        private readonly Dictionary<uint, Canvas> _zIndexContainer = new();
+        private readonly List<IElement> _visibleElements = new();
+        private IElement _dontDestroyCanvas;
 
         private IElement _currentFrontElement;
+
+        private string RootPath => Path.Combine(Application.persistentDataPath, _verseAddress, _ROOT_DIRECTORY);
 
         private void OnEvent(ulong clientId, string uiId, string eventTriggerType, string eventId)
         {
         }
 
-        public async UniTask LoadAsync(string url)
+        public IReadOnlyDictionary<string, IElement> GetElements()
+        {
+            return _elementsByUid;
+        }
+        
+        private void Awake()
+        {
+            _jsonSerializerSettings = new JsonSerializerSettings
+            {
+                Converters = new List<JsonConverter>(ElementDataConverter.Converters)
+            };
+        }
+
+        public async UniTask<bool> LoadAsync(string verseAddress, string json, bool forceResourceDownload = false, CancellationToken cancellationToken = default)
         {
             Release();
             try
             {
-                var uiData = UIJsonImporter.Import(url);
-                if (uiData == null)
+                _verseAddress = verseAddress;
+                UIData uiData;
+                try
                 {
-                    InternalDebug.LogError("Error: ui json load failed");
-                    return;
+                    uiData = JsonConvert.DeserializeObject<UIData>(json, _jsonSerializerSettings);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError($"Failed to deserialize ui data. Error: {e.Message}");
+                    return false;
                 }
 
-                var studio = uiData.Value.studioData;
-                var asset = uiData.Value.asset;
-                var ui = uiData.Value.ui;
-                var referenceResolution = new Vector2(studio.resolutionWidth, studio.resolutionHeight);
+                // Download resources
+                var textureDownloadTasks = Enumerable.Select(uiData.Textures, keyValue =>
+                    ResourceDownloader.DownloadTexture(
+                        keyValue.Value.Url,
+                        RootPath,
+                        wantFileName: keyValue.Key,
+                        forceDownload: forceResourceDownload,
+                        cancellationToken: cancellationToken)).ToList();
 
-                _sprites = await SpriteImporter.Import(asset.resource, asset.sprite, Application.persistentDataPath,
-                    true);
-                _dontDestoryCanvas = new G2.UI.Elements.Basic.Canvas(UIConfig.Canvas, null, referenceResolution, true);
-                BuildUI(ui, referenceResolution);
+                var textureMap = new Dictionary<string, string>();
+                try
+                {
+                    var textureDownloadedFilePaths = await UniTask.WhenAll(textureDownloadTasks);
+                    var index = 0;
+                    foreach (var keyValue in uiData.Textures)
+                    {
+                        textureMap[keyValue.Key] = textureDownloadedFilePaths[index];
+                        ++index;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError(e);
+                    return false;
+                }
+
+                foreach (var (key, spriteSheet) in uiData.SpriteSheets)
+                {
+                    var mangedKey = $"{_ROOT_DIRECTORY}:{key}";
+                    var sprite = SpriteManager.GetSprite(mangedKey);
+                    if (sprite == null)
+                    {
+                        var offset = TypeConverter.ToVector2(spriteSheet.Offset);
+                        var size = TypeConverter.ToVector2(spriteSheet.CellSize);
+                        var border = TypeConverter.ToVector4(spriteSheet.Border);
+                        var pivot = TypeConverter.ToVector2(spriteSheet.Pivot, TypeConverter.Vector2Center);
+
+                        var texture = await TextureManager.LoadTextureAsync(textureMap[spriteSheet.TextureId], cancellationToken);
+
+                        sprite = SpriteManager.CreateSprite(
+                            key: mangedKey,
+                            texture: texture,
+                            offset: offset,
+                            size: size,
+                            border: border,
+                            pivot: pivot,
+                            pixelsPerUnit: spriteSheet.PixelsPerUnit
+                        );
+                    }
+
+                    _sprites.Add(key, sprite);
+                }
+
+
+                var referenceResolution = new Vector2(uiData.StudioData.resolutionWidth, uiData.StudioData.resolutionHeight);
+                BuildUI(uiData.UI, referenceResolution);
             }
             catch (Exception e)
             {
-                InternalDebug.LogException(e);
+                Debug.LogException(e);
+                return false;
             }
 
-            InternalDebug.Log($"ui json loaded. : {url}");
+            return true;
         }
 
-        public void Show(UnityEngine.Canvas target)
+        public void Show(Canvas target)
         {
-            int childCount = _dontDestoryCanvas.Self.childCount;
+            var childCount = _dontDestroyCanvas.Self.childCount;
 
-            for (int i = 0; i < childCount; i++)
+            for (var i = 0; i < childCount; i++)
             {
-                _dontDestoryCanvas.Self.GetChild(0).SetParent(target.transform);
+                _dontDestroyCanvas.Self.GetChild(0).SetParent(target.transform);
             }
 
             foreach (var (_, canvas) in _zIndexContainer)
@@ -76,32 +150,33 @@ namespace G2.Manager
 
         public IElement Get(string uid)
         {
-            if (_ui.TryGetValue(uid, out var element))
+            if (_elementsByUid.TryGetValue(uid, out var element))
             {
                 return element;
             }
 
-            InternalDebug.Log($"[{uid}]: element does not exist.");
+            Debug.Log($"[{uid}]: element does not exist.");
             return null;
         }
 
-        public T Get<T>(string uid) where T : IElement
+        public T Get<T>(string uid) where T : class, IElement
         {
-            return (T)Get(uid);
-        }
-
-        public IEnumerable<IElement> GetFromName(string name)
-        {
-            var elements = _ui.Values.Where(element => element.Name.Equals(name));
-            if (!elements.Any())
+            var element = Get(uid);
+            if (element is T typedElement)
             {
-                InternalDebug.Log($"[{name}]: element does not exist.");
+                return typedElement;
             }
-
-            return elements;
+            
+            Debug.Log($"[{uid}]: element exists but is not of type {typeof(T).Name}.");
+            return null;
         }
 
-        // 동일한 z-index를 가진 오브젝트 중 특정 오브젝트를 최상위로 설정하는 함수
+        public IReadOnlyList<IElement> GetFromName(string findName)
+        {
+            return _elementsByName.TryGetValue(findName, out var elements) ? elements : null;
+        }
+
+        // A function that sets a specific object to the top among objects with the same z-index.
         public void MoveToFront(IElement element)
         {
             _currentFrontElement = element;
@@ -110,21 +185,19 @@ namespace G2.Manager
 
         public IElement GetFrontFrame()
         {
-            if (_currentFrontElement != null && _currentFrontElement.Visible)
+            if (_currentFrontElement is { Visible: true })
             {
                 return GetRootElement(_currentFrontElement);
             }
 
-            uint highestZIndex = uint.MinValue;
+            var highestZIndex = uint.MinValue;
             IElement elementWithHighestZIndex = null;
 
             foreach (var element in _visibleElements)
             {
-                if (element.ZIndex >= highestZIndex)
-                {
-                    highestZIndex = element.ZIndex;
-                    elementWithHighestZIndex = element;
-                }
+                if (element.ZIndex < highestZIndex) continue;
+                highestZIndex = element.ZIndex;
+                elementWithHighestZIndex = element;
             }
 
             return GetRootElement(elementWithHighestZIndex);
@@ -132,54 +205,85 @@ namespace G2.Manager
 
         public void Delete(string uid)
         {
-            if (_ui == null) return;
-            if (_ui.Count == 0) return;
+            if (_elementsByUid == null) return;
+            if (_elementsByUid.Count == 0) return;
 
-            _ui.Remove(uid);
-            InternalDebug.Log($"[{uid}]: element deleted.");
+            _elementsByUid.Remove(uid);
+            Debug.Log($"[{uid}]: element deleted.");
         }
 
         public void Release()
         {
-            if (_dontDestoryCanvas == null && (_sprites.Count == 0 || _ui.Count == 0)) return;
-
             foreach (var (_, sprite) in _sprites)
             {
                 Destroy(sprite);
             }
 
-            foreach (var (_, ui) in _ui)
+            foreach (var (_, ui) in _elementsByUid)
             {
-                if (ui.Self)
-                    Destroy(ui.Self.gameObject);
+                if (ui.Self) Destroy(ui.Self.gameObject);
             }
 
             _sprites.Clear();
-            _ui.Clear();
+            _elementsByUid.Clear();
             _zIndexContainer.Clear();
             _visibleElements.Clear();
-            Destroy(_dontDestoryCanvas.Self?.gameObject);
-            _dontDestoryCanvas = null;
+            if (_dontDestroyCanvas != null && _dontDestroyCanvas.Self != null)
+            {
+                Destroy(_dontDestroyCanvas.Self.gameObject);
+            }
+
+            _dontDestroyCanvas = null;
             Resources.UnloadUnusedAssets();
-            InternalDebug.Log("ui element released");
+            Debug.Log("ui element released");
         }
 
         private void BuildUI(Dictionary<string, ElementData> uis, Vector2 referenceResolution)
         {
             foreach (var (key, element) in uis)
             {
-                if (_ui.ContainsKey(key)) continue;
-                _ui.Add(key, CreateElement(key, element, referenceResolution));
+                if (_elementsByUid.ContainsKey(key)) continue;
+                var instance = CreateElement(key, element, referenceResolution);
+                _elementsByUid.Add(key, instance);
+                var elementName = element.name;
+                if (!_elementsByName.ContainsKey(elementName))
+                {
+                    _elementsByName.Add(elementName, new List<IElement>());
+                }
+                _elementsByName[elementName].Add(instance);
             }
         }
 
         private IElement CreateElement(string uid, ElementData data, Vector2 referenceResolution)
         {
-            _factoryProvider = new ElementFactoryProvider(_sprites, referenceResolution, OnEvent);
-            var factory = _factoryProvider.GetFactory(data.type);
+            if (!Enum.TryParse(data.type, ignoreCase: true, out ElementType type)) throw new ArgumentOutOfRangeException($"Invalid type: {data.type}");
+            
             var parent = GetParentFromElement(data.parent);
             var zIndexParent = CreateZIndexContainer(data.zIndex);
-            var element = factory.Create(uid, data, parent, zIndexParent);
+            IElement element;
+            switch (type)
+            {
+                case ElementType.Element:
+                    element = ElementFactory.CreateElement(uid, parent, zIndexParent, data);
+                    break;
+                case ElementType.Frame:
+                    element = ElementFactory.CreateFrame(uid, parent, zIndexParent, (FrameData)data);
+                    break;
+                case ElementType.Image:
+                    var imageData = (ImageData)data;
+                    if (!_sprites.TryGetValue(imageData.spriteId, out var sprite)) throw new KeyNotFoundException($"Sprite with ID {imageData.spriteId} not found in the dictionary.");
+                    element = ElementFactory.CreateImage(uid, parent, zIndexParent, imageData, sprite);
+                    break;
+                case ElementType.Label:
+                    element = ElementFactory.CreateLabel(uid, parent, zIndexParent, (LabelData)data, referenceResolution);
+                    break;
+                case ElementType.Button:
+                    element = ElementFactory.CreateButton(uid, parent, zIndexParent, (ButtonData)data, OnEvent);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException($"Unexpected ElementType: {type}");
+            }
+            
             element.AddVisibleChangedListener(OnVisibleChangeListener);
             element.Visible = data.visible;
             return element;
@@ -187,12 +291,12 @@ namespace G2.Manager
 
         private IElement GetParentFromElement(string id)
         {
-            return string.IsNullOrEmpty(id) ? _dontDestoryCanvas : GetElement(id);
+            return string.IsNullOrEmpty(id) ? _dontDestroyCanvas : GetElement(id);
         }
 
         private IElement GetElement(string id)
         {
-            return _ui.GetValueOrDefault(id);
+            return _elementsByUid.GetValueOrDefault(id);
         }
 
         private Transform CreateZIndexContainer(uint zIndex)
@@ -202,12 +306,14 @@ namespace G2.Manager
                 return container.transform;
             }
 
-            string goName = $"Z-Index-[{zIndex}]";
-            GameObject go = new GameObject(goName);
-            go.layer = LayerMask.NameToLayer(UIConfig.LayerName);
+            var goName = $"Z-Index-[{zIndex}]";
+            var go = new GameObject(goName)
+            {
+                layer = LayerMask.NameToLayer(Config.LayerName.UI)
+            };
 
             // set canvas sorting order
-            var canvas = go.AddComponent<UnityEngine.Canvas>();
+            var canvas = go.AddComponent<Canvas>();
             canvas.sortingOrder = (int)zIndex;
 
             // add graphicRaycaster
@@ -215,7 +321,7 @@ namespace G2.Manager
 
             // set rectTransform values
             var rectTransform = canvas.GetComponent<RectTransform>();
-            rectTransform.SetParent(_dontDestoryCanvas.Self);
+            rectTransform.SetParent(_dontDestroyCanvas.Self);
             rectTransform.anchorMin = Vector2.zero;
             rectTransform.anchorMax = Vector2.one;
             rectTransform.offsetMin = Vector2.zero;
@@ -229,7 +335,7 @@ namespace G2.Manager
 
         private void OnVisibleChangeListener(IElement element)
         {
-            bool isVisible = element.Visible;
+            var isVisible = element.Visible;
 
             if (isVisible)
             {
@@ -242,12 +348,13 @@ namespace G2.Manager
             }
         }
 
-        private IElement GetRootElement(IElement element)
+        private static IElement GetRootElement(IElement element)
         {
-            if (element.Parent.Type == nameof(Canvas))
-                return element;
-            
-            return GetRootElement(element.Parent);
+            while (true)
+            {
+                if (element.Parent.Type == nameof(Canvas)) return element;
+                element = element.Parent;
+            }
         }
     }
 }

@@ -9,61 +9,34 @@ namespace Utilities
 {
     public static class TypeConverter
     {
+        public static readonly Vector2 Vector2Center = new(0.5f, 0.5f);
+        public static readonly float[] Vector2CenterValues = { 0.5f, 0.5f };
+
         public static int ToInteger(string value)
         {
             return int.TryParse(value, out var parsedValue) ? parsedValue : 0;
         }
-        
+
         public static float ToFloat(string value)
         {
             return float.TryParse(value, out var parsedValue) ? parsedValue : 0;
         }
-   
+
         public static float ToRatio(string value)
         {
             return float.TryParse(value, out var percent) ? Math.Clamp(percent, 0, 100) * 0.01f : 0;
         }
-        
+
         public static Color ToColor(float[] values)
         {
             if (values == null || values.Length < 4)
             {
                 return Color.clear;
             }
-            
-            float r = values[0] <= 1.0 ? values[0] * 255f : values[0];
-            float g = values[1] <= 1.0 ? values[1] * 255f : values[1];
-            float b = values[2] <= 1.0 ? values[2] * 255f : values[2];
-            float a = values[3] <= 1.0 ? values[3] * 255f : values[3];
 
             return new Color(values[0], values[1], values[2], values[3]);
         }
-        
-        public static Color32 ToColor32(float[] values)
-        {
-            if (values == null || values.Length < 4)
-            {
-                return new Color32(0,0,0,0);
-            }
 
-            return new Color32((byte)values[0], (byte)values[1], (byte)values[2], (byte)values[3]);
-        }
-        
-        public static Color ToColor0To1(float[] values)
-        {
-            if (values == null || values.Length < 4)
-            {
-                return Color.clear;
-            }
-
-            float r = values[0] > 1.0 ? values[0] / 255f : values[0];
-            float g = values[1] > 1.0 ? values[1] / 255f : values[1];
-            float b = values[2] > 1.0 ? values[2] / 255f : values[2];
-            float a = values[3] > 1.0 ? values[3] / 255f : values[3];
-
-            return new Color(r, g, b, a);
-        }
-        
         public static Vector2 ToVector2(int[] values)
         {
             if (values == null || values.Length < 2)
@@ -73,17 +46,17 @@ namespace Utilities
 
             return new Vector2(values[0], values[1]);
         }
-        
-        public static Vector2 ToVector2(IReadOnlyList<float> values)
+
+        public static Vector2 ToVector2(IReadOnlyList<float> values, Vector2? defaultValue = null)
         {
             if (values == null || values.Count < 2)
             {
-                return Vector2.zero;
+                return defaultValue ?? Vector2.zero;
             }
 
             return new Vector2(values[0], values[1]);
         }
-   
+
         public static Vector4 ToVector4(IReadOnlyList<int> values)
         {
             if (values == null || values.Count < 4)
@@ -92,6 +65,16 @@ namespace Utilities
             }
 
             return new Vector4(values[0], values[1], values[2], values[3]);
+        }
+
+        public static Vector3 ToVector3(IReadOnlyList<float> values, bool isScale = false)
+        {
+            if (values == null || values.Count < 3)
+            {
+                return isScale ? Vector3.one : Vector3.zero;
+            }
+
+            return new Vector3(values[0], values[1], values[2]);
         }
         
         public static Vector4 ToVector4(IReadOnlyList<float> values)
@@ -102,6 +85,16 @@ namespace Utilities
             }
 
             return new Vector4(values[0], values[1], values[2], values[3]);
+        }
+
+        public static Quaternion ToQuaternion(IReadOnlyList<float> values)
+        {
+            if (values == null || values.Count < 4)
+            {
+                return Quaternion.identity;
+            }
+
+            return new Quaternion(values[0], values[1], values[2], values[3]);
         }
         
         public static RectOffset ToRectOffset(IReadOnlyList<int> values)
@@ -118,7 +111,7 @@ namespace Utilities
         {
             return Enum.TryParse(value, out TextAlignmentOptions result) ? result : TextAlignmentOptions.TopLeft;
         }
-        
+
         public static TextAnchor ToTextAnchor(string value)
         {
             return Enum.TryParse(value, out TextAnchor result) ? result : TextAnchor.UpperLeft;
@@ -128,7 +121,7 @@ namespace Utilities
         {
             return Enum.TryParse(value, out GridLayoutGroup.Constraint result) ? result : GridLayoutGroup.Constraint.Flexible;
         }
-        
+
         public static GridLayoutGroup.Corner ToCorner(string value)
         {
             return Enum.TryParse(value, out GridLayoutGroup.Corner result) ? result : GridLayoutGroup.Corner.UpperLeft;
@@ -143,21 +136,20 @@ namespace Utilities
         {
             return Enum.TryParse(value, out eventTriggerType);
         }
-        
+
         public static Sprite ToSprite(
             Texture2D texture,
             Vector2 offset,
             Vector2 size,
-            Vector4 border, 
+            Vector4 border,
             Vector2 pivot,
-            string name,
             float pixelsPerUnit)
         {
             var width = Mathf.Min(size.x, texture.width - offset.x);
             var height = Mathf.Min(size.y, texture.height - offset.y);
             var rect = new Rect(offset.x, offset.y, width, height);
             var sprite = Sprite.Create(texture, rect, pivot, pixelsPerUnit, 0, SpriteMeshType.FullRect, border);
-            sprite.name = name;
+            sprite.name = texture.name;
             return sprite;
         }
     }

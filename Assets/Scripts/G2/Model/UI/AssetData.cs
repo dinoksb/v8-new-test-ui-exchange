@@ -12,7 +12,7 @@ namespace G2.Model.UI
         /// key: ID
         /// value: SpriteData
         /// </summary>
-        public Dictionary<string, SpriteData> sprite;
+        public Dictionary<string, SpriteSheetData> sprite;
         // public List<SpriteData> sprite;
     }
 }

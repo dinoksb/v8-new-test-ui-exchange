@@ -49,14 +49,14 @@ public class UISample : MonoBehaviour
             return;
         }
         
-        var result = await WebRequestUtility.GetData(url);
-        if (string.IsNullOrEmpty(result))
+        var json = await WebRequestUtility.GetData(url);
+        if (string.IsNullOrEmpty(json))
         {
             InternalDebug.LogError("result is null");
             return;
         }
         
-        await _uiManager.LoadAsync(result);
+        await _uiManager.LoadAsync("", json, default);
         _uiManager.Show(UICanvas);
     }
 

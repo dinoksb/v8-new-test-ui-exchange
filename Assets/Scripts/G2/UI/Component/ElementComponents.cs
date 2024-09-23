@@ -18,7 +18,7 @@ namespace G2.UI
         protected RectTransform CreateUIElement(string name, Transform parent, bool isStretch)
         {
             var go = new GameObject(name);
-            go.layer = LayerMask.NameToLayer(UIConfig.LayerName);
+            go.layer = LayerMask.NameToLayer(Config.LayerName.UI);
             var rectTransform = go.AddComponent<RectTransform>();
             rectTransform.SetParent(parent);
 

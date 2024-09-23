@@ -5,9 +5,11 @@ using G2.Importer;
 using G2.Model;
 using G2.Model.UI;
 using G2.UI;
+using G2.UI.Elements;
 using Utilities;
 using TMPro;
 using Newtonsoft.Json;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -16,31 +18,34 @@ namespace G2.Exporter
     // todo: z-index 에 따른 GameObject 분할로 해당 구조에 맞게 Export 기능 수정 필요. 
     public class UIJsonExporter
     {
-        private const string END_POINT = "https://dinoksb.github.io/v8-new-test-ui-exchange";
-        private const string TEXTURE_RESOURCE_PATH = "StreamingAssets/Sprites";
+        private const string _END_POINT = "https://dinoksb.github.io/v8-new-test-ui-exchange";
+        private const string _TEXTURE_RESOURCE_PATH = "StreamingAssets/Sprites";
+        private const string _DIM_TYPE = "Dim";
 
         private static string DEV_END_POINT => Application.streamingAssetsPath;
         private const string DEV_TEXTURE_RESOURCE_PATH = "Sprites";
-        
+
         public static void ExportWithRemotePath(GameObject gameObject, string filePath)
         {
             if (!IsValid(gameObject)) return;
 
             UIData uiData = new();
-            SetStudioData(gameObject, ref uiData.studioData);
-            SetSpriteData($"{END_POINT}/{TEXTURE_RESOURCE_PATH}", gameObject, ref uiData.asset);
-            SetUIData(gameObject, null, ref uiData.ui);
+            SetStudioData(gameObject, ref uiData.StudioData);
+            SetSpriteData($"{_END_POINT}/{_TEXTURE_RESOURCE_PATH}", gameObject, ref uiData.Textures,
+                ref uiData.SpriteSheets);
+            SetUIData(gameObject, null, ref uiData.UI);
             SaveJson(filePath, uiData);
         }
-        
+
         public static void ExportWithLocalPath(GameObject gameObject, string filePath)
         {
             if (!IsValid(gameObject)) return;
 
             UIData uiData = new();
-            SetStudioData(gameObject, ref uiData.studioData);
-            SetSpriteData($"{DEV_END_POINT}/{DEV_TEXTURE_RESOURCE_PATH}", gameObject, ref uiData.asset);
-            SetUIData(gameObject, null, ref uiData.ui);
+            SetStudioData(gameObject, ref uiData.StudioData);
+            SetSpriteData($"{DEV_END_POINT}/{DEV_TEXTURE_RESOURCE_PATH}", gameObject, ref uiData.Textures,
+                ref uiData.SpriteSheets);
+            SetUIData(gameObject, null, ref uiData.UI);
             SaveJson(filePath, uiData);
         }
 
@@ -55,11 +60,12 @@ namespace G2.Exporter
         {
             var canvasScaler = gameObject.GetComponent<UnityEngine.UI.CanvasScaler>();
             data.version = Application.version;
-            data.resolutionWidth = canvasScaler.referenceResolution.x;
-            data.resolutionHeight = canvasScaler.referenceResolution.y;
+            data.resolutionWidth = (uint)canvasScaler.referenceResolution.x;
+            data.resolutionHeight = (uint)canvasScaler.referenceResolution.y;
         }
 
-        private static void SetSpriteData(string textureFolderPath, GameObject gameObject, ref AssetData data)
+        private static void SetSpriteData(string textureFolderPath, GameObject gameObject,
+            ref Dictionary<string, ResourceData> textures, ref Dictionary<string, SpriteSheetData> spriteSheets)
         {
             var childCount = gameObject.transform.childCount;
             for (int i = 0; i < childCount; i++)
@@ -70,42 +76,59 @@ namespace G2.Exporter
                 {
                     var texture = imageComponent.mainTexture;
                     var sprite = imageComponent.sprite;
-                    data.resource ??= new Dictionary<string, ResourceData>();
-                    if (!data.resource.ContainsKey(texture.name))
+                    textures ??= new Dictionary<string, ResourceData>();
+                    if (!textures.ContainsKey(texture.name))
                     {
-                        data.resource.Add(texture.name, new ResourceData()
+                        textures.Add(texture.name, new ResourceData()
                         {
-                            name = texture.name,
-                            url = $"{textureFolderPath}/{texture.name}{UIConfig.PngExtension}",
+                            Name = texture.name,
+                            Url = $"{textureFolderPath}/{texture.name}{Config.FileExtensions.PNG}",
                             // url = $"{END_POINT}/{TEXTURE_RESOURCE_PATH}/{texture.name}{UIConfig.PngExtension}",
                         });
                     }
 
-                    data.sprite ??= new Dictionary<string, SpriteData>();
-                    if (!data.sprite.ContainsKey(sprite.name))
+                    spriteSheets ??= new Dictionary<string, SpriteSheetData>();
+                    if (!spriteSheets.ContainsKey(sprite.name))
                     {
                         var webCoordinatePivot = GetSpritePivot(sprite).ToReverseYAxis();
-                        data.sprite.Add(sprite.name, new SpriteData()
+                        spriteSheets.Add(sprite.name, new SpriteSheetData()
                         {
-                            name = sprite.name,
-                            textureId = texture.name,
-                            size = new[] { sprite.rect.width, sprite.rect.height },
-                            offset = new[] { sprite.rect.x, sprite.rect.y },
-                            border = new[] { sprite.border.x, sprite.border.y, sprite.border.z, sprite.border.w },
-                            pivot = new[] { webCoordinatePivot.x, webCoordinatePivot.y},
-                            pixelsPerUnit = sprite.pixelsPerUnit
+                            Name = sprite.name,
+                            TextureId = texture.name,
+                            CellSize = new[]
+                                { Mathf.RoundToInt(sprite.rect.width), Mathf.RoundToInt(sprite.rect.height) },
+                            Offset = new[] { Mathf.RoundToInt(sprite.rect.x), Mathf.RoundToInt(sprite.rect.y) },
+                            Border = sprite.border.ToIntArray(),
+                            Pivot = new[] { webCoordinatePivot.x, webCoordinatePivot.y },
+                            PixelsPerUnit = sprite.pixelsPerUnit,
+                            Multiple = GetSpriteMode(sprite) == SpriteImportMode.Multiple,
                         });
                     }
                 }
 
-                SetSpriteData(textureFolderPath, child.gameObject, ref data);
+                SetSpriteData(textureFolderPath, child.gameObject, ref textures, ref spriteSheets);
             }
-            
+
+            SpriteImportMode GetSpriteMode(Sprite sprite)
+            {
+                var spritePath = AssetDatabase.GetAssetPath(sprite);
+
+                var importer = AssetImporter.GetAtPath(spritePath) as TextureImporter;
+                if (importer == null)
+                {
+                    Debug.Log("[UIJsonExporter] Could not find the sprite sheet at the specified path.");
+                    return SpriteImportMode.None;
+                }
+
+                return importer.spriteImportMode;
+            }
+
             Vector2 GetSpritePivot(Sprite sprite)
             {
                 var pivotPoint = sprite.pivot;
                 var boundSize = sprite.bounds.size;
-                var calcPivot = new Vector2(pivotPoint.x / boundSize.x / sprite.pixelsPerUnit, pivotPoint.y / boundSize.y / sprite.pixelsPerUnit);
+                var calcPivot = new Vector2(pivotPoint.x / boundSize.x / sprite.pixelsPerUnit,
+                    pivotPoint.y / boundSize.y / sprite.pixelsPerUnit);
 
                 return new Vector2(calcPivot.x, calcPivot.y);
             }
@@ -132,38 +155,32 @@ namespace G2.Exporter
 
         private static T GetElement<T>(GameObject gameObject, string guid) where T : ElementData
         {
-            string typeName = GetTypeName(gameObject);
-
-            if (string.IsNullOrEmpty(typeName)) return null;
-
+            ElementType? elementType = GetElementType(gameObject);
+            if (elementType == null) return null;
+            
             var target = gameObject.GetComponent<RectTransform>();
 
-            switch (typeName)
+            switch (elementType)
             {
-                case UIConfig.FrameType:
+                case ElementType.Frame:
                     FrameData frameData = GetFrameData<FrameData>(target, guid);
-                    var dimComponent = target.Find(UIConfig.DimType);
+                    var dimComponent = target.Find(_DIM_TYPE);
                     if (dimComponent)
                     {
                         var image = dimComponent.GetComponent<UnityEngine.UI.Image>();
                         frameData.dim = image.color.a;
                         frameData.interactable = image.raycastTarget;
                     }
+
                     return frameData as T;
-                case UIConfig.ImageType:
+                case ElementType.Image:
                     var imageBackgroundComponent = target.GetComponent<UnityEngine.UI.Image>();
                     if (imageBackgroundComponent.sprite != null)
                         return null;
 
                     var imageComponent = target.GetChild(0).GetComponent<UnityEngine.UI.Image>();
                     ImageData imageData = GetFrameData<ImageData>(target, guid);
-                    var bgColor0To1 = TypeConverter.ToColor0To1(new float[]
-                    {
-                        imageBackgroundComponent.color.r,
-                        imageBackgroundComponent.color.g,
-                        imageBackgroundComponent.color.b,
-                        imageBackgroundComponent.color.a
-                    });
+                    var bgColor0To1 = imageBackgroundComponent.color.To01();
                     imageData.backgroundColor = new[]
                     {
                         bgColor0To1.r,
@@ -172,13 +189,7 @@ namespace G2.Exporter
                         bgColor0To1.a
                     };
 
-                    var imageColor0To1 = TypeConverter.ToColor0To1(new float[]
-                    {
-                        imageComponent.color.r,
-                        imageComponent.color.g,
-                        imageComponent.color.b,
-                        imageComponent.color.a
-                    });
+                    var imageColor0To1 = imageComponent.color.To01();
                     imageData.imageColor = new[]
                     {
                         imageColor0To1.r,
@@ -189,7 +200,7 @@ namespace G2.Exporter
                     imageData.spriteId = imageComponent.sprite.name;
                     imageData.interactable = imageComponent.raycastTarget;
                     return imageData as T;
-                case UIConfig.LabelType:
+                case ElementType.Label:
                     var textComponent = target.GetComponent<TextMeshProUGUI>();
                     LabelData labelData = GetFrameData<LabelData>(target, guid);
                     labelData.textAlignment = textComponent.alignment.ToString();
@@ -212,7 +223,7 @@ namespace G2.Exporter
                     labelData.text = textComponent.text;
                     labelData.interactable = textComponent.raycastTarget;
                     return labelData as T;
-                case UIConfig.ButtonType:
+                case ElementType.Button:
                     var eventTriggerComponent = target.GetComponent<EventTrigger>();
                     ButtonData buttonData = GetFrameData<ButtonData>(target, guid);
                     buttonData.events = new Dictionary<string, string>();
@@ -221,13 +232,11 @@ namespace G2.Exporter
                         string eventId = trigger.eventID.ToString();
                         buttonData.events.Add(eventId, eventId);
                     }
+
                     // buttonData.threshold = 0.0f;
                     return buttonData as T;
-                case UIConfig.DimType:
-                    InternalDebug.Log($"[UIJsonExporter] - {UIConfig.DimType} type is do nothing.");
-                    return null;
                 default:
-                    InternalDebug.LogError("[UIJsonExporter] - This type is not supported.");
+                    InternalDebug.Log("[UIJsonExporter] - This type is not supported.");
                     return null;
             }
 
@@ -240,7 +249,7 @@ namespace G2.Exporter
                 T data = new T()
                 {
                     name = target.name,
-                    type = typeName,
+                    type = elementType.ToString(),
                     parent = parent,
                     anchor = new[] { webCoordinateAnchor.x, webCoordinateAnchor.y },
                     pivot = new[] { webCoordinatePivot.x, webCoordinatePivot.y },
@@ -272,50 +281,48 @@ namespace G2.Exporter
                     visible = target.gameObject.activeSelf,
                     interactable = true,
                     sizeConstraint = FrameData.ConstraintType.XY,
-                    zIndex =  elementinfo.ZIndex
+                    zIndex = elementinfo.ZIndex
                 };
                 return data;
             }
         }
 
-        private static string GetTypeName(GameObject gameObject)
+        private static ElementType? GetElementType(GameObject gameObject)
         {
-            string typeName = string.Empty;
-
-            if (gameObject.name.Equals(UIConfig.DimType))
-            {
-                typeName = UIConfig.DimType;
-                return typeName;
-            }
-
-            if (gameObject.name.Equals(UIConfig.ImageSource))
-            {
-                return typeName;
-            }
+            // if (gameObject.name.Equals(UIConfig.DimType))
+            // {
+            //     typeName = UIConfig.DimType;
+            //     return typeName;
+            // }
+            //
+            // if (gameObject.name.Equals(UIConfig.ImageSource))
+            // {
+            //     return typeName;
+            // }
 
             var imageComponent = gameObject.GetComponent<UnityEngine.UI.Image>();
-            if (imageComponent != null && imageComponent.transform.childCount != 0)
+            if (imageComponent != null)
             {
-                typeName = UIConfig.ImageType;
-                return typeName;
+                if (imageComponent.transform.childCount != 0)
+                    return ElementType.Image;
+                
+                return null;
             }
+
 
             var textComponent = gameObject.GetComponent<TextMeshProUGUI>();
             if (textComponent != null)
             {
-                typeName = UIConfig.LabelType;
-                return typeName;
+                return ElementType.Label;
             }
 
             var buttonComponent = gameObject.GetComponent<EventTrigger>();
             if (buttonComponent != null)
             {
-                typeName = UIConfig.ButtonType;
-                return typeName;
+                return ElementType.Button;
             }
 
-            typeName = UIConfig.FrameType;
-            return typeName;
+            return ElementType.Frame;
         }
 
         private static bool IsValid(GameObject gameObject)

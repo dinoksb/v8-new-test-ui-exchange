@@ -48,9 +48,9 @@ public class Viewer : MonoBehaviour
         _uiService.RemoveAllListener();
     }
 
-    public async void LoadUI(string jsonData)
+    public async void LoadUI(string json)
     {
-        await _uiManager.LoadAsync(jsonData);
+        await _uiManager.LoadAsync("", json, default);
 
 #if UNITY_WEBGL && !UNITY_EDITOR
             _uiManager.Show(UICanvas);

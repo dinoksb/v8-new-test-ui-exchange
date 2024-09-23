@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using G2.Model.UI;
+using G2.UI.Elements;
 using G2.UI.Elements.Basic;
 using G2.UI.Elements.Interactive;
 using Newtonsoft.Json;
@@ -10,14 +11,9 @@ namespace G2.Converter
 {
     public class ElementDataConverter : JsonConverter
     {
-        private const string Type = "type";
-        [Obsolete]
-        private const string Children = "children";
+        private const string _TYPE = "type";
 
-        public static readonly JsonSerializerSettings SerializerSettings = new()
-        {
-            Converters = new List<JsonConverter> { new ElementDataConverter() }
-        };
+        public static readonly IList<JsonConverter> Converters = new List<JsonConverter> { new ElementDataConverter() };
         
         public override bool CanConvert(Type objectType)
         {
@@ -27,29 +23,29 @@ namespace G2.Converter
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             var jObject = JObject.Load(reader);
-            var type = (string)jObject[Type];
-            var instance = CreateInstance(type);
-            serializer.Populate(jObject.CreateReader(), instance);
+            var typeValue = (jObject[_TYPE] ?? throw new InvalidOperationException()).Value<string>();
 
-            return instance;
+            if (!Enum.TryParse(typeValue, ignoreCase: true, out ElementType type)) throw new NotSupportedException($"Unknown ElementData type: {typeValue}");
+            
+            var result = type switch
+            {
+                ElementType.Element => new ElementData(),
+                ElementType.Frame => new FrameData(),
+                ElementType.Image => new ImageData(),
+                ElementType.Label => new LabelData(),
+                ElementType.Button => new ButtonData(),
+                _ => throw new ArgumentOutOfRangeException()
+            };
+                
+            serializer.Populate(jObject.CreateReader(), result);
+            return result;
+
         }
         
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             var jToken = JToken.FromObject(value);
             jToken.WriteTo(writer);
-        }
-
-        private static ElementData CreateInstance(string type)
-        {
-            return type switch
-            {
-                nameof(Frame) => new FrameData(),
-                nameof(Image) => new ImageData(),
-                nameof(Label) => new LabelData(),
-                nameof(Button) => new ButtonData(),
-                _ => new ElementData()
-            };
         }
     }
 }

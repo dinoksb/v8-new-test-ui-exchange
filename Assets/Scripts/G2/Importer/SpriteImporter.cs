@@ -11,7 +11,7 @@ namespace G2.Importer
 {
     public static class SpriteImporter
     {
-        public static async UniTask<Dictionary<string, Sprite>> Import(Dictionary<string, ResourceData> textureDataDict, Dictionary<string, SpriteData> spriteDataDict, string saveFilePath, bool forceDownload = false)
+        public static async UniTask<Dictionary<string, Sprite>> Import(Dictionary<string, ResourceData> textureDataDict, Dictionary<string, SpriteSheetData> spriteDataDict, string saveFilePath, bool forceDownload = false)
         {
             var spriteDict = new Dictionary<string, Sprite>();
             var textureDict = new Dictionary<string, Texture2D>();
@@ -25,7 +25,7 @@ namespace G2.Importer
                 if(textureDict.ContainsKey(textureKey)) continue;
 
                 Texture2D texture = null;
-                if(CheckIsValidUri(textureValue.url))
+                if(CheckIsValidUri(textureValue.Url))
                     texture = await DownloadTexture(textureKey, saveFilePath, textureValue, forceDownload);
                 else
                     texture = DownloadTextureFromLocalPath(textureKey, textureValue, forceDownload);
@@ -41,7 +41,7 @@ namespace G2.Importer
                 
                 if(spriteDict.ContainsKey(spriteKey)) continue;
 
-                var texture = textureDict[spriteValue.textureId];
+                var texture = textureDict[spriteValue.TextureId];
                 var sprite = CreateSprite(texture, spriteValue);
                 spriteDict.Add(spriteKey, sprite);
             }
@@ -63,13 +63,13 @@ namespace G2.Importer
         
         private static async UniTask<Texture2D> DownloadTexture(string id, string saveFolderPath, ResourceData resourceData, bool forceDownload)
         {
-            var fileExtension = Path.GetExtension(resourceData.url).ToLower();
+            var fileExtension = Path.GetExtension(resourceData.Url).ToLower();
             var fileNameWithExtension = id + fileExtension;
             var filePath = Path.Combine(saveFolderPath, fileNameWithExtension);
 
             if (forceDownload || !File.Exists(filePath))
             {
-                using var www = UnityWebRequestTexture.GetTexture(resourceData.url);
+                using var www = UnityWebRequestTexture.GetTexture(resourceData.Url);
                 await www.SendWebRequest();
                 if (www.result != UnityWebRequest.Result.Success)
                 {
@@ -96,7 +96,7 @@ namespace G2.Importer
         
         private static Texture2D DownloadTextureFromLocalPath(string id, ResourceData resourceData, bool forceDownload)
         {
-            byte[] pngBytes = System.IO.File.ReadAllBytes(resourceData.url);
+            byte[] pngBytes = System.IO.File.ReadAllBytes(resourceData.Url);
             
             var texture = new Texture2D(2, 2);
             texture.name = id;
@@ -108,14 +108,14 @@ namespace G2.Importer
             return texture;
         }
         
-        private static Sprite CreateSprite(Texture2D texture, SpriteData spriteData)
+        private static Sprite CreateSprite(Texture2D texture, SpriteSheetData spriteSheetData)
         {
-            var offset = TypeConverter.ToVector2(spriteData.offset);
-            var size = TypeConverter.ToVector2(spriteData.size);
-            var border = TypeConverter.ToVector4(spriteData.border);
-            var pivot = TypeConverter.ToVector2(spriteData.pivot).ToReverseYAxis();
-            var pixelsPerUnit = spriteData.pixelsPerUnit;
-            var sprite = TypeConverter.ToSprite(texture, offset, size, border, pivot, spriteData.name, pixelsPerUnit);
+            var offset = TypeConverter.ToVector2(spriteSheetData.Offset);
+            var size = TypeConverter.ToVector2(spriteSheetData.CellSize);
+            var border = TypeConverter.ToVector4(spriteSheetData.Border);
+            var pivot = TypeConverter.ToVector2(spriteSheetData.Pivot).ToReverseYAxis();
+            var pixelsPerUnit = spriteSheetData.PixelsPerUnit;
+            var sprite = TypeConverter.ToSprite(texture, offset, size, border, pivot, pixelsPerUnit);
             return sprite;
         }
         

@@ -4,6 +4,15 @@ using G2.Model.UI;
 
 namespace G2.UI.Elements
 {
+    public enum ElementType
+    {
+        Element,
+        Frame,
+        Image,
+        Label,
+        Button
+    }
+    
     public interface IElement : IDisposable
     {
         public string Uid { get; }
