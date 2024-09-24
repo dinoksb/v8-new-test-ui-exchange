@@ -18,6 +18,7 @@ namespace G2.Manager
     public class UIManager : MonoBehaviour
     {
         private const string _ROOT_DIRECTORY = "UI";
+        private const string _INITIALIZE_UI_CANVAS = "INITIALIZE_UI_CANVAS";
 
         private JsonSerializerSettings _jsonSerializerSettings;
         private string _verseAddress;
@@ -27,7 +28,7 @@ namespace G2.Manager
         private readonly Dictionary<string, Sprite> _sprites = new();
         private readonly Dictionary<uint, Canvas> _zIndexContainer = new();
         private readonly List<IElement> _visibleElements = new();
-        private IElement _dontDestroyCanvas;
+        private Canvas _initializeCanvas;
 
         private IElement _currentFrontElement;
 
@@ -135,11 +136,11 @@ namespace G2.Manager
 
         public void Show(Canvas target)
         {
-            var childCount = _dontDestroyCanvas.Self.childCount;
+            var childCount = _initializeCanvas.transform.childCount;
 
             for (var i = 0; i < childCount; i++)
             {
-                _dontDestroyCanvas.Self.GetChild(0).SetParent(target.transform);
+                _initializeCanvas.transform.GetChild(0).SetParent(target.transform);
             }
 
             foreach (var (_, canvas) in _zIndexContainer)
@@ -228,18 +229,19 @@ namespace G2.Manager
             _elementsByUid.Clear();
             _zIndexContainer.Clear();
             _visibleElements.Clear();
-            if (_dontDestroyCanvas != null && _dontDestroyCanvas.Self != null)
+            if (_initializeCanvas != null && _initializeCanvas.transform != null)
             {
-                Destroy(_dontDestroyCanvas.Self.gameObject);
+                Destroy(_initializeCanvas.transform.gameObject);
             }
 
-            _dontDestroyCanvas = null;
+            _initializeCanvas = null;
             Resources.UnloadUnusedAssets();
             Debug.Log("ui element released");
         }
 
         private void BuildUI(Dictionary<string, ElementData> uis, Vector2 referenceResolution)
         {
+            _initializeCanvas ??= CreateCanvas(referenceResolution);
             foreach (var (key, element) in uis)
             {
                 if (_elementsByUid.ContainsKey(key)) continue;
@@ -258,27 +260,25 @@ namespace G2.Manager
         {
             if (!Enum.TryParse(data.type, ignoreCase: true, out ElementType type)) throw new ArgumentOutOfRangeException($"Invalid type: {data.type}");
             
-            var parent = GetParentFromElement(data.parent);
+            var parentElement = GetParentFromElement(data.parent);
+            var parentTransform = parentElement == null ? _initializeCanvas.transform : parentElement.Self;
             var zIndexParent = CreateZIndexContainer(data.zIndex);
             IElement element;
             switch (type)
             {
-                case ElementType.Element:
-                    element = ElementFactory.CreateElement(uid, parent, zIndexParent, data);
-                    break;
                 case ElementType.Frame:
-                    element = ElementFactory.CreateFrame(uid, parent, zIndexParent, (FrameData)data);
+                    element = ElementFactory.CreateFrame(uid, parentElement, zIndexParent, (FrameData)data);
                     break;
                 case ElementType.Image:
                     var imageData = (ImageData)data;
                     if (!_sprites.TryGetValue(imageData.spriteId, out var sprite)) throw new KeyNotFoundException($"Sprite with ID {imageData.spriteId} not found in the dictionary.");
-                    element = ElementFactory.CreateImage(uid, parent, zIndexParent, imageData, sprite);
+                    element = ElementFactory.CreateImage(uid, parentElement, zIndexParent, imageData, sprite);
                     break;
                 case ElementType.Label:
-                    element = ElementFactory.CreateLabel(uid, parent, zIndexParent, (LabelData)data, referenceResolution);
+                    element = ElementFactory.CreateLabel(uid, parentElement, zIndexParent, (LabelData)data, referenceResolution);
                     break;
                 case ElementType.Button:
-                    element = ElementFactory.CreateButton(uid, parent, zIndexParent, (ButtonData)data, OnEvent);
+                    element = ElementFactory.CreateButton(uid, parentElement, zIndexParent, (ButtonData)data, OnEvent);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException($"Unexpected ElementType: {type}");
@@ -288,10 +288,31 @@ namespace G2.Manager
             element.Visible = data.visible;
             return element;
         }
+        
+        private Canvas CreateCanvas(Vector2 canvasResolution)
+        {
+            var gameObject = new GameObject(_INITIALIZE_UI_CANVAS);
+
+            var canvas = gameObject.AddComponent<Canvas>();
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            canvas.vertexColorAlwaysGammaSpace = true;
+            canvas.additionalShaderChannels = AdditionalCanvasShaderChannels.None;
+
+            var canvasScaler = gameObject.AddComponent<CanvasScaler>();
+            canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            canvasScaler.referenceResolution = canvasResolution;
+            canvasScaler.referencePixelsPerUnit = 100;
+            canvasScaler.matchWidthOrHeight = 0.5f;
+
+            gameObject.AddComponent<GraphicRaycaster>();
+            gameObject.SetActive(false);
+            DontDestroyOnLoad(gameObject);
+            return canvas;
+        }
 
         private IElement GetParentFromElement(string id)
         {
-            return string.IsNullOrEmpty(id) ? _dontDestroyCanvas : GetElement(id);
+            return string.IsNullOrEmpty(id) ? null : GetElement(id);
         }
 
         private IElement GetElement(string id)
@@ -321,7 +342,7 @@ namespace G2.Manager
 
             // set rectTransform values
             var rectTransform = canvas.GetComponent<RectTransform>();
-            rectTransform.SetParent(_dontDestroyCanvas.Self);
+            rectTransform.SetParent(_initializeCanvas.transform);
             rectTransform.anchorMin = Vector2.zero;
             rectTransform.anchorMax = Vector2.one;
             rectTransform.offsetMin = Vector2.zero;

@@ -9,12 +9,6 @@ namespace G2.UI
 {
     public static class ElementFactory
     {
-        public static Element CreateElement(string uid, IElement parent, Transform zIndexParent, ElementData data)
-        {
-            var components = new ElementComponents(parent, zIndexParent, data.name);
-            return new Element(uid, data, components);
-        }
-
         public static Frame CreateFrame(string uid, IElement parent, Transform zIndexParent, FrameData data)
         {
             var components = new FrameComponents(parent, zIndexParent, data.name);
