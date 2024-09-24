@@ -1,23 +1,17 @@
+using G2.UI.Elements;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using G2.UI.Elements;
 
-namespace G2.UI
+namespace G2.UI.Component
 {
-    public class ButtonComponents : FrameComponents
+    public class ButtonComponents : UpdatableElementComponents
     {
         public EventTrigger EventTrigger { get; }
-        public new TransformLinkComponent TransformLinkComponent { get; }
         public NonDrawingGraphic NonDrawingGraphic { get; }
-
-        public ButtonComponents(IElement parent, Transform zIndexParent, string name) : base(parent, zIndexParent, name)
+        
+        public ButtonComponents(IElement parent, Transform parentTransform, Transform zIndexParent, string name) : base(parent, parentTransform, zIndexParent, name)
         {
-            RectTransform buttonRectTransform = Self;
-            if (zIndexParent)
-            {
-                buttonRectTransform = CreateUIElement(Self.name, zIndexParent, false);
-            }
-            TransformLinkComponent = buttonRectTransform.gameObject.AddComponent<TransformLinkComponent>();
+            RectTransform buttonRectTransform = ZIndexRectTransform;
             EventTrigger = buttonRectTransform.gameObject.AddComponent<EventTrigger>();
             NonDrawingGraphic = buttonRectTransform.gameObject.AddComponent<NonDrawingGraphic>();
         }

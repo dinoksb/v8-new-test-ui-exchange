@@ -5,44 +5,32 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using G2.Model.UI;
+using G2.UI.Component;
 using G2.UI.Elements.Basic;
 using Utilities;
 
 namespace G2.UI.Elements.Interactive
 {
-    public class Button : Frame
+    public class Button : UpdatableElement
     {
-        public override bool Interactable
-        {
-            get => _nonDrawingGraphic.raycastTarget;
-            set => _nonDrawingGraphic.raycastTarget = value;
-        }
-
-        private EventTrigger _eventTrigger;
-        private ReadOnlyDictionary<EventTriggerType, string> _events;
-
         private readonly Action<ulong, string, string, string> _action;
-
-        // private readonly Dictionary<EventTriggerType, float> _lastEventTimes = new();
-        private TransformLinkComponent _transformLink;
-        private NonDrawingGraphic _nonDrawingGraphic;
-
         private readonly List<Action<IElement>> _pointerEnterEvents = new();
         private readonly List<Action<IElement>> _pointerExitEvents = new();
         private readonly List<Action<IElement>> _pointerDownEvents = new();
         private readonly List<Action<IElement>> _pointerUpEvents = new();
+        private readonly List<Action<IElement>> _pointerDragEvents = new();
+        private readonly NonDrawingGraphic _nonDrawingGraphic;
+        
+        private EventTrigger _eventTrigger;
 
-        public ReadOnlyDictionary<EventTriggerType, string> Events
+        // private readonly Dictionary<EventTriggerType, float> _lastEventTimes = new();
+        private TransformLinkComponent _elementTransformLink;
+
+        public sealed override bool Interactable
         {
-            get => _events;
-            private set
-            {
-                _events = value;
-                UpdateEventTrigger(_events);
-            }
+            get => _nonDrawingGraphic.raycastTarget;
+            set => _nonDrawingGraphic.raycastTarget = value;
         }
-
-        // public float Threshold { get; }
 
         public Button(string uid, ButtonData data, ButtonComponents components,
             Action<ulong, string, string, string> action)
@@ -52,46 +40,30 @@ namespace G2.UI.Elements.Interactive
             _eventTrigger = components.EventTrigger;
             _nonDrawingGraphic = components.NonDrawingGraphic;
             Interactable = data.interactable;
-            _transformLink = components.TransformLinkComponent;
-            SetTransformLink(_transformLink);
+            _elementTransformLink = components.ElementTransformLinkComponent;
+            SetTransformLink(_elementTransformLink);
             SetEvents(data);
         }
 
-        public override IElement Copy(RectTransform self, IElement parent)
+        public override IElement Copy(RectTransform self, RectTransform parentRectTransform, IElement parentElement)
         {
-            var clone = (Button)base.Copy(self, parent);
+            var clone = (Button)base.Copy(self, parentRectTransform, parentElement);
             clone._eventTrigger = self.GetComponent<EventTrigger>();
-
-            var clonedEvents = new Dictionary<EventTriggerType, string>();
-            foreach (var (key, value) in _events)
+            if (_elementTransformLink)
             {
-                clonedEvents.Add(key, value);
+                clone._elementTransformLink = _elementTransformLink;
+                clone.SetTransformLink(clone._elementTransformLink);
             }
 
-            clone._events = new ReadOnlyDictionary<EventTriggerType, string>(clonedEvents);
-            clone.UpdateEventTrigger(_events);
-            if (_transformLink)
-            {
-                clone._transformLink = _transformLink;
-                clone.SetTransformLink(clone._transformLink);
-            }
-
-            clone.Parent.OnMoveFront += clone.MoveFront;
-            clone.Parent.AddVisibleChangedListener(clone._transformLink.SetVisible);
+            clone.Parent.AddVisibleChangedListener(clone._elementTransformLink.SetVisible);
 
             return clone;
-        }
-
-        public override void MoveFront()
-        {
-            _transformLink.Self.SetAsLastSibling();
-            base.MoveFront();
         }
 
         private void SetEvents(ButtonData data)
         {
             var e = new Dictionary<EventTriggerType, string>();
-            foreach (var (eventType, eventId) in data.events)
+            foreach (var (eventType, eventId) in data.Events)
             {
                 if (TypeConverter.TryEventTriggerType(eventType, out var type))
                 {
@@ -99,55 +71,12 @@ namespace G2.UI.Elements.Interactive
                 }
             }
 
-            Events = new ReadOnlyDictionary<EventTriggerType, string>(e);
-
-            if (!CheckIsCanvas(Parent))
-            {
-                Parent.OnMoveFront += MoveFront;
-                Parent.OnPositionUpdated += PositionChanged;
-                Parent.AddVisibleChangedListener(VisibleChanged);
-            }
+            if (Parent == null) return;
+            
+            Parent.OnPositionUpdated += PositionChanged;
+            Parent.AddVisibleChangedListener(VisibleChanged);
         }
 
-        private void UpdateEventTrigger(ReadOnlyDictionary<EventTriggerType, string> events)
-        {
-            // todo: 기존에 등록한 이벤트 트리거들 모두 제거됨... 추후 _eventTrigger.triggers.Clear() 로직 제거 필요할수도있음..
-            _eventTrigger.triggers.Clear();
-
-            foreach (var (eventType, eventId) in events)
-            {
-                var entry = _eventTrigger.triggers.FirstOrDefault(x => x.eventID == eventType);
-                if (entry != null)
-                {
-                    _eventTrigger.triggers.Remove(entry);
-                }
-
-                _eventTrigger.triggers.Add(CreateEntry(eventType, eventId));
-            }
-        }
-
-        private EventTrigger.Entry CreateEntry(EventTriggerType type, string eventId)
-        {
-            var entry = new EventTrigger.Entry
-            {
-                eventID = type
-            };
-
-            // _lastEventTimes[type] = 0;
-            entry.callback.AddListener(_ =>
-            {
-                // var diff = Time.time - _lastEventTimes[type];
-                // if (diff < Threshold)
-                // {
-                //     return;
-                // }
-
-                // _lastEventTimes[type] = Time.time;
-                //Todo: Network 로 이벤트 보낼 때 Name 으로 보내는게 맞을지 UID 로 보내는게 맞을지?
-                // _action?.Invoke(NetworkManager.Singleton.LocalClientId, Name, type.ToString(), eventId);
-            });
-            return entry;
-        }
 
         private EventTrigger.Entry CreateEntry(EventTriggerType type, List<Action<IElement>> eventActions)
         {
@@ -156,16 +85,8 @@ namespace G2.UI.Elements.Interactive
                 eventID = type
             };
 
-            // _lastEventTimes[type] = 0;
             entry.callback.AddListener(_ =>
             {
-                // var diff = Time.time - _lastEventTimes[type];
-                // if (diff < Threshold)
-                // {
-                //     return;
-                // }
-
-                // _lastEventTimes[type] = Time.time;
                 foreach (var eventAction in eventActions)
                 {
                     eventAction?.Invoke(this);
@@ -256,6 +177,27 @@ namespace G2.UI.Elements.Interactive
         public void RemoveAllPointerUpListener(Action<IElement> eventAction)
         {
             _pointerUpEvents.Clear();
+        }
+        
+        public void AddPointerDragListener(Action<IElement> eventAction)
+        {
+            var entry = _eventTrigger.triggers.FirstOrDefault(x => x.eventID == EventTriggerType.Drag);
+            if (entry == null)
+            {
+                _eventTrigger.triggers.Add(CreateEntry(EventTriggerType.Drag, _pointerDragEvents));
+            }
+
+            _pointerDragEvents.Add(eventAction);
+        }
+
+        public void RemovePointerDragListener(Action<IElement> eventAction)
+        {
+            _pointerDragEvents.Remove(eventAction);
+        }
+
+        public void RemoveAllPointerDragListener(Action<IElement> eventAction)
+        {
+            _pointerDragEvents.Clear();
         }
     }
 }

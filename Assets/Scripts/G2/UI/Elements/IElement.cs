@@ -6,7 +6,6 @@ namespace G2.UI.Elements
 {
     public enum ElementType
     {
-        Element,
         Frame,
         Image,
         Label,
@@ -25,13 +24,11 @@ namespace G2.UI.Elements
         public bool Visible { get; set; }
         public IElement Parent { get; }
         public uint ZIndex { get; }
-        public IElement Copy(RectTransform self, IElement parent);
+        public IElement Copy(RectTransform self, RectTransform parentRectTransform, IElement parentElement);
         public void Update(ElementData data);
         internal event EventHandler<Vector2> OnSizeUpdated;
         internal event EventHandler<Vector2> OnPositionUpdated;
         internal event EventHandler<float> OnRotationUpdated;
-        internal event Action OnMoveFront;
-        internal void MoveFront();
         internal void AddVisibleChangedListener(Action<IElement> action);
         internal void RemoveVisibleChangedListener(Action<IElement> action);
         internal void RemoveAllVisibleChangedListener();

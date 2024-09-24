@@ -1,0 +1,428 @@
+{
+  "studioData": {
+    "version": "1.0",
+    "resolutionWidth": 1920,
+    "resolutionHeight": 1080
+  },
+  "textures": {
+    "icon_settings_grayscale": {
+      "name": "icon_settings_grayscale",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/icon_settings_grayscale.png"
+    },
+    "ability_background": {
+      "name": "ability_background",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/ability_background.png"
+    },
+    "circle_mask": {
+      "name": "circle_mask",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/circle_mask.png"
+    }
+  },
+  "spriteSheets": {
+    "icon_settings_grayscale": {
+      "name": "icon_settings_grayscale",
+      "textureId": "icon_settings_grayscale",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        933,
+        935
+      ],
+      "border": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "ability_background": {
+      "name": "ability_background",
+      "textureId": "ability_background",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        1024,
+        1024
+      ],
+      "border": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "circle_mask": {
+      "name": "circle_mask",
+      "textureId": "circle_mask",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        512,
+        512
+      ],
+      "border": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    }
+  },
+  "ui": {
+    "c594c06f-3a82-449e-9d57-090d70503473": {
+      "events": {
+        "PointerDown": "PointerDown"
+      },
+      "interactable": true,
+      "sizeConstraint": 1,
+      "dim": 0.0,
+      "name": "SettingButton",
+      "type": "Button",
+      "parent": null,
+      "anchor": [
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        1.0,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -50.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -50.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "c4747e70-6388-43a1-a8a1-251cd8f18743": {
+      "spriteId": "icon_settings_grayscale",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": 1,
+      "dim": 0.0,
+      "name": "SettingButtonImage",
+      "type": "Image",
+      "parent": "c594c06f-3a82-449e-9d57-090d70503473",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "ff960da8-b6ce-4ebc-a2ac-bdd195cc06fc": {
+      "interactable": true,
+      "sizeConstraint": 1,
+      "dim": 0.0,
+      "name": "Slider",
+      "type": "Frame",
+      "parent": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 1
+    },
+    "7e10f394-b0be-4ab5-8e00-121bd79454b6": {
+      "spriteId": "ability_background",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": 1,
+      "dim": 0.0,
+      "name": "Background",
+      "type": "Image",
+      "parent": "ff960da8-b6ce-4ebc-a2ac-bdd195cc06fc",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 24.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 1
+    },
+    "c7371ce6-5a19-4c57-82a3-717a853e6075": {
+      "spriteId": "ability_background",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        0.110062778,
+        0.110062778,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": 1,
+      "dim": 0.0,
+      "name": "Fill",
+      "type": "Image",
+      "parent": "ff960da8-b6ce-4ebc-a2ac-bdd195cc06fc",
+      "anchor": [
+        0.0,
+        0.5
+      ],
+      "pivot": [
+        0.0,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 25.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 1
+    },
+    "c35da973-c37c-4e59-91c7-151c4112443c": {
+      "events": {
+        "Drag": "Drag"
+      },
+      "interactable": true,
+      "sizeConstraint": 1,
+      "dim": 0.0,
+      "name": "HandleButton",
+      "type": "Button",
+      "parent": "ff960da8-b6ce-4ebc-a2ac-bdd195cc06fc",
+      "anchor": [
+        0.0,
+        0.5
+      ],
+      "pivot": [
+        0.0,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -15.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 30.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 1
+    },
+    "cb82275d-e2f9-425e-bd1c-ac2a9e3444eb": {
+      "spriteId": "circle_mask",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": 1,
+      "dim": 0.0,
+      "name": "Handle",
+      "type": "Image",
+      "parent": "c35da973-c37c-4e59-91c7-151c4112443c",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 30.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 1
+    }
+  }
+}

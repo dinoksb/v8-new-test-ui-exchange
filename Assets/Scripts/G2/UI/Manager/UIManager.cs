@@ -7,9 +7,11 @@ using Cysharp.Threading.Tasks;
 using G2.Converter;
 using G2.Model.UI;
 using G2.UI;
+using G2.UI.Component;
 using G2.UI.Elements;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Utilities;
 
@@ -17,8 +19,20 @@ namespace G2.Manager
 {
     public class UIManager : MonoBehaviour
     {
+        private class ElementWithTransformLink
+        {
+            public IElement Element;
+            public TransformLinkComponent TransformLinkComponent;
+
+            public ElementWithTransformLink(IElement element, TransformLinkComponent transformLinkComponent)
+            {
+                Element = element;
+                TransformLinkComponent = transformLinkComponent;
+            }
+        }
+        
         private const string _ROOT_DIRECTORY = "UI";
-        private const string _INITIALIZE_UI_CANVAS = "INITIALIZE_UI_CANVAS";
+        private const string _ROOT_GAME_OBJECT_NAME = "UI";
 
         private JsonSerializerSettings _jsonSerializerSettings;
         private string _verseAddress;
@@ -26,11 +40,13 @@ namespace G2.Manager
         private readonly Dictionary<string, IElement> _elementsByUid = new();
         private readonly Dictionary<string, List<IElement>> _elementsByName = new();
         private readonly Dictionary<string, Sprite> _sprites = new();
-        private readonly Dictionary<uint, Canvas> _zIndexContainer = new();
+        private readonly Dictionary<uint, Canvas> _zIndexCanvases = new();
         private readonly List<IElement> _visibleElements = new();
-        private Canvas _initializeCanvas;
+        private readonly List<ElementWithTransformLink> _rootFrames = new();
+        private GameObject _canvasGameObject;
 
-        private IElement _currentFrontElement;
+
+        private IElement _cachedMoveFrontElement;
 
         private string RootPath => Path.Combine(Application.persistentDataPath, _verseAddress, _ROOT_DIRECTORY);
 
@@ -38,17 +54,19 @@ namespace G2.Manager
         {
         }
 
-        public IReadOnlyDictionary<string, IElement> GetElements()
-        {
-            return _elementsByUid;
-        }
-        
         private void Awake()
         {
             _jsonSerializerSettings = new JsonSerializerSettings
             {
                 Converters = new List<JsonConverter>(ElementDataConverter.Converters)
             };
+        }
+
+        #region IUIManager
+
+        public IReadOnlyDictionary<string, IElement> GetElements()
+        {
+            return _elementsByUid;
         }
 
         public async UniTask<bool> LoadAsync(string verseAddress, string json, bool forceResourceDownload = false, CancellationToken cancellationToken = default)
@@ -134,16 +152,24 @@ namespace G2.Manager
             return true;
         }
 
-        public void Show(Canvas target)
+        public void Show(Transform parent = null)
         {
-            var childCount = _initializeCanvas.transform.childCount;
+            if (_canvasGameObject == null) return;
 
-            for (var i = 0; i < childCount; i++)
+            _canvasGameObject.SetActive(true);
+            if (parent == null)
             {
-                _initializeCanvas.transform.GetChild(0).SetParent(target.transform);
+                _canvasGameObject.transform.SetParent(null, false);
+                SceneManager.MoveGameObjectToScene(_canvasGameObject, SceneManager.GetActiveScene());
+            }
+            else
+            {
+                _canvasGameObject.transform.SetParent(parent, false);
             }
 
-            foreach (var (_, canvas) in _zIndexContainer)
+            _canvasGameObject = null;
+
+            foreach (var (_, canvas) in _zIndexCanvases)
             {
                 canvas.overrideSorting = true;
             }
@@ -167,7 +193,7 @@ namespace G2.Manager
             {
                 return typedElement;
             }
-            
+
             Debug.Log($"[{uid}]: element exists but is not of type {typeof(T).Name}.");
             return null;
         }
@@ -180,134 +206,150 @@ namespace G2.Manager
         // A function that sets a specific object to the top among objects with the same z-index.
         public void MoveToFront(IElement element)
         {
-            _currentFrontElement = element;
-            _currentFrontElement.MoveFront();
+            if (!element.Self) return;
+            if (_cachedMoveFrontElement == element) return;
+            
+            var visualTransformLinkCompoenents = element.Self.GetComponentsInChildren<TransformLinkComponent>();
+            foreach (var visualTransform in visualTransformLinkCompoenents)
+            {
+                visualTransform.Target.SetAsLastSibling();
+            }
+            _cachedMoveFrontElement = element;
         }
 
+        // Todo: If the user generates UI Data without a Frame Type, there is a potential for issues. Verification is required.
         public IElement GetFrontFrame()
         {
-            if (_currentFrontElement is { Visible: true })
+            if (_rootFrames.Count == 0)
             {
-                return GetRootElement(_currentFrontElement);
+                Debug.Log("[UIManager] GetFrontFrame: Frame element does not exist!!");
+                return null;
             }
+            
+            IElement highestElement = null;
+            int highestIndex = -1;
 
-            var highestZIndex = uint.MinValue;
-            IElement elementWithHighestZIndex = null;
-
-            foreach (var element in _visibleElements)
+            foreach (var frameData in _rootFrames)
             {
-                if (element.ZIndex < highestZIndex) continue;
-                highestZIndex = element.ZIndex;
-                elementWithHighestZIndex = element;
+                if(!frameData.Element.Visible) continue;
+                
+                int siblingIndex = frameData.TransformLinkComponent.Target.GetSiblingIndex();
+                if (siblingIndex > highestIndex)
+                {
+                    highestIndex = siblingIndex;
+                    highestElement = frameData.Element;
+                }
             }
-
-            return GetRootElement(elementWithHighestZIndex);
-        }
-
-        public void Delete(string uid)
-        {
-            if (_elementsByUid == null) return;
-            if (_elementsByUid.Count == 0) return;
-
-            _elementsByUid.Remove(uid);
-            Debug.Log($"[{uid}]: element deleted.");
+            return highestElement;
         }
 
         public void Release()
         {
             foreach (var (_, sprite) in _sprites)
             {
-                Destroy(sprite);
+                SpriteManager.OnSpriteUnused(sprite);
             }
 
-            foreach (var (_, ui) in _elementsByUid)
+            foreach (var (_, element) in _elementsByUid)
             {
-                if (ui.Self) Destroy(ui.Self.gameObject);
+                if (element.Self) Destroy(element.Self.gameObject);
             }
 
             _sprites.Clear();
             _elementsByUid.Clear();
-            _zIndexContainer.Clear();
+            _elementsByName.Clear();
+            _zIndexCanvases.Clear();
             _visibleElements.Clear();
-            if (_initializeCanvas != null && _initializeCanvas.transform != null)
+            if (_canvasGameObject != null)
             {
-                Destroy(_initializeCanvas.transform.gameObject);
+                Destroy(_canvasGameObject);
+                _canvasGameObject = null;
             }
 
-            _initializeCanvas = null;
             Resources.UnloadUnusedAssets();
-            Debug.Log("ui element released");
         }
+
+        #endregion
 
         private void BuildUI(Dictionary<string, ElementData> uis, Vector2 referenceResolution)
         {
-            _initializeCanvas ??= CreateCanvas(referenceResolution);
+            if (_canvasGameObject == null)
+            {
+                _canvasGameObject = CreateCanvasGameObject(referenceResolution);
+                _canvasGameObject.transform.SetParent(gameObject.transform, false);
+            }
+
             foreach (var (key, element) in uis)
             {
                 if (_elementsByUid.ContainsKey(key)) continue;
-                var instance = CreateElement(key, element, referenceResolution);
+                if (!Enum.TryParse(element.Type, ignoreCase: true, out ElementType type)) throw new ArgumentOutOfRangeException($"Invalid type: {element.Type}");
+                
+                var instance = CreateElement(key, element, type, referenceResolution);
                 _elementsByUid.Add(key, instance);
-                var elementName = element.name;
+                var elementName = element.Name;
                 if (!_elementsByName.ContainsKey(elementName))
                 {
                     _elementsByName.Add(elementName, new List<IElement>());
                 }
                 _elementsByName[elementName].Add(instance);
+
+                // Only the top-level elements of the Frame type are added.
+                if (type == ElementType.Frame && instance.Parent == null)
+                {
+                    var transformLink = instance.Self.GetComponent<TransformLinkComponent>();
+                    _rootFrames.Add(new ElementWithTransformLink(instance, transformLink));
+                }
             }
+            _rootFrames.Sort((elementX, elementY) => elementY.Element.ZIndex.CompareTo(elementX.Element.ZIndex));
         }
 
-        private IElement CreateElement(string uid, ElementData data, Vector2 referenceResolution)
+        private IElement CreateElement(string uid, ElementData data, ElementType type, Vector2 referenceResolution)
         {
-            if (!Enum.TryParse(data.type, ignoreCase: true, out ElementType type)) throw new ArgumentOutOfRangeException($"Invalid type: {data.type}");
-            
-            var parentElement = GetParentFromElement(data.parent);
-            var parentTransform = parentElement == null ? _initializeCanvas.transform : parentElement.Self;
-            var zIndexParent = CreateZIndexContainer(data.zIndex);
+            var parentElement = GetParentFromElement(data.Parent);
+            var parentTransform = parentElement == null ? _canvasGameObject.transform : parentElement.Self;
+            var zIndexCanvasTransform = CreateZIndexCanvas(data.ZIndex);
             IElement element;
             switch (type)
             {
                 case ElementType.Frame:
-                    element = ElementFactory.CreateFrame(uid, parentElement, zIndexParent, (FrameData)data);
+                    element = ElementFactory.CreateFrame(uid, parentElement, parentTransform, zIndexCanvasTransform, (FrameData)data);
                     break;
                 case ElementType.Image:
                     var imageData = (ImageData)data;
                     if (!_sprites.TryGetValue(imageData.spriteId, out var sprite)) throw new KeyNotFoundException($"Sprite with ID {imageData.spriteId} not found in the dictionary.");
-                    element = ElementFactory.CreateImage(uid, parentElement, zIndexParent, imageData, sprite);
+                    element = ElementFactory.CreateImage(uid, parentElement, parentTransform, zIndexCanvasTransform, imageData, sprite);
                     break;
                 case ElementType.Label:
-                    element = ElementFactory.CreateLabel(uid, parentElement, zIndexParent, (LabelData)data, referenceResolution);
+                    element = ElementFactory.CreateLabel(uid, parentElement, parentTransform, zIndexCanvasTransform, (LabelData)data, referenceResolution);
                     break;
                 case ElementType.Button:
-                    element = ElementFactory.CreateButton(uid, parentElement, zIndexParent, (ButtonData)data, OnEvent);
+                    element = ElementFactory.CreateButton(uid, parentElement, parentTransform, zIndexCanvasTransform, (ButtonData)data, OnEvent);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException($"Unexpected ElementType: {type}");
             }
-            
-            element.AddVisibleChangedListener(OnVisibleChangeListener);
-            element.Visible = data.visible;
+            element.Visible = data.Visible;
             return element;
         }
-        
-        private Canvas CreateCanvas(Vector2 canvasResolution)
-        {
-            var gameObject = new GameObject(_INITIALIZE_UI_CANVAS);
 
-            var canvas = gameObject.AddComponent<Canvas>();
+        private static GameObject CreateCanvasGameObject(Vector2 canvasResolution)
+        {
+            var go = new GameObject(_ROOT_GAME_OBJECT_NAME);
+
+            var canvas = go.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             canvas.vertexColorAlwaysGammaSpace = true;
             canvas.additionalShaderChannels = AdditionalCanvasShaderChannels.None;
 
-            var canvasScaler = gameObject.AddComponent<CanvasScaler>();
+            var canvasScaler = go.AddComponent<CanvasScaler>();
             canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            canvasScaler.referenceResolution = canvasResolution;
+            canvasScaler.referenceResolution = new Vector2(Screen.width, Screen.height);
             canvasScaler.referencePixelsPerUnit = 100;
             canvasScaler.matchWidthOrHeight = 0.5f;
-
-            gameObject.AddComponent<GraphicRaycaster>();
-            gameObject.SetActive(false);
-            DontDestroyOnLoad(gameObject);
-            return canvas;
+            
+            go.AddComponent<GraphicRaycaster>();
+            go.SetActive(true);
+            return go;
         }
 
         private IElement GetParentFromElement(string id)
@@ -320,9 +362,9 @@ namespace G2.Manager
             return _elementsByUid.GetValueOrDefault(id);
         }
 
-        private Transform CreateZIndexContainer(uint zIndex)
+        private Transform CreateZIndexCanvas(uint zIndex)
         {
-            if (_zIndexContainer.TryGetValue(zIndex, out var container))
+            if (_zIndexCanvases.TryGetValue(zIndex, out var container))
             {
                 return container.transform;
             }
@@ -340,9 +382,11 @@ namespace G2.Manager
             // add graphicRaycaster
             go.AddComponent<GraphicRaycaster>();
 
+            go.AddComponent<CanvasScaler>();
+
             // set rectTransform values
             var rectTransform = canvas.GetComponent<RectTransform>();
-            rectTransform.SetParent(_initializeCanvas.transform);
+            rectTransform.SetParent(_canvasGameObject.transform);
             rectTransform.anchorMin = Vector2.zero;
             rectTransform.anchorMax = Vector2.one;
             rectTransform.offsetMin = Vector2.zero;
@@ -350,7 +394,7 @@ namespace G2.Manager
             rectTransform.localPosition = Vector3.zero;
             rectTransform.localRotation = Quaternion.identity;
             rectTransform.localScale = Vector3.one;
-            _zIndexContainer.Add(zIndex, canvas);
+            _zIndexCanvases.Add(zIndex, canvas);
             return rectTransform;
         }
 

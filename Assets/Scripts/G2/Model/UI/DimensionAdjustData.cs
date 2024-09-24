@@ -1,5 +1,6 @@
 using System;
 using Newtonsoft.Json;
+using UnityEngine.Serialization;
 
 namespace G2.Model.UI
 {
@@ -7,15 +8,15 @@ namespace G2.Model.UI
     public struct DimensionAdjustData
     {
         [JsonProperty("scale", Required = Required.Default)]
-        public float scale;
+        public float Scale;
 
         [JsonProperty("offset", Required = Required.Default)]
-        public float offset;
+        public float Offset;
 
         public DimensionAdjustData(float scale, float offset)
         {
-            this.scale = Math.Clamp(scale, 0, 1);
-            this.offset = offset;
+            Scale = Math.Clamp(scale, 0, 1);
+            Offset = offset;
         }
     }
 }

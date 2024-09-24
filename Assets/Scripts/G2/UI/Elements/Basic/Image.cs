@@ -1,16 +1,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using G2.Model.UI;
+using G2.UI.Component;
 using Utilities;
 
 namespace G2.UI.Elements.Basic
 {
-    // Todo: source Image 변경 기능 및 Raise Event 기능 추가
-    // Todo: source Image Release 기능 추가
-    public class Image : Frame
+    // Todo: Add source image change functionality and raise event functionality.
+    // Todo: Add source image release functionality.
+    public class Image : UpdatableElement
     {
-        private const string _IMAGE_SOURCE_NAME = "SourceImage";
+        private readonly UnityEngine.UI.Image _backgroundImage;
+        private readonly List<ColorChangeEventAction> _backgroundColorChangeEvents = new();
+        private readonly List<ColorChangeEventAction> _sourceColorChangeEvents = new();
+        private readonly List<SourceChangeEventAction> _sourceChangeEvents = new();
         
+        private UnityEngine.UI.Image _image;
+        private TransformLinkComponent _elementTransformLink;
+
+        public delegate void ColorChangeEventAction(IElement element, Color prevColor, Color newColor);
+
+        public delegate void SourceChangeEventAction(IElement element, string prevUrl, string newUrl);
+
         public override bool Interactable
         {
             get => _image.raycastTarget;
@@ -20,21 +31,8 @@ namespace G2.UI.Elements.Basic
                 _image.raycastTarget = value;
             }
         }
-
-        private UnityEngine.UI.Image _backgroundImage;
-        private UnityEngine.UI.Image _image;
-        private TransformLinkComponent _transformLink;
-
-        //Todo: Lazy 초기화가 필요할지 고민필요...
-        private readonly List<ColorChanageEventAction> _backgroundColorChangeEvents = new();
-        private readonly List<ColorChanageEventAction> _sourceColorChangeEvents = new();
-        private readonly List<SorceChangeEventAction> _sourceChangeEvents = new();
-
-        public delegate void ColorChanageEventAction(IElement element, Color prevColor, Color newColor);
-
-        public delegate void SorceChangeEventAction(IElement element, string prevUrl, string newUrl);
-
-        public Color BackgroudColor
+        
+        public Color BackgroundColor
         {
             get => _backgroundImage.color;
             set
@@ -62,32 +60,30 @@ namespace G2.UI.Elements.Basic
             }
         }
 
-        public Image(string uid, ImageData data, ImageComponents components, Sprite sprite) : base(uid, data,
-            components)
+        public Image(string uid, ImageData data, ImageComponents components, Sprite sprite) : base(uid, data, components)
         {
             _backgroundImage = components.BackGroundImage;
             _image = components.Image;
             _image.type = UnityEngine.UI.Image.Type.Sliced;
             _image.sprite = sprite;
-            _transformLink = components.TransformLinkComponent;
-            SetTransformLink(_transformLink);
+            _elementTransformLink = components.ElementTransformLinkComponent;
+            SetTransformLink(_elementTransformLink);
             SetEvents();
             SetValues(data);
         }
 
-        public override IElement Copy(RectTransform self, IElement parent)
+        public override IElement Copy(RectTransform self, RectTransform parentRectTransform, IElement parentElement)
         {
-            // todo: image 에서 sourceImage 를 이름으로 찾는것이 아니라 sourceImage 라는 컴포넌트를 붙여서 찾는 방식으로 수정
-            var clone = (Image)base.Copy(self, parent);
-            var childSelf = GetChildSelf(self, _IMAGE_SOURCE_NAME);
-            clone._image = childSelf.GetComponent<UnityEngine.UI.Image>();
-            if (_transformLink)
+            // todo: Modify it so that instead of finding the sourceImage in the image by its name, it finds it by attaching a component called sourceImage.
+            var clone = (Image)base.Copy(self, parentRectTransform, parentElement);
+            var sourceImageTracker = _elementTransformLink.Self.GetComponentInChildren<SourceImageTrackerComponent>();
+            clone._image = sourceImageTracker.SourceImage;
+            if (_elementTransformLink)
             {
-                clone._transformLink = _transformLink;
-                clone.SetTransformLink(clone._transformLink);
+                clone._elementTransformLink = _elementTransformLink;
+                clone.SetTransformLink(clone._elementTransformLink);
             }
 
-            clone.Parent.OnMoveFront += clone.MoveFront;
             return clone;
         }
 
@@ -98,15 +94,9 @@ namespace G2.UI.Elements.Basic
             SetValues(imageData);
         }
 
-        public override void MoveFront()
-        {
-            _transformLink.Self.SetAsLastSibling();
-            base.MoveFront();
-        }
-
         private void SetValues(ImageData data)
         {
-            BackgroudColor = TypeConverter.ToColor(data.backgroundColor);
+            BackgroundColor = TypeConverter.ToColor(data.backgroundColor);
             ImageColor = TypeConverter.ToColor(data.imageColor);
             Interactable = data.interactable;
         }
@@ -114,19 +104,18 @@ namespace G2.UI.Elements.Basic
 
         private void SetEvents()
         {
-            if (CheckIsCanvas(Parent)) return;
-            
-            Parent.OnMoveFront += MoveFront;
+            if (Parent == null) return;
+
             Parent.OnPositionUpdated += PositionChanged;
             Parent.AddVisibleChangedListener(VisibleChanged);
         }
 
-        public void AddBackgroundColorChangedListener(ColorChanageEventAction eventAction)
+        public void AddBackgroundColorChangedListener(ColorChangeEventAction eventAction)
         {
             _backgroundColorChangeEvents.Add(eventAction);
         }
 
-        public void RemoveBackgroundColorChangedListener(ColorChanageEventAction eventAction)
+        public void RemoveBackgroundColorChangedListener(ColorChangeEventAction eventAction)
         {
             _backgroundColorChangeEvents.Remove(eventAction);
         }
@@ -136,12 +125,12 @@ namespace G2.UI.Elements.Basic
             _backgroundColorChangeEvents.Clear();
         }
 
-        public void AddSorceColorChangedListener(ColorChanageEventAction eventAction)
+        public void AddSourceColorChangedListener(ColorChangeEventAction eventAction)
         {
             _sourceColorChangeEvents.Add(eventAction);
         }
 
-        public void RemoveSourceColorChangedListener(ColorChanageEventAction eventAction)
+        public void RemoveSourceColorChangedListener(ColorChangeEventAction eventAction)
         {
             _sourceColorChangeEvents.Remove(eventAction);
         }
@@ -151,12 +140,12 @@ namespace G2.UI.Elements.Basic
             _sourceColorChangeEvents.Clear();
         }
 
-        public void AddSorceChangedListener(SorceChangeEventAction eventAction)
+        public void AddSourceChangedListener(SourceChangeEventAction eventAction)
         {
             _sourceChangeEvents.Add(eventAction);
         }
 
-        public void RemoveSourceChangedListener(SorceChangeEventAction eventAction)
+        public void RemoveSourceChangedListener(SourceChangeEventAction eventAction)
         {
             _sourceChangeEvents.Remove(eventAction);
         }

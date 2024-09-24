@@ -1,19 +1,24 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using G2.Model.UI;
-using G2.Service;
+using G2.UI.Component;
+using UnityEngine;
 using Utilities;
 
 namespace G2.UI.Elements.Basic
 {
-    public class Element : IElement
+    public abstract class Element : IElement
     {
         public string Uid { get; }
         public string Name { get; }
         public string Type { get; }
+        public uint ZIndex { get; }
 
+        public IElement Parent { get; private set; }
+        
         public RectTransform Self { get; private set; }
+        
+        public RectTransform ParentRectTransform { get; private set; }
 
         public Vector2 Anchor
         {
@@ -107,40 +112,24 @@ namespace G2.UI.Elements.Basic
             remove => _onRotationUpdatedCore -= value;
         }
 
-        event Action IElement.OnMoveFront
-        {
-            add => _onMoveFrontCore += value;
-            remove => _onMoveFrontCore -= value;
-        }
-
         private event EventHandler<Vector2> _onSizeUpdatedCore;
         private event EventHandler<Vector2> _onPositionUpdatedCore; 
         private event EventHandler<float> _onRotationUpdatedCore; 
-        private event Action _onMoveFrontCore; 
-        
-        public IElement Parent { get; private set; }
-        
-        public uint ZIndex { get; }
-
-        private IUIService _uiService;
 
         protected readonly List<Action<IElement>> _visibleChangedActions = new();
         protected readonly List<Action<IElement>> _positionChangeActions = new();
         protected readonly List<Action<IElement>> _rotationChangeActions = new();
         protected readonly List<Action<IElement>> _sizeChangeActions = new();
 
-        public Element(string uid, ElementData data, ElementComponents components)
+        protected Element(string uid, ElementData data, ElementComponents components)
         {
-            // todo: 추후 DI 로 주입 해야함.
-            _uiService = GameObject.FindObjectOfType<UIService>();
-            _uiService.OnCreated(this);
-            
             Uid = uid;
-            Name = data.name;
-            Type = data.type;
-            ZIndex = data.zIndex;
+            Name = data.Name;
+            Type = data.Type;
+            ZIndex = data.ZIndex;
             Self = components.Self;
             Parent = components.Parent;
+            ParentRectTransform = components.ParentRectTransform;
             SetValues(data);
         }
 
@@ -149,14 +138,14 @@ namespace G2.UI.Elements.Basic
             _onSizeUpdatedCore = null;
             _onPositionUpdatedCore = null;
             _onRotationUpdatedCore = null;
-            _onMoveFrontCore = null;
         }
 
-        public virtual IElement Copy(RectTransform self, IElement parent)
+        public virtual IElement Copy(RectTransform self, RectTransform parentRectTransform, IElement parentElement)
         {
             var clone = (Element)MemberwiseClone();
             clone.Self = self;
-            clone.Parent = parent;
+            clone.Parent = parentElement;
+            clone.ParentRectTransform = parentRectTransform;
 
             return clone;
         }
@@ -165,46 +154,16 @@ namespace G2.UI.Elements.Basic
         public virtual void Update(ElementData data)
         {
             SetValues(data);
-            Visible = data.visible;
-        }
-
-        public virtual void MoveFront()
-        {
-            _onMoveFrontCore?.Invoke();
-        }
-
-        protected static RectTransform GetChildSelf(Transform targetSelf, string id)
-        {
-            for (var i = 0; i < targetSelf.childCount; i++)
-            {
-                var newChild = targetSelf.GetChild(i);
-                if (newChild.name == id)
-                {
-                    return newChild.GetComponent<RectTransform>();
-                }
-            }
-
-            throw new Exception($"No child with ID '{id}' found under {targetSelf.name}.");
-        }
-
-        protected bool CheckIsCanvas(IElement element)
-        {
-            return element.Type == nameof(Canvas);
+            Visible = data.Visible;
         }
 
         private void SetValues(ElementData data)
         {
-            Anchor = TypeConverter.ToVector2(data.anchor).ToReverseYAxis();
-            Pivot = TypeConverter.ToVector2(data.pivot).ToReverseYAxis();
+            Anchor = TypeConverter.ToVector2(data.Anchor).ToReverseYAxis();
+            Pivot = TypeConverter.ToVector2(data.Pivot).ToReverseYAxis();
         }
 
         # region internal events
-
-        void IElement.MoveFront()
-        {
-            MoveFront();
-        }
-
         void IElement.AddVisibleChangedListener(Action<IElement> action)
         {
             _visibleChangedActions.Add(action);

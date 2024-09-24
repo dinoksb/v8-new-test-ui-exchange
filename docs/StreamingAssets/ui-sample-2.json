@@ -1,0 +1,3433 @@
+{
+    "studioData":
+    {
+        "version": "1.0",
+        "resolutionWidth": 1920.0,
+        "resolutionHeight": 1080.0
+    },
+    "textures":
+    {
+        "square_button_neutral":
+        {
+            "name": "square_button_neutral",
+            "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/square_button_neutral.png"
+        },
+        "info_box":
+        {
+            "name": "info_box",
+            "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/info_box.png"
+        },
+        "fade_line_bi_linear":
+        {
+            "name": "fade_line_bi_linear",
+            "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/fade_line_bi_linear.png"
+        },
+        "dialog_header_background":
+        {
+            "name": "dialog_header_background",
+            "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/dialog_header_background.png"
+        },
+        "icon_info":
+        {
+            "name": "icon_info",
+            "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/icon_info.png"
+        },
+        "icon_close_light":
+        {
+            "name": "icon_close_light",
+            "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/icon_close_light.png"
+        },
+        "rect_button":
+        {
+            "name": "rect_button",
+            "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/rect_button.png"
+        }
+    },
+    "spriteSheets":
+    {
+        "square_button_neutral":
+        {
+            "name": "square_button_neutral",
+            "textureId": "square_button_neutral",
+            "cellSize":
+            [
+                408,
+                408
+            ],
+            "offset":
+            [
+                0,
+                0
+            ],
+            "border":
+            [
+                30,
+                30,
+                30,
+                30
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "pixelsPerUnit": 100.0,
+            "multiple": false
+        },
+        "info_box":
+        {
+            "name": "info_box",
+            "textureId": "info_box",
+            "cellSize":
+            [
+                1018,
+                1018
+            ],
+            "offset":
+            [
+                0,
+                0
+            ],
+            "border":
+            [
+                13,
+                13,
+                13,
+                13
+            ],
+            "pivot":
+            [
+                0.499999762,
+                0.5
+            ],
+            "pixelsPerUnit": 100.0,
+            "multiple": false
+        },
+        "fade_line_bi_linear":
+        {
+            "name": "fade_line_bi_linear",
+            "textureId": "fade_line_bi_linear",
+            "cellSize":
+            [
+                641,
+                50
+            ],
+            "offset":
+            [
+                0,
+                0
+            ],
+            "border":
+            [
+                0,
+                0,
+                0,
+                0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "pixelsPerUnit": 100.0,
+            "multiple": false
+        },
+        "dialog_header_background":
+        {
+            "name": "dialog_header_background",
+            "textureId": "dialog_header_background",
+            "cellSize":
+            [
+                600,
+                128
+            ],
+            "offset":
+            [
+                0,
+                0
+            ],
+            "border":
+            [
+                0,
+                15,
+                0,
+                15
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "pixelsPerUnit": 100.0,
+            "multiple": false
+        },
+        "icon_info":
+        {
+            "name": "icon_info",
+            "textureId": "icon_info",
+            "cellSize":
+            [
+                360,
+                360
+            ],
+            "offset":
+            [
+                0,
+                0
+            ],
+            "border":
+            [
+                0,
+                0,
+                0,
+                0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "pixelsPerUnit": 100.0,
+            "multiple": false
+        },
+        "icon_close_light":
+        {
+            "name": "icon_close_light",
+            "textureId": "icon_close_light",
+            "cellSize":
+            [
+                244,
+                244
+            ],
+            "offset":
+            [
+                0,
+                0
+            ],
+            "border":
+            [
+                0,
+                0,
+                0,
+                0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "pixelsPerUnit": 100.0,
+            "multiple": false
+        },
+        "rect_button":
+        {
+            "name": "rect_button",
+            "textureId": "rect_button",
+            "cellSize":
+            [
+                808,
+                188
+            ],
+            "offset":
+            [
+                0,
+                0
+            ],
+            "border":
+            [
+                8,
+                8,
+                8,
+                8
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "pixelsPerUnit": 100.0,
+            "multiple": false
+        }
+    },
+    "ui":
+    {
+        "551bec98-db44-4370-bba9-b6ccafbb7b81":
+        {
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "IconButtons",
+            "type": "Frame",
+            "parent": null,
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "dacdbc42-c781-4c7c-bd03-10b734c0c492":
+        {
+            "events":
+            {},
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "PopupButton",
+            "type": "Button",
+            "parent": "551bec98-db44-4370-bba9-b6ccafbb7b81",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": -250.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 295.1854
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 210.8
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "be578dc8-ffb5-49da-b3f3-3f6f277e5fb2":
+        {
+            "spriteId": "square_button_neutral",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": false,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "Background",
+            "type": "Image",
+            "parent": "dacdbc42-c781-4c7c-bd03-10b734c0c492",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -0.00000381469727
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 314.3213
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 238.2718
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "c8b880c0-ab75-45de-9c71-c4bca00c7ebb":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                1.0,
+                0.9209821,
+                0.823,
+                1.0
+            ],
+            "fontSize": 36.0,
+            "text": "Popup  Open",
+            "interactable": false,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "DialogHeaderText",
+            "type": "Label",
+            "parent": "dacdbc42-c781-4c7c-bd03-10b734c0c492",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 1.35803223
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 2.71612549
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 254.4445
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 174.9921
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "c1acf2cf-4820-4546-b1a2-64e46d978c79":
+        {
+            "events":
+            {},
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "PopupWithDimButton",
+            "type": "Button",
+            "parent": "551bec98-db44-4370-bba9-b6ccafbb7b81",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 250.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 295.1854
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 210.8
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "6e92724d-38e3-4476-bc5a-ac164d2c0c73":
+        {
+            "spriteId": "square_button_neutral",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": false,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "Background",
+            "type": "Image",
+            "parent": "c1acf2cf-4820-4546-b1a2-64e46d978c79",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -0.00000381469727
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 314.3213
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 238.2718
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "ba9bcf64-cde3-4a12-87b0-06dd17d0b96e":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                1.0,
+                0.9209821,
+                0.823,
+                1.0
+            ],
+            "fontSize": 36.0,
+            "text": "Popup  Open\nwith dim",
+            "interactable": false,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "DialogHeaderText",
+            "type": "Label",
+            "parent": "c1acf2cf-4820-4546-b1a2-64e46d978c79",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 1.35803223
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 2.71612549
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 254.4445
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 174.9921
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "4f0ccb62-2ab6-4085-933b-c9016a53bdd0":
+        {
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.5019608,
+            "name": "Popup_With_Dim_Sample",
+            "type": "Frame",
+            "parent": null,
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 800.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 442.5
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "790965e2-acfd-4850-a3ce-1e1c54b29eac":
+        {
+            "spriteId": "info_box",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "Background",
+            "type": "Image",
+            "parent": "4f0ccb62-2ab6-4085-933b-c9016a53bdd0",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.119995117
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 800.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 442.5
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "337f9af4-aa1f-474f-af1c-b3cd79a3b205":
+        {
+            "spriteId": "fade_line_bi_linear",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "FadeLineImageBottom",
+            "type": "Image",
+            "parent": "790965e2-acfd-4850-a3ce-1e1c54b29eac",
+            "anchor":
+            [
+                0.5,
+                1.0
+            ],
+            "pivot":
+            [
+                0.5,
+                1.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 4.880005
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 760.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 12.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "bded2bf7-a12a-45af-87d6-738e42febebf":
+        {
+            "spriteId": "dialog_header_background",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "HeaderBackground",
+            "type": "Image",
+            "parent": "4f0ccb62-2ab6-4085-933b-c9016a53bdd0",
+            "anchor":
+            [
+                0.5,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -8.9
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 775.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 69.1
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "9ac0b055-2fad-4462-9d8e-6e58209c048a":
+        {
+            "spriteId": "fade_line_bi_linear",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "FadeLineImageTop",
+            "type": "Image",
+            "parent": "bded2bf7-a12a-45af-87d6-738e42febebf",
+            "anchor":
+            [
+                0.5,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 5.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 766.133362
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 12.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "396de98e-6bb3-4d97-8ad0-dd53e5b6cfbe":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                1.0,
+                0.9209821,
+                0.823,
+                1.0
+            ],
+            "fontSize": 36.0,
+            "text": "Popup with dim",
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "DialogHeaderText",
+            "type": "Label",
+            "parent": "4f0ccb62-2ab6-4085-933b-c9016a53bdd0",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 179.17
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 760.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 66.35
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "5d10f647-c9e8-4ffd-aeb3-ba31785cfca3":
+        {
+            "spriteId": "icon_info",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "IconImage",
+            "type": "Image",
+            "parent": "4f0ccb62-2ab6-4085-933b-c9016a53bdd0",
+            "anchor":
+            [
+                0.0,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 25.45996
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -24.4399414
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 90.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 90.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "a544e651-ba2b-49b0-bf99-ec96e553a162":
+        {
+            "events":
+            {},
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "IconCloseButton",
+            "type": "Button",
+            "parent": "4f0ccb62-2ab6-4085-933b-c9016a53bdd0",
+            "anchor":
+            [
+                1.0,
+                0.0
+            ],
+            "pivot":
+            [
+                1.0,
+                0.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": -20.8000488
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -19.8000488
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "2c0afce0-6135-40a2-91d1-91253e7d09d7":
+        {
+            "spriteId": "icon_close_light",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": false,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "IconClose",
+            "type": "Image",
+            "parent": "a544e651-ba2b-49b0-bf99-ec96e553a162",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "548687c8-2db5-45b2-bab6-b0929f8cf284":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                0.7735849,
+                0.69670856,
+                0.5801887,
+                1.0
+            ],
+            "fontSize": 32.0,
+            "text": "Do you want to quit this popup?",
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "DescriptionText",
+            "type": "Label",
+            "parent": "4f0ccb62-2ab6-4085-933b-c9016a53bdd0",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 678.43
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 95.76
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "4771dd6a-e378-4ab4-a6ff-60fd42efaf70":
+        {
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "DefaultDialogButtons",
+            "type": "Frame",
+            "parent": "4f0ccb62-2ab6-4085-933b-c9016a53bdd0",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "baddfc77-8598-40bf-9e29-fe36c5b0dc4c":
+        {
+            "events":
+            {},
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "RectButtonYes",
+            "type": "Button",
+            "parent": "4771dd6a-e378-4ab4-a6ff-60fd42efaf70",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -114.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "6edf1929-b833-4276-9772-88cfc18c70d4":
+        {
+            "spriteId": "rect_button",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                0.6,
+                1.0,
+                0.6,
+                1.0
+            ],
+            "interactable": false,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "ButtonBG",
+            "type": "Image",
+            "parent": "baddfc77-8598-40bf-9e29-fe36c5b0dc4c",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "0a43c6d5-9443-45c6-b8e6-bed55f26c31f":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                0.8113208,
+                0.7123744,
+                0.5931827,
+                1.0
+            ],
+            "fontSize": 32.0,
+            "text": "Yes",
+            "interactable": false,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "Text (TMP)",
+            "type": "Label",
+            "parent": "baddfc77-8598-40bf-9e29-fe36c5b0dc4c",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 0
+        },
+        "27c72055-9d72-4cb6-9fac-a3cc957b52c9":
+        {
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "ZIndex-100_Popup_Sample",
+            "type": "Frame",
+            "parent": null,
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 163.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 800.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 442.5
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "d110f8aa-f88d-455e-a595-c8baaa5ed745":
+        {
+            "spriteId": "info_box",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "Background",
+            "type": "Image",
+            "parent": "27c72055-9d72-4cb6-9fac-a3cc957b52c9",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.119995117
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 800.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 442.5
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "2de07a91-2761-465b-8212-05c48f3f79ee":
+        {
+            "spriteId": "fade_line_bi_linear",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "FadeLineImageBottom",
+            "type": "Image",
+            "parent": "d110f8aa-f88d-455e-a595-c8baaa5ed745",
+            "anchor":
+            [
+                0.5,
+                1.0
+            ],
+            "pivot":
+            [
+                0.5,
+                1.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 4.880005
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 760.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 12.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "768e0d92-d4a4-4637-8d76-323234d7bb3e":
+        {
+            "spriteId": "dialog_header_background",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "HeaderBackground",
+            "type": "Image",
+            "parent": "27c72055-9d72-4cb6-9fac-a3cc957b52c9",
+            "anchor":
+            [
+                0.5,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -8.9
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 775.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 69.1
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "80881c08-068c-4621-add8-fa16dd397d0a":
+        {
+            "spriteId": "fade_line_bi_linear",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "FadeLineImageTop",
+            "type": "Image",
+            "parent": "768e0d92-d4a4-4637-8d76-323234d7bb3e",
+            "anchor":
+            [
+                0.5,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 5.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 766.133362
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 12.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "5f15bfd3-ba96-4d29-8152-8ef8903afebb":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                1.0,
+                0.9209821,
+                0.823,
+                1.0
+            ],
+            "fontSize": 36.0,
+            "text": "[No.1] Z-INDEX [100]",
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "DialogHeaderText",
+            "type": "Label",
+            "parent": "27c72055-9d72-4cb6-9fac-a3cc957b52c9",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 179.17
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 760.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 66.35
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "bc7e703c-18d0-4452-8f77-b2dc874f7119":
+        {
+            "spriteId": "icon_info",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "IconImage",
+            "type": "Image",
+            "parent": "27c72055-9d72-4cb6-9fac-a3cc957b52c9",
+            "anchor":
+            [
+                0.0,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 25.45996
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -24.4399414
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 90.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 90.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "6746f9a5-43f9-4591-a9f8-0d1166197aa8":
+        {
+            "events":
+            {},
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "IconCloseButton",
+            "type": "Button",
+            "parent": "27c72055-9d72-4cb6-9fac-a3cc957b52c9",
+            "anchor":
+            [
+                1.0,
+                0.0
+            ],
+            "pivot":
+            [
+                1.0,
+                0.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": -20.8000488
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -19.8000488
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "6cc685f9-baff-4d09-b0e1-8478818dba03":
+        {
+            "spriteId": "icon_close_light",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": false,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "IconClose",
+            "type": "Image",
+            "parent": "6746f9a5-43f9-4591-a9f8-0d1166197aa8",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "7824a85b-b803-4919-8010-69c4c2cbd6bb":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                0.7735849,
+                0.69670856,
+                0.5801887,
+                1.0
+            ],
+            "fontSize": 30.0,
+            "text": "This is Popup No.1 with a Z-Index of 100.\nWould you like to set the popup to be drawn in front?",
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "DescriptionText",
+            "type": "Label",
+            "parent": "27c72055-9d72-4cb6-9fac-a3cc957b52c9",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 678.43
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 95.76
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "f86d87de-e07c-4715-94e3-e9cb6f944583":
+        {
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "DefaultDialogButtons",
+            "type": "Frame",
+            "parent": "27c72055-9d72-4cb6-9fac-a3cc957b52c9",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "5ea0f20a-8a3f-486f-b19b-b79b6a7db188":
+        {
+            "events":
+            {},
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "RectButtonYes",
+            "type": "Button",
+            "parent": "f86d87de-e07c-4715-94e3-e9cb6f944583",
+            "anchor":
+            [
+                0.0,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": -129.2716
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -124.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "1c5d4cff-b2c2-47bf-a5f0-486969561c17":
+        {
+            "spriteId": "rect_button",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                0.6,
+                1.0,
+                0.6,
+                1.0
+            ],
+            "interactable": false,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "ButtonBG",
+            "type": "Image",
+            "parent": "5ea0f20a-8a3f-486f-b19b-b79b6a7db188",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "0a8b8084-63b3-4d90-9653-3bac3a003b90":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                0.8113208,
+                0.7123744,
+                0.5931827,
+                1.0
+            ],
+            "fontSize": 32.0,
+            "text": "Yes",
+            "interactable": false,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "Text (TMP)",
+            "type": "Label",
+            "parent": "5ea0f20a-8a3f-486f-b19b-b79b6a7db188",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "d164bf0a-da7b-44af-af46-6f01e0d0d8bf":
+        {
+            "events":
+            {},
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "RectButtonNo",
+            "type": "Button",
+            "parent": "f86d87de-e07c-4715-94e3-e9cb6f944583",
+            "anchor":
+            [
+                0.0,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 129.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -124.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "2bbb753a-eda3-45ad-9a1a-7be73d7a39c2":
+        {
+            "spriteId": "rect_button",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                0.607843161,
+                0.607843161,
+                1.0
+            ],
+            "interactable": false,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "ButtonBG",
+            "type": "Image",
+            "parent": "d164bf0a-da7b-44af-af46-6f01e0d0d8bf",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "b2658c2b-c0e2-416a-9965-872aa7cffb69":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                0.8113208,
+                0.7123744,
+                0.5931827,
+                1.0
+            ],
+            "fontSize": 32.0,
+            "text": "No",
+            "interactable": false,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "Text (TMP)",
+            "type": "Label",
+            "parent": "d164bf0a-da7b-44af-af46-6f01e0d0d8bf",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "0f32f82a-69b0-4e66-883e-59136fc82483":
+        {
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "ZIndex-100_Popup_Sample_2",
+            "type": "Frame",
+            "parent": null,
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -218.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 800.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 442.5
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "bf244b22-ac1e-4312-8720-40fda4bd0c24":
+        {
+            "spriteId": "info_box",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "Background",
+            "type": "Image",
+            "parent": "0f32f82a-69b0-4e66-883e-59136fc82483",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.119995117
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 800.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 442.5
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "e70b796a-d788-4a0b-bee4-4c37c2f3bc40":
+        {
+            "spriteId": "fade_line_bi_linear",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "FadeLineImageBottom",
+            "type": "Image",
+            "parent": "bf244b22-ac1e-4312-8720-40fda4bd0c24",
+            "anchor":
+            [
+                0.5,
+                1.0
+            ],
+            "pivot":
+            [
+                0.5,
+                1.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 4.880005
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 760.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 12.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "5d3745db-ae9f-432e-a7d5-57d1b8ecb677":
+        {
+            "spriteId": "dialog_header_background",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "HeaderBackground",
+            "type": "Image",
+            "parent": "0f32f82a-69b0-4e66-883e-59136fc82483",
+            "anchor":
+            [
+                0.5,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -8.9
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 775.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 69.1
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "b2de63c3-1a4c-4d9c-8a56-3b533118696c":
+        {
+            "spriteId": "fade_line_bi_linear",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "FadeLineImageTop",
+            "type": "Image",
+            "parent": "5d3745db-ae9f-432e-a7d5-57d1b8ecb677",
+            "anchor":
+            [
+                0.5,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 5.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 766.133362
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 12.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "fa4860d4-4254-4448-835a-76480d2d5af0":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                1.0,
+                0.9209821,
+                0.823,
+                1.0
+            ],
+            "fontSize": 36.0,
+            "text": "[No.2] Z-INDEX [100]",
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "DialogHeaderText",
+            "type": "Label",
+            "parent": "0f32f82a-69b0-4e66-883e-59136fc82483",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 179.17
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 760.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 66.35
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "78be154c-501d-447b-8434-5ff9329f5a8f":
+        {
+            "spriteId": "icon_info",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "IconImage",
+            "type": "Image",
+            "parent": "0f32f82a-69b0-4e66-883e-59136fc82483",
+            "anchor":
+            [
+                0.0,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 25.45996
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -24.4399414
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 90.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 90.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "78d6760d-a3d1-4054-a573-897c1aa04c76":
+        {
+            "events":
+            {},
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "IconCloseButton",
+            "type": "Button",
+            "parent": "0f32f82a-69b0-4e66-883e-59136fc82483",
+            "anchor":
+            [
+                1.0,
+                0.0
+            ],
+            "pivot":
+            [
+                1.0,
+                0.0
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": -20.8000488
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -19.8000488
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "3251b102-83b1-49dd-9ab7-a0ac6f9e0265":
+        {
+            "spriteId": "icon_close_light",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "interactable": false,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "IconClose",
+            "type": "Image",
+            "parent": "78d6760d-a3d1-4054-a573-897c1aa04c76",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 56.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "df72c510-5312-44fb-afe2-c66dd79f29cf":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                0.7735849,
+                0.69670856,
+                0.5801887,
+                1.0
+            ],
+            "fontSize": 30.0,
+            "text": "This is Popup No.2 with a Z-Index of 100.\nWould you like to set the popup to be drawn in front?",
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "DescriptionText",
+            "type": "Label",
+            "parent": "0f32f82a-69b0-4e66-883e-59136fc82483",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 678.43
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 95.76
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "b31c3d3e-38d3-4636-a737-a5f2a887836b":
+        {
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "DefaultDialogButtons",
+            "type": "Frame",
+            "parent": "0f32f82a-69b0-4e66-883e-59136fc82483",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "a8d9536d-d533-482d-b755-30ad87a9d27c":
+        {
+            "events":
+            {},
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "RectButtonYes",
+            "type": "Button",
+            "parent": "b31c3d3e-38d3-4636-a737-a5f2a887836b",
+            "anchor":
+            [
+                0.0,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": -129.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -124.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "bb4aded7-8886-439a-ae6b-98f9d888cfee":
+        {
+            "spriteId": "rect_button",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                0.6,
+                1.0,
+                0.6,
+                1.0
+            ],
+            "interactable": false,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "ButtonBG",
+            "type": "Image",
+            "parent": "a8d9536d-d533-482d-b755-30ad87a9d27c",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "cf85c776-7677-496b-9f5b-da20ce636673":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                0.8113208,
+                0.7123744,
+                0.5931827,
+                1.0
+            ],
+            "fontSize": 32.0,
+            "text": "Yes",
+            "interactable": false,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "Text (TMP)",
+            "type": "Label",
+            "parent": "a8d9536d-d533-482d-b755-30ad87a9d27c",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "7ae69e22-1224-4358-83ce-948fcd53b7e2":
+        {
+            "events":
+            {},
+            "interactable": true,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "RectButtonNo",
+            "type": "Button",
+            "parent": "b31c3d3e-38d3-4636-a737-a5f2a887836b",
+            "anchor":
+            [
+                0.0,
+                0.0
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 129.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": -124.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "387df1ef-ea59-4998-b22c-9ed4d63b8b33":
+        {
+            "spriteId": "rect_button",
+            "backgroundColor":
+            [
+                1.0,
+                1.0,
+                1.0,
+                0.0
+            ],
+            "imageColor":
+            [
+                1.0,
+                0.607843161,
+                0.607843161,
+                1.0
+            ],
+            "interactable": false,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "ButtonBG",
+            "type": "Image",
+            "parent": "7ae69e22-1224-4358-83ce-948fcd53b7e2",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        },
+        "e5b40182-8b4e-4fba-9425-bac5594a09b8":
+        {
+            "textAlignment": "Center",
+            "fontId": "LiberationSans SDF",
+            "fontColor":
+            [
+                0.8113208,
+                0.7123744,
+                0.5931827,
+                1.0
+            ],
+            "fontSize": 32.0,
+            "text": "No",
+            "interactable": false,
+            "sizeConstraint": 1,
+            "dim": 0.0,
+            "name": "Text (TMP)",
+            "type": "Label",
+            "parent": "7ae69e22-1224-4358-83ce-948fcd53b7e2",
+            "anchor":
+            [
+                0.5,
+                0.5
+            ],
+            "pivot":
+            [
+                0.5,
+                0.5
+            ],
+            "position":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 0.0
+                }
+            },
+            "size":
+            {
+                "x":
+                {
+                    "scale": 0.0,
+                    "offset": 240.0
+                },
+                "y":
+                {
+                    "scale": 0.0,
+                    "offset": 52.0
+                }
+            },
+            "rotation": 0.0,
+            "visible": true,
+            "zIndex": 100
+        }
+    }
+}

@@ -1,22 +1,30 @@
 using System;
-using System.IO;
 using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
 using G2.Model.UI;
+using G2.UI.Component;
+using TMPro;
+using UnityEngine;
 using Utilities;
-using ConstraintType = G2.Model.UI.FrameData.ConstraintType;
 
 namespace G2.UI.Elements.Basic
 {
-    public class Label : Frame
+    public class Label : UpdatableElement
     {
+        public delegate void TextChangeEventAction(IElement element, string prevText, string newText);
+        
+        private const string _DEFAULT_FONT_ASSET_PATH = "Fonts & Materials";
+        private const string _DEFAULT_FONT_ASSET = "LiberationSans SDF";
+
+        private readonly List<TextChangeEventAction> _textChangeEvents = new();
+
+        private readonly Vector2 _screenResolution = new(Screen.width, Screen.height);
+        private readonly Vector2 _referenceResolution;
+        
         private TMP_Text _tmp;
-        private TransformLinkComponent _transformLink;
+        private TransformLinkComponent _elementTransformLink;
 
-        private const string DefaultFontAssetPath = "Fonts & Materials";
-        private const string DefaultFontAsset = "LiberationSans SDF";
-
+        public bool AutoSize { get; set; }
+        
         public override bool Interactable
         {
             get => _tmp.raycastTarget;
@@ -122,7 +130,7 @@ namespace G2.UI.Elements.Basic
             get => _tmp.text;
             set
             {
-                string prevText = _tmp.text;
+                var prevText = _tmp.text;
                 _tmp.text = value;
                 foreach (var eventAction in _textChangeEvents)
                 {
@@ -136,48 +144,32 @@ namespace G2.UI.Elements.Basic
             get => _tmp.font.name;
             set
             {
-                // todo: path 가 현재는 'Fonts & Materials'로 고정인데 어떻게 해야할지 논의 필요.
-                // 1. font 데이터를 어떻게 관리 할건지?
-                //  - 프로젝트 안에 특정한 폴더안에 넣어서 관리 할 것인지
-                //  - 런타임에 ttf 파일을 불러 들여와서 생성 해서 사용 할 것인지? (동작 검증 필요)
-                //  - Font.asset 을 에셋번들화 하여 불러올 것인지?
+                // todo: The path is currently fixed to 'Fonts & Materials'; we need to discuss how to handle this.
                 _tmp.font = GetFontAsset(value);
             }
         }
-
-        public ConstraintType Constraint { get; set; }
-
-        public bool AutoSize { get; set; }
-
-        private Vector2 _screenResolution = new(Screen.width, Screen.height);
-        private Vector2 _referenceResolution;
-
-        private readonly List<TextChangeEventAction> _textChangeEvents = new();
-
-        public delegate void TextChangeEventAction(IElement element, string prevText, string newText);
 
         public Label(string uid, LabelData data, LabelComponents components, Vector2 referenceResolution) : base(uid,
             data, components)
         {
             _tmp = components.TMP;
             _referenceResolution = referenceResolution;
-            _transformLink = components.TransformLinkComponent;
-            SetTransformLink(_transformLink);
+            _elementTransformLink = components.ElementTransformLinkComponent;
+            SetTransformLink(_elementTransformLink);
             SetEvents();
             SetValues(data);
         }
 
-        public override IElement Copy(RectTransform self, IElement parent)
+        public override IElement Copy(RectTransform self, RectTransform parentRectTransform, IElement parentElement)
         {
-            var clone = (Label)base.Copy(self, parent);
+            var clone = (Label)base.Copy(self, parentRectTransform, parentElement);
             clone._tmp = self.GetComponent<TextMeshProUGUI>();
-            if (_transformLink)
+            if (_elementTransformLink)
             {
-                clone._transformLink = _transformLink;
-                clone.SetTransformLink(clone._transformLink);
+                clone._elementTransformLink = _elementTransformLink;
+                clone.SetTransformLink(clone._elementTransformLink);
             }
 
-            clone.Parent.OnMoveFront += clone.MoveFront;
             return clone;
         }
 
@@ -188,12 +180,6 @@ namespace G2.UI.Elements.Basic
             SetValues(labelData);
         }
 
-        public override void MoveFront()
-        {
-            _transformLink.Self.SetAsLastSibling();
-            base.MoveFront();
-        }
-        
         private void SetValues(LabelData data)
         {
             Interactable = data.interactable;
@@ -201,9 +187,9 @@ namespace G2.UI.Elements.Basic
             TextAlignment = TypeConverter.ToTextAlignmentOptions(data.textAlignment);
             FontColor = TypeConverter.ToColor(data.fontColor);
             FontSize = SetFontSize(data.fontSize, false);
-            //FontSize = SetFontSize(data.fontSize, AutoSize);
             Text = data.text;
-            // Todo: 추후 추가 될 수 있는 데이터.
+            // Todo: Data that may be added in the future.
+            //FontSize = SetFontSize(data.fontSize, AutoSize);
             // CharacterSpacing = data.characterSpacing;
             // LineSpacing = data.lineSpacing;
             // AutoSize = data.autoSize;
@@ -218,8 +204,7 @@ namespace G2.UI.Elements.Basic
 
         private void SetEvents()
         {
-            if (CheckIsCanvas(Parent)) return;
-            Parent.OnMoveFront += MoveFront;
+            if (Parent == null) return;
             Parent.OnPositionUpdated += PositionChanged;
             Parent.AddVisibleChangedListener(VisibleChanged);
         }
@@ -227,7 +212,7 @@ namespace G2.UI.Elements.Basic
         private float SetFontSize(float size, bool isAutoSize)
         {
             return isAutoSize
-                ? size / CalculateCanvasScaleFactor(_referenceResolution, _screenResolution, Constraint)
+                ? size / CalculateCanvasScaleFactor(_referenceResolution, _screenResolution, constraintType)
                 : size;
         }
 
@@ -238,81 +223,60 @@ namespace G2.UI.Elements.Basic
         //     {
         //         var defaultFontPath = $"{DefaultFontAssetPath}/{DefaultFontAsset}";
         //         fontAsset = GetFontAssetFromResources($"{DefaultFontAssetPath}/{DefaultFontAsset}");
-        //         InternalDebug.LogWarning($"The [{id}] font does not exist. Replace with default [{defaultFontPath}]font.");
+        //         Debug.LogWarning($"The [{id}] font does not exist. Replace with default [{defaultFontPath}]font.");
         //     }
         //
         //     return fontAsset;
         // }
 
-        private float CalculateCanvasScaleFactor(Vector2 referenceResolution, Vector2 targetResolution,
-            ConstraintType constraint)
+        private float CalculateCanvasScaleFactor(Vector2 referenceResolution, Vector2 targetResolution, UpdatableElementData.ConstraintType constraint)
         {
-            // 가로 및 세로 스케일 계산
-            float widthScale = targetResolution.x / referenceResolution.x;
-            float heightScale = targetResolution.y / referenceResolution.y;
-            float calcScaleFactor = 1.0f;
+            // Calculate horizontal and vertical scale
+            var widthScale = targetResolution.x / referenceResolution.x;
+            var heightScale = targetResolution.y / referenceResolution.y;
+            float calcScaleFactor;
 
-            // Constraint 값에 따른 스케일 팩터 계산
+            // Calculate scale factor based on constraint value
             switch (constraint)
             {
-                case ConstraintType.XX:
-                    // 가로 해상도만 고려하여 스케일 팩터 계산
+                case UpdatableElementData.ConstraintType.XX:
+                    // Calculate scale factor considering only horizontal resolution
                     calcScaleFactor = widthScale;
                     break;
-                case ConstraintType.YY:
-                    // 세로 해상도만 고려하여 스케일 팩터 계산
+                case UpdatableElementData.ConstraintType.YY:
+                    // Calculate scale factor considering only vertical resolution
                     calcScaleFactor = heightScale;
                     break;
+                case UpdatableElementData.ConstraintType.XY:
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(ConstraintType),
-                        $"처리할 수 없는 ConstraintType enum 값입니다: {ConstraintType}");
+                    throw new ArgumentOutOfRangeException(nameof(constraintType), $"Unhandled ConstraintType enum value: {constraintType}");
             }
 
             return calcScaleFactor;
         }
 
-        private TMP_FontAsset GetFontAsset(string id)
+        private static TMP_FontAsset GetFontAsset(string id)
         {
             string fontPath;
-            var filePaths = FindFilesInProject(Application.dataPath, id);
+            var filePaths = Util.FindFilePaths(Application.dataPath, id);
             if (filePaths.Count == 0)
             {
-                fontPath = $"{DefaultFontAssetPath}/{DefaultFontAsset}";
-                InternalDebug.Log($"The font [{id}] does not exist. Replace with default font [{DefaultFontAsset}].");
+                fontPath = $"{_DEFAULT_FONT_ASSET_PATH}/{_DEFAULT_FONT_ASSET}";
+                Debug.Log($"The font [{id}] does not exist. Replace with default font [{_DEFAULT_FONT_ASSET}].");
             }
             else
             {
                 var filePath = filePaths[0];
-                var startToken = @"Resources\";
-                var endToken = ".asset";
+                const string START_TOKEN = @"Resources\";
+                const string END_TOKEN = ".asset";
 
-                int startIndex = filePath.IndexOf(startToken, StringComparison.Ordinal) + startToken.Length;
-                int endIndex = filePath.IndexOf(endToken, startIndex, StringComparison.Ordinal);
+                var startIndex = filePath.IndexOf(START_TOKEN, StringComparison.Ordinal) + START_TOKEN.Length;
+                var endIndex = filePath.IndexOf(END_TOKEN, startIndex, StringComparison.Ordinal);
                 fontPath = filePath.Substring(startIndex, endIndex - startIndex);
             }
 
             var fontAsset = Resources.Load(fontPath, typeof(TMP_FontAsset)) as TMP_FontAsset;
             return fontAsset;
-        }
-
-        private List<string> FindFilesInProject(string rootPath, string targetFileName)
-        {
-            List<string> result = new List<string>();
-
-            try
-            {
-                foreach (string dir in Directory.GetDirectories(rootPath))
-                {
-                    string[] files = Directory.GetFiles(dir, $"{targetFileName}.asset", SearchOption.AllDirectories);
-                    result.AddRange(files);
-                }
-            }
-            catch (Exception ex)
-            {
-                InternalDebug.LogException(ex);
-            }
-
-            return result;
         }
 
         public void AddTextChangedListener(TextChangeEventAction eventAction)

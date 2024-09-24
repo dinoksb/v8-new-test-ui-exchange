@@ -1,22 +1,16 @@
-using UnityEngine;
-using TMPro;
 using G2.UI.Elements;
+using TMPro;
+using UnityEngine;
 
-namespace G2.UI
+namespace G2.UI.Component
 {
-    public class LabelComponents : FrameComponents
+    public class LabelComponents : UpdatableElementComponents
     {
         public TMP_Text TMP { get; }
-        public new TransformLinkComponent TransformLinkComponent { get; }
 
-        public LabelComponents(IElement parent, Transform zIndexParent, string name) : base(parent, zIndexParent, name)
+        public LabelComponents(IElement parent, Transform parentTransform, Transform zIndexParent, string name) : base(parent, parentTransform, zIndexParent, name)
         {
-            RectTransform labelTransform = Self;
-            if (zIndexParent)
-            {
-                labelTransform = CreateUIElement(Self.name, zIndexParent, false);
-            }
-            TransformLinkComponent = labelTransform.gameObject.AddComponent<TransformLinkComponent>();
+            RectTransform labelTransform = ZIndexRectTransform;
             TMP = labelTransform.gameObject.AddComponent<TextMeshProUGUI>();
         }
     }

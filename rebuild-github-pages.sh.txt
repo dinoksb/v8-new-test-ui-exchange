@@ -1,0 +1,1 @@
+curl -u dinoksb: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 -X POST https://api.github.com/repos/dinoksb/v8-new-test-ui-exchange/pages/builds

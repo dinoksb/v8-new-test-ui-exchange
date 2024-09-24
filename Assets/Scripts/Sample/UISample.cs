@@ -3,19 +3,20 @@ using UnityEngine;
 using G2.Manager;
 using G2.Service;
 using G2.UI.Elements;
-using G2.UI.Elements.Interactive;
+using UnityEngine.UI;
 using Utilities;
+using Button = G2.UI.Elements.Interactive.Button;
 
 public class UISample : MonoBehaviour
 {
+    private const string _UI_CANVAS = "UICanvas";
     public UnityEngine.Canvas UICanvas
     {
         get
         {
             if (!_uiCanvas)
             {
-                var element = new G2.UI.Elements.Basic.Canvas("UICanvas", null, new Vector2(Screen.width, Screen.height), false);
-                _uiCanvas = element.Self.GetComponent<UnityEngine.Canvas>();
+                _uiCanvas = CreateCanvas();
             }
 
             return _uiCanvas;
@@ -57,7 +58,7 @@ public class UISample : MonoBehaviour
         }
         
         await _uiManager.LoadAsync("", json, default);
-        _uiManager.Show(UICanvas);
+        _uiManager.Show(UICanvas.transform);
     }
 
     private void Initialize()
@@ -77,6 +78,26 @@ public class UISample : MonoBehaviour
             InternalDebug.Log($"uid: {uid} - prevValue: {prevValue} - newValue: {newValue}");
         });
     }
+    
+    private Canvas CreateCanvas()
+    {
+        var gameObject = new GameObject(_UI_CANVAS);
+
+        var canvas = gameObject.AddComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.vertexColorAlwaysGammaSpace = true;
+        canvas.additionalShaderChannels = AdditionalCanvasShaderChannels.None;
+
+        var canvasScaler = gameObject.AddComponent<CanvasScaler>();
+        canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        canvasScaler.referenceResolution = new Vector2(Screen.width, Screen.height);
+        canvasScaler.referencePixelsPerUnit = 100;
+        canvasScaler.matchWidthOrHeight = 0.5f;
+
+        gameObject.AddComponent<GraphicRaycaster>();
+        return canvas;
+    }
+
 
     private void RegisterButtonEvent()
     {

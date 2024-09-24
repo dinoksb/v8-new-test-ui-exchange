@@ -1,18 +1,22 @@
 using G2.UI.Elements;
 using UnityEngine;
 
-namespace G2.UI
+namespace G2.UI.Component
 {
     public class ElementComponents
     {
         public IElement Parent { get; }
+        public TransformLinkComponent VisualTransformLinkComponent { get; }
+        public RectTransform ParentRectTransform { get; }
         public RectTransform Self { get; }
         
-        public ElementComponents(IElement parent, Transform zIndexParent, string name)
+        public ElementComponents(IElement parentElement, Transform parentTransform, Transform zIndexParent, string name)
         {
-            var self = CreateUIElement(name, parent.Self, false);
-            Parent = parent;
+            var self = CreateUIElement(name, parentTransform, false);
+            Parent = parentElement;
+            ParentRectTransform = parentTransform as RectTransform;
             Self = self;
+            VisualTransformLinkComponent = self.gameObject.AddComponent<TransformLinkComponent>();
         }
 
         protected RectTransform CreateUIElement(string name, Transform parent, bool isStretch)

@@ -101,7 +101,9 @@ namespace G2.Exporter
                             Border = sprite.border.ToIntArray(),
                             Pivot = new[] { webCoordinatePivot.x, webCoordinatePivot.y },
                             PixelsPerUnit = sprite.pixelsPerUnit,
+                            #if UNITY_EDITOR
                             Multiple = GetSpriteMode(sprite) == SpriteImportMode.Multiple,
+                            #endif
                         });
                     }
                 }
@@ -109,6 +111,7 @@ namespace G2.Exporter
                 SetSpriteData(textureFolderPath, child.gameObject, ref textures, ref spriteSheets);
             }
 
+            #if UNITY_EDITOR
             SpriteImportMode GetSpriteMode(Sprite sprite)
             {
                 var spritePath = AssetDatabase.GetAssetPath(sprite);
@@ -122,6 +125,7 @@ namespace G2.Exporter
 
                 return importer.spriteImportMode;
             }
+            #endif
 
             Vector2 GetSpritePivot(Sprite sprite)
             {
@@ -226,11 +230,11 @@ namespace G2.Exporter
                 case ElementType.Button:
                     var eventTriggerComponent = target.GetComponent<EventTrigger>();
                     ButtonData buttonData = GetFrameData<ButtonData>(target, guid);
-                    buttonData.events = new Dictionary<string, string>();
+                    buttonData.Events = new Dictionary<string, string>();
                     foreach (var trigger in eventTriggerComponent.triggers)
                     {
                         string eventId = trigger.eventID.ToString();
-                        buttonData.events.Add(eventId, eventId);
+                        buttonData.Events.Add(eventId, eventId);
                     }
 
                     // buttonData.threshold = 0.0f;
@@ -241,47 +245,47 @@ namespace G2.Exporter
             }
 
 
-            T GetFrameData<T>(RectTransform target, string parent) where T : FrameData, new()
+            T GetFrameData<T>(RectTransform target, string parent) where T : UpdatableElementData, new()
             {
                 var webCoordinateAnchor = target.anchorMax.ToReverseYAxis();
                 var webCoordinatePivot = target.pivot.ToReverseYAxis();
                 var elementinfo = target.GetComponent<DevElementInfo>();
                 T data = new T()
                 {
-                    name = target.name,
-                    type = elementType.ToString(),
-                    parent = parent,
-                    anchor = new[] { webCoordinateAnchor.x, webCoordinateAnchor.y },
-                    pivot = new[] { webCoordinatePivot.x, webCoordinatePivot.y },
+                    Name = target.name,
+                    Type = elementType.ToString(),
+                    Parent = parent,
+                    Anchor = new[] { webCoordinateAnchor.x, webCoordinateAnchor.y },
+                    Pivot = new[] { webCoordinatePivot.x, webCoordinatePivot.y },
 
-                    position = new DimensionData()
+                    Position = new DimensionData()
                     {
-                        x = new DimensionAdjustData
+                        X = new DimensionAdjustData
                         {
-                            offset = target.anchoredPosition.x
+                            Offset = target.anchoredPosition.x
                         },
-                        y = new DimensionAdjustData
+                        Y = new DimensionAdjustData
                         {
-                            offset = target.anchoredPosition.y
+                            Offset = target.anchoredPosition.y
                         }
                     },
 
-                    size = new DimensionData()
+                    Size = new DimensionData()
                     {
-                        x = new DimensionAdjustData
+                        X = new DimensionAdjustData
                         {
-                            offset = target.sizeDelta.x
+                            Offset = target.sizeDelta.x
                         },
-                        y = new DimensionAdjustData
+                        Y = new DimensionAdjustData
                         {
-                            offset = target.sizeDelta.y
+                            Offset = target.sizeDelta.y
                         }
                     },
-                    rotation = target.rotation.eulerAngles.z,
-                    visible = target.gameObject.activeSelf,
+                    Rotation = target.rotation.eulerAngles.z,
+                    Visible = target.gameObject.activeSelf,
                     interactable = true,
                     sizeConstraint = FrameData.ConstraintType.XY,
-                    zIndex = elementinfo.ZIndex
+                    ZIndex = elementinfo.ZIndex
                 };
                 return data;
             }

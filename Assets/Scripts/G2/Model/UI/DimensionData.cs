@@ -1,5 +1,6 @@
 using System;
 using Newtonsoft.Json;
+using UnityEngine.Serialization;
 
 namespace G2.Model.UI
 {
@@ -7,9 +8,9 @@ namespace G2.Model.UI
     public class DimensionData
     {
         [JsonProperty("x", Required = Required.Default)]
-        public DimensionAdjustData x = new(0, 0);
+        public DimensionAdjustData X = new(0, 0);
 
         [JsonProperty("y", Required = Required.Default)]
-        public DimensionAdjustData y = new(0, 0);
+        public DimensionAdjustData Y = new(0, 0);
     }
 }

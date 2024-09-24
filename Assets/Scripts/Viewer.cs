@@ -2,10 +2,12 @@ using UnityEngine;
 using UnityEngine.Scripting;
 using G2.Manager;
 using G2.Service;
+using UnityEngine.UI;
 using Utilities;
 
 public class Viewer : MonoBehaviour
 {
+    private const string _UI_CANVAS = "UICanvas";
     private const string UI_FRAME1_UID = "fc559ccd-ba30-4620-a3cf-6a35c3eb4df6";
     private const string UI_FRAME2_UID = "db57cf92-9fd8-440d-8650-4354103f17a3";
     private const string UI_FRAME3_UID = "ce1fc223-23c2-4a50-b589-f673dd322365";
@@ -16,10 +18,8 @@ public class Viewer : MonoBehaviour
         {
             if (!_uiCanvas)
             {
-                var element = new G2.UI.Elements.Basic.Canvas("UICanvas", null, new Vector2(Screen.width, Screen.height), false);
-                _uiCanvas = element.Self.gameObject.GetComponent<Canvas>();
+                _uiCanvas = CreateCanvas();
             }
-
             return _uiCanvas;
         }
     }
@@ -53,7 +53,7 @@ public class Viewer : MonoBehaviour
         await _uiManager.LoadAsync("", json, default);
 
 #if UNITY_WEBGL && !UNITY_EDITOR
-            _uiManager.Show(UICanvas);
+            _uiManager.Show(transform);
 #endif
     }
 
@@ -75,13 +75,32 @@ public class Viewer : MonoBehaviour
     {
         _uiManager.Release();
     }
+    
+    private Canvas CreateCanvas()
+    {
+        var gameObject = new GameObject(_UI_CANVAS);
+
+        var canvas = gameObject.AddComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.vertexColorAlwaysGammaSpace = true;
+        canvas.additionalShaderChannels = AdditionalCanvasShaderChannels.None;
+
+        var canvasScaler = gameObject.AddComponent<CanvasScaler>();
+        canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        canvasScaler.referenceResolution = new Vector2(1920, 1080);
+        canvasScaler.referencePixelsPerUnit = 100;
+        canvasScaler.matchWidthOrHeight = 0.5f;
+
+        gameObject.AddComponent<GraphicRaycaster>();
+        return canvas;
+    }
 
     # region For Editor Test
 
     [ContextMenu("ShowCanvasTest")]
     private void ShowCanvasTest()
     {
-        _uiManager.Show(UICanvas);
+        _uiManager.Show(UICanvas.transform);
     }
 
     [ContextMenu("MoveToFrontA")]
