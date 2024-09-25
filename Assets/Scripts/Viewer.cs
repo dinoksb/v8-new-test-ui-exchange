@@ -50,10 +50,10 @@ public class Viewer : MonoBehaviour
 
     public async void LoadUI(string json)
     {
-        await _uiManager.LoadAsync("", json, default);
+        await _uiManager.LoadAsync("", json, true, default);
 
 #if UNITY_WEBGL && !UNITY_EDITOR
-            _uiManager.Show(transform);
+            _uiManager.Show();
 #endif
     }
 
@@ -65,8 +65,6 @@ public class Viewer : MonoBehaviour
             InternalDebug.LogError("Error: UI Json is Null");
             return;
         }
-
-        ;
         LoadUI(json);
     }
 
@@ -87,7 +85,7 @@ public class Viewer : MonoBehaviour
 
         var canvasScaler = gameObject.AddComponent<CanvasScaler>();
         canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-        canvasScaler.referenceResolution = new Vector2(1920, 1080);
+        canvasScaler.referenceResolution = new Vector2(Screen.width, Screen.height);
         canvasScaler.referencePixelsPerUnit = 100;
         canvasScaler.matchWidthOrHeight = 0.5f;
 
@@ -100,7 +98,7 @@ public class Viewer : MonoBehaviour
     [ContextMenu("ShowCanvasTest")]
     private void ShowCanvasTest()
     {
-        _uiManager.Show(UICanvas.transform);
+        _uiManager.Show();
     }
 
     [ContextMenu("MoveToFrontA")]

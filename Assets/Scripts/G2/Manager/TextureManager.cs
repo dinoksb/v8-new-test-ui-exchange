@@ -30,6 +30,23 @@ namespace G2.Manager
             return _textures[filePath];
         }
 
+        public static Texture2D LoadTexture(string filePath)
+        {
+            if (_textures.ContainsKey(filePath)) return _textures[filePath];
+            var fileData = File.ReadAllBytes(filePath);
+            var texture = new Texture2D(2, 2);
+            if (!texture.LoadImage(fileData))
+            {
+                Debug.LogError($"Failed to load texture from path: {filePath}");
+                return null;
+            }
+            
+            _textures[filePath] = texture;
+            _textureFilePaths[texture] = filePath;
+
+            return _textures[filePath];
+        }
+
         public static void OnTextureUsed(Texture2D texture)
         {
             if (texture == null || !_textureRefCount.ContainsKey(texture)) return;

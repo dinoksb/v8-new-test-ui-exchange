@@ -30,7 +30,7 @@ namespace G2.Manager
                 TransformLinkComponent = transformLinkComponent;
             }
         }
-        
+
         private const string _ROOT_DIRECTORY = "UI";
         private const string _ROOT_GAME_OBJECT_NAME = "UI";
 
@@ -69,7 +69,8 @@ namespace G2.Manager
             return _elementsByUid;
         }
 
-        public async UniTask<bool> LoadAsync(string verseAddress, string json, bool forceResourceDownload = false, CancellationToken cancellationToken = default)
+        public async UniTask<bool> LoadAsync(string verseAddress, string json, bool forceResourceDownload = false,
+            CancellationToken cancellationToken = default)
         {
             Release();
             try
@@ -111,7 +112,7 @@ namespace G2.Manager
                     Debug.LogError(e);
                     return false;
                 }
-
+                
                 foreach (var (key, spriteSheet) in uiData.SpriteSheets)
                 {
                     var mangedKey = $"{_ROOT_DIRECTORY}:{key}";
@@ -121,10 +122,14 @@ namespace G2.Manager
                         var offset = TypeConverter.ToVector2(spriteSheet.Offset);
                         var size = TypeConverter.ToVector2(spriteSheet.CellSize);
                         var border = TypeConverter.ToVector4(spriteSheet.Border);
-                        var pivot = TypeConverter.ToVector2(spriteSheet.Pivot, TypeConverter.Vector2Center);
-
-                        var texture = await TextureManager.LoadTextureAsync(textureMap[spriteSheet.TextureId], cancellationToken);
-
+                        var pivot = TypeConverter.ToVector2(spriteSheet.Pivot, TypeConverter.Vector2Center)
+                            .ToReverseYAxis();
+#if UNITY_WEBGL && !UNITY_EDITOR
+                        var texture = TextureManager.LoadTexture(textureMap[spriteSheet.TextureId]);
+#else
+                        var texture =
+                            await TextureManager.LoadTextureAsync(textureMap[spriteSheet.TextureId], cancellationToken);
+#endif
                         sprite = SpriteManager.CreateSprite(
                             key: mangedKey,
                             texture: texture,
@@ -139,9 +144,10 @@ namespace G2.Manager
                     _sprites.Add(key, sprite);
                 }
 
-
-                var referenceResolution = new Vector2(uiData.StudioData.resolutionWidth, uiData.StudioData.resolutionHeight);
+                var referenceResolution =
+                    new Vector2(uiData.StudioData.resolutionWidth, uiData.StudioData.resolutionHeight);
                 BuildUI(uiData.UI, referenceResolution);
+                Debug.Log("[UIManager] Build UI Complete");
             }
             catch (Exception e)
             {
@@ -165,9 +171,8 @@ namespace G2.Manager
             else
             {
                 _canvasGameObject.transform.SetParent(parent, false);
+                _canvasGameObject = parent.gameObject;
             }
-
-            _canvasGameObject = null;
 
             foreach (var (_, canvas) in _zIndexCanvases)
             {
@@ -208,12 +213,13 @@ namespace G2.Manager
         {
             if (!element.Self) return;
             if (_cachedMoveFrontElement == element) return;
-            
+
             var visualTransformLinkCompoenents = element.Self.GetComponentsInChildren<TransformLinkComponent>();
             foreach (var visualTransform in visualTransformLinkCompoenents)
             {
                 visualTransform.Target.SetAsLastSibling();
             }
+
             _cachedMoveFrontElement = element;
         }
 
@@ -225,14 +231,14 @@ namespace G2.Manager
                 Debug.Log("[UIManager] GetFrontFrame: Frame element does not exist!!");
                 return null;
             }
-            
+
             IElement highestElement = null;
             int highestIndex = -1;
 
             foreach (var frameData in _rootFrames)
             {
-                if(!frameData.Element.Visible) continue;
-                
+                if (!frameData.Element.Visible) continue;
+
                 int siblingIndex = frameData.TransformLinkComponent.Target.GetSiblingIndex();
                 if (siblingIndex > highestIndex)
                 {
@@ -240,6 +246,7 @@ namespace G2.Manager
                     highestElement = frameData.Element;
                 }
             }
+
             return highestElement;
         }
 
@@ -282,8 +289,9 @@ namespace G2.Manager
             foreach (var (key, element) in uis)
             {
                 if (_elementsByUid.ContainsKey(key)) continue;
-                if (!Enum.TryParse(element.Type, ignoreCase: true, out ElementType type)) throw new ArgumentOutOfRangeException($"Invalid type: {element.Type}");
-                
+                if (!Enum.TryParse(element.Type, ignoreCase: true, out ElementType type))
+                    throw new ArgumentOutOfRangeException($"Invalid type: {element.Type}");
+
                 var instance = CreateElement(key, element, type, referenceResolution);
                 _elementsByUid.Add(key, instance);
                 var elementName = element.Name;
@@ -291,6 +299,7 @@ namespace G2.Manager
                 {
                     _elementsByName.Add(elementName, new List<IElement>());
                 }
+
                 _elementsByName[elementName].Add(instance);
 
                 // Only the top-level elements of the Frame type are added.
@@ -300,6 +309,7 @@ namespace G2.Manager
                     _rootFrames.Add(new ElementWithTransformLink(instance, transformLink));
                 }
             }
+
             _rootFrames.Sort((elementX, elementY) => elementY.Element.ZIndex.CompareTo(elementX.Element.ZIndex));
         }
 
@@ -312,22 +322,29 @@ namespace G2.Manager
             switch (type)
             {
                 case ElementType.Frame:
-                    element = ElementFactory.CreateFrame(uid, parentElement, parentTransform, zIndexCanvasTransform, (FrameData)data);
+                    element = ElementFactory.CreateFrame(uid, parentElement, parentTransform, zIndexCanvasTransform,
+                        (FrameData)data);
                     break;
                 case ElementType.Image:
                     var imageData = (ImageData)data;
-                    if (!_sprites.TryGetValue(imageData.spriteId, out var sprite)) throw new KeyNotFoundException($"Sprite with ID {imageData.spriteId} not found in the dictionary.");
-                    element = ElementFactory.CreateImage(uid, parentElement, parentTransform, zIndexCanvasTransform, imageData, sprite);
+                    if (!_sprites.TryGetValue(imageData.spriteId, out var sprite))
+                        throw new KeyNotFoundException(
+                            $"Sprite with ID {imageData.spriteId} not found in the dictionary.");
+                    element = ElementFactory.CreateImage(uid, parentElement, parentTransform, zIndexCanvasTransform,
+                        imageData, sprite);
                     break;
                 case ElementType.Label:
-                    element = ElementFactory.CreateLabel(uid, parentElement, parentTransform, zIndexCanvasTransform, (LabelData)data, referenceResolution);
+                    element = ElementFactory.CreateLabel(uid, parentElement, parentTransform, zIndexCanvasTransform,
+                        (LabelData)data, referenceResolution);
                     break;
                 case ElementType.Button:
-                    element = ElementFactory.CreateButton(uid, parentElement, parentTransform, zIndexCanvasTransform, (ButtonData)data, OnEvent);
+                    element = ElementFactory.CreateButton(uid, parentElement, parentTransform, zIndexCanvasTransform,
+                        (ButtonData)data, OnEvent);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException($"Unexpected ElementType: {type}");
             }
+
             element.Visible = data.Visible;
             return element;
         }
@@ -346,9 +363,9 @@ namespace G2.Manager
             canvasScaler.referenceResolution = new Vector2(Screen.width, Screen.height);
             canvasScaler.referencePixelsPerUnit = 100;
             canvasScaler.matchWidthOrHeight = 0.5f;
-            
+
             go.AddComponent<GraphicRaycaster>();
-            go.SetActive(true);
+            go.SetActive(false);
             return go;
         }
 
