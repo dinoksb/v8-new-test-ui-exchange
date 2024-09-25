@@ -1,0 +1,135 @@
+{
+  "studioData": {
+    "version": "1.0",
+    "resolutionWidth": 1920,
+    "resolutionHeight": 1080
+  },
+  "textures": {
+    "icon_settings_grayscale": {
+      "name": "icon_settings_grayscale",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/icon_settings_grayscale.png"
+    }
+  },
+  "spriteSheets": {
+    "icon_settings_grayscale": {
+      "name": "icon_settings_grayscale",
+      "textureId": "icon_settings_grayscale",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        933,
+        935
+      ],
+      "border": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    }
+  },
+  "ui": {
+    "8415e0c0-6f8f-4967-8250-71b869e9993b": {
+      "events": {
+        "PointerDown": "PointerDown"
+      },
+      "interactable": true,
+      "sizeConstraint": 1,
+      "dim": 0.0,
+      "name": "SettingButton",
+      "type": "Button",
+      "parent": null,
+      "anchor": [
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        1.0,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -50.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -50.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "875eabb0-a6ad-4d1c-9a36-3bf152462619": {
+      "spriteId": "icon_settings_grayscale",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": 1,
+      "dim": 0.0,
+      "name": "SettingButtonImage",
+      "type": "Image",
+      "parent": "8415e0c0-6f8f-4967-8250-71b869e9993b",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    }
+  }
+}
