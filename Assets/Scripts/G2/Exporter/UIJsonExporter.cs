@@ -281,7 +281,7 @@ namespace G2.Exporter
                     visible = target.gameObject.activeSelf,
                     interactable = true,
                     sizeConstraint = FrameData.ConstraintType.XY,
-                    zIndex = elementinfo.ZIndex
+                    zIndex = elementinfo.ZIndex,
                 };
                 return data;
             }
