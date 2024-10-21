@@ -21,7 +21,7 @@ namespace G2.Importer
             var result = EditorUtility.DisplayDialog("UI Json Import", "This is a \"Release Mode\" that allows you to check the UI layout when loading the UI JSON at runtime. In this state, you cannot export the UI JSON. Do you still want to load it?", "YES", "NO");
             if (result)
             {
-                UIJsonImporter.ImportAndBuild(LoadJson(), false);    
+                UIJsonImporter.ImportAndBuild(LoadJson(), false);
             }
         }
         

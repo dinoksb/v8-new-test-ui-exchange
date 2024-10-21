@@ -10,7 +10,8 @@ namespace G2.UI.Elements
         Frame,
         Image,
         Label,
-        Button
+        Button,
+        ScrollFrame,
     }
     
     public interface IElement : IDisposable

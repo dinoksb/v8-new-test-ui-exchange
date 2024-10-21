@@ -34,6 +34,7 @@ namespace G2.Converter
                 ElementType.Image => new ImageData(),
                 ElementType.Label => new LabelData(),
                 ElementType.Button => new ButtonData(),
+                ElementType.ScrollFrame => new ScrollFrameData(),
                 _ => throw new ArgumentOutOfRangeException()
             };
                 

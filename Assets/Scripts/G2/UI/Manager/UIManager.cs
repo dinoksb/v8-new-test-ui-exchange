@@ -280,6 +280,9 @@ namespace G2.Manager
                 case ElementType.Button:
                     element = ElementFactory.CreateButton(uid, parentElement, zIndexParent, (ButtonData)data, OnEvent);
                     break;
+                case ElementType.ScrollFrame:
+                    element = ElementFactory.CreateScrollFrame(uid, parentElement, zIndexParent, (ScrollFrameData)data);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException($"Unexpected ElementType: {type}");
             }

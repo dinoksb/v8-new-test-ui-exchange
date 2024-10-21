@@ -5,7 +5,9 @@ namespace G2.UI
 {
     public class FrameComponents : ElementComponents
     {
-        public TransformLinkComponent TransformLinkComponent { get; }
+        public TransformLinkComponent SourceTransformLinkComponent { get; }
+        public TransformLinkComponent GUITransformLinkComponent { get; }
+        public RectTransform GUIRectTransform { get; }
         
         public FrameComponents(IElement parent, Transform zIndexParent, string name) : base(parent, zIndexParent, name)
         {
@@ -16,8 +18,9 @@ namespace G2.UI
             var rectTransform = Self;
             if (zIndexParent && type == ElementType.Frame)
             {
-                rectTransform = CreateUIElement(name, zIndexParent, false);
-                TransformLinkComponent = rectTransform.gameObject.AddComponent<TransformLinkComponent>();
+                GUIRectTransform = CreateUIElement(name, zIndexParent, false);
+                GUITransformLinkComponent = GUIRectTransform.gameObject.AddComponent<TransformLinkComponent>();
+                SourceTransformLinkComponent = rectTransform.gameObject.AddComponent<TransformLinkComponent>();
             }
         }
     }

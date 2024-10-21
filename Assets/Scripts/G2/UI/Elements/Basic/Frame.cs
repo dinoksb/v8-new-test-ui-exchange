@@ -36,7 +36,11 @@ namespace G2.UI.Elements.Basic
 
         public Frame(string uid, FrameData data, FrameComponents components) : base(uid, data, components)
         {
-            ConstraintType = data.sizeConstraint;
+            if (!Enum.TryParse(data.sizeConstraint, ignoreCase: true, out ConstraintType type))
+            {
+                throw new NotSupportedException($"Unknown ConstraintType type: {data.sizeConstraint}");
+            }
+            ConstraintType = type;
             SetValues(data);
             SetEvents(data);
         }
@@ -46,7 +50,7 @@ namespace G2.UI.Elements.Basic
         {
             if (zIndexParent)
             {
-                _transformLink = components.TransformLinkComponent;
+                _transformLink = components.SourceTransformLinkComponent;
                 SetTransformLink(_transformLink);
                 if (data.dim != 0)
                 {
@@ -61,7 +65,11 @@ namespace G2.UI.Elements.Basic
                 _dim = CreateDim(Self, data.dim, new Vector2(Screen.width, Screen.height));
             }
 
-            ConstraintType = data.sizeConstraint;
+            if (!Enum.TryParse(data.sizeConstraint, ignoreCase: true, out ConstraintType type))
+            {
+                throw new NotSupportedException($"Unknown ConstraintType type: {data.sizeConstraint}");
+            }
+            ConstraintType = type;
             SetValues(data);
             SetEvents(data);
         }

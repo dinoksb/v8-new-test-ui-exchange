@@ -14,10 +14,10 @@ namespace G2.Model.UI
         }
         
         [JsonProperty("interactable", Required = Required.Default)]
-        public bool interactable = true;
+        public  bool interactable = true;
 
         [JsonProperty("sizeConstraint", Required = Required.Default)]
-        public ConstraintType sizeConstraint = ConstraintType.XY;
+        public string sizeConstraint = ConstraintType.XY.ToString();
         
         [JsonProperty("dim", Required = Required.Default)]
         public float dim = 0;

@@ -1,5 +1,6 @@
 using System;
 using G2.Model.UI;
+using G2.UI.Component;
 using G2.UI.Elements;
 using G2.UI.Elements.Basic;
 using G2.UI.Elements.Interactive;
@@ -31,6 +32,12 @@ namespace G2.UI
         {
             var components = new ButtonComponents(parent, zIndexParent, data.name);
             return new Button(uid, data, components, onEvent);
+        }
+        
+        public static ScrollFrame CreateScrollFrame(string uid, IElement parent, Transform zIndexParent, ScrollFrameData data)
+        {
+            var components = new ScrollFrameComponents(parent, zIndexParent, data.name);
+            return new ScrollFrame(uid, data, components);
         }
     }
 }

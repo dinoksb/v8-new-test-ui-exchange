@@ -154,6 +154,9 @@ namespace G2.Importer
                 case ElementType.Button:
                     element = ElementFactory.CreateButton(uid, parent, zIndexParent, (ButtonData)data, OnEvent);
                     break;
+                case ElementType.ScrollFrame:
+                    element = ElementFactory.CreateScrollFrame(uid, parent, zIndexParent, (ScrollFrameData)data);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException($"Unexpected ElementType: {type}");
             }
