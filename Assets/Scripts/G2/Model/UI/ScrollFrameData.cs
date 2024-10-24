@@ -29,7 +29,7 @@ namespace G2.Model.UI
         [JsonProperty("scrollbarHandleColor", Required = Required.Default)]
         public float[] ScrollbarHandleColor { get; set; } = new float[] { 1, 1, 1, 1 };
 
-        [JsonProperty("scrollFrameMaskSpriteId", Required = Required.Always)]
+        [JsonProperty("frameMaskSpriteId", Required = Required.Always)]
         public string FrameMaskSpriteId { get; set; }
 
         [JsonProperty("childSize", Required = Required.Default)]

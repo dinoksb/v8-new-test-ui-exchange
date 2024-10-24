@@ -294,7 +294,7 @@ namespace G2.Exporter
                         scrollFrameData.ScrollbarBackgroundColor = new[]
                             { scrollbarBgColor.r, scrollbarBgColor.g, scrollbarBgColor.b, scrollbarBgColor.a };
 
-                        var scrollbarHandleImage = verticalScrollbar.GetComponentInChildren<Image>();
+                        var scrollbarHandleImage = verticalScrollbar.GetChild(0).GetComponentInChildren<Image>();
                         scrollFrameData.ScrollbarHandleSpriteId = scrollbarHandleImage.sprite.name;
                         var scrollbarHandleColor = scrollbarHandleImage.color.To01();
                         scrollFrameData.ScrollbarHandleColor = new[]
