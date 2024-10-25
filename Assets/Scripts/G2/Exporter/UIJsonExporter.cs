@@ -9,6 +9,7 @@ using G2.UI.Elements;
 using Utilities;
 using TMPro;
 using Newtonsoft.Json;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -253,57 +254,20 @@ namespace G2.Exporter
                     // mask
                     var viewport = scrollFrameImage.transform.GetChild(0);
                     var viewportMaskImage = viewport.GetComponent<Image>();
-                    scrollFrameData.FrameMaskSpriteId = viewportMaskImage.sprite.name;
 
                     var gridLayout = viewport.GetComponentInChildren<GridLayoutGroup>();
                     scrollFrameData.ChildSize = new[] { gridLayout.cellSize.x, gridLayout.cellSize.y };
                     scrollFrameData.ChildSpacing = new[] { gridLayout.spacing.x, gridLayout.spacing.y };
                     scrollFrameData.ChildConstraintCount = gridLayout.constraintCount;
+                    scrollFrameData.ChildPadding = new[]
+                    {
+                        gridLayout.padding.left, gridLayout.padding.right, gridLayout.padding.top,
+                        gridLayout.padding.bottom
+                    };
+                    scrollFrameData.ChildAlignment = gridLayout.childAlignment.ToString();
                     scrollFrameData.StartCorner = gridLayout.startCorner.ToString();
                     scrollFrameData.StartAxis = gridLayout.startAxis.ToString();
-                    scrollFrameData.ChildAlignment = gridLayout.childAlignment.ToString();
-
-                    // frame scrollbar data
-                    if (scrollFrame.horizontal)
-                    {
-                        var horizontalScrollbar = scrollFrameImage.transform.GetChild(1);
-
-                        var scrollbarImage = horizontalScrollbar.GetComponent<Image>();
-                        scrollFrameData.ScrollbarBackgroundSpriteId = scrollbarImage.sprite.name;
-
-                        var scrollbarBgColor = scrollbarImage.color.To01();
-                        scrollFrameData.ScrollbarBackgroundColor = new[]
-                            { scrollbarBgColor.r, scrollbarBgColor.g, scrollbarBgColor.b, scrollbarBgColor.a };
-
-                        var scrollbarHandleImage = horizontalScrollbar.GetComponentInChildren<Image>();
-                        scrollFrameData.ScrollbarHandleSpriteId = scrollbarHandleImage.sprite.name;
-                        var scrollbarHandleColor = scrollbarHandleImage.color.To01();
-                        scrollFrameData.ScrollbarHandleColor = new[]
-                        {
-                            scrollbarHandleColor.r, scrollbarHandleColor.g, scrollbarHandleColor.b,
-                            scrollbarHandleColor.a
-                        };
-                    }
-                    else
-                    {
-                        var verticalScrollbar = scrollFrameImage.transform.GetChild(2);
-                        var scrollbarImage = verticalScrollbar.GetComponent<Image>();
-                        scrollFrameData.ScrollbarBackgroundSpriteId = scrollbarImage.sprite.name;
-
-                        var scrollbarBgColor = scrollbarImage.color.To01();
-                        scrollFrameData.ScrollbarBackgroundColor = new[]
-                            { scrollbarBgColor.r, scrollbarBgColor.g, scrollbarBgColor.b, scrollbarBgColor.a };
-
-                        var scrollbarHandleImage = verticalScrollbar.GetChild(0).GetComponentInChildren<Image>();
-                        scrollFrameData.ScrollbarHandleSpriteId = scrollbarHandleImage.sprite.name;
-                        var scrollbarHandleColor = scrollbarHandleImage.color.To01();
-                        scrollFrameData.ScrollbarHandleColor = new[]
-                        {
-                            scrollbarHandleColor.r, scrollbarHandleColor.g, scrollbarHandleColor.b,
-                            scrollbarHandleColor.a
-                        };
-                    }
-
+              
                     return scrollFrameData as T;
                 default:
                     InternalDebug.Log("[UIJsonExporter] - This type is not supported.");
@@ -316,6 +280,10 @@ namespace G2.Exporter
                 var webCoordinateAnchor = target.anchorMax.ToReverseYAxis();
                 var webCoordinatePivot = target.pivot.ToReverseYAxis();
                 var elementinfo = target.GetComponent<DevElementInfo>();
+                if (elementinfo == null)
+                {
+                    elementinfo = target.AddComponent<DevElementInfo>();
+                }
                 T data = new T()
                 {
                     name = target.name,

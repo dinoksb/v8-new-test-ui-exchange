@@ -1,0 +1,3962 @@
+{
+  "studioData": {
+    "version": "1.0",
+    "resolutionWidth": 1920,
+    "resolutionHeight": 1080
+  },
+  "textures": {
+    "Icon_Setting_M": {
+      "name": "Icon_Setting_M",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/Icon_Setting_M.png"
+    },
+    "Icon_Bag_M": {
+      "name": "Icon_Bag_M",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/Icon_Bag_M.png"
+    },
+    "PopupBack_Navy": {
+      "name": "PopupBack_Navy",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/PopupBack_Navy.png"
+    },
+    "PopupTitleBack_LightNavy": {
+      "name": "PopupTitleBack_LightNavy",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/PopupTitleBack_LightNavy.png"
+    },
+    "Btn_Close_Normal": {
+      "name": "Btn_Close_Normal",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/Btn_Close_Normal.png"
+    },
+    "Icon_Checkbox_Normal": {
+      "name": "Icon_Checkbox_Normal",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/Icon_Checkbox_Normal.png"
+    },
+    "Icon_Checkbox_Complete": {
+      "name": "Icon_Checkbox_Complete",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/Icon_Checkbox_Complete.png"
+    },
+    "faction_a": {
+      "name": "faction_a",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/faction_a.png"
+    },
+    "faction_c": {
+      "name": "faction_c",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/faction_c.png"
+    },
+    "GaugeFront_White": {
+      "name": "GaugeFront_White",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/GaugeFront_White.png"
+    },
+    "circle_mask": {
+      "name": "circle_mask",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/circle_mask.png"
+    },
+    "button 1 normal": {
+      "name": "button 1 normal",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/button 1 normal.png"
+    },
+    "button 1 hover": {
+      "name": "button 1 hover",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/button 1 hover.png"
+    },
+    "button 1 click": {
+      "name": "button 1 click",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/button 1 click.png"
+    },
+    "PopupBack_White": {
+      "name": "PopupBack_White",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/PopupBack_White.png"
+    },
+    "Btn_Close_Popup_Normal": {
+      "name": "Btn_Close_Popup_Normal",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/Btn_Close_Popup_Normal.png"
+    },
+    "ItemBack_Blank_White": {
+      "name": "ItemBack_Blank_White",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/ItemBack_Blank_White.png"
+    },
+    "potion_blue_64": {
+      "name": "potion_blue_64",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/potion_blue_64.png"
+    },
+    "potion_green_64": {
+      "name": "potion_green_64",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/potion_green_64.png"
+    },
+    "potion_orange_64": {
+      "name": "potion_orange_64",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/potion_orange_64.png"
+    }
+  },
+  "spriteSheets": {
+    "Icon_Setting_M": {
+      "name": "Icon_Setting_M",
+      "textureId": "Icon_Setting_M",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        96,
+        96
+      ],
+      "border": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "Icon_Bag_M": {
+      "name": "Icon_Bag_M",
+      "textureId": "Icon_Bag_M",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        96,
+        96
+      ],
+      "border": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "PopupBack_Navy": {
+      "name": "PopupBack_Navy",
+      "textureId": "PopupBack_Navy",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        108,
+        108
+      ],
+      "border": [
+        54,
+        54,
+        54,
+        54
+      ],
+      "pivot": [
+        0.49999997,
+        0.5
+      ],
+      "multiple": false
+    },
+    "PopupTitleBack_LightNavy": {
+      "name": "PopupTitleBack_LightNavy",
+      "textureId": "PopupTitleBack_LightNavy",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        760,
+        100
+      ],
+      "border": [
+        0,
+        50,
+        50,
+        50
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "Btn_Close_Normal": {
+      "name": "Btn_Close_Normal",
+      "textureId": "Btn_Close_Normal",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        60,
+        60
+      ],
+      "border": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        0.49999997,
+        0.5
+      ],
+      "multiple": false
+    },
+    "Icon_Checkbox_Normal": {
+      "name": "Icon_Checkbox_Normal",
+      "textureId": "Icon_Checkbox_Normal",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        30,
+        28
+      ],
+      "border": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        0.49999997,
+        0.5
+      ],
+      "multiple": false
+    },
+    "Icon_Checkbox_Complete": {
+      "name": "Icon_Checkbox_Complete",
+      "textureId": "Icon_Checkbox_Complete",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        30,
+        28
+      ],
+      "border": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        0.49999997,
+        0.5
+      ],
+      "multiple": false
+    },
+    "faction_a": {
+      "name": "faction_a",
+      "textureId": "faction_a",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        512,
+        512
+      ],
+      "border": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "faction_c": {
+      "name": "faction_c",
+      "textureId": "faction_c",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        512,
+        512
+      ],
+      "border": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "GaugeFront_White": {
+      "name": "GaugeFront_White",
+      "textureId": "GaugeFront_White",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        20,
+        4
+      ],
+      "border": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "circle_mask": {
+      "name": "circle_mask",
+      "textureId": "circle_mask",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        512,
+        512
+      ],
+      "border": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "button 1 normal": {
+      "name": "button 1 normal",
+      "textureId": "button 1 normal",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        308,
+        118
+      ],
+      "border": [
+        51,
+        51,
+        51,
+        51
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "button 1 hover": {
+      "name": "button 1 hover",
+      "textureId": "button 1 hover",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        308,
+        118
+      ],
+      "border": [
+        51,
+        51,
+        51,
+        51
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "button 1 click": {
+      "name": "button 1 click",
+      "textureId": "button 1 click",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        308,
+        118
+      ],
+      "border": [
+        51,
+        51,
+        51,
+        51
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "PopupBack_White": {
+      "name": "PopupBack_White",
+      "textureId": "PopupBack_White",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        96,
+        96
+      ],
+      "border": [
+        15,
+        40,
+        40,
+        15
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "Btn_Close_Popup_Normal": {
+      "name": "Btn_Close_Popup_Normal",
+      "textureId": "Btn_Close_Popup_Normal",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        72,
+        54
+      ],
+      "border": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        0.49999997,
+        0.5
+      ],
+      "multiple": false
+    },
+    "ItemBack_Blank_White": {
+      "name": "ItemBack_Blank_White",
+      "textureId": "ItemBack_Blank_White",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        24,
+        24
+      ],
+      "border": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "potion_blue_64": {
+      "name": "potion_blue_64",
+      "textureId": "potion_blue_64",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        64,
+        64
+      ],
+      "border": [
+        11,
+        4,
+        11,
+        4
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "potion_green_64": {
+      "name": "potion_green_64",
+      "textureId": "potion_green_64",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        64,
+        64
+      ],
+      "border": [
+        11,
+        4,
+        11,
+        4
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "potion_orange_64": {
+      "name": "potion_orange_64",
+      "textureId": "potion_orange_64",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        64,
+        64
+      ],
+      "border": [
+        11,
+        4,
+        11,
+        4
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    }
+  },
+  "ui": {
+    "940cf043-d007-402c-b564-ab99617dc0be": {
+      "events": {
+        "PointerDown": "PointerDown"
+      },
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "SettingButton",
+      "type": "Button",
+      "parent": null,
+      "anchor": [
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        1.0,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -50.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -50.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 96.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 96.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "34d2f7b1-fe68-41e7-9c5f-e311dece4684": {
+      "spriteId": "Icon_Setting_M",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "SettingButtonImage",
+      "type": "Image",
+      "parent": "940cf043-d007-402c-b564-ab99617dc0be",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 96.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 96.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "e464adee-b328-4c37-afbd-f252552416f4": {
+      "events": {
+        "PointerDown": "PointerDown"
+      },
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "InventoryButton",
+      "type": "Button",
+      "parent": null,
+      "anchor": [
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        1.0,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -50.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -180.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 96.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 96.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "bb28c646-c5e3-4fba-a8ca-59c41d760e2a": {
+      "spriteId": "Icon_Bag_M",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "InventoryButtonImage",
+      "type": "Image",
+      "parent": "e464adee-b328-4c37-afbd-f252552416f4",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 96.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 96.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "4b5f8476-27cf-4b45-99ec-4988afc91143": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "SettingPopup",
+      "type": "Frame",
+      "parent": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 940.8
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 529.2
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "753b52d9-a677-4a1f-9bfd-31ba9ba6d8ee": {
+      "spriteId": "PopupBack_Navy",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "SettingPopupBackground",
+      "type": "Image",
+      "parent": "4b5f8476-27cf-4b45-99ec-4988afc91143",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 940.8
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 529.2
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "b010acd1-715c-46d9-8612-ffc16f3e70f7": {
+      "spriteId": "PopupTitleBack_LightNavy",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "SettingPopupTopTitleBackground",
+      "type": "Image",
+      "parent": "4b5f8476-27cf-4b45-99ec-4988afc91143",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -1.5021
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 218.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 913.6447
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 70.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "07f33561-810a-43a4-8731-4dc0f2d75f07": {
+      "textAlignment": "TopLeft",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fontSize": 36.0,
+      "text": "Settings",
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "TopTitleText",
+      "type": "Label",
+      "parent": "b010acd1-715c-46d9-8612-ffc16f3e70f7",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 2.47955322E-05
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "7eda95cd-da2e-497c-ae5f-9e35f8f9dd49": {
+      "events": {},
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "SettingPopupCloseButton",
+      "type": "Button",
+      "parent": "b010acd1-715c-46d9-8612-ffc16f3e70f7",
+      "anchor": [
+        1.0,
+        0.5
+      ],
+      "pivot": [
+        1.0,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -21.000061
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 60.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 60.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "fc4f372d-9f03-411f-a8ee-a8588d80a5a8": {
+      "spriteId": "Btn_Close_Normal",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "CloseButtonImage",
+      "type": "Image",
+      "parent": "7eda95cd-da2e-497c-ae5f-9e35f8f9dd49",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 60.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 60.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "6f91c68b-1713-4701-ab3f-f59bb495d42d": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "MusicCheckBox",
+      "type": "Frame",
+      "parent": "4b5f8476-27cf-4b45-99ec-4988afc91143",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 137.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -137.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 60.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 56.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "a09697dd-a38d-40b5-a58b-898c8a226ea1": {
+      "spriteId": "Icon_Checkbox_Normal",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "MusicCheckBoxNormal",
+      "type": "Image",
+      "parent": "6f91c68b-1713-4701-ab3f-f59bb495d42d",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 120.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 60.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 56.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "c4eab86f-acbe-47b9-8555-e9dce70d3f11": {
+      "spriteId": "Icon_Checkbox_Complete",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "MusicCheckBoxChecked",
+      "type": "Image",
+      "parent": "6f91c68b-1713-4701-ab3f-f59bb495d42d",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 120.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 60.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 56.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "f3db80d3-04c7-425d-a396-973c7d60333a": {
+      "events": {},
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "MusicCheckBoxButton",
+      "type": "Button",
+      "parent": "6f91c68b-1713-4701-ab3f-f59bb495d42d",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 119.699982
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -3.05175781E-05
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 60.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 56.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "f35e88fe-419a-49c0-af4a-11f76c1c770f": {
+      "textAlignment": "TopLeft",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fontSize": 36.0,
+      "text": "Music",
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "MusicText",
+      "type": "Label",
+      "parent": "6f91c68b-1713-4701-ab3f-f59bb495d42d",
+      "anchor": [
+        0.0,
+        0.5
+      ],
+      "pivot": [
+        0.0,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -3.05175781E-05
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -3.05175781E-05
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "04d903c5-5419-4a21-aeaa-ee12d1acf008": {
+      "textAlignment": "TopLeft",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fontSize": 36.0,
+      "text": "Music On",
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "MusicStatusText",
+      "type": "Label",
+      "parent": "6f91c68b-1713-4701-ab3f-f59bb495d42d",
+      "anchor": [
+        0.0,
+        0.5
+      ],
+      "pivot": [
+        0.0,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 208.6
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -3.05175781E-05
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "3b8eded3-50d1-49ef-b834-e3ab7014cc53": {
+      "spriteId": "faction_a",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "MusicCheckBoxIcon",
+      "type": "Image",
+      "parent": "6f91c68b-1713-4701-ab3f-f59bb495d42d",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 415.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 1.9
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 80.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 80.0
+        }
+      },
+      "rotation": 45.0000038,
+      "visible": true,
+      "zIndex": 0
+    },
+    "10c95ca7-6603-47e3-a06a-6201418c71f5": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "SoundCheckBox",
+      "type": "Frame",
+      "parent": "4b5f8476-27cf-4b45-99ec-4988afc91143",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 137.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -234.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 60.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 56.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "c0987ad9-47a6-4eb1-bb1d-27759a9ab417": {
+      "spriteId": "Icon_Checkbox_Normal",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "SoundCheckBoxNormal",
+      "type": "Image",
+      "parent": "10c95ca7-6603-47e3-a06a-6201418c71f5",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 120.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 60.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 56.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "d0c19f7f-ce06-4e1a-85f2-c5c9b848235d": {
+      "spriteId": "Icon_Checkbox_Complete",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "SoundCheckBoxChecked",
+      "type": "Image",
+      "parent": "10c95ca7-6603-47e3-a06a-6201418c71f5",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 120.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 60.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 56.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "d70c6cdc-6119-45e1-baeb-e337d2a6fd9b": {
+      "events": {},
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "SoundCheckBoxButton",
+      "type": "Button",
+      "parent": "10c95ca7-6603-47e3-a06a-6201418c71f5",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 119.700043
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -3.05175781E-05
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 60.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 56.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "2d140b96-a194-44e9-bf20-39d5bba9a1f6": {
+      "textAlignment": "TopLeft",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fontSize": 36.0,
+      "text": "Sound",
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "SoundText",
+      "type": "Label",
+      "parent": "10c95ca7-6603-47e3-a06a-6201418c71f5",
+      "anchor": [
+        0.0,
+        0.5
+      ],
+      "pivot": [
+        0.0,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -3.05175781E-05
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "861ce91d-7b1a-4f0a-9804-a575527d4d2a": {
+      "textAlignment": "TopLeft",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fontSize": 36.0,
+      "text": "Sound On",
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "SoundStatusText",
+      "type": "Label",
+      "parent": "10c95ca7-6603-47e3-a06a-6201418c71f5",
+      "anchor": [
+        0.0,
+        0.5
+      ],
+      "pivot": [
+        0.0,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 208.599976
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "6daaa5e2-afff-4673-bbdf-2970104dd478": {
+      "spriteId": "faction_c",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "SoundCheckBoxIcon",
+      "type": "Image",
+      "parent": "10c95ca7-6603-47e3-a06a-6201418c71f5",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 415.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 80.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 80.0
+        }
+      },
+      "rotation": 315.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "770d5d5f-4436-4e3e-8200-1231e98b5f05": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "VolumeSlider",
+      "type": "Frame",
+      "parent": "4b5f8476-27cf-4b45-99ec-4988afc91143",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 15.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -95.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 650.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "db3a2eee-5e1e-494b-991d-fccab750bfa5": {
+      "spriteId": "GaugeFront_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "SliderBackground",
+      "type": "Image",
+      "parent": "770d5d5f-4436-4e3e-8200-1231e98b5f05",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 650.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 32.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "4983e4f8-75cd-4f45-aea6-091dcaf8cb91": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "FillArea",
+      "type": "Frame",
+      "parent": "770d5d5f-4436-4e3e-8200-1231e98b5f05",
+      "anchor": [
+        0.0,
+        0.5
+      ],
+      "pivot": [
+        0.0,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 32.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "b20a6d32-8d69-4fa1-8e9f-7332de58fb55": {
+      "spriteId": "GaugeFront_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.3637513,
+        0.9559748,
+        0.902370453,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Fill",
+      "type": "Image",
+      "parent": "4983e4f8-75cd-4f45-aea6-091dcaf8cb91",
+      "anchor": [
+        0.0,
+        0.5
+      ],
+      "pivot": [
+        0.0,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 32.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "5fe7af32-2fa8-4944-9005-8f1199940858": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "HandleSliderArea",
+      "type": "Frame",
+      "parent": "770d5d5f-4436-4e3e-8200-1231e98b5f05",
+      "anchor": [
+        0.0,
+        0.5
+      ],
+      "pivot": [
+        0.0,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 650.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 32.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "758f0d78-cddd-465f-8518-4f8135986d5e": {
+      "events": {},
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "HandleButton",
+      "type": "Button",
+      "parent": "5fe7af32-2fa8-4944-9005-8f1199940858",
+      "anchor": [
+        0.0,
+        0.5
+      ],
+      "pivot": [
+        0.0,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -25.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 50.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "32b14d7a-8224-4566-8463-21972867392e": {
+      "spriteId": "circle_mask",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.41202873,
+        0.438215345,
+        0.522012532,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "HandleImage",
+      "type": "Image",
+      "parent": "758f0d78-cddd-465f-8518-4f8135986d5e",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 50.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "1eb43d4d-6c1d-48f9-8b85-60947ebcae3a": {
+      "events": {},
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ExitButton",
+      "type": "Button",
+      "parent": "4b5f8476-27cf-4b45-99ec-4988afc91143",
+      "anchor": [
+        0.5,
+        1.0
+      ],
+      "pivot": [
+        0.5,
+        1.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 35.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 300.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "44d01b60-ef9d-46f4-95b4-d1866efded58": {
+      "spriteId": "button 1 normal",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ExitNormalImage",
+      "type": "Image",
+      "parent": "1eb43d4d-6c1d-48f9-8b85-60947ebcae3a",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 300.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "4c185d96-f01d-40a5-80ad-0febe63213f6": {
+      "spriteId": "button 1 hover",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ExitHoverImage",
+      "type": "Image",
+      "parent": "1eb43d4d-6c1d-48f9-8b85-60947ebcae3a",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 300.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "46f8ed8e-6db7-4f43-83fb-d2f50202ab37": {
+      "spriteId": "button 1 click",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ExitPressedImage",
+      "type": "Image",
+      "parent": "1eb43d4d-6c1d-48f9-8b85-60947ebcae3a",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 300.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "dc00c0bb-3c42-45b7-9ad6-bc4eec2eb82e": {
+      "textAlignment": "Center",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fontSize": 25.0,
+      "text": "EXIT",
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ExitText",
+      "type": "Label",
+      "parent": "1eb43d4d-6c1d-48f9-8b85-60947ebcae3a",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "95e114ea-37e4-40a9-b01d-748917622f9c": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ExitPopup",
+      "type": "Frame",
+      "parent": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 658.56
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 370.44
+        }
+      },
+      "rotation": 0.0,
+      "visible": false,
+      "zIndex": 100
+    },
+    "240917b2-f085-4770-8064-bde842f769a1": {
+      "spriteId": "PopupBack_Navy",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ExitPopupBackground",
+      "type": "Image",
+      "parent": "95e114ea-37e4-40a9-b01d-748917622f9c",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 658.56
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 370.44
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 100
+    },
+    "41020444-881e-4559-941e-3ebe5ef222d0": {
+      "spriteId": "PopupTitleBack_LightNavy",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ExitPopupTopTitleBackground",
+      "type": "Image",
+      "parent": "95e114ea-37e4-40a9-b01d-748917622f9c",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.3443
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 148.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 630.7139
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 49.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 100
+    },
+    "f3db34de-bf6e-483a-b7f8-794936fee290": {
+      "textAlignment": "Center",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fontSize": 23.2,
+      "text": "Exit Popup Window",
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "TopTitleText",
+      "type": "Label",
+      "parent": "41020444-881e-4559-941e-3ebe5ef222d0",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 25.8026123
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 251.6053
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 100
+    },
+    "e902d079-ce48-4e58-bb44-8b069799877f": {
+      "events": {},
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ExitPopupCloseButton",
+      "type": "Button",
+      "parent": "41020444-881e-4559-941e-3ebe5ef222d0",
+      "anchor": [
+        1.0,
+        0.5
+      ],
+      "pivot": [
+        1.0,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -21.00003
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 42.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 42.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 200
+    },
+    "0f78dbbf-b9ca-4e7d-a0e8-3f9d9b84be58": {
+      "spriteId": "Btn_Close_Normal",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "CloseButtonImage",
+      "type": "Image",
+      "parent": "e902d079-ce48-4e58-bb44-8b069799877f",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 42.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 42.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 200
+    },
+    "f76cb9ac-798b-4eef-8d1c-3f9005cf1e44": {
+      "textAlignment": "Center",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fontSize": 25.0,
+      "text": "Do you wont to quit this popup?",
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "DescriptionText",
+      "type": "Label",
+      "parent": "95e114ea-37e4-40a9-b01d-748917622f9c",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 11.9443
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 25.8000031
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 565.9709
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 64.2033
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 100
+    },
+    "a252ac59-ca5c-4281-b042-4423f5a7c536": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Yes",
+      "type": "Frame",
+      "parent": "95e114ea-37e4-40a9-b01d-748917622f9c",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -125.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -79.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 100
+    },
+    "a49481d5-c858-4f04-8481-13c0d9f5d3b5": {
+      "spriteId": "button 1 normal",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Normal",
+      "type": "Image",
+      "parent": "a252ac59-ca5c-4281-b042-4423f5a7c536",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 100
+    },
+    "dcd2d924-1491-47f1-a762-5ebd36571007": {
+      "spriteId": "button 1 hover",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Hover",
+      "type": "Image",
+      "parent": "a252ac59-ca5c-4281-b042-4423f5a7c536",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 100
+    },
+    "83fd9ac1-d9b1-46e3-8f90-268fa24232cd": {
+      "spriteId": "button 1 click",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Pressed",
+      "type": "Image",
+      "parent": "a252ac59-ca5c-4281-b042-4423f5a7c536",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 100
+    },
+    "63c11ce4-39ac-4ad3-b23c-71453f964541": {
+      "textAlignment": "Center",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fontSize": 25.0,
+      "text": "YES",
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Text (TMP)",
+      "type": "Label",
+      "parent": "a252ac59-ca5c-4281-b042-4423f5a7c536",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 100
+    },
+    "9ef42191-46df-415e-9a24-a1c5da46f0a0": {
+      "events": {},
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Button",
+      "type": "Button",
+      "parent": "a252ac59-ca5c-4281-b042-4423f5a7c536",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 1.0912
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -0.9469
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 165.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 65.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 100
+    },
+    "5950fd5b-3160-4f4b-9727-63c3412129b6": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "No",
+      "type": "Frame",
+      "parent": "95e114ea-37e4-40a9-b01d-748917622f9c",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 125.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -79.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 100
+    },
+    "efcbc3e5-23ea-4b01-af1f-7a4d59edaecd": {
+      "spriteId": "button 1 normal",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Normal",
+      "type": "Image",
+      "parent": "5950fd5b-3160-4f4b-9727-63c3412129b6",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 100
+    },
+    "a9b5711b-c7f9-47f7-9eb3-be3506db24ce": {
+      "spriteId": "button 1 hover",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Hover",
+      "type": "Image",
+      "parent": "5950fd5b-3160-4f4b-9727-63c3412129b6",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 100
+    },
+    "08c20476-b913-47ae-96b0-2bc5f31957cb": {
+      "spriteId": "button 1 click",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Pressed",
+      "type": "Image",
+      "parent": "5950fd5b-3160-4f4b-9727-63c3412129b6",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 100
+    },
+    "f2820e2c-c43d-416b-a572-cd763b488e3a": {
+      "textAlignment": "Center",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fontSize": 25.0,
+      "text": "No",
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Text (TMP)",
+      "type": "Label",
+      "parent": "5950fd5b-3160-4f4b-9727-63c3412129b6",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 200.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 100
+    },
+    "d68a67f9-d607-4573-96ea-473c8776e514": {
+      "events": {},
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Button",
+      "type": "Button",
+      "parent": "5950fd5b-3160-4f4b-9727-63c3412129b6",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 1.0912
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -0.9469
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 165.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 65.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 100
+    },
+    "d8942a7a-fc4d-4706-a17b-564a362eab8f": {
+      "spriteId": "PopupBack_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.784313738
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Invetory",
+      "type": "Image",
+      "parent": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 934.2553
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 550.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "c7befb0d-fc42-4e1c-b391-147de6478dbb": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ScrollFrame",
+      "type": "ScrollFrame",
+      "parent": "d8942a7a-fc4d-4706-a17b-564a362eab8f",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -2.90870667E-05
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -21.3636
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 897.4722
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 452.7251
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0,
+      "scrollAxis": "Vertical",
+      "startCorner": "UpperLeft",
+      "startAxis": "Horizontal",
+      "childSize": [
+        100.0,
+        100.0
+      ],
+      "childPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "childSpacing": [
+        10.0,
+        49.53
+      ],
+      "childAlignment": "UpperLeft",
+      "childConstraintCount": 8,
+      "frameBackgroundSpriteId": "GaugeFront_White",
+      "frameBackgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ]
+    },
+    "cfa99287-e56e-418a-b943-87e4e7c54bbb": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Content",
+      "type": "Frame",
+      "parent": "c7befb0d-fc42-4e1c-b391-147de6478dbb",
+      "anchor": [
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "323afa45-b147-4d40-86ce-801806c4a343": {
+      "events": {},
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "CloseButton",
+      "type": "Button",
+      "parent": "d8942a7a-fc4d-4706-a17b-564a362eab8f",
+      "anchor": [
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        1.0,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -2.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -16.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 72.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 54.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "95bc3730-7191-420f-8faa-e3c4c20f8313": {
+      "spriteId": "Btn_Close_Popup_Normal",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "CloseButtonImage",
+      "type": "Image",
+      "parent": "323afa45-b147-4d40-86ce-801806c4a343",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 72.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 54.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "8d8cb7ad-0340-4c2d-a204-ff9797e17d1b": {
+      "textAlignment": "Left",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        0.0200743414,
+        0.06434222,
+        0.182389915,
+        1.0
+      ],
+      "fontSize": 36.0,
+      "text": "INVENTORY",
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Text (TMP)",
+      "type": "Label",
+      "parent": "d8942a7a-fc4d-4706-a17b-564a362eab8f",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 17.8
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -15.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 259.5969
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "00efdce9-7cdb-49ef-94cf-dbee15a4a92d": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlot",
+      "type": "Frame",
+      "parent": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": false,
+      "zIndex": 0
+    },
+    "ade9255a-c897-4b2c-aac3-96bcf40181c4": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground",
+      "type": "Image",
+      "parent": "00efdce9-7cdb-49ef-94cf-dbee15a4a92d",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "117c29eb-86d5-43d6-a4bd-c182dff841da": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "00efdce9-7cdb-49ef-94cf-dbee15a4a92d",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "43055494-3c50-4d16-81e5-53795a5d24ad": {
+      "textAlignment": "Center",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fontSize": 24.0,
+      "text": "",
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Text (TMP)",
+      "type": "Label",
+      "parent": "117c29eb-86d5-43d6-a4bd-c182dff841da",
+      "anchor": [
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "48014beb-773b-4def-886c-a0b7154b29ff": {
+      "spriteId": "potion_blue_64",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Inventory_Item_0",
+      "type": "Image",
+      "parent": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": false,
+      "zIndex": 0
+    },
+    "387a9fca-4782-4126-980b-67dd88f6ddc4": {
+      "textAlignment": "Right",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fontSize": 36.0,
+      "text": "0",
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemCountText",
+      "type": "Label",
+      "parent": "48014beb-773b-4def-886c-a0b7154b29ff",
+      "anchor": [
+        0.5,
+        1.0
+      ],
+      "pivot": [
+        0.5,
+        1.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "cfc3ae2e-789e-4689-b88e-ac84f6465b2c": {
+      "spriteId": "potion_green_64",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Inventory_Item_1",
+      "type": "Image",
+      "parent": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": false,
+      "zIndex": 0
+    },
+    "da4b2133-97df-4a9d-87e4-881598c832cb": {
+      "textAlignment": "Right",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fontSize": 36.0,
+      "text": "0",
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemCountText",
+      "type": "Label",
+      "parent": "cfc3ae2e-789e-4689-b88e-ac84f6465b2c",
+      "anchor": [
+        0.5,
+        1.0
+      ],
+      "pivot": [
+        0.5,
+        1.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "4a1eca68-7e55-40c7-a700-3a7cb05e263b": {
+      "spriteId": "potion_orange_64",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Inventory_Item_2",
+      "type": "Image",
+      "parent": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": false,
+      "zIndex": 0
+    },
+    "dc9ad26a-42ea-4013-90b8-6899e2d1d872": {
+      "textAlignment": "Right",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fontSize": 36.0,
+      "text": "0",
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemCountText",
+      "type": "Label",
+      "parent": "4a1eca68-7e55-40c7-a700-3a7cb05e263b",
+      "anchor": [
+        0.5,
+        1.0
+      ],
+      "pivot": [
+        0.5,
+        1.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    }
+  }
+}
