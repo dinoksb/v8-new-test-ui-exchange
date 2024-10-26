@@ -199,7 +199,8 @@ namespace G2.Exporter
                         imageColor0To1.b,
                         imageColor0To1.a
                     };
-                    imageData.spriteId = imageComponent.sprite.name;
+                    
+                    imageData.spriteId = imageComponent.sprite ? imageComponent.sprite.name : string.Empty;
                     imageData.interactable = imageComponent.raycastTarget;
                     return imageData as T;
                 case ElementType.Label:
