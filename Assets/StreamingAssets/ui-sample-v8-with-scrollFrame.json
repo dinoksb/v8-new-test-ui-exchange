@@ -233,7 +233,7 @@
     }
   },
   "ui": {
-    "9fe32844-89b3-4683-8b00-cf044913b044": {
+    "741af999-8b3b-4a3f-847e-8a35153c363c": {
       "events": {
         "PointerDown": "PointerDown"
       },
@@ -275,7 +275,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "9abf4c10-70cb-46b7-9610-c00b62d8bb7e": {
+    "80431c73-bb06-4e87-9934-09f3a146a0b7": {
       "spriteId": "Icon_Bag_M",
       "backgroundColor": [
         1.0,
@@ -294,7 +294,7 @@
       "dim": 0.0,
       "name": "InventoryButtonImage",
       "type": "Image",
-      "parent": "9fe32844-89b3-4683-8b00-cf044913b044",
+      "parent": "741af999-8b3b-4a3f-847e-8a35153c363c",
       "anchor": [
         0.5,
         0.5
@@ -327,7 +327,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "c4c59126-ba4e-4175-8f14-2011c62502fd": {
+    "14c1a191-7a16-4877-beee-50c9bdd70182": {
       "events": {
         "PointerDown": "PointerDown"
       },
@@ -369,7 +369,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "de812d97-fb26-48f1-8f3a-871207eaca58": {
+    "b8f032c1-c69f-45ff-ba37-86287d20cd39": {
       "spriteId": "Icon_Bag_M",
       "backgroundColor": [
         1.0,
@@ -388,7 +388,7 @@
       "dim": 0.0,
       "name": "InventoryButtonImage",
       "type": "Image",
-      "parent": "c4c59126-ba4e-4175-8f14-2011c62502fd",
+      "parent": "14c1a191-7a16-4877-beee-50c9bdd70182",
       "anchor": [
         0.5,
         0.5
@@ -421,7 +421,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "43da7975-cbe9-41a9-b85e-ddfa70767000": {
+    "b2efb8dc-3d1c-446c-82ed-42432699ee16": {
       "spriteId": "PopupBack_White",
       "backgroundColor": [
         1.0,
@@ -473,13 +473,13 @@
       "visible": true,
       "zIndex": 0
     },
-    "7c773512-f75e-40cb-9fdf-85a8937b554c": {
+    "a344f2b1-1ff5-41a2-baeb-38ef05df1f23": {
       "interactable": true,
       "sizeConstraint": "XY",
       "dim": 0.0,
       "name": "ScrollFrame",
       "type": "ScrollFrame",
-      "parent": "43da7975-cbe9-41a9-b85e-ddfa70767000",
+      "parent": "b2efb8dc-3d1c-446c-82ed-42432699ee16",
       "anchor": [
         0.5,
         0.5
@@ -526,7 +526,7 @@
       ],
       "childSpacing": [
         10.0,
-        49.53
+        10.0
       ],
       "childAlignment": "UpperCenter",
       "childConstraintCount": 8,
@@ -538,13 +538,13 @@
         0.0
       ]
     },
-    "0a25e94e-8b65-49c9-8042-b37515a8ca97": {
+    "c78248a1-2066-447a-8466-f715cbb18b09": {
       "interactable": true,
       "sizeConstraint": "XY",
       "dim": 0.0,
       "name": "Content",
       "type": "Frame",
-      "parent": "7c773512-f75e-40cb-9fdf-85a8937b554c",
+      "parent": "a344f2b1-1ff5-41a2-baeb-38ef05df1f23",
       "anchor": [
         1.0,
         0.0
@@ -577,14 +577,14 @@
       "visible": true,
       "zIndex": 0
     },
-    "63463674-09bf-42c6-a851-5d385fdc4015": {
+    "de204743-394f-46fe-81ce-8fb1059bf977": {
       "events": {},
       "interactable": true,
       "sizeConstraint": "XY",
       "dim": 0.0,
       "name": "InventoryCloseButton",
       "type": "Button",
-      "parent": "43da7975-cbe9-41a9-b85e-ddfa70767000",
+      "parent": "b2efb8dc-3d1c-446c-82ed-42432699ee16",
       "anchor": [
         1.0,
         0.0
@@ -617,7 +617,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "37be6138-aa98-4b52-a6ba-a3cd269130c2": {
+    "89d77b66-0655-4a66-9c78-c9b41e73c270": {
       "spriteId": "Btn_Close_Popup_Normal",
       "backgroundColor": [
         1.0,
@@ -636,7 +636,7 @@
       "dim": 0.0,
       "name": "CloseButtonImage",
       "type": "Image",
-      "parent": "63463674-09bf-42c6-a851-5d385fdc4015",
+      "parent": "de204743-394f-46fe-81ce-8fb1059bf977",
       "anchor": [
         0.5,
         0.5
@@ -669,7 +669,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "357ef362-6025-492c-8673-215de227a243": {
+    "f56c2f74-43b0-48e6-9a63-eb5f81475a8f": {
       "textAlignment": "Left",
       "fontId": "LiberationSans SDF",
       "fontColor": [
@@ -685,7 +685,7 @@
       "dim": 0.0,
       "name": "Text (TMP)",
       "type": "Label",
-      "parent": "43da7975-cbe9-41a9-b85e-ddfa70767000",
+      "parent": "b2efb8dc-3d1c-446c-82ed-42432699ee16",
       "anchor": [
         0.0,
         0.0
@@ -718,7 +718,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "f0943ca4-dc71-4b1f-b24d-10db087e42e7": {
+    "b500d739-ec5c-49b3-b9df-347dc69e5b36": {
       "spriteId": "PopupBack_White",
       "backgroundColor": [
         1.0,
@@ -770,13 +770,13 @@
       "visible": true,
       "zIndex": 0
     },
-    "b6e64d67-1251-4aec-ab12-945164ab7361": {
+    "b503b1f7-420a-4344-8631-7cfa7e112641": {
       "interactable": true,
       "sizeConstraint": "XY",
       "dim": 0.0,
       "name": "Inventory_Slots",
       "type": "Frame",
-      "parent": "f0943ca4-dc71-4b1f-b24d-10db087e42e7",
+      "parent": "b500d739-ec5c-49b3-b9df-347dc69e5b36",
       "anchor": [
         0.5,
         0.5
@@ -809,7 +809,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "aab5e6a1-9a7f-455f-b6cb-86177c32121f": {
+    "30f0da3f-fda2-47dc-9fdb-1ef802328ff0": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -828,7 +828,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -861,7 +861,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "79d48807-da3e-4f5e-9415-2c612a987007": {
+    "693f0a61-6e31-4abf-a0b8-b67ae3673778": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -880,7 +880,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "aab5e6a1-9a7f-455f-b6cb-86177c32121f",
+      "parent": "30f0da3f-fda2-47dc-9fdb-1ef802328ff0",
       "anchor": [
         0.5,
         0.5
@@ -913,7 +913,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "7e4d19fe-113b-412e-a7a7-dcb70aa2aaf9": {
+    "55182d44-3166-4cd7-8926-5bf6f50bfbd5": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -932,7 +932,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (1)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -965,7 +965,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "b3df4c54-0d92-45cf-93e5-13a9bc162353": {
+    "0e4bdd1d-75b0-4e41-ba6b-2c4688530763": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -984,7 +984,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "7e4d19fe-113b-412e-a7a7-dcb70aa2aaf9",
+      "parent": "55182d44-3166-4cd7-8926-5bf6f50bfbd5",
       "anchor": [
         0.5,
         0.5
@@ -1017,7 +1017,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "314b2995-ce7a-42b5-a6fc-ef43e313d143": {
+    "92f0aacb-1c61-4a5f-8f80-1ea5af0afe08": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -1036,7 +1036,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (2)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -1069,7 +1069,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "971dbefe-f249-41f5-ba0e-660118fea88c": {
+    "484b9656-cc13-4807-9d2d-a87d58324524": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -1088,7 +1088,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "314b2995-ce7a-42b5-a6fc-ef43e313d143",
+      "parent": "92f0aacb-1c61-4a5f-8f80-1ea5af0afe08",
       "anchor": [
         0.5,
         0.5
@@ -1121,7 +1121,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "13377a7d-2852-4843-a351-8fe062160dda": {
+    "90626ecc-1956-4f96-84af-4d507d2718cf": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -1140,7 +1140,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (3)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -1173,7 +1173,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "82a2ff1b-fb6f-4e71-9408-515340a45ae3": {
+    "105bdb34-e4be-48bb-9467-496b68494fb9": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -1192,7 +1192,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "13377a7d-2852-4843-a351-8fe062160dda",
+      "parent": "90626ecc-1956-4f96-84af-4d507d2718cf",
       "anchor": [
         0.5,
         0.5
@@ -1225,7 +1225,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "c052697b-3dee-4644-9b56-eb930b88b0e9": {
+    "6b5d2db8-ad14-48e6-a5b4-716d2ae7c92c": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -1244,7 +1244,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (4)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -1277,7 +1277,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "3f8e577e-bc86-44dd-9473-dffc38e03c12": {
+    "ce5f7dbc-ea21-4f28-ab56-439ef41c6e07": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -1296,7 +1296,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "c052697b-3dee-4644-9b56-eb930b88b0e9",
+      "parent": "6b5d2db8-ad14-48e6-a5b4-716d2ae7c92c",
       "anchor": [
         0.5,
         0.5
@@ -1329,7 +1329,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "d0713851-4f8f-4443-a564-10328e877e20": {
+    "85d4499b-6aa8-44b9-b11a-1cc5df4e205d": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -1348,7 +1348,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (5)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -1381,7 +1381,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "5772d97e-3e72-4e9e-ab4b-08d4554296bf": {
+    "dd88f575-768e-4747-b91f-9b7569ddfd92": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -1400,7 +1400,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "d0713851-4f8f-4443-a564-10328e877e20",
+      "parent": "85d4499b-6aa8-44b9-b11a-1cc5df4e205d",
       "anchor": [
         0.5,
         0.5
@@ -1433,7 +1433,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "40b47b43-805e-4070-a53e-e6bce27b7c63": {
+    "dec516df-7456-4984-9a25-314b6e6c9da5": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -1452,7 +1452,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (6)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -1485,7 +1485,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "8d02cc9d-5619-4c24-830d-03cff11cd2f0": {
+    "c2f47258-248e-4d54-b1ce-439c5c04e1ae": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -1504,7 +1504,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "40b47b43-805e-4070-a53e-e6bce27b7c63",
+      "parent": "dec516df-7456-4984-9a25-314b6e6c9da5",
       "anchor": [
         0.5,
         0.5
@@ -1537,7 +1537,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "a3df7371-ca9a-4498-9193-384c92983b67": {
+    "b4bba113-3dd6-4e37-a1ed-f7128b0bdc3b": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -1556,7 +1556,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (7)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -1589,7 +1589,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "8df1b22f-39e4-4036-b7c1-dcae2782c8f9": {
+    "0d6d6c48-890d-4bab-9120-8754275e1fd0": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -1608,7 +1608,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "a3df7371-ca9a-4498-9193-384c92983b67",
+      "parent": "b4bba113-3dd6-4e37-a1ed-f7128b0bdc3b",
       "anchor": [
         0.5,
         0.5
@@ -1641,7 +1641,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "99b6a217-703e-43ec-980a-12fd0a87a473": {
+    "2d027522-02f2-45cf-a490-23de48cfbf17": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -1660,7 +1660,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (8)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -1693,7 +1693,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "868198de-833c-4aa6-ba89-355f9b2cab18": {
+    "5eb8de6b-3839-47fd-af37-7fac7f6916be": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -1712,7 +1712,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "99b6a217-703e-43ec-980a-12fd0a87a473",
+      "parent": "2d027522-02f2-45cf-a490-23de48cfbf17",
       "anchor": [
         0.5,
         0.5
@@ -1745,7 +1745,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "e3e3d4d2-571b-4765-9e4c-3b0049a9caec": {
+    "f307e642-722f-4eb4-8733-f3e66bdb9ad8": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -1764,7 +1764,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (9)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -1797,7 +1797,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "e63998dd-548a-448e-b82d-7743c48f39f9": {
+    "6eeb49e4-d9db-44c6-a5c9-a9aab85e3eb8": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -1816,7 +1816,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "e3e3d4d2-571b-4765-9e4c-3b0049a9caec",
+      "parent": "f307e642-722f-4eb4-8733-f3e66bdb9ad8",
       "anchor": [
         0.5,
         0.5
@@ -1849,7 +1849,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "ebbc9c83-61ba-4e50-8e54-57d5ab3c9772": {
+    "221565ec-e68b-4c15-a305-f488d97b4c65": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -1868,7 +1868,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (10)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -1901,7 +1901,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "cab95476-0b83-4ebc-b5e4-a9076b1027c4": {
+    "73fb80ef-c570-43b2-a589-2b3cdec6804f": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -1920,7 +1920,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "ebbc9c83-61ba-4e50-8e54-57d5ab3c9772",
+      "parent": "221565ec-e68b-4c15-a305-f488d97b4c65",
       "anchor": [
         0.5,
         0.5
@@ -1953,7 +1953,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "f3f20c36-3495-49a3-8578-6b5193e34537": {
+    "b1ffa315-c312-4e7b-84da-6bcf76339ec2": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -1972,7 +1972,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (11)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -2005,7 +2005,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "26330e81-a625-4bff-8720-be0ecea28b06": {
+    "600e0bdc-9766-4041-a023-0acc26720bd9": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -2024,7 +2024,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "f3f20c36-3495-49a3-8578-6b5193e34537",
+      "parent": "b1ffa315-c312-4e7b-84da-6bcf76339ec2",
       "anchor": [
         0.5,
         0.5
@@ -2057,7 +2057,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "a6637504-b87f-4321-9253-3a13c3b2e4b1": {
+    "b3a68592-eac6-4816-bf79-6c27aa1cb240": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -2076,7 +2076,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (12)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -2109,7 +2109,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "37c9e3f7-ac7c-4046-866d-2a1e31a1e887": {
+    "c4372df0-d18e-4e5d-8c97-7d9b3e7a8403": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -2128,7 +2128,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "a6637504-b87f-4321-9253-3a13c3b2e4b1",
+      "parent": "b3a68592-eac6-4816-bf79-6c27aa1cb240",
       "anchor": [
         0.5,
         0.5
@@ -2161,7 +2161,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "ddbeca96-0efc-4226-9fde-833d5cdce670": {
+    "b5b43598-393f-4afe-a0da-9146ddce9e01": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -2180,7 +2180,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (13)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -2213,7 +2213,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "e3d8ccd7-49b2-409a-8e55-9809d9cff00d": {
+    "421944d2-af2f-4d04-a8e5-d325cf7d72e8": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -2232,7 +2232,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "ddbeca96-0efc-4226-9fde-833d5cdce670",
+      "parent": "b5b43598-393f-4afe-a0da-9146ddce9e01",
       "anchor": [
         0.5,
         0.5
@@ -2265,7 +2265,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "40c7c720-c0c1-4a2a-ab3b-f574e4e39fe4": {
+    "e763107e-17e9-4700-9308-724aad76fbf8": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -2284,7 +2284,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (14)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -2317,7 +2317,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "b9131afa-bbfe-440e-8bce-e69b7f022573": {
+    "4cc1df23-99ed-4e54-87c7-39fa1d18ff7a": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -2336,7 +2336,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "40c7c720-c0c1-4a2a-ab3b-f574e4e39fe4",
+      "parent": "e763107e-17e9-4700-9308-724aad76fbf8",
       "anchor": [
         0.5,
         0.5
@@ -2369,7 +2369,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "cb64893c-0c51-48a5-b8a0-c38bdee0f317": {
+    "82300d4e-b22c-43c9-976b-c9e6a51f5684": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -2388,7 +2388,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (15)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -2421,7 +2421,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "eef2d662-6941-4b78-89b7-38adccf38de7": {
+    "be580c16-b60d-4664-a240-d6ecd67d6e96": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -2440,7 +2440,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "cb64893c-0c51-48a5-b8a0-c38bdee0f317",
+      "parent": "82300d4e-b22c-43c9-976b-c9e6a51f5684",
       "anchor": [
         0.5,
         0.5
@@ -2473,7 +2473,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "c41b7ec1-2a8e-43a9-add2-635ce0abe0b6": {
+    "5d559fd6-4463-4736-87fe-35beeda99a0e": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -2492,7 +2492,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (16)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -2525,7 +2525,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "e98d86d8-b017-4f1a-8fc4-890d75d60721": {
+    "c77e9c76-cd23-4cd7-8048-e9f9e10b79be": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -2544,7 +2544,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "c41b7ec1-2a8e-43a9-add2-635ce0abe0b6",
+      "parent": "5d559fd6-4463-4736-87fe-35beeda99a0e",
       "anchor": [
         0.5,
         0.5
@@ -2577,7 +2577,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "d7913201-f194-436d-b57c-535e0d641589": {
+    "9f00a098-37ad-4f49-a389-f9114d2237a6": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -2596,7 +2596,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (17)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -2629,7 +2629,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "14e546d0-7519-41ca-9a50-9d839de3f8d9": {
+    "f5660eda-9635-4817-9b4e-a26bd12663b3": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -2648,7 +2648,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "d7913201-f194-436d-b57c-535e0d641589",
+      "parent": "9f00a098-37ad-4f49-a389-f9114d2237a6",
       "anchor": [
         0.5,
         0.5
@@ -2681,7 +2681,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "313886b3-54be-4b1f-9f48-1ac7356698be": {
+    "ab22836d-1f4f-4a66-8426-1e44d022aa08": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -2700,7 +2700,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (18)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -2733,7 +2733,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "2f177faf-87ae-46c1-b321-ca1b2a3f9a8a": {
+    "11d6e96c-1a8d-499d-895d-c89078a04308": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -2752,7 +2752,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "313886b3-54be-4b1f-9f48-1ac7356698be",
+      "parent": "ab22836d-1f4f-4a66-8426-1e44d022aa08",
       "anchor": [
         0.5,
         0.5
@@ -2785,7 +2785,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "e3f4138e-d57d-4d4d-9875-1f22f3260ae9": {
+    "3c2aab69-efc4-4117-a3cb-ebbdc44e5f42": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -2804,7 +2804,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (19)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -2837,7 +2837,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "462fed19-8e37-446f-b560-0bdd38039d8e": {
+    "407411e7-6fb5-4b95-8993-36a0f97865bf": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -2856,7 +2856,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "e3f4138e-d57d-4d4d-9875-1f22f3260ae9",
+      "parent": "3c2aab69-efc4-4117-a3cb-ebbdc44e5f42",
       "anchor": [
         0.5,
         0.5
@@ -2889,7 +2889,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "506cc597-731e-4c3f-87e0-a3e88384cb45": {
+    "49a3b19a-7cb5-406f-b5fa-b513aeff94cb": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -2908,7 +2908,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (20)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -2941,7 +2941,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "529bcd2b-cfb7-4ddf-b644-97e28716d3f9": {
+    "fe540b40-da99-4eea-880c-2c64eec11a4d": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -2960,7 +2960,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "506cc597-731e-4c3f-87e0-a3e88384cb45",
+      "parent": "49a3b19a-7cb5-406f-b5fa-b513aeff94cb",
       "anchor": [
         0.5,
         0.5
@@ -2993,7 +2993,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "599ac146-2108-4d3f-956e-cbf8c8702d5e": {
+    "aa11ea76-b3db-4b2f-a098-ddf3f5c70166": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -3012,7 +3012,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (21)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -3045,7 +3045,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "ee7bb9c4-0382-4fb5-b968-9c90c5c7d80b": {
+    "29edae24-7fc4-4454-8782-7afb3cc3b7d7": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -3064,7 +3064,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "599ac146-2108-4d3f-956e-cbf8c8702d5e",
+      "parent": "aa11ea76-b3db-4b2f-a098-ddf3f5c70166",
       "anchor": [
         0.5,
         0.5
@@ -3097,7 +3097,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "5104c674-1b7f-4527-afbd-669d2aed8390": {
+    "d15d6241-ed0a-41c5-8245-573625a07153": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -3116,7 +3116,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (22)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -3149,7 +3149,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "f214a277-77d7-4a7f-b9df-1c02189fde64": {
+    "f875e6b7-aba4-4bdc-805a-45f5f78c3ed3": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -3168,7 +3168,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "5104c674-1b7f-4527-afbd-669d2aed8390",
+      "parent": "d15d6241-ed0a-41c5-8245-573625a07153",
       "anchor": [
         0.5,
         0.5
@@ -3201,7 +3201,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "69d9274b-e524-43a6-9ccb-5dc883905ea0": {
+    "a7ff7f41-ab5b-484c-a7fe-daec32204585": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -3220,7 +3220,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground (23)",
       "type": "Image",
-      "parent": "b6e64d67-1251-4aec-ab12-945164ab7361",
+      "parent": "b503b1f7-420a-4344-8631-7cfa7e112641",
       "anchor": [
         0.0,
         0.0
@@ -3253,7 +3253,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "57d7f152-1a11-46c7-8712-9f5797e27cc1": {
+    "079ff1e0-6bac-4920-be93-713ccc7624c8": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -3272,7 +3272,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "69d9274b-e524-43a6-9ccb-5dc883905ea0",
+      "parent": "a7ff7f41-ab5b-484c-a7fe-daec32204585",
       "anchor": [
         0.5,
         0.5
@@ -3305,13 +3305,13 @@
       "visible": true,
       "zIndex": 0
     },
-    "b9e5e97e-e996-4cce-bf93-4bf3457dedf8": {
+    "54678dc3-74dc-40bd-ac45-8605afb7a34f": {
       "interactable": true,
       "sizeConstraint": "XY",
       "dim": 0.0,
       "name": "ScrollFrame",
       "type": "ScrollFrame",
-      "parent": "f0943ca4-dc71-4b1f-b24d-10db087e42e7",
+      "parent": "b500d739-ec5c-49b3-b9df-347dc69e5b36",
       "anchor": [
         0.5,
         0.5
@@ -3370,13 +3370,13 @@
         0.0
       ]
     },
-    "9c65e288-9d82-4dd9-904b-517023a3cbf3": {
+    "bcd8a0d2-52b8-4ada-88c4-6785531622be": {
       "interactable": true,
       "sizeConstraint": "XY",
       "dim": 0.0,
       "name": "Content",
       "type": "Frame",
-      "parent": "b9e5e97e-e996-4cce-bf93-4bf3457dedf8",
+      "parent": "54678dc3-74dc-40bd-ac45-8605afb7a34f",
       "anchor": [
         1.0,
         0.0
@@ -3409,14 +3409,14 @@
       "visible": true,
       "zIndex": 0
     },
-    "f04904fb-f874-4359-bd73-29467e35be05": {
+    "f1c1f10c-5760-4b3d-a580-b16dd1c820d7": {
       "events": {},
       "interactable": true,
       "sizeConstraint": "XY",
       "dim": 0.0,
       "name": "InventoryCloseButton",
       "type": "Button",
-      "parent": "f0943ca4-dc71-4b1f-b24d-10db087e42e7",
+      "parent": "b500d739-ec5c-49b3-b9df-347dc69e5b36",
       "anchor": [
         1.0,
         0.0
@@ -3449,7 +3449,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "0399afce-171e-4b2f-8c6a-77afc74177c1": {
+    "4b174b56-a25f-4ce0-a80e-77dae339bb5b": {
       "spriteId": "Btn_Close_Popup_Normal",
       "backgroundColor": [
         1.0,
@@ -3468,7 +3468,7 @@
       "dim": 0.0,
       "name": "CloseButtonImage",
       "type": "Image",
-      "parent": "f04904fb-f874-4359-bd73-29467e35be05",
+      "parent": "f1c1f10c-5760-4b3d-a580-b16dd1c820d7",
       "anchor": [
         0.5,
         0.5
@@ -3501,7 +3501,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "a4ba58e3-7397-4ce5-878e-7593dbc347f5": {
+    "8ab2e6ac-25e8-4380-bd4f-002be8a6169e": {
       "textAlignment": "Left",
       "fontId": "LiberationSans SDF",
       "fontColor": [
@@ -3517,7 +3517,7 @@
       "dim": 0.0,
       "name": "Text (TMP)",
       "type": "Label",
-      "parent": "f0943ca4-dc71-4b1f-b24d-10db087e42e7",
+      "parent": "b500d739-ec5c-49b3-b9df-347dc69e5b36",
       "anchor": [
         0.0,
         0.0
@@ -3550,7 +3550,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "80e3a4b6-a590-40dc-8a1d-df4205c40f06": {
+    "28a4830a-d3e1-426b-878f-12b1bfd62713": {
       "interactable": true,
       "sizeConstraint": "XY",
       "dim": 0.0,
@@ -3589,7 +3589,7 @@
       "visible": false,
       "zIndex": 0
     },
-    "831ec976-77dd-4826-a13c-5560df398563": {
+    "4b9f5cee-746f-4e30-bca8-f813ccb14e72": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -3608,7 +3608,7 @@
       "dim": 0.0,
       "name": "ItemSlotBackground",
       "type": "Image",
-      "parent": "80e3a4b6-a590-40dc-8a1d-df4205c40f06",
+      "parent": "28a4830a-d3e1-426b-878f-12b1bfd62713",
       "anchor": [
         0.5,
         0.5
@@ -3641,7 +3641,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "18fa4e87-ebd1-4944-823f-ff1ec172556a": {
+    "9995ed88-50dc-4180-9261-0b0168b7e7ca": {
       "spriteId": "ItemBack_Blank_White",
       "backgroundColor": [
         1.0,
@@ -3660,7 +3660,7 @@
       "dim": 0.0,
       "name": "NumberTagBackground",
       "type": "Image",
-      "parent": "80e3a4b6-a590-40dc-8a1d-df4205c40f06",
+      "parent": "28a4830a-d3e1-426b-878f-12b1bfd62713",
       "anchor": [
         0.5,
         0.5
@@ -3693,7 +3693,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "a96c3f31-0c65-4877-8362-fde81f5bc728": {
+    "eadec636-92f0-42f7-9566-296de7c28435": {
       "textAlignment": "Center",
       "fontId": "LiberationSans SDF",
       "fontColor": [
@@ -3709,7 +3709,7 @@
       "dim": 0.0,
       "name": "Text (TMP)",
       "type": "Label",
-      "parent": "18fa4e87-ebd1-4944-823f-ff1ec172556a",
+      "parent": "9995ed88-50dc-4180-9261-0b0168b7e7ca",
       "anchor": [
         1.0,
         0.0
@@ -3742,7 +3742,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "1e8f3273-6b0d-46f1-80c9-9ac8ecc7b3aa": {
+    "89aa7185-1cf4-41de-a505-6bd884774ed9": {
       "spriteId": "",
       "backgroundColor": [
         1.0,
@@ -3794,7 +3794,7 @@
       "visible": false,
       "zIndex": 0
     },
-    "739533ee-bc08-4697-92ce-2c619e876e64": {
+    "dbb0541b-d698-4b31-8abd-4cc567bd2f5e": {
       "spriteId": "potion_blue_64",
       "backgroundColor": [
         1.0,
@@ -3846,7 +3846,7 @@
       "visible": false,
       "zIndex": 0
     },
-    "6e6b192c-1dfd-43cf-91b7-ada7e2f977f0": {
+    "6d175841-e8f2-4ee9-a1f0-bee15b6e930a": {
       "textAlignment": "BottomRight",
       "fontId": "LiberationSans SDF",
       "fontColor": [
@@ -3862,7 +3862,7 @@
       "dim": 0.0,
       "name": "ItemCountText",
       "type": "Label",
-      "parent": "739533ee-bc08-4697-92ce-2c619e876e64",
+      "parent": "dbb0541b-d698-4b31-8abd-4cc567bd2f5e",
       "anchor": [
         0.5,
         1.0
@@ -3895,7 +3895,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "03121628-07f5-45fe-b3d6-17aca6d42bed": {
+    "934085f2-4691-420b-9e00-00c0a3116dc5": {
       "spriteId": "potion_green_64",
       "backgroundColor": [
         1.0,
@@ -3947,7 +3947,7 @@
       "visible": false,
       "zIndex": 0
     },
-    "d789ff69-56b8-490d-9a79-8468b8934f28": {
+    "248e8ab0-f525-4322-a631-646ffb60b7d4": {
       "textAlignment": "BottomRight",
       "fontId": "LiberationSans SDF",
       "fontColor": [
@@ -3963,7 +3963,7 @@
       "dim": 0.0,
       "name": "ItemCountText",
       "type": "Label",
-      "parent": "03121628-07f5-45fe-b3d6-17aca6d42bed",
+      "parent": "934085f2-4691-420b-9e00-00c0a3116dc5",
       "anchor": [
         0.5,
         1.0
@@ -3996,7 +3996,7 @@
       "visible": true,
       "zIndex": 0
     },
-    "965e8acb-2f31-4b7c-8b4e-45fa2147ea89": {
+    "97bc956e-7091-474a-91ac-5421b3f209ee": {
       "spriteId": "potion_orange_64",
       "backgroundColor": [
         1.0,
@@ -4048,7 +4048,7 @@
       "visible": false,
       "zIndex": 0
     },
-    "c0ebed49-15ca-4c63-8d21-3e75fda3670e": {
+    "4d58b5b9-1cdd-4ada-b7b1-9022f30684a3": {
       "textAlignment": "Right",
       "fontId": "LiberationSans SDF",
       "fontColor": [
@@ -4064,7 +4064,7 @@
       "dim": 0.0,
       "name": "ItemCountText",
       "type": "Label",
-      "parent": "965e8acb-2f31-4b7c-8b4e-45fa2147ea89",
+      "parent": "97bc956e-7091-474a-91ac-5421b3f209ee",
       "anchor": [
         0.5,
         1.0
