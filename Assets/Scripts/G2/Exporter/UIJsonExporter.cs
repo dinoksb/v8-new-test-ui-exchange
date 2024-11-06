@@ -242,34 +242,67 @@ namespace G2.Exporter
                     var scrollFrame = target.GetComponent<ScrollRect>();
                     ScrollFrameData scrollFrameData = GetFrameData<ScrollFrameData>(target, guid);
                     var scrollFrameImage = scrollFrame.GetComponent<Image>();
-
+                    var contentArea = scrollFrame.transform.GetChild(0) as RectTransform;
                     // set scrollframe axis
                     scrollFrameData.ScrollAxis = scrollFrame.horizontal ? GridLayoutGroup.Axis.Horizontal.ToString() : GridLayoutGroup.Axis.Vertical.ToString();
 
+                    var contentAreaSize = new DimensionData()
+                    {
+                        x = new DimensionAdjustData
+                        {
+                            offset = contentArea.sizeDelta.x
+                        },
+                        y = new DimensionAdjustData
+                        {
+                            offset = contentArea.sizeDelta.y
+                        }
+                    };
+                    scrollFrameData.ContentAreaSize = contentAreaSize;
+                    
+                    var contentAreaAnchor = new [] { contentArea.anchorMax.ToReverseYAxis().x, contentArea.anchorMax.ToReverseYAxis().y };
+                    scrollFrameData.ContentAreaAnchor = contentAreaAnchor;
+                    
+                    var contentAreaPivot = new [] { contentArea.pivot.ToReverseYAxis().x, contentArea.pivot.ToReverseYAxis().y };
+                    scrollFrameData.ContentAreaPivot = contentAreaPivot;
+                    
                     // scroll frame data
-                    scrollFrameData.FrameBackgroundSpriteId = scrollFrameImage.sprite.name;
-                    var frameBgColor = scrollFrameImage.color.To01();
-                    scrollFrameData.FrameBackgroundColor = new[]
-                        { frameBgColor.r, frameBgColor.g, frameBgColor.b, frameBgColor.a };
+                    var scrollFrameBgColor = scrollFrameImage.color.To01();
+                    scrollFrameData.BackgroundColor = new[]
+                        { scrollFrameBgColor.r, scrollFrameBgColor.g, scrollFrameBgColor.b, scrollFrameBgColor.a };
+              
+                    return scrollFrameData as T;
+                case ElementType.GridFrame:
+                    var gridFrame = target.GetComponent<ScrollRect>();
+                    GridFrameData gridFrameData = GetFrameData<GridFrameData>(target, guid);
+                    var gridFrameImage = gridFrame.GetComponent<Image>();
+
+                    // set scrollframe axis
+                    gridFrameData.ScrollAxis = gridFrame.horizontal ? GridLayoutGroup.Axis.Horizontal.ToString() : GridLayoutGroup.Axis.Vertical.ToString();
+
+                    // scroll frame data
+                    gridFrameData.BackgroundSpriteId = gridFrameImage.sprite.name;
+                    var gridFrameBGColor = gridFrameImage.color.To01();
+                    gridFrameData.BackgroundColor = new[]
+                        { gridFrameBGColor.r, gridFrameBGColor.g, gridFrameBGColor.b, gridFrameBGColor.a };
 
                     // mask
-                    var viewport = scrollFrameImage.transform.GetChild(0);
-                    var viewportMaskImage = viewport.GetComponent<Image>();
+                    // var viewport = gridFrameImage.transform.GetChild(0);
+                    // var viewportMaskImage = viewport.GetComponent<Image>();
 
-                    var gridLayout = viewport.GetComponentInChildren<GridLayoutGroup>();
-                    scrollFrameData.ChildSize = new[] { gridLayout.cellSize.x, gridLayout.cellSize.y };
-                    scrollFrameData.ChildSpacing = new[] { gridLayout.spacing.x, gridLayout.spacing.y };
-                    scrollFrameData.ChildConstraintCount = gridLayout.constraintCount;
-                    scrollFrameData.ChildPadding = new[]
+                    var gridLayout = gridFrame.GetComponentInChildren<GridLayoutGroup>();
+                    gridFrameData.ChildSize = new[] { gridLayout.cellSize.x, gridLayout.cellSize.y };
+                    gridFrameData.ChildSpacing = new[] { gridLayout.spacing.x, gridLayout.spacing.y };
+                    gridFrameData.ChildConstraintCount = gridLayout.constraintCount;
+                    gridFrameData.ChildPadding = new[]
                     {
                         gridLayout.padding.left, gridLayout.padding.right, gridLayout.padding.top,
                         gridLayout.padding.bottom
                     };
-                    scrollFrameData.ChildAlignment = gridLayout.childAlignment.ToString();
-                    scrollFrameData.StartCorner = gridLayout.startCorner.ToString();
-                    scrollFrameData.StartAxis = gridLayout.startAxis.ToString();
+                    gridFrameData.ChildAlignment = gridLayout.childAlignment.ToString();
+                    gridFrameData.StartCorner = gridLayout.startCorner.ToString();
+                    gridFrameData.StartAxis = gridLayout.startAxis.ToString();
               
-                    return scrollFrameData as T;
+                    return gridFrameData as T;
                 default:
                     InternalDebug.Log("[UIJsonExporter] - This type is not supported.");
                     return null;
@@ -340,9 +373,10 @@ namespace G2.Exporter
             // }
 
             var scrollFrameCompoenent = gameObject.GetComponent<ScrollRect>();
+            var gridLayout = gameObject.GetComponentInChildren<GridLayoutGroup>(true);
             if (scrollFrameCompoenent != null)
             {
-                return ElementType.ScrollFrame;
+                return gridLayout ? ElementType.GridFrame : ElementType.ScrollFrame; 
             }
 
             var imageComponent = gameObject.GetComponent<UnityEngine.UI.Image>();

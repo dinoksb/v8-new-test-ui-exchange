@@ -4,7 +4,7 @@ using UnityEngine;
 namespace G2.UI.Component
 {
     
-    public class ScrollFrameComponents : FrameComponents
+    public class GridFrameComponents : FrameComponents
     {
         public UnityEngine.UI.ScrollRect ScrollRect { get; }
         public UnityEngine.UI.Image BackGroundImage { get; }
@@ -15,7 +15,7 @@ namespace G2.UI.Component
         private const string _SCROLLBAR_AREA_NAME = "ScrollbarArea";
         private const string _SCROLLBAR_HANDLE_NAME = "Handle";
 
-        public ScrollFrameComponents(IElement parent, Transform zIndexParent, string name) :
+        public GridFrameComponents(IElement parent, Transform zIndexParent, string name) :
             base(parent, zIndexParent, name)
         {
             // TODO: Need to create the objects required to configure the ScrollRect.

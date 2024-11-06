@@ -4662,7 +4662,7 @@ GameObject:
   - component: {fileID: 5453810154102594943}
   - component: {fileID: 7181967421760769620}
   m_Layer: 0
-  m_Name: UICanvas-ScrollFrame
+  m_Name: UICanvas-GridFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

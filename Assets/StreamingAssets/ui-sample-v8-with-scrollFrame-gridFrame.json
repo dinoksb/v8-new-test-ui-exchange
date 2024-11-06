@@ -1,0 +1,4570 @@
+{
+  "studioData": {
+    "version": "1.0",
+    "resolutionWidth": 1920,
+    "resolutionHeight": 1080
+  },
+  "textures": {
+    "Icon_Bag_M": {
+      "name": "Icon_Bag_M",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/Icon_Bag_M.png"
+    },
+    "Icon_Setting_M": {
+      "name": "Icon_Setting_M",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/Icon_Setting_M.png"
+    },
+    "PopupBack_White": {
+      "name": "PopupBack_White",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/PopupBack_White.png"
+    },
+    "GaugeFront_White": {
+      "name": "GaugeFront_White",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/GaugeFront_White.png"
+    },
+    "Btn_Close_Popup_Normal": {
+      "name": "Btn_Close_Popup_Normal",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/Btn_Close_Popup_Normal.png"
+    },
+    "ItemBack_Blank_White": {
+      "name": "ItemBack_Blank_White",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/ItemBack_Blank_White.png"
+    },
+    "potion_blue_64": {
+      "name": "potion_blue_64",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/potion_blue_64.png"
+    },
+    "potion_green_64": {
+      "name": "potion_green_64",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/potion_green_64.png"
+    },
+    "potion_orange_64": {
+      "name": "potion_orange_64",
+      "url": "https://dinoksb.github.io/v8-new-test-ui-exchange/StreamingAssets/Sprites/potion_orange_64.png"
+    }
+  },
+  "spriteSheets": {
+    "Icon_Bag_M": {
+      "name": "Icon_Bag_M",
+      "textureId": "Icon_Bag_M",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        96,
+        96
+      ],
+      "border": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "Icon_Setting_M": {
+      "name": "Icon_Setting_M",
+      "textureId": "Icon_Setting_M",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        96,
+        96
+      ],
+      "border": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "PopupBack_White": {
+      "name": "PopupBack_White",
+      "textureId": "PopupBack_White",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        96,
+        96
+      ],
+      "border": [
+        15,
+        40,
+        40,
+        15
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "GaugeFront_White": {
+      "name": "GaugeFront_White",
+      "textureId": "GaugeFront_White",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        20,
+        4
+      ],
+      "border": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "Btn_Close_Popup_Normal": {
+      "name": "Btn_Close_Popup_Normal",
+      "textureId": "Btn_Close_Popup_Normal",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        72,
+        54
+      ],
+      "border": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pivot": [
+        0.49999997,
+        0.5
+      ],
+      "multiple": false
+    },
+    "ItemBack_Blank_White": {
+      "name": "ItemBack_Blank_White",
+      "textureId": "ItemBack_Blank_White",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        24,
+        24
+      ],
+      "border": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "potion_blue_64": {
+      "name": "potion_blue_64",
+      "textureId": "potion_blue_64",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        64,
+        64
+      ],
+      "border": [
+        11,
+        4,
+        11,
+        4
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "potion_green_64": {
+      "name": "potion_green_64",
+      "textureId": "potion_green_64",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        64,
+        64
+      ],
+      "border": [
+        11,
+        4,
+        11,
+        4
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    },
+    "potion_orange_64": {
+      "name": "potion_orange_64",
+      "textureId": "potion_orange_64",
+      "pixelsPerUnit": 100.0,
+      "offset": [
+        0,
+        0
+      ],
+      "cellSize": [
+        64,
+        64
+      ],
+      "border": [
+        11,
+        4,
+        11,
+        4
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "multiple": false
+    }
+  },
+  "ui": {
+    "df51a650-1ccf-48d3-862a-8cbddd1393b1": {
+      "events": {
+        "PointerDown": "PointerDown"
+      },
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "InventoryButton",
+      "type": "Button",
+      "parent": null,
+      "anchor": [
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        1.0,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -50.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -50.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 96.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 96.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "01b5cce4-f7bf-4c60-be3c-1a9063e3cd9e": {
+      "spriteId": "Icon_Bag_M",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "InventoryButtonImage",
+      "type": "Image",
+      "parent": "df51a650-1ccf-48d3-862a-8cbddd1393b1",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 96.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 96.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "27b1e01b-e2cc-4457-9056-79eb6d3163dc": {
+      "events": {
+        "PointerDown": "PointerDown"
+      },
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "InventoryButton_1",
+      "type": "Button",
+      "parent": null,
+      "anchor": [
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        1.0,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -50.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -184.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 96.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 96.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "41b57cb6-b9e7-4ed6-894a-b916bc6dfb33": {
+      "spriteId": "Icon_Bag_M",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "InventoryButtonImage",
+      "type": "Image",
+      "parent": "27b1e01b-e2cc-4457-9056-79eb6d3163dc",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 96.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 96.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "a1e8ae98-241c-40cd-b286-dcab8f751a02": {
+      "events": {
+        "PointerDown": "PointerDown"
+      },
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Info_Button",
+      "type": "Button",
+      "parent": null,
+      "anchor": [
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        1.0,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -50.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -316.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 96.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 96.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "0c4c34c0-cb11-4cf5-81a5-57705a4b38ac": {
+      "spriteId": "Icon_Setting_M",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": false,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "InfoButtonImage",
+      "type": "Image",
+      "parent": "a1e8ae98-241c-40cd-b286-dcab8f751a02",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 96.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 96.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "1199f1e5-a0d6-497c-b7c4-37811ef25924": {
+      "spriteId": "PopupBack_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.784313738
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Inventory_Dynamic",
+      "type": "Image",
+      "parent": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 934.2553
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 550.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "befab1f4-e71b-4733-a7e4-ebfc8d89d4a5": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ScrollFrame",
+      "type": "GridFrame",
+      "parent": "1199f1e5-a0d6-497c-b7c4-37811ef25924",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -2.90870667E-05
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -21.3636
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 897.4722
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 452.7251
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0,
+      "scrollAxis": "Vertical",
+      "startCorner": "UpperLeft",
+      "startAxis": "Horizontal",
+      "childSize": [
+        100.0,
+        100.0
+      ],
+      "childPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "childSpacing": [
+        10.0,
+        10.0
+      ],
+      "childAlignment": "LowerCenter",
+      "childConstraintCount": 8,
+      "frameBackgroundSpriteId": "GaugeFront_White",
+      "frameBackgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ]
+    },
+    "6647e2d8-e3d8-47e2-bdd8-880d54605720": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Content",
+      "type": "Frame",
+      "parent": "befab1f4-e71b-4733-a7e4-ebfc8d89d4a5",
+      "anchor": [
+        0.5,
+        1.0
+      ],
+      "pivot": [
+        0.5,
+        1.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 897.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 10.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "b3bf6235-9a84-4c1b-8325-b8ef20e149b9": {
+      "events": {},
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "InventoryCloseButton",
+      "type": "Button",
+      "parent": "1199f1e5-a0d6-497c-b7c4-37811ef25924",
+      "anchor": [
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        1.0,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -2.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -16.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 72.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 54.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "e4e85968-47f5-4f2d-8f5d-aba13722849c": {
+      "spriteId": "Btn_Close_Popup_Normal",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "CloseButtonImage",
+      "type": "Image",
+      "parent": "b3bf6235-9a84-4c1b-8325-b8ef20e149b9",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 72.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 54.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "67bcd456-358a-4089-9348-e36800a1a2ba": {
+      "textAlignment": "Left",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        0.0200743414,
+        0.06434222,
+        0.182389915,
+        1.0
+      ],
+      "fontSize": 36.0,
+      "text": "INVENTORY",
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Text (TMP)",
+      "type": "Label",
+      "parent": "1199f1e5-a0d6-497c-b7c4-37811ef25924",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 17.8
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -15.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 259.5969
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "32ab8fe7-94e1-4da1-ba3c-ab73ebb2d3ec": {
+      "spriteId": "PopupBack_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.784313738
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Inventory_Static",
+      "type": "Image",
+      "parent": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 934.2553
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 550.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "569572e7-5c16-4831-a99a-068b95e95bbc": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Inventory_Slots",
+      "type": "Frame",
+      "parent": "32ab8fe7-94e1-4da1-ba3c-ab73ebb2d3ec",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -2.908707E-05
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -21.363
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 897.4722
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 452.7251
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "e561739c-800e-4305-a19c-53c4413142f7": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 65.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -60.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "566c5782-99df-4ed5-880a-29b21643864a": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "e561739c-800e-4305-a19c-53c4413142f7",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "00535e89-6862-48fd-911b-bb838e8f728b": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (1)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 175.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -60.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "d4b5d74b-523a-410e-a372-cbe37305d822": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "00535e89-6862-48fd-911b-bb838e8f728b",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "f7287a32-a3d8-4961-9007-f551f270b72a": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (2)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 285.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -60.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "eddc5acf-ab41-4fc5-af9d-a82afe97163f": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "f7287a32-a3d8-4961-9007-f551f270b72a",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "9f2a7288-e90d-43a2-a558-d844f561be11": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (3)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 395.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -60.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "39239be3-d91a-4969-b2f4-db65547f0351": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "9f2a7288-e90d-43a2-a558-d844f561be11",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "b71881ed-d6eb-4cb3-9e0b-d516ca314757": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (4)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 505.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -60.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "7149a7e5-adaf-4096-910e-b18fef988ac1": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "b71881ed-d6eb-4cb3-9e0b-d516ca314757",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "771c4110-07b2-42d1-b60b-2e40e6d11835": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (5)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 615.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -60.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "be8226d4-5e2d-4986-8708-67b918f5596c": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "771c4110-07b2-42d1-b60b-2e40e6d11835",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "5f93a383-b9ef-4d35-924b-4c2f66508e17": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (6)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 725.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -60.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "38323130-5bf5-44e3-91db-e0b38f6102d1": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "5f93a383-b9ef-4d35-924b-4c2f66508e17",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "b098ca3e-139e-4c25-9c18-ffe8bdfdb096": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (7)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 835.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -60.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "43e7f3aa-e856-43d0-b852-d771c0de0f51": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "b098ca3e-139e-4c25-9c18-ffe8bdfdb096",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "95f206fc-5f19-40ac-9ad2-6cf522b6b80c": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (8)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 65.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -210.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "e32f22a0-f7f9-4e2e-9085-0fe9c3e039b4": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "95f206fc-5f19-40ac-9ad2-6cf522b6b80c",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "7096b780-d62f-4fd7-8e57-11196c1e04a4": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (9)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 175.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -210.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "32328147-dd85-43b7-81d0-85339fa8f62a": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "7096b780-d62f-4fd7-8e57-11196c1e04a4",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "b3388d55-27c8-4c05-a4eb-619f06c64bc4": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (10)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 285.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -210.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "b9fa1ebc-ab92-447d-9eb4-c08a7252971a": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "b3388d55-27c8-4c05-a4eb-619f06c64bc4",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "00aca0f4-b3c5-471a-8019-8f491211e14f": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (11)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 395.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -210.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "8f54c6a5-a9f1-43ce-98e1-85564a85036e": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "00aca0f4-b3c5-471a-8019-8f491211e14f",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "0a789e0e-8f51-4727-92a2-46fc4939b0ce": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (12)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 505.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -210.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "0dfdfe83-c3b9-4d05-9c6c-3876c67f5228": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "0a789e0e-8f51-4727-92a2-46fc4939b0ce",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "8995c332-41a7-4de8-9056-60d614890c9b": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (13)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 615.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -210.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "bcd726ae-93f9-4174-b16a-42a9b00ee831": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "8995c332-41a7-4de8-9056-60d614890c9b",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "c2663877-01fc-40d5-b90f-c443fbfab54c": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (14)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 725.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -210.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "ccc33812-9ea8-4bb2-bcf2-7980f6aaa6ba": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "c2663877-01fc-40d5-b90f-c443fbfab54c",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "372589e2-d048-418f-8a92-3a8c9ce2248c": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (15)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 835.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -210.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "21513bc3-b7e1-4146-81a7-50cd232ecb3f": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "372589e2-d048-418f-8a92-3a8c9ce2248c",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "5b4af7b5-af24-4fdc-b627-2684f0240da7": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (16)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 65.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -360.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "81d27f1a-45b9-4fb4-b81d-0a94190aaaf2": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "5b4af7b5-af24-4fdc-b627-2684f0240da7",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "6c12c2ed-ec69-4f0f-aa17-a1e9fa1e3874": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (17)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 175.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -360.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "50c3add3-55bd-461c-b975-c2a2377e3cc7": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "6c12c2ed-ec69-4f0f-aa17-a1e9fa1e3874",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "11947156-1abc-45c2-abcf-fc8a531e2cc1": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (18)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 285.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -360.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "bac8d1ae-531d-4b6b-95cc-457168c1e360": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "11947156-1abc-45c2-abcf-fc8a531e2cc1",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "4b8ec157-b86f-48c8-ad5a-cae94c420b68": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (19)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 395.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -360.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "1abd0079-3f4e-49fa-ac08-79aeaac78bb6": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "4b8ec157-b86f-48c8-ad5a-cae94c420b68",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "c28bcdb3-9e59-4b36-83a0-80a22d835b61": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (20)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 505.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -360.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "c3511ce3-97ea-4ad5-a113-fd34c990df5a": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "c28bcdb3-9e59-4b36-83a0-80a22d835b61",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "8242031d-c1c0-4e94-b5bf-34a5641b9afb": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (21)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 615.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -360.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "c48436f4-479f-4673-a457-cc1fd1f43420": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "8242031d-c1c0-4e94-b5bf-34a5641b9afb",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "4d8e8bd2-5f97-4454-a09a-23f211138bae": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (22)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 725.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -360.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "d35660ea-f728-42e5-a592-0031351417d0": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "4d8e8bd2-5f97-4454-a09a-23f211138bae",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "0832b1ea-1cc2-4414-9f0e-0d6a80037c59": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground (23)",
+      "type": "Image",
+      "parent": "569572e7-5c16-4831-a99a-068b95e95bbc",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 835.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -360.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "2aea032c-23c5-4eb0-8420-c060ae3d94c2": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "0832b1ea-1cc2-4414-9f0e-0d6a80037c59",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "f7ffeabb-5680-42d3-bfde-791d66c317fe": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ScrollFrame",
+      "type": "GridFrame",
+      "parent": "32ab8fe7-94e1-4da1-ba3c-ab73ebb2d3ec",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -2.90870667E-05
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -21.3636
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 897.4722
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 452.7251
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0,
+      "scrollAxis": "Vertical",
+      "startCorner": "UpperLeft",
+      "startAxis": "Horizontal",
+      "childSize": [
+        100.0,
+        100.0
+      ],
+      "childPadding": [
+        15,
+        15,
+        10,
+        10
+      ],
+      "childSpacing": [
+        10.0,
+        50.0
+      ],
+      "childAlignment": "UpperLeft",
+      "childConstraintCount": 8,
+      "frameBackgroundSpriteId": "GaugeFront_White",
+      "frameBackgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ]
+    },
+    "a980b196-c657-4972-8415-c8ed824f9dbf": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Content",
+      "type": "Frame",
+      "parent": "f7ffeabb-5680-42d3-bfde-791d66c317fe",
+      "anchor": [
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "8fb6b925-36c6-407e-b6fd-34f46c62b5c8": {
+      "events": {},
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "InventoryCloseButton",
+      "type": "Button",
+      "parent": "32ab8fe7-94e1-4da1-ba3c-ab73ebb2d3ec",
+      "anchor": [
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        1.0,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -2.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -16.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 72.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 54.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "92671063-1985-4b8b-82cb-bf6ea202cf49": {
+      "spriteId": "Btn_Close_Popup_Normal",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "CloseButtonImage",
+      "type": "Image",
+      "parent": "8fb6b925-36c6-407e-b6fd-34f46c62b5c8",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 72.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 54.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "eb383598-4911-4297-bbef-e24fce1d0e08": {
+      "textAlignment": "Left",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        0.0200743414,
+        0.06434222,
+        0.182389915,
+        1.0
+      ],
+      "fontSize": 36.0,
+      "text": "INVENTORY",
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Text (TMP)",
+      "type": "Label",
+      "parent": "32ab8fe7-94e1-4da1-ba3c-ab73ebb2d3ec",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 17.8
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -15.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 259.5969
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "8216d02f-20a8-4a77-99ba-6baaf17153d6": {
+      "spriteId": "PopupBack_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.784313738
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ScrollMenu",
+      "type": "Image",
+      "parent": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 665.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -269.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 600.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 550.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "69f21e08-dd40-41f0-a8a8-f85bdc06dbc8": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ScrollFrame",
+      "type": "ScrollFrame",
+      "parent": "8216d02f-20a8-4a77-99ba-6baaf17153d6",
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -80.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 580.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 420.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0,
+      "scrollAxis": "Vertical",
+      "contentAreaSize": {
+        "x": {
+          "scale": 0.0,
+          "offset": 580.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 700.0
+        }
+      },
+      "contentAreaAnchor": [
+        0.5,
+        0.0
+      ],
+      "contentAreaPivot": [
+        0.5,
+        0.0
+      ],
+      "backgroundColor": [
+        0.462931663,
+        0.742082357,
+        0.9528302,
+        1.0
+      ]
+    },
+    "8a41ea91-90e2-4c43-ae8c-2fe936ddb728": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Content",
+      "type": "Frame",
+      "parent": "69f21e08-dd40-41f0-a8a8-f85bdc06dbc8",
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 2.90870667E-05
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 580.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 700.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "1984677a-654f-479b-81ad-4685ba70b727": {
+      "textAlignment": "TopLeft",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fontSize": 36.0,
+      "text": "ui scrollframe test.\nui scrollframe test..\nui scrollframe test...\nui scrollframe test.\nui scrollframe test..\nui scrollframe test...\nui scrollframe test.\nui scrollframe test..\nui scrollframe test...\nui scrollframe test.\nui scrollframe test..\nui scrollframe test...\nui scrollframe test.\nui scrollframe test..\nui scrollframe test...\nui scrollframe test.\nui scrollframe test..\nui scrollframe test...\n",
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Text (TMP)",
+      "type": "Label",
+      "parent": "8a41ea91-90e2-4c43-ae8c-2fe936ddb728",
+      "anchor": [
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -3.05175781E-05
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 1
+    },
+    "7811777c-4e1b-4e4b-9e29-cae268985267": {
+      "events": {
+        "PointerEnter": "PointerEnter"
+      },
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ScrollMenuCloseButton",
+      "type": "Button",
+      "parent": "8216d02f-20a8-4a77-99ba-6baaf17153d6",
+      "anchor": [
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        1.0,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": -2.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -16.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 72.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 54.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "bc0cbbff-36c9-4c0d-927f-42dcbe7573b0": {
+      "spriteId": "Btn_Close_Popup_Normal",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "CloseButtonImage",
+      "type": "Image",
+      "parent": "7811777c-4e1b-4e4b-9e29-cae268985267",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 72.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 54.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "6abb140a-1f2b-4c3e-8ab2-f13b16f8933f": {
+      "textAlignment": "Left",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        0.0200743414,
+        0.06434222,
+        0.182389915,
+        1.0
+      ],
+      "fontSize": 36.0,
+      "text": "INFO",
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ScrollMenuTopTitleText",
+      "type": "Label",
+      "parent": "8216d02f-20a8-4a77-99ba-6baaf17153d6",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "pivot": [
+        0.0,
+        0.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 17.8
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -15.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 259.5969
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "911cfa50-bc69-49bd-a7d3-7f711df67748": {
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlot",
+      "type": "Frame",
+      "parent": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": false,
+      "zIndex": 0
+    },
+    "ca3b31ac-798d-493b-8137-5e336f83bb4c": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemSlotBackground",
+      "type": "Image",
+      "parent": "911cfa50-bc69-49bd-a7d3-7f711df67748",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "cbc84860-3a82-48b4-a3bd-267e894952e6": {
+      "spriteId": "ItemBack_Blank_White",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        0.521568656,
+        0.533333361,
+        0.5411765,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "NumberTagBackground",
+      "type": "Image",
+      "parent": "911cfa50-bc69-49bd-a7d3-7f711df67748",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": -74.5
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 30.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "2778ab0f-91db-4074-84bc-def135854681": {
+      "textAlignment": "Center",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fontSize": 24.0,
+      "text": "",
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Text (TMP)",
+      "type": "Label",
+      "parent": "cbc84860-3a82-48b4-a3bd-267e894952e6",
+      "anchor": [
+        1.0,
+        0.0
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "47d64112-4dda-4ead-98e1-73f0977b0827": {
+      "spriteId": "",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Inventory_Item_Empty",
+      "type": "Image",
+      "parent": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": false,
+      "zIndex": 0
+    },
+    "a2edecbd-3557-44a0-bec4-fc2a3b819b3a": {
+      "spriteId": "potion_blue_64",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Inventory_Item_0",
+      "type": "Image",
+      "parent": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": false,
+      "zIndex": 0
+    },
+    "af956a8f-6172-4f29-94ac-eb83edc17b60": {
+      "textAlignment": "BottomRight",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fontSize": 36.0,
+      "text": "0",
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemCountText",
+      "type": "Label",
+      "parent": "a2edecbd-3557-44a0-bec4-fc2a3b819b3a",
+      "anchor": [
+        0.5,
+        1.0
+      ],
+      "pivot": [
+        0.5,
+        1.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "f5a0c44f-8459-4257-8466-e82779c34521": {
+      "spriteId": "potion_green_64",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Inventory_Item_1",
+      "type": "Image",
+      "parent": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": false,
+      "zIndex": 0
+    },
+    "f1234988-2b52-42b2-86ad-8ee3b4bbba55": {
+      "textAlignment": "BottomRight",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fontSize": 36.0,
+      "text": "0",
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemCountText",
+      "type": "Label",
+      "parent": "f5a0c44f-8459-4257-8466-e82779c34521",
+      "anchor": [
+        0.5,
+        1.0
+      ],
+      "pivot": [
+        0.5,
+        1.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    },
+    "a321a864-1770-4122-9020-4acec207e7a6": {
+      "spriteId": "potion_orange_64",
+      "backgroundColor": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "imageColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "Inventory_Item_2",
+      "type": "Image",
+      "parent": null,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 100.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": false,
+      "zIndex": 0
+    },
+    "b1b511c3-a8c4-4531-8ceb-fa98c7cd232e": {
+      "textAlignment": "Right",
+      "fontId": "LiberationSans SDF",
+      "fontColor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fontSize": 36.0,
+      "text": "0",
+      "interactable": true,
+      "sizeConstraint": "XY",
+      "dim": 0.0,
+      "name": "ItemCountText",
+      "type": "Label",
+      "parent": "a321a864-1770-4122-9020-4acec207e7a6",
+      "anchor": [
+        0.5,
+        1.0
+      ],
+      "pivot": [
+        0.5,
+        1.0
+      ],
+      "position": {
+        "x": {
+          "scale": 0.0,
+          "offset": 0.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 0.0
+        }
+      },
+      "size": {
+        "x": {
+          "scale": 0.0,
+          "offset": 100.0
+        },
+        "y": {
+          "scale": 0.0,
+          "offset": 50.0
+        }
+      },
+      "rotation": 0.0,
+      "visible": true,
+      "zIndex": 0
+    }
+  }
+}

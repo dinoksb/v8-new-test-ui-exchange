@@ -34,10 +34,10 @@ namespace G2.UI
             return new Button(uid, data, components, onEvent);
         }
         
-        public static ScrollFrame CreateScrollFrame(string uid, IElement parent, Transform zIndexParent, ScrollFrameData data)
+        public static GridFrame CreateGridFrame(string uid, IElement parent, Transform zIndexParent, GridFrameData data)
         {
-            var components = new ScrollFrameComponents(parent, zIndexParent, data.name);
-            return new ScrollFrame(uid, data, components);
+            var components = new GridFrameComponents(parent, zIndexParent, data.name);
+            return new GridFrame(uid, data, components);
         }
     }
 }

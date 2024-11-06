@@ -12,6 +12,7 @@ namespace G2.UI.Elements
         Label,
         Button,
         ScrollFrame,
+        GridFrame,
     }
     
     public interface IElement : IDisposable

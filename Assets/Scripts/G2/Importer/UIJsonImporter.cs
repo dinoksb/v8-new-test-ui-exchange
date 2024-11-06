@@ -155,7 +155,10 @@ namespace G2.Importer
                     element = ElementFactory.CreateButton(uid, parent, zIndexParent, (ButtonData)data, OnEvent);
                     break;
                 case ElementType.ScrollFrame:
-                    element = ElementFactory.CreateScrollFrame(uid, parent, zIndexParent, (ScrollFrameData)data);
+                    element = ElementFactory.CreateGridFrame(uid, parent, zIndexParent, (GridFrameData)data);
+                    break;
+                case ElementType.GridFrame:
+                    element = ElementFactory.CreateGridFrame(uid, parent, zIndexParent, (GridFrameData)data);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException($"Unexpected ElementType: {type}");

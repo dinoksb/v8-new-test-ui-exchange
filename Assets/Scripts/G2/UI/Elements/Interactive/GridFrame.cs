@@ -8,7 +8,7 @@ using Utilities;
 
 namespace G2.UI.Elements.Interactive
 {
-    public class ScrollFrame : Frame
+    public class GridFrame : Frame
     {
         private bool _horizontal;
         public bool Horizontal
@@ -55,7 +55,7 @@ namespace G2.UI.Elements.Interactive
         private GridLayoutGroup _gridLayout;
         private Vector2 _scrollValue;
         
-        public ScrollFrame(string uid, ScrollFrameData data, ScrollFrameComponents components) : base(uid, data, components)
+        public GridFrame(string uid, GridFrameData data, GridFrameComponents components) : base(uid, data, components)
         {
             _scrollRect.onValueChanged.AddListener(HandleScrollValueChanged);
         }
@@ -63,7 +63,7 @@ namespace G2.UI.Elements.Interactive
         public override void Update(ElementData data)
         {
             base.Update(data);
-            var scrollRectData = (ScrollFrameData)data;
+            var scrollRectData = (GridFrameData)data;
             SetValues(scrollRectData);
         }
 
@@ -87,7 +87,7 @@ namespace G2.UI.Elements.Interactive
             _items.Remove(element);
         }
 
-        private void SetValues(ScrollFrameData data)
+        private void SetValues(GridFrameData data)
         {
             Interactable = data.interactable;
         }
